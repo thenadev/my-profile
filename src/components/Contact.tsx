@@ -6,8 +6,7 @@ const Contact = () => {
                     Contact Me
                 </h2>
                 <p>
-                    I am currently open for a fulltime Frontend Developer role. If you
-                    want to discuss about that feel free to email me.
+                    If you are interested in cooperation feel free to email me.
                 </p>
 
                 <p className="py-2">
