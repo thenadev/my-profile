@@ -1,4 +1,9 @@
 import React from 'react';
+import moment from "moment";
+
+const getAge = () => {
+    return moment().diff('04.06.1997', 'years')
+}
 
 const AboutMe: React.FC = () => {
     return (
@@ -16,7 +21,7 @@ const AboutMe: React.FC = () => {
                         I am dedicated to continuously learning and improving my skills to stay up-to-date with the latest technologies in the field of software development.
                     </p>
                     <p className="text-lg text-gray-700 mt-4">
-                        Age: 25
+                        Age: {getAge()}
                     </p>
                     {/* Add additional relevant information here */}
                 </div>
