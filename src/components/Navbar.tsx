@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState } from "react";
 import { HashLink as NavHashLink } from "react-router-hash-link";
 
 export default function Navbar() {
