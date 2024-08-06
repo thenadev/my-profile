@@ -65,7 +65,7 @@ export default function Navbar() {
               : "translate-x-full opacity-0"
           }`}
         >
-          <div className="flex flex-col items-center w-full text-base cursor-pointer pt-10">
+          <div className="flex flex-col text-start w-full text-base cursor-pointer pt-10">
             <li className="hover:bg-gray-200 py-4 px-6 w-full">
               <NavHashLink smooth to="/#home" onClick={toggleMenu}>
                 Home
