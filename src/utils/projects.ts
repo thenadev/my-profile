@@ -34,7 +34,7 @@ export const projects = [
     id: 4,
     image: Portfolio,
     description: "My portfolio website",
-    technologies: "Vue.js, TypeScript, Tailwind",
+    technologies: "React, TypeScript, Tailwind",
     githubLink: "https://github.com/tjoooobooo/my-profile",
     livePreviewLink: "https://www.thomas-schwabauer.de/",
   },
