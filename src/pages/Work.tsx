@@ -60,7 +60,7 @@ const Work: React.FC = () => {
           {workStations.map((work, index) => (
             <div
               key={index}
-              className="bg-gray-100 shadow-lg rounded-lg p-6 m-4 w-4/6 flex flex-col items-center"
+              className="bg-gray-100 shadow-lg rounded-lg p-6 m-4 md:w-4/6 w-11/12 flex flex-col items-center"
             >
               <a href={work.link} target="_blank" rel="noreferrer">
                 <h3 className="text-2xl text-black font-semibold">
