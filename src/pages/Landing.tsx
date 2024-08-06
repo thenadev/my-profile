@@ -6,10 +6,10 @@ export default function Landing() {
   return (
     <div className="p-5 items-center min-h-screen bg-white" id="home">
       <section className="grid grid-cols-1 md:grid-cols-2 dark:bg-gray-900 h-full items-center">
-        <div className="pl-10 pr-10 pt-16">
+        <div className="flex justify-center pl-10 pr-10 pt-16">
           <img
             src={MyAvatar}
-            className="rounded-full w-auto h-1/2 shadow-lg animate-fadeIn"
+            className="rounded-full max-w-full max-h-full shadow-lg animate-fadeIn"
             alt="Avatar"
           />
         </div>
@@ -42,6 +42,8 @@ export default function Landing() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
                       className="w-4 h-4"
+                      width="16" 
+                      height="16"
                     >
                       <path
                         fill="currentColor"
