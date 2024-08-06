@@ -9,7 +9,7 @@ export const projects = [
     image: AmselLogo,
     description:
       "A hybrid Webapp for searching/buying farmer and vending machine products.",
-    technologies: "Flutter, Firebase",
+    technologies: "Flutter, Firebase, TypeScript, APIs",
     livePreviewLink: "https://amsel-ths.web.app/#/",
   },
   {

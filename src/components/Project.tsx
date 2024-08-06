@@ -24,9 +24,9 @@ const Project: React.FC<ProjectProps> = ({ image, description, technologies, git
                     )}
                 </div>
             </div>
-            <p className="mt-2">{description}</p>
-            <div className="mt-2">
-                <p className="text-gray-600">Technologies Used:</p>
+            <p className="mt-2 text-black">{description}</p>
+            <div className="mt-2 text-black">
+                <p>Technologies Used:</p>
                 <p>{technologies}</p>
             </div>
         </div>

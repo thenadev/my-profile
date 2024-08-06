@@ -1,14 +1,14 @@
 import React from "react";
+import Project from "../components/Project";
 import { projects } from "../utils/projects"; // Import the Project component
-import Project from "./Project";
 
 const Portfolio: React.FC = () => {
   return (
     <div
-      className="pt-20 h-fit flex flex-wrap items-center justify-center container mx-auto mt-8"
+      className="p-20 min-h-screen w-full flex flex-wrap items-center justify-center bg-gray-100 mt-8"
       id="projects"
     >
-      <h2 className="text-4xl font-bold text-white-900">My Projects</h2>
+      <h2 className="text-4xl font-bold text-black">My Projects</h2>
       <div className="flex flex-wrap">
         {projects.map((project, index) => (
           <Project

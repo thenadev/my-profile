@@ -1,11 +1,11 @@
 import React from "react";
 import MyAvatar from "../assets/me.jpg";
-import { GithubButton } from "./GithubButton";
+import { GithubButton } from "../components/GithubButton";
 
 export default function Landing() {
   return (
-    <div className="items-center h-screen" id="landing">
-      <section className="grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-gray-900 h-full items-center">
+    <div className="p-5 items-center min-h-screen bg-white" id="home">
+      <section className="grid grid-cols-1 md:grid-cols-2 dark:bg-gray-900 h-full items-center">
         <div className="pl-10 pr-10 pt-16">
           <img
             src={MyAvatar}
