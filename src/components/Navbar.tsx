@@ -30,7 +30,7 @@ export default function Navbar() {
 
           <ul className="hidden md:flex space-x-4 text-base font-semibold cursor-pointer">
             <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#landing">
+              <NavHashLink smooth to="/#home">
                 Home
               </NavHashLink>
             </li>
