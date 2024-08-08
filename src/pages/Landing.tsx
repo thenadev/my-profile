@@ -20,7 +20,7 @@ export default function Landing() {
                 Hi, I'm Thomas Schwabauer!
               </h1>
               <h2 className="mb-4 text-4xl leading-none md:text-4xl dark:text-white">
-                Software Developer
+                Software Developer based in Germany, Wetzlar
               </h2>
               <p className="mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
                 Angular, React, Flutter, TypeScript, Kotlin, PHP{" "}
