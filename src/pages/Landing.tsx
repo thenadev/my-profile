@@ -5,7 +5,7 @@ import { GithubButton } from "../components/GithubButton";
 export default function Landing() {
   return (
     <div className="p-5 items-center min-h-screen bg-white" id="home">
-      <section className="grid grid-cols-1 md:grid-cols-2 dark:bg-gray-900 h-full items-center">
+      <section className="grid grid-cols-1 md:grid-cols-2 h-full items-center">
         <div className="flex justify-center pl-10 pr-10 pt-16">
           <img
             src={MyAvatar}
@@ -16,13 +16,13 @@ export default function Landing() {
         <div className="animate-slideIn">
           <div className="grid py-8 px-4 mx-auto max-w-screen-xl lg:gap-8 xl:gap-0 lg:py-16">
             <div className="place-self-center mr-auto lg:col-span-7">
-              <h1 className="mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl dark:text-white">
+              <h1 className="mb-4 text-4xl font-extrabold leading-none md:text-5xl xl:text-6xl">
                 Hi, I'm Thomas Schwabauer!
               </h1>
-              <h2 className="mb-4 text-4xl leading-none md:text-4xl dark:text-white">
+              <h2 className="mb-4 text-4xl leading-none md:text-4xl">
                 Software Developer based in Germany, Wetzlar
               </h2>
-              <p className="mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
+              <p className="mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl">
                 Angular, React, Flutter, TypeScript, Kotlin, PHP{" "}
               </p>
               <div className="space-x-5">
@@ -42,7 +42,7 @@ export default function Landing() {
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 448 512"
                       className="w-4 h-4"
-                      width="16" 
+                      width="16"
                       height="16"
                     >
                       <path
