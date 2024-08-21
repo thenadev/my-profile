@@ -24,7 +24,7 @@ const Documents: React.FC = () => {
       className="pt-20 min-h-screen flex flex-col items-center justify-center container mx-auto mt-8"
       id="documents"
     >
-      <h2 className="text-4xl font-bold text-black mb-8">Documents</h2>
+      <h2 className="text-4xl font-bold text-black dark:text-white mb-8">Documents</h2>
       <div className="flex flex-wrap justify-center">
         {documents.map((doc, index) => (
           <div
