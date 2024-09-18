@@ -16,6 +16,11 @@ const documents = [
     description: "Blockchain assessments on AlgoExpert.io ",
     url: "/BlockchainExpert_Certificate.pdf",
   },
+  {
+    title: "Spring Boot 3, Spring 6 & Hibernate for Beginners",
+    description: "Skills: Java, Spring Boot, Hibernate, REST-API, CRUD, JPA, AOP",
+    url: "/Spring-Boot-Beginners.pdf",
+  },
 ];
 
 const Documents: React.FC = () => {
