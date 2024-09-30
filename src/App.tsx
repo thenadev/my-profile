@@ -5,6 +5,10 @@ import "./App.css";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
+import ReactGA from "react-ga";
+
+const TRACKING_ID = "G-63C2KDFQHT";
+ReactGA.initialize(TRACKING_ID);
 
 function App() {
   return (
