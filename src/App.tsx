@@ -7,12 +7,9 @@ import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 
-const TRACKING_ID = "G-63C2KDFQHT";
-ReactGA.initialize(TRACKING_ID);
-
 function App() {
   ReactGA.pageview(window.location.pathname + window.location.search);
-  
+
   return (
     <div className="App">
       <BrowserRouter>

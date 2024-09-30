@@ -1,8 +1,11 @@
 import React from "react";
+import ReactGA from "react-ga";
 import MyAvatar from "../assets/me.jpg";
 import { GithubButton } from "../components/GithubButton";
 
 export default function Landing() {
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   return (
     <div className="p-5 items-center min-h-screen bg-white" id="home">
       <section className="grid grid-cols-1 md:grid-cols-2 h-full items-center">
