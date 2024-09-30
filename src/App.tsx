@@ -1,6 +1,6 @@
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import React from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Blog from "./pages/Blog";
@@ -8,7 +8,7 @@ import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
 
 function App() {
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  ReactGA.send("pageview");
 
   return (
     <div className="App">

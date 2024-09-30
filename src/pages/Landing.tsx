@@ -1,10 +1,10 @@
 import React from "react";
-import ReactGA from "react-ga";
+import ReactGA from "react-ga4";
 import MyAvatar from "../assets/me.jpg";
 import { GithubButton } from "../components/GithubButton";
 
 export default function Landing() {
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  ReactGA.send("pageview");
 
   return (
     <div className="p-5 items-center min-h-screen bg-white" id="home">
