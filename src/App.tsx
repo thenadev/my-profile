@@ -1,16 +1,18 @@
 import { SpeedInsights } from "@vercel/speed-insights/react";
 import React from "react";
+import ReactGA from "react-ga";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
 import NoPage from "./pages/NoPage";
-import ReactGA from "react-ga";
 
 const TRACKING_ID = "G-63C2KDFQHT";
 ReactGA.initialize(TRACKING_ID);
 
 function App() {
+  ReactGA.pageview(window.location.pathname + window.location.search);
+  
   return (
     <div className="App">
       <BrowserRouter>
