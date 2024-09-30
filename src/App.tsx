@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Blog from "./pages/Blog";
 import Home from "./pages/Home";
@@ -16,6 +17,7 @@ function App() {
                     <Route path="*" element={<NoPage/>}/>
                 </Routes>
             </BrowserRouter>
+            <SpeedInsights />
         </div>
     );
 }
