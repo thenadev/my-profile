@@ -21,13 +21,27 @@ export default function ClientLayout({
 }) {
   const [showCookieConsent, setShowCookieConsent] = useState<boolean>(true);
   const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false); // New state to check if device is mobile
   const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null); // Store the hovered orb index
+
+  // Default initial orb positions - static and consistent for SSR
   const [orbPositions, setOrbPositions] = useState(() =>
     initialOrbs.map((orb) => ({
       ...orb,
-      ...getRandomOrbPosition(false, orb),
+      top: "50%", // Default centered value
+      left: "50%", // Default centered value
     }))
   );
+
+  // Set random orb positions on client side after mount
+  useEffect(() => {
+    setOrbPositions((prevPositions) =>
+      prevPositions.map((orb) => ({
+        ...orb,
+        ...getRandomOrbPosition(false, orb), // Update to random position on client-side
+      }))
+    );
+  }, []);
 
   const updateOrbPosition = (orb: any) => {
     return {
@@ -40,6 +54,15 @@ export default function ClientLayout({
     const cookieConsent = Cookies.get("cookieConsent");
     setShowCookieConsent(cookieConsent !== "true");
 
+    // Check if device is mobile
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    // Initial check and event listener for resize
+    handleResize(); // Initial check
+    window.addEventListener("resize", handleResize); // Listen for window resizing
+
     const handleScroll = () => {
       if (window.scrollY > 550) {
         setHasScrolled(true); // User has scrolled down between the defined range
@@ -51,7 +74,7 @@ export default function ClientLayout({
     window.addEventListener("scroll", handleScroll);
 
     // Create an interval for each orb
-    const intervalIds = orbPositions.map((orb, index) => {
+    const intervalIds = orbPositions.map((orb) => {
       return setInterval(
         () => {
           // Only update position if the orb is not hovered
@@ -70,12 +93,13 @@ export default function ClientLayout({
       ); // Random interval between 1s and 5s
     });
 
-    // Cleanup the intervals and scroll event listener on component unmount
+    // Cleanup the intervals, scroll event, and resize event listener on component unmount
     return () => {
       intervalIds.forEach((id) => clearInterval(id));
       window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
-  }, [hasScrolled, hoveredOrbIndex]);
+  }, [hasScrolled, hoveredOrbIndex, orbPositions]);
 
   return (
     <>
@@ -83,6 +107,7 @@ export default function ClientLayout({
       {showCookieConsent && <CookieConsentDialog />}
       {children}
       <div className="moving-gradient-overlay" />
+      {/* Hide orbs if hasScrolled is true and the device is mobile */}
       <div className="fixed inset-0">
         {orbPositions.map((orb) => (
           <div
@@ -102,7 +127,7 @@ export default function ClientLayout({
                     left: orb.left,
                     transition: "top 1s ease-in-out, left 1s ease-in-out", // Smooth transition
                     borderRadius: "50%", // Make it round
-                    opacity: 0.6, // Transparency
+                    opacity: hasScrolled && isMobile ? 0.2 : 0.6, // Transparency
                     display: "flex", // Use flexbox to center content
                     alignItems: "center", // Center vertically
                     justifyContent: "center", // Center horizontally

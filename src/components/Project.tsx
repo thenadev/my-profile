@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import React from "react";
-import { FaEye, FaGithub, FaGlobe } from "react-icons/fa"; // GitHub and Globe icons
+import { FaGithub, FaGlobe } from "react-icons/fa"; // GitHub and Globe icons
 import { Button } from "./ui/button";
 import {
   Card,
@@ -12,7 +12,8 @@ import {
 } from "./ui/card";
 
 export interface ProjectProps {
-  id: number;
+  key: number;
+  id: number; // This prop is explicitly provided and can be used in the component
   imageSrc: StaticImageData;
   description: string;
   technologies: string;
@@ -37,7 +38,7 @@ const Project: React.FC<ProjectProps> = ({
           <Image
             className="w-full h-48 object-cover rounded-t-xl"
             src={imageSrc}
-            alt="Project"
+            alt={`Project ${id}`} // Use id in alt text or wherever necessary
           />
           <div
             className="absolute inset-0 gap-2 flex 

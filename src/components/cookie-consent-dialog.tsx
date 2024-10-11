@@ -43,9 +43,8 @@ export default function CookieConsent({
           }, 700);
         }
       }
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (_) {
-      // console.log("Error: ", e);
+      // Error handling can go here
     }
   }, []);
 
@@ -62,20 +61,20 @@ export default function CookieConsent({
       <div className="dark:bg-card bg-background rounded-md m-3 border border-border shadow-lg">
         <div className="grid gap-2">
           <div className="border-b border-border h-14 flex items-center justify-between p-4">
-            <h1 className="text-lg font-medium">This website uses cookies</h1>
+            <h1 className="text-lg font-medium">I use cookies on this site</h1>
             <FaCookieBite className="h-[1.2rem] w-[1.2rem]" />
           </div>
           <div className="p-4">
             <p className="text-sm font-normal text-start">
-              We use cookies to ensure you get the best experience on our
-              website. For more information on how we use cookies, please see
-              our cookie policy.
+              I use cookies to ensure you have the best possible experience on
+              my website. For more details on how these cookies are used, please
+              check out my cookie policy.
               <br />
               <br />
               <span className="text-xs">
                 By clicking &quot;
                 <span className="font-medium opacity-80">Accept</span>&quot;,
-                you agree to our use of cookies.
+                you agree to the use of cookies.
               </span>
               <br />
               <a href="/privacy" className="text-xs underline">
@@ -107,26 +106,26 @@ export default function CookieConsent({
       >
         <div className="m-3 dark:bg-card bg-background border border-border rounded-lg">
           <div className="flex items-center justify-between p-3">
-            <h1 className="text-lg font-medium">We use cookies</h1>
-            <CookieIcon className="h-[1.2rem] w-[1.2rem]" />
+            <h1 className="text-lg font-medium">I use cookies</h1>
+            <FaCookieBite className="h-[1.2rem] w-[1.2rem]" />
           </div>
           <div className="p-3 -mt-2">
             <p className="text-sm text-left text-muted-foreground">
-              We use cookies to ensure you get the best experience on our
-              website. For more information on how we use cookies, please see
-              our cookie policy.
+              I use cookies to make sure you have the best possible experience
+              on my website. For more information, you can check out my cookie
+              policy.
             </p>
           </div>
           <div className="p-3 flex items-center gap-2 mt-2 border-t">
             <Button onClick={accept} className="w-full h-9 rounded-full">
-              accept
+              Accept
             </Button>
             <Button
               onClick={decline}
               className="w-full h-9 rounded-full"
               variant="outline"
             >
-              decline
+              Decline
             </Button>
           </div>
         </div>

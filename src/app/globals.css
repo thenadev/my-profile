@@ -414,7 +414,8 @@ html {
   animation: orbAnimation2 7s ease-in-out infinite alternate;
 }
 
-.orb-3 {
+.orb-3,
+.orb-10 {
   animation: orbAnimation3 3s ease-in-out infinite alternate;
 }
 
