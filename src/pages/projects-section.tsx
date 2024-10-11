@@ -5,20 +5,23 @@ import { projects } from "../utils/projects"; // Import the Project component
 export const ProjectsSection: React.FC = () => {
   return (
     <div
-      className="md:p-20 pt-20 min-h-screen w-full flex flex-wrap items-center justify-center bg-primary text-white"
+      className="min-h-screen w-full flex flex-wrap items-center justify-center z-50"
       id="projects"
     >
-      <h2 className="text-4xl font-bold">My Projects</h2>
-      <div className="flex flex-wrap">
-        {projects.map((project, index) => (
-          <Project
-            imageSrc={project.image}
-            description={project.description}
-            technologies={project.technologies}
-            githubLink={project.githubLink}
-            livePreviewLink={project.livePreviewLink}
-          />
-        ))}
+      <div className="w-3/4 pt-28">
+        <h2 className="text-4xl text-center font-bold">My Projects</h2>
+        <div className="flex flex-wrap">
+          {projects.map((project, index) => (
+            <Project
+              id={project.id}
+              imageSrc={project.image}
+              description={project.description}
+              technologies={project.technologies}
+              githubLink={project.githubLink}
+              livePreviewLink={project.livePreviewLink}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

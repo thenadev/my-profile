@@ -1,29 +1,18 @@
 "use client";
 
+import {
+  HoverCard,
+  HoverCardContent,
+  HoverCardTrigger,
+} from "@/components/ui/hover-card";
+import { initialOrbs } from "@/config/orbs";
 import { cn } from "@/lib/utils";
+import { getRandomOrbPosition } from "@/utils/getRandomOrbPos";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import CookieConsentDialog from "../components/cookie-consent-dialog";
 import Footer from "../components/footer";
 import Navbar from "../components/navbar";
-
-// Function to generate random position
-const getRandomPosition = () => {
-  const top = Math.random() * 100; // Random percentage for top
-  const left = Math.random() * 100; // Random percentage for left
-  return { top: `${top}%`, left: `${left}%` };
-};
-
-// Orb data with colors
-const initialOrbs = [
-  { id: 1, color: "rgba(51, 119, 182, 0.3)" }, // orb-1
-  { id: 2, color: "rgba(222, 171, 90, 0.3)" }, // orb-2
-  { id: 3, color: "rgba(229, 218, 190, 0.3)" }, // orb-3
-  { id: 4, color: "rgba(0, 0, 0, 0.3)" }, // orb-4
-  { id: 5, color: "rgb(51, 119, 182)" }, // orb-5
-  { id: 6, color: "rgb(222, 171, 90)" }, // orb-6
-  { id: 7, color: "rgb(222, 171, 90)" }, // orb-7
-];
 
 export default function ClientLayout({
   children,
@@ -31,68 +20,116 @@ export default function ClientLayout({
   children: React.ReactNode;
 }) {
   const [showCookieConsent, setShowCookieConsent] = useState<boolean>(true);
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null); // Store the hovered orb index
   const [orbPositions, setOrbPositions] = useState(() =>
     initialOrbs.map((orb) => ({
       ...orb,
-      ...getRandomPosition(), // Assign random positions
+      ...getRandomOrbPosition(false, orb),
     }))
   );
+
+  const updateOrbPosition = (orb: any) => {
+    return {
+      ...orb,
+      ...getRandomOrbPosition(hasScrolled, orb),
+    };
+  };
 
   useEffect(() => {
     const cookieConsent = Cookies.get("cookieConsent");
     setShowCookieConsent(cookieConsent !== "true");
 
+    const handleScroll = () => {
+      if (window.scrollY > 550) {
+        setHasScrolled(true); // User has scrolled down between the defined range
+      } else {
+        setHasScrolled(false); // Reset if outside the defined range
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
     // Create an interval for each orb
-    const intervalIds = orbPositions.map((orb) => {
+    const intervalIds = orbPositions.map((orb, index) => {
       return setInterval(
         () => {
-          setOrbPositions((prevPositions) =>
-            prevPositions.map((currentOrb) => {
-              if (currentOrb.id === orb.id) {
-                return {
-                  ...currentOrb,
-                  ...getRandomPosition(), // Assign new random positions
-                };
-              }
-              return currentOrb;
-            })
-          );
+          // Only update position if the orb is not hovered
+          if (hoveredOrbIndex !== orb.id) {
+            setOrbPositions((prevPositions) =>
+              prevPositions.map((currentOrb) => {
+                if (currentOrb.id === orb.id) {
+                  return updateOrbPosition(currentOrb);
+                }
+                return currentOrb;
+              })
+            );
+          }
         },
-        Math.random() * 2000 + 1000
-      ); // Random interval between 1s and 3s
+        Math.random() * 4000 + 1000
+      ); // Random interval between 1s and 5s
     });
 
-    // Cleanup the intervals on component unmount
+    // Cleanup the intervals and scroll event listener on component unmount
     return () => {
       intervalIds.forEach((id) => clearInterval(id));
+      window.removeEventListener("scroll", handleScroll);
     };
-  }, [orbPositions]);
+  }, [hasScrolled, hoveredOrbIndex]);
 
   return (
     <>
       <Navbar />
-      <div className="fixed inset-0 z-10">
-        {orbPositions.map((orb) => (
-          <div
-            key={orb.id}
-            className={cn("orb", `orb-${orb.id}`)}
-            style={{
-              backgroundColor: orb.color, // Use color from the orb object
-              position: "fixed",
-              width: orb.id % 2 === 0 ? "120px" : "100px",
-              height: orb.id % 2 === 0 ? "120px" : "100px",
-              top: orb.top,
-              left: orb.left,
-              transition: "top 1s ease-in-out, left 1s ease-in-out", // Smooth transition
-              borderRadius: "50%", // Make it round
-              opacity: 0.3, // Transparency
-              pointerEvents: "none", // Prevents mouse interactions with the orbs
-            }}
-          />
-        ))}
-      </div>
       {showCookieConsent && <CookieConsentDialog />}
       {children}
+      <div className="moving-gradient-overlay" />
+      <div className="fixed inset-0">
+        {orbPositions.map((orb) => (
+          <div
+            key={`orb-key-${orb.id}`}
+            className={hoveredOrbIndex === orb.id ? "z-50" : "z-10"}
+          >
+            <HoverCard>
+              <HoverCardTrigger asChild>
+                <div
+                  className={cn("orb", `orb-${orb.id}`)}
+                  style={{
+                    backgroundColor: orb.color,
+                    position: "fixed",
+                    width: `${(orb.knowledge / 100) * 100}px`,
+                    height: `${(orb.knowledge / 100) * 100}px`,
+                    top: orb.top,
+                    left: orb.left,
+                    transition: "top 1s ease-in-out, left 1s ease-in-out", // Smooth transition
+                    borderRadius: "50%", // Make it round
+                    opacity: 0.6, // Transparency
+                    display: "flex", // Use flexbox to center content
+                    alignItems: "center", // Center vertically
+                    justifyContent: "center", // Center horizontally
+                  }}
+                  onMouseEnter={() => setHoveredOrbIndex(orb.id)} // Set hovered orb index on mouse enter
+                  onMouseLeave={() => setHoveredOrbIndex(null)} // Reset on mouse leave
+                >
+                  <span
+                    style={{
+                      color: "white",
+                      fontSize: `${(orb.knowledge / 100) * 60}px`,
+                    }}
+                  >
+                    {orb.icon}
+                  </span>
+                </div>
+              </HoverCardTrigger>
+              <HoverCardContent className="z-50 relative">
+                <h4 className="">{orb.description}</h4>
+                <a href={orb.link} target="_blank" className="text-blue-500">
+                  Learn More
+                </a>
+              </HoverCardContent>
+            </HoverCard>
+          </div>
+        ))}
+      </div>
       <Footer />
     </>
   );

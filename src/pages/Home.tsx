@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "../components/navbar";
 import About from "./About";
 import Contact from "./Contact";
-import Documents from "./Documents";
+import DocumentSection from "./document-section";
 import Projects from "./projects-section";
 import WorkExperienceSection from "./work-experience-section";
 
@@ -15,7 +15,7 @@ export default function Home() {
           <About />
           <WorkExperienceSection />
           <Projects />
-          <Documents />
+          <DocumentSection />
           <Contact />
         </div>
       </div>

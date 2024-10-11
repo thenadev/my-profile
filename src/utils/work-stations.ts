@@ -1,3 +1,8 @@
+import Freelance from "../assets/logo-owl.webp";
+import Alcedis from "../assets/work-alcedis.png";
+import Amsel from "../assets/work-amsel.png";
+import VM from "../assets/work-vm.png";
+
 export const workStations = [
   {
     company: "Freelancer",
@@ -13,10 +18,11 @@ export const workStations = [
   },
   {
     company: "Amsel UG",
-    role: "CTO",
+    role: "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
     duration: "Jul 2023 - Today",
     location: "Langgöns",
     link: "https://www.amsel-store.de/",
+    image: Amsel,
     bulletpoints: [
       "Expertise in the planning and implementation of complex software projects",
       "Extensive knowledge in the evaluation and implementation of new technologies",
@@ -26,8 +32,9 @@ export const workStations = [
   {
     company: "Valtech-Mobility GmbH",
     role: "Consultant",
-    duration: "Mar 2032 - Today",
+    duration: "Mar 2023 - Sep 2024",
     link: "https://valtech-mobility.de/",
+    image: VM,
     bulletpoints: [
       "Responsible for direct cooperation and customer care as well as the maintenance of business relationships",
       "Project management of consulting projects, including time planning and resource management",
@@ -40,6 +47,7 @@ export const workStations = [
     role: "Software developer",
     duration: "Jul 2020 - Feb 2023",
     link: "https://www.alcedis.de/en",
+    image: Alcedis,
     bulletpoints: [
       "Development of automation tests for web applications in an agile environment",
       "Integration of test automation into the development process",
@@ -52,6 +60,7 @@ export const workStations = [
     role: "Software tester",
     duration: "Jun 2018 - Jul 2020",
     link: "https://www.alcedis.de/en",
+    image: Alcedis,
     bulletpoints: [
       "Creation and maintenance of test documentation",
       "Execution of manual functional and regression tests",

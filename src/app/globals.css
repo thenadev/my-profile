@@ -96,10 +96,18 @@ body {
   left: 0;
   width: 100%;
   height: 100vh; /* Full viewport height */
-  background: radial-gradient(circle at 10% 10%, #4facfe, transparent 30%),
-    radial-gradient(circle at 70% 20%, #00f2fe, transparent 40%),
-    radial-gradient(circle at 40% 80%, #a18cd1, transparent 50%),
-    radial-gradient(circle at 90% 60%, #fbc2eb, transparent 50%);
+  background: radial-gradient(
+      circle at 10% 10%,
+      rgba(239, 204, 129, 0.5),
+      transparent 30%
+    ),
+    radial-gradient(circle at 70% 20%, rgba(54, 153, 202, 0.5), transparent 40%),
+    radial-gradient(
+      circle at 40% 80%,
+      rgba(238, 244, 255, 0.5),
+      transparent 50%
+    ),
+    radial-gradient(circle at 90% 60%, rgba(189, 147, 69, 0.5), transparent 50%);
   background-size: 300% 300%;
   animation: circleMove 8s ease infinite;
   opacity: 0.3; /* Adjusted for transparency of the gradient */
@@ -393,15 +401,16 @@ html {
 .orb {
   position: fixed; /* Fixed positioning for orbs */
   border-radius: 50%;
-  opacity: 0.3; /* Make orbs transparent */
 }
 
 /* Apply animation for each orb */
-.orb-1 {
-  animation: orbAnimation1 2s ease-in-out infinite alternate;
+.orb-1,
+.orb-8 {
+  animation: orbAnimation1 6s ease-in-out infinite alternate;
 }
 
-.orb-2 {
+.orb-2,
+.orb-9 {
   animation: orbAnimation2 7s ease-in-out infinite alternate;
 }
 
@@ -424,5 +433,36 @@ html {
 .orb-7 {
   animation: orbAnimation7 5s ease-in-out infinite alternate;
 }
-
 /* Add more orbs as needed */
+
+/* Add to your global CSS file */
+.work-timeline {
+  position: relative;
+}
+
+.work-timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px; /* Timeline width */
+  background-color: #ccc; /* Color of the timeline */
+  transform: translateX(-50%);
+}
+
+.work-timeline-item {
+  position: relative;
+  margin: 20px 0;
+}
+
+.work-timeline-item::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  width: 15px; /* Circle size */
+  height: 15px; /* Circle size */
+  background-color: #007bff; /* Circle color */
+  border-radius: 50%;
+  transform: translateX(-50%);
+}

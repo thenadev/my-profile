@@ -1,7 +1,7 @@
 "use client";
 
 import About from "@/pages/About";
-import Documents from "@/pages/Documents";
+import DocumentSection from "@/pages/document-section";
 
 import LandingSection from "@/pages/landing-section";
 import ProjectsSection from "@/pages/projects-section";
@@ -19,7 +19,7 @@ const HomePage: React.FC = () => {
       <About />
       <WorkExperienceSection />
       <ProjectsSection />
-      <Documents />
+      <DocumentSection />
     </>
   );
 };

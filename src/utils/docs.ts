@@ -2,6 +2,11 @@ import { platform } from "os";
 
 export const documents = [
   {
+    title: "Bachelor of Science (B.Sc.)",
+    description: "Bachelor's program: computer science",
+    url: "/bachelor-certificate.pdf",
+  },
+  {
     title: "Curriculum Vitae",
     description: "My latest CV in englisch",
     url: "/cv-en.pdf",
@@ -12,13 +17,8 @@ export const documents = [
     url: "/cv-de.pdf",
   },
   {
-    title: "Bachelor certificate",
-    description: "B. Sc. of Informatics certificate",
-    url: "/bachelor-certificate.pdf",
-  },
-  {
-    platform: "AlgoExpert.io",
     title: "Blockchain Expert - Certificate of completion",
+    platform: "AlgoExpert.io",
     description: "Skills: Solidity, web3.js, Ethereum, Hardhat, Truffle",
     url: "/BlockchainExpert_Certificate.pdf",
   },
