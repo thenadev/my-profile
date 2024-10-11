@@ -1,0 +1,428 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* CSS for 3D flip animation */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.moving-gradient-overlay {
+  position: fixed; /* Ensure it sticks to the screen and fills the viewport */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  background: radial-gradient(circle at 10% 10%, #4facfe, transparent 30%),
+    radial-gradient(circle at 70% 20%, #00f2fe, transparent 40%),
+    radial-gradient(circle at 40% 80%, #a18cd1, transparent 50%),
+    radial-gradient(circle at 90% 60%, #fbc2eb, transparent 50%);
+  background-size: 300% 300%;
+  animation: circleMove 8s ease infinite;
+  opacity: 0.3; /* Adjusted for transparency of the gradient */
+  z-index: -1; /* Places the overlay behind other content */
+}
+
+@keyframes circleMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 50% 25%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 25% 75%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.moving-gradient-content {
+  position: relative;
+  z-index: 1; /* Ensures text/content appears above the gradient */
+  color: white; /* Maintains the text color */
+}
+
+@keyframes circleMove {
+  0% {
+    background-position: 0% 0%;
+  }
+  25% {
+    background-position: 50% 50%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  75% {
+    background-position: 50% 50%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+}
+
+@keyframes explode {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.toast-enter {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.toast-exit {
+  animation: slideOut 0.5s ease-out forwards;
+}
+
+.exploding-toast-container {
+  position: relative;
+  width: 16rem; /* Width of the toast */
+  height: 8rem; /* Height of the toast */
+  padding: 1rem;
+  background-color: #4299e1; /* Blue color */
+  color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden; /* Hide overflowing particles */
+}
+
+.particle {
+  position: absolute;
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: white;
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+  }
+}
+
+/* styles.css or a CSS module file */
+@keyframes orbAnimation1 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-15px, -15px);
+  }
+  50% {
+    transform: translate(15px, 5px);
+  }
+  75% {
+    transform: translate(-5px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(20px, -10px);
+  }
+  50% {
+    transform: translate(-10px, 15px);
+  }
+  75% {
+    transform: translate(10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation3 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-25px, 5px);
+  }
+  50% {
+    transform: translate(5px, -25px);
+  }
+  75% {
+    transform: translate(20px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation4 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(15px, 15px);
+  }
+  50% {
+    transform: translate(-15px, -15px);
+  }
+  75% {
+    transform: translate(-10px, 10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation5 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-20px, -5px);
+  }
+  50% {
+    transform: translate(20px, 15px);
+  }
+  75% {
+    transform: translate(-5px, 20px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation6 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(5px, -20px);
+  }
+  50% {
+    transform: translate(-15px, 5px);
+  }
+  75% {
+    transform: translate(20px, -10px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes orbAnimation7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-10px, -15px);
+  }
+  50% {
+    transform: translate(15px, 10px);
+  }
+  75% {
+    transform: translate(-20px, 5px);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+.orb {
+  position: fixed; /* Fixed positioning for orbs */
+  border-radius: 50%;
+  opacity: 0.3; /* Make orbs transparent */
+}
+
+/* Apply animation for each orb */
+.orb-1 {
+  animation: orbAnimation1 2s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+  animation: orbAnimation2 7s ease-in-out infinite alternate;
+}
+
+.orb-3 {
+  animation: orbAnimation3 3s ease-in-out infinite alternate;
+}
+
+.orb-4 {
+  animation: orbAnimation4 4s ease-in-out infinite alternate;
+}
+
+.orb-5 {
+  animation: orbAnimation5 5s ease-in-out infinite alternate;
+}
+
+.orb-6 {
+  animation: orbAnimation6 5s ease-in-out infinite alternate;
+}
+
+.orb-7 {
+  animation: orbAnimation7 5s ease-in-out infinite alternate;
+}
+
+/* Add more orbs as needed */

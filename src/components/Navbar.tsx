@@ -1,12 +1,32 @@
+"use client";
+
+import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { HashLink as NavHashLink } from "react-router-hash-link";
+import MyLogo from "../assets/logo-owl.png";
+
+const Logo = () => (
+  <div className="flex items-center px-12">
+    <Image
+      src={MyLogo}
+      alt="Logo"
+      height={100}
+      width={100}
+      className="h-16 w-auto mr-4" // Adjust height for logo
+    />
+    <span className="text-sm md:text-xl font-bold">
+      Thomas <br />
+      Schwabauer
+    </span>
+  </div>
+);
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const handleClickOutside = (event: MouseEvent) => {
@@ -22,43 +42,33 @@ export default function Navbar() {
     };
   }, []);
 
+  const scrollToSection = (id: string) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsMenuOpen(false); // Close menu after navigating
+    }
+  };
+
   return (
     <div className="fixed top-0 left-0 w-full z-10 bg-white shadow">
       <nav className="w-full">
-        <div className="flex justify-between items-center text-gray-700 px-4 py-3">
-          <p className="text-xl font-bold">Thomas Schwabauer</p>
+        <div className="flex items-center text-gray-700 px-4 py-3">
+          <Logo />
 
           <ul className="hidden md:flex space-x-4 text-base font-semibold cursor-pointer">
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#home">
-                Home
-              </NavHashLink>
-            </li>
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#about">
-                About
-              </NavHashLink>
-            </li>
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#work">
-                Work
-              </NavHashLink>
-            </li>
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#projects">
-                Projects
-              </NavHashLink>
-            </li>
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#documents">
-                Documents
-              </NavHashLink>
-            </li>
-            <li className="hover:bg-gray-200 py-2 px-4">
-              <NavHashLink smooth to="/#contact">
-                Contact
-              </NavHashLink>
-            </li>
+            {["home", "about", "work", "projects", "documents", "contact"].map(
+              (section) => (
+                <li key={section} className="hover:bg-gray-200 py-2 px-4">
+                  <Link
+                    href={`/#${section}`}
+                    onClick={() => scrollToSection(section)}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </Link>
+                </li>
+              )
+            )}
           </ul>
 
           <button
@@ -82,36 +92,26 @@ export default function Navbar() {
         >
           <div className="flex flex-col w-full text-base cursor-pointer pt-10 text-left">
             <ul className="list-none p-0 m-0">
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#home" onClick={toggleMenu}>
-                  Home
-                </NavHashLink>
-              </li>
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#about" onClick={toggleMenu}>
-                  About me
-                </NavHashLink>
-              </li>
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#work" onClick={toggleMenu}>
-                  Work
-                </NavHashLink>
-              </li>
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#projects" onClick={toggleMenu}>
-                  Projects
-                </NavHashLink>
-              </li>
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#documents" onClick={toggleMenu}>
-                  Documents
-                </NavHashLink>
-              </li>
-              <li className="hover:bg-gray-200 py-4 px-6 w-full">
-                <NavHashLink smooth to="/#contact" onClick={toggleMenu}>
-                  Contact
-                </NavHashLink>
-              </li>
+              {[
+                "home",
+                "about",
+                "work",
+                "projects",
+                "documents",
+                "contact",
+              ].map((section) => (
+                <li
+                  key={section}
+                  className="hover:bg-gray-200 py-4 px-6 w-full"
+                >
+                  <Link
+                    href={`/#${section}`}
+                    onClick={() => scrollToSection(section)}
+                  >
+                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
         </div>

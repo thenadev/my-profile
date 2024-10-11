@@ -1,57 +1,53 @@
+import { documents } from "@/utils/docs";
 import React from "react";
-
-const documents = [
-  {
-    title: "Curriculum Vitae",
-    description: "My latest CV",
-    url: "/cv.pdf",
-  },
-  {
-    title: "Bachelor certificate",
-    description: "B. Sc. of Informatics certificate",
-    url: "/bachelor-certificate.pdf",
-  },
-  {
-    title: "Certificate of completion",
-    description: "Blockchain assessments on AlgoExpert.io ",
-    url: "/BlockchainExpert_Certificate.pdf",
-  },
-  {
-    title: "Spring Boot 3, Spring 6 & Hibernate for Beginners",
-    description: "Skills: Java, Spring Boot, Hibernate, REST-API, CRUD, JPA, AOP",
-    url: "/Spring-Boot-Beginners.pdf",
-  },
-];
+import { FaFilePdf } from "react-icons/fa";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "../components/ui/card"; // Adjust import based on your file structure
 
 const Documents: React.FC = () => {
   return (
     <div
-      className="pt-20 min-h-screen flex flex-col items-center justify-center container mx-auto mt-8"
+      className="pt-20 min-h-screen flex flex-col items-center justify-center bg-gray-900"
       id="documents"
     >
-      <h2 className="text-4xl font-bold text-black dark:text-white mb-8">
-        Documents
+      <h2 className="flex flex-row gap-4 text-4xl font-bold text-white mb-8">
+        <FaFilePdf />
+        Documents / Certs
       </h2>
-      <div className="flex flex-wrap justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl">
         {documents.map((doc, index) => (
-          <div
-            key={index}
-            className="bg-white shadow-lg rounded-lg p-6 m-4 w-80 flex flex-col justify-between"
-          >
-            <div>
-              <h3 className="text-2xl font-semibold mb-2">{doc.title}</h3>
-              <p className="text-lg text-gray-700 mb-4">{doc.description}</p>
-            </div>
-            <div className="mt-auto">
-              <a
-                href={doc.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-blue-500 hover:underline"
-              >
-                View Document
-              </a>
-            </div>
+          <div key={index} className="p-4">
+            <Card className="bg-gray-800 text-white shadow-lg rounded-lg">
+              <CardHeader>
+                <CardTitle className="text-2xl font-semibold">
+                  {doc.title}
+                </CardTitle>
+                {doc.platform && ( // Check if platform exists
+                  <p className="text-sm text-gray-400">{doc.platform}</p> // Display platform
+                )}
+              </CardHeader>
+              <CardContent>
+                <CardDescription className="text-lg text-gray-300 mb-4">
+                  {doc.description}
+                </CardDescription>
+              </CardContent>
+              <CardFooter>
+                <a
+                  href={doc.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-400 hover:underline"
+                >
+                  View Document
+                </a>
+              </CardFooter>
+            </Card>
           </div>
         ))}
       </div>

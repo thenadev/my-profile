@@ -8,7 +8,7 @@ const getAge = () => {
 const AboutMe: React.FC = () => {
   return (
     <div
-      className="pt-20 min-h-screen p-5 flex items-center justify-center bg-gray-100"
+      className="pt-20 min-h-screen p-5 flex items-center justify-center"
       id="about"
     >
       <div className="text-center">
