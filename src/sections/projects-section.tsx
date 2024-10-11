@@ -1,6 +1,6 @@
 import React from "react";
-import Project from "../components/project";
 import { projects } from "../utils/projects"; // Import the Project component
+import Project from "@/components/project";
 
 export const ProjectsSection: React.FC = () => {
   return (

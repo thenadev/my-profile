@@ -11,7 +11,7 @@ import {
 import { IoMdMail } from "react-icons/io";
 import { siteConfig } from "../config/site";
 
-export function SiteFooter() {
+const SiteFooter = () => {
   return (
     <footer className="w-full bg-gray-800 text-white py-8 px-4 z-40 relative">
       <div className="container mx-auto flex flex-col items-center gap-6 md:flex-row md:justify-between">
@@ -89,6 +89,6 @@ export function SiteFooter() {
       </div>
     </footer>
   );
-}
+};
 
 export default SiteFooter;

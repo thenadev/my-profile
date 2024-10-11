@@ -1,11 +1,11 @@
 "use client";
 
+import CookieConsentDialog from "@/components/cookie-consent-dialog";
+import Navbar from "@/components/default-navbar";
+import SiteFooter from "@/components/site-footer";
 import Cookies from "js-cookie";
 import { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
-import CookieConsentDialog from "../components/cookie-consent-dialog";
-import Footer from "../components/footer";
-import Navbar from "../components/navbar";
 
 export default function ClientLayout({
   children,
@@ -28,7 +28,7 @@ export default function ClientLayout({
       {showCookieConsent && <CookieConsentDialog />}
       {children}
       <div className="moving-gradient-overlay" />
-      <Footer />
+      <SiteFooter />
     </>
   );
 }

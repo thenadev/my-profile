@@ -1,0 +1,13 @@
+{
+  "extends": ["next/core-web-vitals", "next/typescript"],
+  "overrides": [
+    {
+      "files": ["components/ui/**/*"],
+      "rules": {
+        "react/react-in-jsx-scope": "off",
+        "no-unused-vars": "off"
+        // Add other rules you want to disable or modify for this folder
+      }
+    }
+  ]
+}
