@@ -8,7 +8,7 @@ export const ProjectsSection: React.FC = () => {
       className="min-h-screen w-full flex flex-wrap items-center justify-center z-20 relative"
       id="projects"
     >
-      <div className="w-3/4 pt-28">
+      <div className="w-5/6 md:w-3/4 pt-28">
         <h2 className="text-4xl text-center font-bold">My Projects</h2>
         <div className="flex flex-wrap">
           {projects.map((project) => (

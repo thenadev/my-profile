@@ -4,11 +4,20 @@ import { siteConfig } from "@/config/site";
 import Image from "next/image";
 import React from "react";
 import ReactGA from "react-ga4";
+import { BsFillSendFill } from "react-icons/bs";
 import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 import MyAvatar from "../assets/me-laptop.webp";
 
 const LandingSection: React.FC = () => {
   ReactGA.send("pageview");
+
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div className="min-h-screen flex items-center justify-center" id="home">
@@ -28,6 +37,15 @@ const LandingSection: React.FC = () => {
             <FaMapPin className="mr-2" /> Wetzlar, Germany
           </div>
           <div className="flex space-x-4 z-40 mb-4 md:mb-0">
+            <div className="">
+              <button
+                onClick={scrollToContact}
+                className="flex items-center text-sm px-3 py-2 md:text-base text-white bg-[#3377b6] rounded shadow-md transition-transform duration-300 transform hover:scale-105"
+              >
+                <FaMessage className="mr-2" />
+                Contact
+              </button>
+            </div>
             <a
               href={siteConfig.links.linkedIn}
               target="_blank"

@@ -5,22 +5,6 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MyLogo from "../assets/logo-owl.png";
 
-const Logo = () => (
-  <div className="flex items-center px-12">
-    <Image
-      src={MyLogo}
-      alt="Logo"
-      height={100}
-      width={100}
-      className="h-16 w-auto mr-4" // Adjust height for logo
-    />
-    <span className="text-sm md:text-xl font-bold">
-      Thomas <br />
-      Schwabauer
-    </span>
-  </div>
-);
-
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -49,6 +33,24 @@ export default function Navbar() {
       setIsMenuOpen(false); // Close menu after navigating
     }
   };
+
+  const Logo = () => (
+    <Link href={`/#home`} onClick={() => scrollToSection("home")}>
+      <div className="flex items-center px-12">
+        <Image
+          src={MyLogo}
+          alt="Logo"
+          height={100}
+          width={100}
+          className="h-16 w-auto mr-4" // Adjust height for logo
+        />
+        <span className="text-sm md:text-xl font-bold">
+          Thomas <br />
+          Schwabauer
+        </span>
+      </div>
+    </Link>
+  );
 
   return (
     <div className="fixed top-0 left-0 w-full z-50 bg-white shadow">

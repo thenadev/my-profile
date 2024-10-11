@@ -31,14 +31,14 @@ export const projects = [
     // githubLink: 'https://github.com/tjoooobooo/perion_dashboard',
     livePreviewLink: "https://perion-dashboard.vercel.app/",
   },
-  {
-    id: 1,
-    image: AmselLogo,
-    description:
-      "A hybrid Webapp for searching/buying farmer and vending machine products.",
-    technologies: "Flutter, Firebase, TypeScript, APIs",
-    livePreviewLink: "https://amsel-ths.web.app/#/",
-  },
+  // {
+  //   id: 1,
+  //   image: AmselLogo,
+  //   description:
+  //     "A hybrid Webapp for searching/buying farmer and vending machine products.",
+  //   technologies: "Flutter, Firebase, TypeScript, APIs",
+  //   livePreviewLink: "https://amsel-ths.web.app/#/",
+  // },
   {
     id: 4,
     image: Portfolio,
