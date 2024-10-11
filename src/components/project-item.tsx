@@ -21,7 +21,7 @@ export interface ProjectProps {
   livePreviewLink?: string;
 }
 
-const Project: React.FC<ProjectProps> = ({
+const ProjectItem: React.FC<ProjectProps> = ({
   id,
   imageSrc,
   description,
@@ -94,4 +94,4 @@ const Project: React.FC<ProjectProps> = ({
   );
 };
 
-export default Project;
+export default ProjectItem;

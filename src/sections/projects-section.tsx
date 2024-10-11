@@ -1,6 +1,6 @@
+import ProjectItem from "@/components/project-item";
 import React from "react";
 import { projects } from "../utils/projects"; // Import the Project component
-import Project from "@/components/project";
 
 export const ProjectsSection: React.FC = () => {
   return (
@@ -12,7 +12,7 @@ export const ProjectsSection: React.FC = () => {
         <h2 className="text-4xl text-center font-bold">My Projects</h2>
         <div className="flex flex-wrap">
           {projects.map((project) => (
-            <Project
+            <ProjectItem
               key={project.id} // Key is used here for React's internal usage
               id={project.id} // Pass the id explicitly if you need to use it inside the component
               imageSrc={project.image}
