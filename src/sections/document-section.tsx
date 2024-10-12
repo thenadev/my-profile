@@ -18,9 +18,9 @@ const DocumentSection: React.FC = () => {
     >
       <h2 className="pt-28 flex flex-row items-center justify-center gap-4 text-4xl font-bold mb-8">
         Documents / Certs
-        <div className="p-2 bg-gray-900 text-white rounded-full">
+        {/* <div className="p-2 bg-gray-900 text-white rounded-full">
           <FaFilePdf className="" />
-        </div>
+        </div> */}
       </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 w-full max-w-6xl">
         {documents.map((doc, index) => (
