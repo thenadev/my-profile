@@ -1,4 +1,4 @@
-import Freelance from "../assets/logo-owl.webp";
+import Freelance from "../assets/logo-owl-big.png";
 import Alcedis from "../assets/work-alcedis.png";
 import Amsel from "../assets/work-amsel.png";
 import VM from "../assets/work-vm.png";
@@ -10,10 +10,9 @@ export const workStations = [
     duration: "Oct 2023 - Today",
     location: "Wetzlar",
     link: "https://www.thomas-schwabauer.de/",
+    image: Freelance,
     bulletpoints: [
-      "Expertise in the planning and implementation of complex software projects",
-      "Extensive knowledge in the evaluation and implementation of new technologies",
-      "Good understanding of Flutter framework and Dart programming",
+      "I am eager to expand my contributions in this area as I begin my journey and look forward to the valuable experiences ahead."
     ],
   },
   {
@@ -31,7 +30,7 @@ export const workStations = [
   },
   {
     company: "Valtech-Mobility GmbH",
-    role: "Consultant",
+    role: "Consultant - Angular, TypeScript, Android, Kotlin, Java",
     duration: "Mar 2023 - Sep 2024",
     link: "https://valtech-mobility.de/",
     image: VM,
@@ -44,7 +43,7 @@ export const workStations = [
   },
   {
     company: "Alcedis GmbH",
-    role: "Software developer",
+    role: "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
     duration: "Jul 2020 - Feb 2023",
     link: "https://www.alcedis.de/en",
     image: Alcedis,

@@ -17,9 +17,7 @@ const WorkExperienceSection: React.FC = () => {
           Work
         </h2>
         <div className="relative flex flex-col items-center">
-          <div
-            className="absolute left-1/2 border-l-2 border-gray-300 h-full top-0 hidden md:block"
-          />
+          <div className="absolute left-1/2 border-l-2 border-gray-300 h-full top-0 hidden md:block" />
           <div className="flex flex-col w-full items-center relative">
             {workStations.map((work, index) => (
               <div
@@ -54,14 +52,14 @@ const WorkExperienceSection: React.FC = () => {
                     </CardContent>
                   </div>
 
-                  <div className="w-full md:w-2/6 flex items-center justify-center z-40 cursor-pointer mb-4 md:mb-0">
+                  <div className="w-full h-full md:w-2/6 flex items-center justify-center z-40 cursor-pointer mb-4 md:mb-0">
                     {work.image && (
-                      <div className="w-3/4 sm:w-2/3 md:w-auto md:mr-8">
+                      <div className="h-full flex items-center justify-center yw-3/4 sm:w-2/3 md:w-auto md:mr-8">
                         <a href={work.link} target="_blank" rel="noreferrer">
                           <Image
                             src={work.image as StaticImageData}
                             alt={`${work.company} logo`}
-                            height={400}
+                            height={250}
                             className="object-contain rounded-2xl shadow-2xl cursor-pointer" // Added cursor-pointer here
                           />
                         </a>

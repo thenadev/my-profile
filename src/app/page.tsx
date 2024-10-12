@@ -5,18 +5,18 @@ import {
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
+import { initialOrbs } from "@/config/orbs";
+import { cn } from "@/lib/utils";
 import About from "@/sections/about-section";
 import ContactSection from "@/sections/contact-section";
 import DocumentSection from "@/sections/document-section";
 import LandingSection from "@/sections/landing-section";
 import ProjectsSection from "@/sections/projects-section";
 import WorkExperienceSection from "@/sections/work-experience-section";
+import { getRandomOrbPosition } from "@/utils/getRandomOrbPos";
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 import "./globals.css";
-import { initialOrbs } from "@/config/orbs";
-import { getRandomOrbPosition } from "@/utils/getRandomOrbPos";
-import { cn } from "@/lib/utils";
 
 const HomePage: React.FC = () => {
   ReactGA.send("pageview");
@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
             );
           }
         },
-        Math.random() * 4000 + 1000
+        Math.random() * 2000 + 1000
       ); // Random interval between 1s and 5s
     });
 
