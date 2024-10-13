@@ -10,8 +10,6 @@ import { FaMessage } from "react-icons/fa6";
 import MyAvatar from "../assets/me-laptop.webp";
 
 const LandingSection: React.FC = () => {
-  ReactGA.send("pageview");
-
   const scrollToContact = () => {
     const section = document.getElementById("contact");
     if (section) {

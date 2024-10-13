@@ -8,25 +8,22 @@ export const documents = [
   },
   {
     title: "Curriculum Vitae",
-    description: "My latest CV in englisch",
-    url: "/cv-en.pdf",
-  },
-  {
-    title: "Curriculum Vitae",
-    description: "My latest CV in german",
-    url: "/cv-de.pdf",
+    description: "My latest CV available in both English and German.",
+    links: [
+      { language: "English", url: "/cv-en.pdf" },
+      { language: "German", url: "/cv-de.pdf" },
+    ],
   },
   {
     title: "Blockchain Expert - Certificate of completion",
     platform: "AlgoExpert.io",
-    description: "Skills: Solidity, web3.js, Ethereum, Hardhat, Truffle",
+    description: "Solidity, web3.js, Ethereum, Hardhat, Truffle",
     url: "/BlockchainExpert_Certificate.pdf",
   },
   {
     platform: "Udemy",
-    title: "Spring Boot 3, Spring 6 & Hibernate for Beginners",
-    description:
-      "Skills: Java, Spring Boot, Hibernate, REST-API, CRUD, JPA, AOP",
+    title: "Spring Boot & Hibernate for Beginners",
+    description: "Java, Spring Boot, Hibernate, REST-API, CRUD, JPA, AOP",
     url: "/Spring-Boot-Beginners.pdf",
   },
 ];

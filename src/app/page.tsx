@@ -115,8 +115,8 @@ const HomePage: React.FC = () => {
                   style={{
                     backgroundColor: orb.color,
                     position: "fixed",
-                    width: `${(orb.knowledge / 100) * 100}px`,
-                    height: `${(orb.knowledge / 100) * 100}px`,
+                    width: `${(orb.knowledge / 100) * (isMobile ? 50 : 100)}px`,
+                    height: `${(orb.knowledge / 100) * (isMobile ? 50 : 100)}px`,
                     top: orb.top,
                     left: orb.left,
                     transition: "top 1s ease-in-out, left 1s ease-in-out", // Smooth transition
@@ -132,7 +132,7 @@ const HomePage: React.FC = () => {
                   <span
                     style={{
                       color: "white",
-                      fontSize: `${(orb.knowledge / 100) * 60}px`,
+                      fontSize: `${(orb.knowledge / 100) * (isMobile ? 30 : 60)}px`,
                     }}
                   >
                     {orb.icon}

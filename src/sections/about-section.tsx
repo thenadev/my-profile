@@ -1,9 +1,8 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
-import { cn } from "@/lib/utils";
 import moment from "moment";
 import React from "react";
 
@@ -55,22 +54,22 @@ const AboutSection: React.FC = () => {
         About me
       </h2>
       {/* Combined About Me and Skill Matrix Card */}
-      <Card className="w-3/4 shadow-lg rounded-lg z-30">
+      <Card className="w-full md:w-5/6 lg:w-3/4 shadow-lg rounded-lg z-30">
         <CardContent>
           <div className="flex flex-col lg:flex-row gap-8 p-6">
             {/* About Me Section */}
-            <div className="lg:w-2/5">
-              <h2 className="text-4xl font-bold text-primary mb-4">
+            <div className="w-full lg:w-2/5">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
                 Who am I?
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base md:text-lg text-muted-foreground">
                 I&apos;m a focused and results-driven software developer with
                 experience in customer support, project management, and software
                 development. I&apos;m passionate about building practical
                 solutions and expanding my expertise even further.
               </p>
               <Separator className="my-4" />
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base md:text-lg text-muted-foreground">
                 Throughout my{" "}
                 <a href="#work" className="text-blue-500 hover:underline">
                   career
@@ -105,7 +104,7 @@ const AboutSection: React.FC = () => {
                 , including web applications, mobile apps, and backend systems.
               </p>
               <Separator className="my-4" />
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base md:text-lg text-muted-foreground">
                 Nice to know: I am {getAge()} years old, live in Wetzlar,
                 Germany and practice natural bodybuilding, which speaks to my
                 dedication and discipline both personally and professionally.
@@ -113,13 +112,13 @@ const AboutSection: React.FC = () => {
             </div>
 
             {/* Skill Matrix Section */}
-            <div className="lg:w-1/2">
-              <h2 className="text-4xl font-bold text-primary mb-4">
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
                 Skill Matrix
               </h2>
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
                     Frameworks & Libraries
                   </h3>
                   <ul className="list-none">
@@ -138,7 +137,7 @@ const AboutSection: React.FC = () => {
                     )}
                   </ul>
                   <Separator className="my-4" />
-                  <h3 className="text-2xl font-semibold mb-2">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
                     Programming Languages
                   </h3>
                   <ul className="list-none">
@@ -158,7 +157,7 @@ const AboutSection: React.FC = () => {
                   </ul>
                 </div>
                 <div>
-                  <h3 className="text-2xl font-semibold mb-2">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
                     DevOps & Tools
                   </h3>
                   <ul className="list-none">
@@ -177,7 +176,7 @@ const AboutSection: React.FC = () => {
                     )}
                   </ul>
                   <Separator className="my-4" />
-                  <h3 className="text-2xl font-semibold mb-2">
+                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
                     Databases & APIs
                   </h3>
                   <ul className="list-none">
@@ -202,7 +201,7 @@ const AboutSection: React.FC = () => {
           {/* Contact Button */}
           <div className="w-full flex justify-center">
             <Button
-              className="mt-6 w-1/4 bg-blue-500 rounded shadow-md z-30
+              className="mt-6 w-full md:w-1/2 lg:w-1/4 bg-blue-500 rounded shadow-md z-30
         transition-transform duration-300 transform hover:bg-blue-600 
         hover:scale-105"
               onClick={() =>
