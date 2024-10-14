@@ -41,7 +41,7 @@ const ProjectItem: React.FC<ProjectProps> = ({
         {/* Image Section with Overlay for Icons */}
         <div className="relative p-4 h-2/4">
           <Image
-            className="w-full h-48 object-cover rounded-t-xl"
+            className="object-contain w-full h-48 rounded-t-xl"
             src={imageSrc}
             alt={t(descriptionKey)} // Use translation key in alt text
           />

@@ -26,13 +26,13 @@ const LandingSection: React.FC = () => {
             {t("welcome")}
           </h1>
           <h2 className="mb-4 text-2xl md:text-4xl">{t("title")}</h2>
-          <p className="mb-4 font-light text-base md:text-lg lg:text-xl">
+          <h2 className="mb-4 font-light text-base md:text-lg lg:text-xl">
             Next.js | Angular | React.js | Spring Boot | Java | TypeScript |
             Flutter | Kotlin
-          </p>
-          <div className="mb-6 flex flex-row items-center justify-center md:justify-start">
+          </h2>
+          <h2 className="mb-6 flex flex-row items-center justify-center md:justify-start">
             <FaMapPin className="mr-2" /> {t("location")}
-          </div>
+          </h2>
           <div className="flex space-x-4 z-40 mb-4 md:mb-0">
             <div className="">
               <button
