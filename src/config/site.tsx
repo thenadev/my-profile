@@ -1,16 +1,15 @@
 export const siteConfig = {
   authorName: "Thomas Schwabauer",
   companyName: "Thena Dev",
-  streetAddress: "Bergstr. 37",
+  streetAddress: "Kirschenwäldchen 8d",
   city: "Wetzlar",
   zipCode: "35578",
-  country: "Germany",
+  country: "germany",
   contactPhone: "+4915202913640",
   contactEmail: "email@thomas-schwabauer.de",
   vatId: "TODO",
   links: {
-    homepage:
-      "https://thomas-schwabauer.de?utm_source=planning-poker&utm_medium=referral&utm_campaign=planning-poker-launch",
+    homepage: "https://thomas-schwabauer.de",
     github: "https://github.com/tjoooobooo",
     linkedIn: "https://www.linkedin.com/in/thomas-schwabauer-a3a525163/",
     twitter: "https://x.com/ThenaDev",

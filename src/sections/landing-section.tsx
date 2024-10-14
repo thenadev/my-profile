@@ -1,15 +1,16 @@
 "use client";
 
 import { siteConfig } from "@/config/site";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import React from "react";
-import ReactGA from "react-ga4";
-import { BsFillSendFill } from "react-icons/bs";
 import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import MyAvatar from "../assets/me-laptop.webp";
 
 const LandingSection: React.FC = () => {
+  const t = useTranslations("Home");
+
   const scrollToContact = () => {
     const section = document.getElementById("contact");
     if (section) {
@@ -22,17 +23,15 @@ const LandingSection: React.FC = () => {
       <section className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between py-10 px-4 md:px-10">
         <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left p-6 md:p-10 text-black animate-slideIn">
           <h1 className="mb-4 text-3xl font-extrabold leading-tight md:text-5xl xl:text-6xl">
-            Hi, I'm Thomas Schwabauer!
+            {t("welcome")}
           </h1>
-          <h2 className="mb-4 text-2xl md:text-4xl">
-            Freelance Fullstack Developer
-          </h2>
+          <h2 className="mb-4 text-2xl md:text-4xl">{t("title")}</h2>
           <p className="mb-4 font-light text-base md:text-lg lg:text-xl">
             Next.js | Angular | React.js | Spring Boot | Java | TypeScript |
             Flutter | Kotlin
           </p>
           <div className="mb-6 flex flex-row items-center justify-center md:justify-start">
-            <FaMapPin className="mr-2" /> Wetzlar, Germany
+            <FaMapPin className="mr-2" /> {t("location")}
           </div>
           <div className="flex space-x-4 z-40 mb-4 md:mb-0">
             <div className="">
@@ -41,7 +40,7 @@ const LandingSection: React.FC = () => {
                 className="flex items-center text-sm px-3 py-2 md:text-base text-white bg-[#3377b6] rounded shadow-md transition-transform duration-300 transform hover:scale-105"
               >
                 <FaMessage className="mr-2" />
-                Contact
+                {t("contact")}
               </button>
             </div>
             <a

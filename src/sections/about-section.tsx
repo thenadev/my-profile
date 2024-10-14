@@ -5,43 +5,46 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import moment from "moment";
 import React from "react";
+import { useTranslations } from "next-intl"; // Import the useTranslations hook
 
 const getAge = () => {
   return moment().diff("1997-06-04", "years");
 };
 
 const AboutSection: React.FC = () => {
+  const t = useTranslations('About'); // Load the "About" namespace
+
   const skills = {
     frameworks: {
-      "React.js": "4",
-      Angular: "4",
-      "Next.js": "4",
+      "React.js": "5",
+      Angular: "5",
+      "Next.js": "5",
       "Nest.js": "3",
       "Spring Boot": "2",
-      Flutter: "3",
+      Flutter: "5",
     },
     programming_languages: {
       Javascript: "5",
       Typescript: "5",
-      Java: "4",
-      Kotlin: "3",
-      Dart: "3",
-      Php: "3",
+      Java: "3",
+      Kotlin: "4",
+      Dart: "5",
+      PHP: "3",
     },
     devops_tools: {
-      Docker: "4",
+      Docker: "3",
       Kubernetes: "3",
       Git: "5",
       Github: "5",
-      Gitlab: "4",
-      Bitbucket: "3",
-      Jira: "4",
-      Confluence: "3",
+      Gitlab: "5",
+      Bitbucket: "5",
+      Jira: "3",
+      Confluence: "4",
     },
     databases_apis: {
       Mysql: "4",
-      Firebase: "3",
-      "Rest api": "4",
+      Firebase: "4",
+      "REST API": "5",
     },
   };
 
@@ -51,7 +54,7 @@ const AboutSection: React.FC = () => {
       id="about"
     >
       <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">
-        About me
+        {t('title')}
       </h2>
       {/* Combined About Me and Skill Matrix Card */}
       <Card className="w-full md:w-5/6 lg:w-3/4 shadow-lg rounded-lg z-30">
@@ -60,21 +63,18 @@ const AboutSection: React.FC = () => {
             {/* About Me Section */}
             <div className="w-full lg:w-2/5">
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                Who am I?
+                {t('whoAmI')}
               </h2>
               <p className="text-base md:text-lg text-muted-foreground">
-                I&apos;m a focused and results-driven software developer with
-                experience in customer support, project management, and software
-                development. I&apos;m passionate about building practical
-                solutions and expanding my expertise even further.
+                {t('description')}
               </p>
               <Separator className="my-4" />
               <p className="text-base md:text-lg text-muted-foreground">
-                Throughout my{" "}
+                {t('career')}{' '}
                 <a href="#work" className="text-blue-500 hover:underline">
-                  career
+                  {t('careerLink')}
                 </a>
-                , I have contributed to projects for prominent customers such as{" "}
+                {t('careerProjects')}{' '}
                 <a
                   href="https://www.audi.com"
                   target="_blank"
@@ -83,7 +83,7 @@ const AboutSection: React.FC = () => {
                 >
                   Audi
                 </a>
-                ,{" "}
+                ,{' '}
                 <a
                   href="https://www.porsche.com"
                   target="_blank"
@@ -92,7 +92,7 @@ const AboutSection: React.FC = () => {
                 >
                   Porsche
                 </a>
-                , and{" "}
+                , {t('and')}{' '}
                 <a
                   href="https://www.bayer.com"
                   target="_blank"
@@ -101,25 +101,23 @@ const AboutSection: React.FC = () => {
                 >
                   Bayer
                 </a>
-                , including web applications, mobile apps, and backend systems.
+                {t('includingProjects')}
               </p>
               <Separator className="my-4" />
               <p className="text-base md:text-lg text-muted-foreground">
-                Nice to know: I am {getAge()} years old, live in Wetzlar,
-                Germany and practice natural bodybuilding, which speaks to my
-                dedication and discipline both personally and professionally.
+                {t('niceToKnow', { age: getAge() })}
               </p>
             </div>
 
             {/* Skill Matrix Section */}
             <div className="w-full lg:w-1/2">
               <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                Skill Matrix
+                {t('skillMatrix')}
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div>
                   <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    Frameworks & Libraries
+                    {t('frameworksLibraries')}
                   </h3>
                   <ul className="list-none">
                     {Object.entries(skills.frameworks).map(
@@ -138,7 +136,7 @@ const AboutSection: React.FC = () => {
                   </ul>
                   <Separator className="my-4" />
                   <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    Programming Languages
+                    {t('programmingLanguages')}
                   </h3>
                   <ul className="list-none">
                     {Object.entries(skills.programming_languages).map(
@@ -158,7 +156,7 @@ const AboutSection: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    DevOps & Tools
+                    {t('devOpsTools')}
                   </h3>
                   <ul className="list-none">
                     {Object.entries(skills.devops_tools).map(
@@ -177,7 +175,7 @@ const AboutSection: React.FC = () => {
                   </ul>
                   <Separator className="my-4" />
                   <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    Databases & APIs
+                    {t('databasesApis')}
                   </h3>
                   <ul className="list-none">
                     {Object.entries(skills.databases_apis).map(
@@ -210,7 +208,7 @@ const AboutSection: React.FC = () => {
                   ?.scrollIntoView({ behavior: "smooth" })
               }
             >
-              Contact Me
+              {t('contactButton')}
             </Button>
           </div>
         </CardContent>

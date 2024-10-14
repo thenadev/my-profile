@@ -1,23 +1,26 @@
 import ProjectItem from "@/components/project-item";
 import React from "react";
-import { projects } from "../utils/projects"; // Import the Project component
+import { projects } from "../utils/projects";
+import { useTranslations } from "next-intl";
 
 export const ProjectsSection: React.FC = () => {
+  const t = useTranslations("Projects");
+
   return (
     <div
       className="min-h-screen w-full flex flex-wrap items-center justify-center z-20 relative"
       id="projects"
     >
       <div className="w-5/6 md:w-3/4 pt-28">
-        <h2 className="text-4xl text-center font-bold">My Projects</h2>
+        <h2 className="text-4xl text-center font-bold">{t("title")}</h2>
         <div className="flex flex-wrap">
           {projects.map((project) => (
             <ProjectItem
-              key={project.id} // Key is used here for React's internal usage
-              id={project.id} // Pass the id explicitly if you need to use it inside the component
+              key={project.id}
+              id={project.id}
               imageSrc={project.image}
-              description={project.description}
-              technologies={project.technologies}
+              descriptionKey={project.descriptionKey}
+              technologiesKey={project.technologiesKey}
               githubLink={project.githubLink}
               livePreviewLink={project.livePreviewLink}
             />

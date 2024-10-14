@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import Freelance from "../assets/logo-owl-big.png";
 import Alcedis from "../assets/work-alcedis.png";
 import Amsel from "../assets/work-amsel.png";
@@ -5,66 +6,60 @@ import VM from "../assets/work-vm.png";
 
 export const workStations = [
   {
-    company: "Freelancer",
-    role: "Fullstack Senior Developer | Testautomation | Android",
-    duration: "Oct 2023 - Today",
-    location: "Wetzlar",
+    company: "freelancerCompany",
+    role: "freelancerRole",
+    duration: "freelancerDuration",
+    location: "freelancerLocation",
     link: "https://www.thomas-schwabauer.de/",
     image: Freelance,
-    bulletpoints: [
-      "I am eager to expand my contributions in this area as I begin my journey and look forward to the valuable experiences ahead."
-    ],
+    bulletpoints: ["freelancerBullet1"],
   },
   {
-    company: "Amsel UG",
-    role: "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
-    duration: "Jul 2023 - Today",
-    location: "Langgöns",
+    company: "amselCompany",
+    role: "amselRole",
+    duration: "amselDuration",
+    location: "amselLocation",
     link: "https://www.amsel-store.de/",
     image: Amsel,
     bulletpoints: [
-      "Expertise in the planning and implementation of complex software projects",
-      "Extensive knowledge in the evaluation and implementation of new technologies",
-      "Good understanding of Flutter framework and Dart programming",
+      "amselBullet1",
+      "amselBullet2",
+      "amselBullet3",
+      "amselBullet4",
     ],
   },
   {
-    company: "Valtech-Mobility GmbH",
-    role: "Consultant - Angular, TypeScript, Android, Kotlin, Java",
-    duration: "Mar 2023 - Sep 2024",
+    company: "vmCompany",
+    role: "vmRole",
+    duration: "vmDuration",
     link: "https://valtech-mobility.de/",
     image: VM,
-    bulletpoints: [
-      "Responsible for direct cooperation and customer care as well as the maintenance of business relationships",
-      "Project management of consulting projects, including time planning and resource management",
-      "Development of in-car apps with Android Automotive and Java/Kotlin",
-      "Development of web applications with Angular and Typescript",
-    ],
+    bulletpoints: ["vmBullet1", "vmBullet2", "vmBullet3", "vmBullet4"],
   },
   {
-    company: "Alcedis GmbH",
-    role: "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
-    duration: "Jul 2020 - Feb 2023",
+    company: "alcedisCompany",
+    role: "alcedisRole",
+    duration: "alcedisDuration",
     link: "https://www.alcedis.de/en",
     image: Alcedis,
     bulletpoints: [
-      "Development of automation tests for web applications in an agile environment",
-      "Integration of test automation into the development process",
-      "3 years of experience in the development of web applications with HTML, CSS, Laravel, PHP, React, TypeScript, Docker",
-      "Experience working with Node.js and Express.js to create backend services and APIs",
+      "alcedisBullet1",
+      "alcedisBullet2",
+      "alcedisBullet3",
+      "alcedisBullet4",
     ],
   },
   {
-    company: "Alcedis GmbH",
-    role: "Software tester",
-    duration: "Jun 2018 - Jul 2020",
+    company: "alcedisTesterCompany",
+    role: "alcedisTesterRole",
+    duration: "alcedisTesterDuration",
     link: "https://www.alcedis.de/en",
     image: Alcedis,
     bulletpoints: [
-      "Creation and maintenance of test documentation",
-      "Execution of manual functional and regression tests",
-      "Development and maintenance of automated test scripts for web applications",
-      "Collaborating with developers and other stakeholders to analyze errors",
+      "alcedisTesterBullet1",
+      "alcedisTesterBullet2",
+      "alcedisTesterBullet3",
+      "alcedisTesterBullet4",
     ],
   },
 ];

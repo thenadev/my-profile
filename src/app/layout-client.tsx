@@ -18,6 +18,7 @@ export default function ClientLayout({
   ReactGA.initialize(TRACKING_ID);
 
   useEffect(() => {
+    // Set the initial locale from the cookie
     const cookieConsent = Cookies.get("cookieConsent");
     setShowCookieConsent(cookieConsent !== "true");
   }, []);

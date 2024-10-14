@@ -14,6 +14,7 @@ import LandingSection from "@/sections/landing-section";
 import ProjectsSection from "@/sections/projects-section";
 import WorkExperienceSection from "@/sections/work-experience-section";
 import { getRandomOrbPosition } from "@/utils/getRandomOrbPos";
+import { useTranslations } from "next-intl";
 import React, { useEffect, useState } from "react";
 import ReactGA from "react-ga4";
 import "./globals.css";
@@ -21,26 +22,25 @@ import "./globals.css";
 const HomePage: React.FC = () => {
   ReactGA.send("pageview");
 
-  const [showCookieConsent, setShowCookieConsent] = useState<boolean>(true);
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false); // New state to check if device is mobile
-  const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null); // Store the hovered orb index
+  const t = useTranslations("Home");
 
-  // Default initial orb positions - static and consistent for SSR
+  const [hasScrolled, setHasScrolled] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+  const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null);
+
   const [orbPositions, setOrbPositions] = useState(() =>
     initialOrbs.map((orb) => ({
       ...orb,
-      top: "50%", // Default centered value
-      left: "50%", // Default centered value
+      top: "50%",
+      left: "50%",
     }))
   );
 
-  // Set random orb positions on client side after mount
   useEffect(() => {
     setOrbPositions((prevPositions) =>
       prevPositions.map((orb) => ({
         ...orb,
-        ...getRandomOrbPosition(false, orb), // Update to random position on client-side
+        ...getRandomOrbPosition(false, orb),
       }))
     );
   }, []);
@@ -53,30 +53,26 @@ const HomePage: React.FC = () => {
   };
 
   useEffect(() => {
-    // Check if device is mobile
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
 
-    // Initial check and event listener for resize
-    handleResize(); // Initial check
-    window.addEventListener("resize", handleResize); // Listen for window resizing
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
     const handleScroll = () => {
       if (window.scrollY > 550) {
-        setHasScrolled(true); // User has scrolled down between the defined range
+        setHasScrolled(true);
       } else {
-        setHasScrolled(false); // Reset if outside the defined range
+        setHasScrolled(false);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // Create an interval for each orb
     const intervalIds = orbPositions.map((orb) => {
       return setInterval(
         () => {
-          // Only update position if the orb is not hovered
           if (hoveredOrbIndex !== orb.id) {
             setOrbPositions((prevPositions) =>
               prevPositions.map((currentOrb) => {
@@ -89,10 +85,9 @@ const HomePage: React.FC = () => {
           }
         },
         Math.random() * 2000 + 1000
-      ); // Random interval between 1s and 5s
+      );
     });
 
-    // Cleanup the intervals, scroll event, and resize event listener on component unmount
     return () => {
       intervalIds.forEach((id) => clearInterval(id));
       window.removeEventListener("scroll", handleScroll);
@@ -119,15 +114,15 @@ const HomePage: React.FC = () => {
                     height: `${(orb.knowledge / 100) * (isMobile ? 50 : 100)}px`,
                     top: orb.top,
                     left: orb.left,
-                    transition: "top 1s ease-in-out, left 1s ease-in-out", // Smooth transition
-                    borderRadius: "50%", // Make it round
-                    opacity: hasScrolled && isMobile ? 0.2 : 0.6, // Transparency
-                    display: "flex", // Use flexbox to center content
-                    alignItems: "center", // Center vertically
-                    justifyContent: "center", // Center horizontally
+                    transition: "top 1s ease-in-out, left 1s ease-in-out",
+                    borderRadius: "50%",
+                    opacity: hasScrolled && isMobile ? 0.2 : 0.6,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
-                  onMouseEnter={() => setHoveredOrbIndex(orb.id)} // Set hovered orb index on mouse enter
-                  onMouseLeave={() => setHoveredOrbIndex(null)} // Reset on mouse leave
+                  onMouseEnter={() => setHoveredOrbIndex(orb.id)}
+                  onMouseLeave={() => setHoveredOrbIndex(null)}
                 >
                   <span
                     style={{
@@ -140,9 +135,9 @@ const HomePage: React.FC = () => {
                 </div>
               </HoverCardTrigger>
               <HoverCardContent className="z-50 relative">
-                <h4 className="">{orb.description}</h4>
+                <h4 className="">{t(`orb_${orb.id}`)}</h4>
                 <a href={orb.link} target="_blank" className="text-blue-500">
-                  Learn More
+                  {t("learnMore")}
                 </a>
               </HoverCardContent>
             </HoverCard>

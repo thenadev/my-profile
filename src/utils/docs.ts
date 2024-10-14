@@ -1,29 +1,27 @@
-import { platform } from "os";
-
 export const documents = [
   {
-    title: "Bachelor of Science (B.Sc.)",
-    description: "Bachelor's program: computer science",
-    url: "/bachelor-certificate.pdf",
-  },
-  {
-    title: "Curriculum Vitae",
-    description: "My latest CV available in both English and German.",
+    title: "cvTitle",
+    description: "cvDescription",
     links: [
-      { language: "English", url: "/cv-en.pdf" },
-      { language: "German", url: "/cv-de.pdf" },
+      { language: "english", url: "/cv-en.pdf" },
+      { language: "german", url: "/cv-de.pdf" },
     ],
   },
   {
-    title: "Blockchain Expert - Certificate of completion",
+    title: "bachelorTitle",
+    description: "bachelorDescription",
+    url: "/bachelor-certificate.pdf",
+  },
+  {
+    title: "blockchainTitle",
     platform: "AlgoExpert.io",
-    description: "Solidity, web3.js, Ethereum, Hardhat, Truffle",
+    description: "blockchainDescription",
     url: "/BlockchainExpert_Certificate.pdf",
   },
   {
     platform: "Udemy",
-    title: "Spring Boot & Hibernate for Beginners",
-    description: "Java, Spring Boot, Hibernate, REST-API, CRUD, JPA, AOP",
+    title: "springBootTitle",
+    description: "springBootDescription",
     url: "/Spring-Boot-Beginners.pdf",
   },
 ];

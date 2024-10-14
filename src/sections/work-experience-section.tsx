@@ -1,4 +1,5 @@
 import { workStations } from "@/utils/work-stations";
+import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import {
@@ -10,11 +11,13 @@ import {
 } from "../components/ui/card"; // Adjust import based on your file structure
 
 const WorkExperienceSection: React.FC = () => {
+  const t = useTranslations("Work");
+
   return (
     <div className="min-h-screen flex w-full z-20 relative" id="work">
       <div className="pt-28 flex flex-col w-full mx-auto px-4 sm:px-8">
         <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">
-          Work
+          {t("title")}
         </h2>
         <div className="relative flex flex-col items-center">
           <div className="absolute left-1/2 border-l-2 border-gray-300 h-full top-0 hidden md:block" />
@@ -29,23 +32,23 @@ const WorkExperienceSection: React.FC = () => {
                     <CardHeader>
                       <CardTitle className="text-xl sm:text-2xl font-semibold text-center md:text-left">
                         <a href={work.link} target="_blank" rel="noreferrer">
-                          {work.company}
+                          {t(work.company)}
                         </a>
                       </CardTitle>
                       <CardDescription className="text-base sm:text-lg font-medium text-center md:text-left">
-                        {work.role}
+                        {t(work.role)}
                       </CardDescription>
                     </CardHeader>
                     <CardContent>
                       <div className="flex flex-col md:flex-row items-center md:justify-between mb-2 text-center md:text-left">
                         <p className="text-xs sm:text-sm text-gray-500">
-                          {work.duration}
+                          {t(work.duration)}
                         </p>
                       </div>
                       <div className="flex flex-col md:flex-row items-start">
                         <ul className="list-disc list-inside text-gray-600 text-left text-sm sm:text-base mb-4 flex-1">
                           {work.bulletpoints.map((bulletpoint, idx) => (
-                            <li key={idx}>{bulletpoint}</li>
+                            <li key={idx}>{t(bulletpoint)}</li>
                           ))}
                         </ul>
                       </div>
@@ -58,7 +61,7 @@ const WorkExperienceSection: React.FC = () => {
                         <a href={work.link} target="_blank" rel="noreferrer">
                           <Image
                             src={work.image as StaticImageData}
-                            alt={`${work.company} logo`}
+                            alt={`${t(work.company)} logo`}
                             height={250}
                             className="object-contain rounded-2xl shadow-2xl cursor-pointer" // Added cursor-pointer here
                           />

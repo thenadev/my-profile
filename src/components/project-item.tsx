@@ -1,3 +1,6 @@
+"use client";
+
+import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
 import { FaGithub, FaGlobe } from "react-icons/fa"; // GitHub and Globe icons
@@ -15,8 +18,8 @@ export interface ProjectProps {
   key: number;
   id: number; // This prop is explicitly provided and can be used in the component
   imageSrc: StaticImageData;
-  description: string;
-  technologies: string;
+  descriptionKey: string; // Changed to use translation key
+  technologiesKey: string; // Changed to use translation key
   githubLink?: string;
   livePreviewLink?: string;
 }
@@ -24,11 +27,13 @@ export interface ProjectProps {
 const ProjectItem: React.FC<ProjectProps> = ({
   id,
   imageSrc,
-  description,
-  technologies,
+  descriptionKey,
+  technologiesKey,
   githubLink,
   livePreviewLink,
 }) => {
+  const t = useTranslations("Projects");
+
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 p-4 z-40">
       {/* Card Component with Fixed Height */}
@@ -38,7 +43,7 @@ const ProjectItem: React.FC<ProjectProps> = ({
           <Image
             className="w-full h-48 object-cover rounded-t-xl"
             src={imageSrc}
-            alt={`Project ${id}`} // Use id in alt text or wherever necessary
+            alt={t(descriptionKey)} // Use translation key in alt text
           />
           <div
             className="absolute inset-0 gap-2 flex 
@@ -77,11 +82,13 @@ const ProjectItem: React.FC<ProjectProps> = ({
         {/* Card Content */}
         <CardContent className="h-2/4 w-full p-2">
           <CardHeader>
-            <CardTitle>{description}</CardTitle>
+            <CardTitle>{t(descriptionKey)}</CardTitle>{" "}
+            {/* Localized description */}
           </CardHeader>
           <div className="mx-4 text-black">
-            <CardDescription>Technologies Used:</CardDescription>
-            <p className="text-sm">{technologies}</p>
+            <CardDescription>{t("technologies_used")}:</CardDescription>
+            <p className="text-sm">{t(technologiesKey)}</p>{" "}
+            {/* Localized technologies */}
           </div>
         </CardContent>
 

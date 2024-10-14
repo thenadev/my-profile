@@ -10,27 +10,31 @@ import {
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useTranslations } from "next-intl"; // Import useTranslations hook
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
-import { FaCopy } from "react-icons/fa6"; // Import the copy icon
+import { FaCopy } from "react-icons/fa6";
 import { z } from "zod";
 import ContactImg from "../assets/me-contact.png";
 
-const formSchema = z.object({
-  email: z.string().email("Please enter a valid email address"),
-  topic: z.string().min(1, "Topic is required"),
-  message: z.string().min(5, "Message must be at least 5 characters long"),
-});
-
-type FormValues = z.infer<typeof formSchema>;
-
 const ContactSection: React.FC = () => {
+  const t = useTranslations("Contact"); // Use translations from "Contact" namespace
+
+  const formSchema = z.object({
+    email: z.string().email("errors.invalidEmail"),
+    topic: z.string().min(1, "errors.topicRequired"),
+    message: z.string().min(5, "errors.messageMin"),
+  });
+
+  type FormValues = z.infer<typeof formSchema>;
+
   const {
     register,
     handleSubmit,
@@ -50,11 +54,9 @@ const ContactSection: React.FC = () => {
     message: "",
   });
 
-  const [copied, setCopied] = useState<boolean>(false); // State to manage the copy action
+  const [copied, setCopied] = useState<boolean>(false);
 
   const onSubmit = async (data: FormValues) => {
-    console.log("Form Submitted:", data);
-
     try {
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -66,23 +68,22 @@ const ContactSection: React.FC = () => {
 
       if (response.ok) {
         setDialogContent({
-          title: "Thanks for contacting me! 😁",
-          message: "I will reach out to you very soon.",
+          title: t("successTitle"),
+          message: t("successMessage"),
         });
         setShowDialog(true);
         reset();
       } else {
         setDialogContent({
-          title: "Something went wrong! 🥲",
-          message: `Seems like the line is busy. Please try again later or reach out to me via email at ${siteConfig.contactEmail}.`,
+          title: t("errorTitle"),
+          message: t("errorMessage", { email: siteConfig.contactEmail }),
         });
         setShowDialog(true);
       }
     } catch (err) {
-      console.log(err);
       setDialogContent({
-        title: "Something went wrong! 🥲",
-        message: `Seems like the line is busy. Please try again later or reach out to me via email at ${siteConfig.contactEmail}.`,
+        title: t("errorTitle"),
+        message: t("errorMessage", { email: siteConfig.contactEmail }),
       });
       setShowDialog(true);
     }
@@ -93,46 +94,45 @@ const ContactSection: React.FC = () => {
     setCopied(true);
     setTimeout(() => {
       setCopied(false);
-    }, 2000); // Reset after 2 seconds
+    }, 2000);
   };
 
   return (
     <div
       id="contact"
-      className="min-h-screen w-screen py-20 flex flex-col items-center justify-center gap-8 px-4 md:px-8 text-slate-700 z-40 relative"
+      className="min-h-screen w-full py-20 flex flex-col items-center justify-center gap-8 px-4 md:px-8 text-slate-700 z-40 relative"
     >
-      {/* Contact Form Card Section */}
       <div className="w-full max-w-5xl flex flex-col items-center justify-start gap-8 px-4 md:px-8 mt-10">
-        <Card className="w-full shadow-lg bg-white rounded-lg border border-gray-200 p-6 flex flex-col md:flex-row overflow-hidden">
+        <Card className="w-full shadow-lg bg-white rounded-lg border border-gray-200 p-4 sm:p-6 flex flex-col md:flex-row overflow-hidden">
           <div className="flex flex-col w-full md:w-8/12 order-2 md:order-1">
             <CardHeader>
-              <CardTitle className="text-3xl md:text-4xl font-bold text-center md:text-left">
-                Contact
+              <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-center md:text-left">
+                {t("title")}
               </CardTitle>
             </CardHeader>
             <CardContent>
               <form
                 onSubmit={handleSubmit(onSubmit)}
-                className="space-y-4 md:space-y-6"
+                className="space-y-3 sm:space-y-4 md:space-y-6"
               >
                 {/* Email Input */}
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="email"
-                    className="font-semibold mb-1 md:mb-2 text-sm md:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base"
                   >
-                    Your Email
+                    {t("yourEmail")}
                   </label>
                   <Input
                     id="email"
                     type="email"
-                    placeholder="example@domain.com"
-                    className="p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    placeholder={t("emailPlaceholder")}
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
                     {...register("email")}
                   />
                   {errors.email && (
-                    <p className="text-red-500 text-xs md:text-sm mt-1">
-                      {errors.email.message}
+                    <p className="text-red-500 text-xs sm:text-sm mt-1">
+                      {t(errors.email.message as string)}
                     </p>
                   )}
                 </div>
@@ -141,20 +141,20 @@ const ContactSection: React.FC = () => {
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="topic"
-                    className="font-semibold mb-1 md:mb-2 text-sm md:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base"
                   >
-                    Topic
+                    {t("topic")}
                   </label>
                   <Input
                     id="topic"
                     type="text"
-                    placeholder="Topic of your message"
-                    className="p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    placeholder={t("topicPlaceholder")}
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
                     {...register("topic")}
                   />
                   {errors.topic && (
-                    <p className="text-red-500 text-xs md:text-sm mt-1">
-                      {errors.topic.message}
+                    <p className="text-red-500 text-xs sm:text-sm mt-1">
+                      {t(errors.topic.message as string)}
                     </p>
                   )}
                 </div>
@@ -163,20 +163,20 @@ const ContactSection: React.FC = () => {
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="message"
-                    className="font-semibold mb-1 md:mb-2 text-sm md:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base"
                   >
-                    Message
+                    {t("message")}
                   </label>
                   <Textarea
                     id="message"
-                    placeholder="Write your message here..."
-                    className="p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    placeholder={t("messagePlaceholder")}
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
                     rows={4}
                     {...register("message")}
                   />
                   {errors.message && (
-                    <p className="text-red-500 text-xs md:text-sm mt-1">
-                      {errors.message.message}
+                    <p className="text-red-500 text-xs sm:text-sm mt-1">
+                      {t(errors.message.message as string)}
                     </p>
                   )}
                 </div>
@@ -185,43 +185,50 @@ const ContactSection: React.FC = () => {
                 <div className="flex justify-center md:justify-start">
                   <Button
                     type="submit"
-                    className="w-full md:w-auto px-4 md:px-6 py-2 md:py-3 text-base md:text-lg bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
+                    className="w-full md:w-auto px-4 md:px-6 py-2 sm:py-3 text-base md:text-lg bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
                   >
-                    Send Message
+                    {t("sendMessage")}
                   </Button>
                 </div>
               </form>
 
+              {/* Separator before Direct Email Section */}
+              <Separator className="my-6" />
+
               {/* Direct Email Section with Copy Icon */}
-              <div className="mt-6 text-center md:text-left flex items-center gap-2">
-                <p className="text-sm md:text-base text-muted-foreground">
-                  Or email me directly at:
+              <div className="mt-6 text-left flex flex-col gap-2">
+                <p className="text-sm sm:text-base text-muted-foreground">
+                  {t("directEmail")}
                 </p>
-                <a
-                  href={`mailto:${siteConfig.contactEmail}`}
-                  className="text-blue-500 hover:underline"
-                >
-                  {siteConfig.contactEmail}
-                </a>
-                <button
-                  onClick={handleCopyEmail}
-                  className="ml-2 text-gray-500 hover:text-blue-500 transition-colors"
-                >
-                  <FaCopy />
-                </button>
-                {copied && (
-                  <span className="text-xs text-blue-500 ml-2">Copied!</span>
-                )}
+                <div>
+                  <a
+                    href={`mailto:${siteConfig.contactEmail}`}
+                    className="text-blue-500 hover:underline"
+                  >
+                    {siteConfig.contactEmail}
+                  </a>
+                  <button
+                    onClick={handleCopyEmail}
+                    className="ml-2 text-gray-500 hover:text-blue-500 transition-colors"
+                  >
+                    <FaCopy />
+                  </button>
+                  {copied && (
+                    <span className="text-xs text-blue-500 ml-2">
+                      {t("copied")}
+                    </span>
+                  )}
+                </div>
               </div>
             </CardContent>
           </div>
 
           {/* Image Section */}
-          <div className="flex items-center justify-center w-full md:w-4/12 p-2 md:p-4 order-1 md:order-2">
+          <div className="flex items-center justify-center w-full md:w-4/12 p-2 md:p-4 order-1 md:order-2 mb-4 md:mb-0">
             <Image
               src={ContactImg}
-              alt="Illustrative Image"
-              className="h-2/4 xl:h-full w-auto object-contain pb-4 md:pb-0"
+              alt={t("imageAlt")}
+              className="h-40 sm:h-40 md:h-full w-auto object-contain pb-4 md:pb-0"
               width={200}
               height={100}
               style={{
@@ -238,8 +245,7 @@ const ContactSection: React.FC = () => {
         <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
           <AlertDialogContent
             className={cn(
-              "bg-white rounded-lg p-4 md:p-6 shadow-lg w-64 md:w-80 border-none",
-              dialogContent.title.includes("wrong") ? "bg-red-400" : "bg-white"
+              "bg-white rounded-lg p-4 md:p-6 shadow-lg w-64 md:w-80 border-none"
             )}
           >
             <AlertDialogHeader className="font-bold text-base md:text-lg mb-2 md:mb-4">
@@ -250,19 +256,19 @@ const ContactSection: React.FC = () => {
             </p>
             <AlertDialogFooter className="flex justify-between mt-4 gap-2">
               <Button
-                className="order-1 md:order-none bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2"
+                className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-lg"
                 onClick={() => {
                   router.push("/");
                 }}
               >
-                Go Home
+                {t("goHome")}
               </Button>
               <Button
                 onClick={() => setShowDialog(false)}
                 variant="secondary"
                 className="bg-gray-200 hover:bg-gray-300 transition-transform duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2"
               >
-                Close
+                {t("close")}
               </Button>
             </AlertDialogFooter>
           </AlertDialogContent>

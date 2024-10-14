@@ -4,8 +4,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import MyLogo from "../assets/logo-owl.png";
+import { useTranslations } from "next-intl";
 
 const Navbar = () => {
+  const t = useTranslations("Navbar"); 
+
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
@@ -66,7 +69,7 @@ const Navbar = () => {
                     href={`/#${section}`}
                     onClick={() => scrollToSection(section)}
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(section)}
                   </Link>
                 </li>
               )
@@ -110,7 +113,7 @@ const Navbar = () => {
                     href={`/#${section}`}
                     onClick={() => scrollToSection(section)}
                   >
-                    {section.charAt(0).toUpperCase() + section.slice(1)}
+                    {t(section)}
                   </Link>
                 </li>
               ))}

@@ -8,29 +8,36 @@ export const projects = [
   {
     id: 0,
     image: PlanningPoker,
-    description: "A free Online Planning Poker Website",
-    technologies:
-      "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
+    descriptionKey: "planningPokerDescription",
+    technologiesKey: "planningPokerTechnologies",
     livePreviewLink: "https://www.online-planning-poker.de/",
   },
   {
     id: 2,
     image: MyDexLogo,
-    description:
-      "A full decentralized Exchange deployed on the Sepolia Testnet, including the solidity smart contracts.",
-    technologies: "React, Solidity, Hardhat, Foundry",
+    descriptionKey: "myDexDescription",
+    technologiesKey: "myDexTechnologies",
     githubLink: "https://github.com/tjoooobooo/web3-academy",
     livePreviewLink: "https://my-o2wznex4e-tjoooobooo.vercel.app/",
   },
   {
     id: 3,
     image: PerionDashboard,
-    description:
-      "A dashboard portfolio which grabs daily data for crypto prices and other relevant web3 meta data",
-    technologies: "React.js, TypeScript, API's, Cron",
+    descriptionKey: "perionDashboardDescription",
+    technologiesKey: "perionDashboardTechnologies",
     // githubLink: 'https://github.com/tjoooobooo/perion_dashboard',
     livePreviewLink: "https://perion-dashboard.vercel.app/",
   },
+  {
+    id: 4,
+    image: Portfolio,
+    descriptionKey: "portfolioDescription",
+    technologiesKey: "portfolioTechnologies",
+    githubLink: "https://github.com/tjoooobooo/my-profile",
+    livePreviewLink: "https://www.thomas-schwabauer.de/",
+  },
+];
+
   // {
   //   id: 1,
   //   image: AmselLogo,
@@ -39,12 +46,3 @@ export const projects = [
   //   technologies: "Flutter, Firebase, TypeScript, APIs",
   //   livePreviewLink: "https://amsel-ths.web.app/#/",
   // },
-  {
-    id: 4,
-    image: Portfolio,
-    description: "My portfolio website",
-    technologies: "React, TypeScript, Tailwind",
-    githubLink: "https://github.com/tjoooobooo/my-profile",
-    livePreviewLink: "https://www.thomas-schwabauer.de/",
-  },
-];
