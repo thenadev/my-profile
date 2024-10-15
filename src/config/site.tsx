@@ -13,5 +13,6 @@ export const siteConfig = {
     github: "https://github.com/tjoooobooo",
     linkedIn: "https://www.linkedin.com/in/thomas-schwabauer-a3a525163/",
     twitter: "https://x.com/ThenaDev",
+    freelancermap: "https://www.freelancermap.de/profil/thomas-schwabauer"
   },
 };

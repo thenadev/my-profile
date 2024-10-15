@@ -6,6 +6,8 @@ import Image from "next/image";
 import React from "react";
 import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
+import { SiFreelancermap } from "react-icons/si";
+import FreelancerMapIcon from "../assets/fm-profile-badge-black.svg";
 import MyAvatar from "../assets/me-laptop.webp";
 
 const LandingSection: React.FC = () => {
@@ -33,32 +35,55 @@ const LandingSection: React.FC = () => {
           <h2 className="mb-6 flex flex-row items-center justify-center md:justify-start">
             <FaMapPin className="mr-2" /> {t("location")}
           </h2>
-          <div className="flex space-x-4 z-40 mb-4 md:mb-0">
-            <div className="">
+          <div className="flex flex-wrap gap-2 z-40 mb-4 md:mb-0 justify-center md:justify-start">
+            <div className="w-full md:w-auto mb-2">
               <button
                 onClick={scrollToContact}
-                className="flex items-center text-sm px-3 py-2 md:text-base text-white bg-[#3377b6] rounded shadow-md transition-transform duration-300 transform hover:scale-105"
+                className="flex items-center justify-center text-sm px-3 py-2 md:text-base text-white bg-[#3377b6] rounded shadow-md transition-transform duration-300 transform hover:scale-105 w-full md:w-auto"
               >
                 <FaMessage className="mr-2" />
                 {t("contact")}
               </button>
             </div>
-            <a
-              href={siteConfig.links.linkedIn}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <button className="flex items-center px-3 py-2 text-sm md:text-base text-white bg-[#0077b5] rounded shadow-md transition-transform duration-300 transform hover:scale-105">
-                <FaLinkedin className="mr-2" />
-                LinkedIn
-              </button>
-            </a>
-            <a href={siteConfig.links.github} target="_blank" rel="noreferrer">
-              <button className="flex items-center px-3 py-2 text-sm md:text-base text-white bg-[#333333] rounded shadow-md transition-transform duration-300 transform hover:scale-105">
-                <FaGithub className="mr-2" />
-                GitHub
-              </button>
-            </a>
+            <div className="w-full md:w-auto mb-2">
+              <a
+                href={siteConfig.links.linkedIn}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full"
+              >
+                <button className="flex items-center justify-center px-3 py-2 text-sm md:text-base text-white bg-[#0077b5] rounded shadow-md transition-transform duration-300 transform hover:scale-105 w-full md:w-auto">
+                  <FaLinkedin className="mr-2" />
+                  LinkedIn
+                </button>
+              </a>
+            </div>
+            <div className="w-full md:w-auto">
+              <a
+                href={siteConfig.links.freelancermap}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full"
+              >
+                <button className="flex items-center justify-center px-3 py-2 text-sm md:text-base text-white bg-black rounded shadow-md transition-transform duration-300 transform hover:scale-105 w-full md:w-auto">
+                  <SiFreelancermap className="mr-2" />
+                  freelancermap
+                </button>
+              </a>
+            </div>
+            <div className="w-full md:w-auto mb-2">
+              <a
+                href={siteConfig.links.github}
+                target="_blank"
+                rel="noreferrer"
+                className="w-full"
+              >
+                <button className="flex items-center justify-center px-3 py-2 text-sm md:text-base text-white bg-[#333333] rounded shadow-md transition-transform duration-300 transform hover:scale-105 w-full md:w-auto">
+                  <FaGithub className="mr-2" />
+                  GitHub
+                </button>
+              </a>
+            </div>
           </div>
         </div>
         <div className="flex justify-center p-4 md:p-6">
