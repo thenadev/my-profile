@@ -10,7 +10,7 @@ export const siteConfig = {
   vatId: "TODO",
   links: {
     homepage: "https://thomas-schwabauer.de",
-    github: "https://github.com/tjoooobooo",
+    github: "https://github.com/thenadev",
     linkedIn: "https://www.linkedin.com/in/thomas-schwabauer-a3a525163/",
     twitter: "https://x.com/ThenaDev",
     freelancermap: "https://www.freelancermap.de/profil/thomas-schwabauer"
