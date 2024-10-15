@@ -1,46 +1,109 @@
-# Getting Started with Create React App
+# 🌟 Thomas Schwabauer - Personal Portfolio Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to my personal portfolio website repository! This project is a showcase of my experience and skills as a **fullstack developer**. It serves as a digital hub where you can learn more about me, the projects I’ve worked on, and the technologies I’m passionate about.
 
-## Available Scripts
+## 🚀 About the Project
 
-In the project directory, you can run:
+This is my personal website, designed to present my portfolio, including:
 
-### `npm start`
+- **Work Experience** in software development, testing, project management, and customer support.
+- A collection of **projects** that highlight my work in **React**, **Next.js**, **TypeScript**, and **Flutter**.
+- A place for clients, collaborators, and peers to easily **connect** with me.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Visit the live website here: [thomas-schwabauer.de](https://www.thomas-schwabauer.de/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 💡 Features
 
-### `npm test`
+- **Responsive Design**: Fully optimized for all devices, from desktop to mobile.
+- **Accessible Interface**: Built with accessibility in mind, ensuring everyone can navigate and use the site comfortably.
+- **Smooth Animations**: Modern animations for a clean, attractive experience without compromising performance.
+- **Multi-Language Support**: The site features multiple language options to cater to a diverse audience.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Technologies Used
 
-### `npm run build`
+- **Frontend**: React, TypeScript, TailwindCSS, shadcn/ui
+- **Framework**: Next.js
+- **Database**: Firebase
+- **DevOps**: GitHub Actions for CI/CD
+- **Hosting**: Vercel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+This project follows the Next.js file-based routing system. Here’s a glance at the folder structure:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+/
+├── components/      # Reusable UI components (e.g., cards, buttons, navbar)
+├── pages/           # Pages of the website, routed by Next.js
+├── public/          # Static assets such as images
+├── styles/          # CSS and TailwindCSS configuration
+└── utils/           # Utility functions and configurations (e.g., translations)
+```
 
-### `npm run eject`
+## ⚙️ Setup & Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To set up the project locally, follow these steps:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Clone the repository**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+   ```bash
+   git clone https://github.com/tjoooobooo/my-profile.git
+   ```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+2. **Navigate into the project folder**
 
-## Learn More
+   ```bash
+   cd my-profile
+   ```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. **Install dependencies**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+4. **Run the development server**
+
+   ```bash
+   npm run dev
+   # or
+   yarn dev
+   ```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser to view the website.
+
+## 🤝 Contributing
+
+I'm always happy to receive contributions, suggestions, and improvements to this project! If you’d like to contribute:
+
+1. **Fork** the repository.
+2. **Create a new branch** (`git checkout -b feature-name`).
+3. **Commit your changes** (`git commit -m 'Add a new feature'`).
+4. **Push** to the branch (`git push origin feature-name`).
+5. **Open a Pull Request**.
+
+## 📄 License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## 🌐 Connect with Me
+
+- **LinkedIn**: [linkedin.com/in/thomas-schwabauer](https://linkedin.com/in/thomas-schwabauer)
+- **GitHub**: [github.com/tjoooobooo](https://github.com/tjoooobooo)
+- **Website**: [thomas-schwabauer.de](https://www.thomas-schwabauer.de/)
+
+## 📸 Screenshots
+
+![Homepage](https://www.thomas-schwabauer.de/portfolio.png)
+
+> **Figure:** A preview of the homepage.
+
+## ✨ Acknowledgements
+
+- Thank you to the open-source community for providing such wonderful tools and inspiration!
+
+---
+
+I hope you enjoy exploring my personal website as much as I enjoyed building it! Feel free to leave feedback or reach out to discuss collaborations.
