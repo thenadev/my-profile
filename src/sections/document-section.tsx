@@ -16,10 +16,10 @@ const DocumentSection: React.FC = () => {
 
   return (
     <div
-      className="min-h-screen flex flex-col items-center z-20 relative px-0 md:px-2"
+      className="flex flex-col items-center z-20 relative px-0 md:px-2"
       id="documents"
     >
-      <h2 className="pt-20 flex flex-row items-center justify-center gap-2 text-2xl sm:text-3xl font-bold mb-6 text-center">
+      <h2 className="pt-28 flex flex-row items-center justify-center gap-2 text-2xl sm:text-3xl font-bold mb-6 text-center">
         {t("title")}
       </h2>
       <div className="grid grid-cols-2 gap-2 md:gap-4 w-full max-w-5xl md:px-2">
