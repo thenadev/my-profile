@@ -25,79 +25,75 @@ export interface ProjectProps {
 }
 
 const ProjectItem: React.FC<ProjectProps> = ({
-  id,
-  imageSrc,
-  descriptionKey,
-  technologiesKey,
-  githubLink,
-  livePreviewLink,
-}) => {
+                                               imageSrc,
+                                               descriptionKey,
+                                               technologiesKey,
+                                               githubLink,
+                                               livePreviewLink,
+                                             }) => {
   const t = useTranslations("Projects");
 
   return (
-    <div className="w-full md:w-1/2 lg:w-1/3 p-4 z-40">
-      {/* Card Component with Fixed Height */}
-      <Card className="transition-transform transform hover:scale-110 h-96 shadow-lg group">
-        {/* Image Section with Overlay for Icons */}
-        <div className="relative p-4 h-2/4">
-          <Image
-            className="object-contain w-full h-48 rounded-t-xl"
-            src={imageSrc}
-            alt={t(descriptionKey)} // Use translation key in alt text
-          />
-          <div
-            className="absolute inset-0 gap-2 flex 
-          justify-center items-center opacity-0 group-hover:opacity-100 
-          bg-opacity-80 transition-opacity duration-300"
-          >
-            {githubLink && (
-              <Button className="transition-transform duration-300 transform hover:scale-110">
-                <a
-                  href={githubLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-2 p-1 rounded-full 
-                flex items-center justify-center bg-white hover:bg-gray-200"
-                >
-                  <FaGithub className="text-gray-800" />
-                </a>
-              </Button>
-            )}
-            {livePreviewLink && (
-              <Button className="transition-transform duration-300 transform hover:scale-110">
-                <a
-                  href={livePreviewLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mx-2 p-1 rounded-full 
-                flex items-center justify-center bg-gray-200 hover:bg-gray-300"
-                >
-                  <FaGlobe className="text-gray-800" />
-                </a>
-              </Button>
-            )}
+      <div className="w-full md:w-1/2 lg:w-1/3 p-4">
+        {/* Card Component with Consistent Height */}
+        <Card className="h-full flex flex-col shadow-lg group">
+          {/* Image Section with Overlay for Icons */}
+          <div className="relative h-48 flex-shrink-0">
+            <Image
+                className="object-contain w-full h-full rounded-t-lg"
+                src={imageSrc}
+                alt={t(descriptionKey)} // Use translation key in alt text
+            />
+            <div
+                className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100
+            rounded-t-lg bg-black bg-opacity-60 transition-opacity duration-300"
+            >
+              {githubLink && (
+                  <a
+                      href={githubLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-white hover:bg-gray-200 transition-transform duration-300 transform hover:scale-110"
+                  >
+                    <FaGithub className="text-gray-800" />
+                  </a>
+              )}
+              {livePreviewLink && (
+                  <a
+                      href={livePreviewLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-transform duration-300 transform hover:scale-110"
+                  >
+                    <FaGlobe className="text-gray-800" />
+                  </a>
+              )}
+            </div>
           </div>
-        </div>
 
-        {/* Card Content */}
-        <CardContent className="h-2/4 w-full p-2">
-          <CardHeader>
-            <CardTitle>{t(descriptionKey)}</CardTitle>{" "}
-            {/* Localized description */}
-          </CardHeader>
-          <div className="mx-4 text-black">
-            <CardDescription>{t("technologies_used")}:</CardDescription>
-            <p className="text-sm">{t(technologiesKey)}</p>{" "}
-            {/* Localized technologies */}
-          </div>
-        </CardContent>
+          {/* Card Content */}
+          <CardContent className="flex flex-col justify-between flex-grow p-4">
+            <CardHeader>
+              <CardTitle className="text-sm font-semibold">
+                {t(descriptionKey)}
+              </CardTitle>{" "}
+              {/* Localized description */}
+            </CardHeader>
+            <div>
+              <CardDescription className="text-xs text-gray-500">
+                {t("technologies_used")}:
+              </CardDescription>
+              <p className="text-sm text-gray-700">{t(technologiesKey)}</p>{" "}
+              {/* Localized technologies */}
+            </div>
+          </CardContent>
 
-        {/* Card Footer (Optional, if you have footer content) */}
-        <CardFooter>
-          {/* You can add additional footer content here if necessary */}
-        </CardFooter>
-      </Card>
-    </div>
+          {/* Card Footer (Optional) */}
+          <CardFooter className="mt-4">
+            {/* Footer content can be added here if necessary */}
+          </CardFooter>
+        </Card>
+      </div>
   );
 };
 

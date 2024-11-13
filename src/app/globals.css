@@ -218,10 +218,6 @@ body {
   pointer-events: none;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .App {
   text-align: center;
 }
@@ -399,7 +395,6 @@ html {
 }
 
 .orb {
-  position: fixed; /* Fixed positioning for orbs */
   border-radius: 50%;
 }
 

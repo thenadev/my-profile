@@ -1,4 +1,6 @@
-import { workStations } from "@/utils/work-stations";
+"use client";
+
+import { WorkStation, workStations } from "@/utils/work-stations";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
 import React from "react";
@@ -8,74 +10,68 @@ import {
   CardDescription,
   CardHeader,
   CardTitle,
-} from "../components/ui/card"; // Adjust import based on your file structure
+} from "@/components/ui/card";
 
 const WorkExperienceSection: React.FC = () => {
   const t = useTranslations("Work");
 
   return (
-    <div className="min-h-screen flex w-full z-20 relative" id="work">
-      <div className="pt-28 flex flex-col w-full mx-auto px-4 sm:px-8">
-        <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">
-          {t("title")}
-        </h2>
-        <div className="relative flex flex-col items-center">
-          <div className="absolute left-1/2 border-l-2 border-gray-300 h-full top-0 hidden md:block" />
-          <div className="flex flex-col w-full items-center relative">
-            {workStations.map((work, index) => (
-              <div
-                key={index}
-                className="mb-8 sm:mb-10 flex flex-col md:flex-row items-center justify-center relative w-full sm:w-5/6 lg:w-3/4"
-              >
-                <Card className="flex flex-col md:flex-row items-center md:items-start justify-between rounded-lg shadow-xl p-4 md:p-6 m-2 md:m-4 w-full bg-white z-30">
-                  <div className="w-full md:w-4/6 mb-4 md:mb-0">
-                    <CardHeader>
-                      <CardTitle className="text-xl sm:text-2xl font-semibold text-center md:text-left">
-                        <a href={work.link} target="_blank" rel="noreferrer">
-                          {t(work.company)}
-                        </a>
-                      </CardTitle>
-                      <CardDescription className="text-base sm:text-lg font-medium text-center md:text-left">
-                        {t(work.role)}
-                      </CardDescription>
-                    </CardHeader>
-                    <CardContent>
-                      <div className="flex flex-col md:flex-row items-center md:justify-between mb-2 text-center md:text-left">
-                        <p className="text-xs sm:text-sm text-gray-500">
-                          {t(work.duration)}
-                        </p>
+      <div className="min-h-screen flex w-full z-20 relative" id="work">
+        <div className="pt-20 flex flex-col w-full mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl font-bold mb-4 text-center">
+            {t("title")}
+          </h2>
+          <div className="relative flex flex-col items-center">
+            <div className="absolute left-1/2 border-l-2 border-gray-200 h-full top-0 hidden md:block" />
+            <div className="flex flex-col w-full items-center">
+              {workStations().map((work: WorkStation, index: number) => (
+                  <div
+                      key={index}
+                      className="mb-6 flex flex-col md:flex-row items-center relative w-full sm:w-4/5 lg:w-3/5"
+                  >
+                    <Card className="flex flex-col md:flex-row items-center rounded-md shadow-md p-3 md:p-4 w-full bg-white">
+                      <div className="w-full md:w-3/5 mb-3 md:mb-0">
+                        <CardHeader>
+                          <CardTitle className="text-lg sm:text-xl font-semibold text-center md:text-left">
+                            <a href={work.link} target="_blank" rel="noreferrer">
+                              {t(work.company)}
+                            </a>
+                          </CardTitle>
+                          <CardDescription className="text-sm text-gray-600 text-center md:text-left">
+                            {t(work.role)}
+                          </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                          <p className="text-xs text-gray-500 mb-2 text-center md:text-left">
+                            {t(work.duration)}
+                          </p>
+                          <ul className="list-disc list-inside text-gray-600 text-sm mb-2">
+                            {work.bulletpoints.map((bulletPoint: string, idx: number) => (
+                                <li key={idx}>{t(bulletPoint)}</li>
+                            ))}
+                          </ul>
+                        </CardContent>
                       </div>
-                      <div className="flex flex-col md:flex-row items-start">
-                        <ul className="list-disc list-inside text-gray-600 text-left text-sm sm:text-base mb-4 flex-1">
-                          {work.bulletpoints.map((bulletpoint, idx) => (
-                            <li key={idx}>{t(bulletpoint)}</li>
-                          ))}
-                        </ul>
-                      </div>
-                    </CardContent>
-                  </div>
 
-                  <div className="w-full h-full md:w-2/6 flex items-center justify-center z-40 cursor-pointer mb-4 md:mb-0">
-                    {work.image && (
-                      <div className="h-full flex items-center justify-center yw-3/4 sm:w-2/3 md:w-auto md:mr-8">
-                        <a href={work.link} target="_blank" rel="noreferrer">
-                          <Image
-                            src={work.image as StaticImageData}
-                            alt={`${t(work.company)} logo`}
-                            height={250}
-                            className="object-contain rounded-2xl shadow-2xl cursor-pointer" // Added cursor-pointer here
-                          />
-                        </a>
+                      <div className="w-full md:w-2/5 flex items-center justify-center">
+                        {work.image && (
+                            <a href={work.link} target="_blank" rel="noreferrer">
+                              <Image
+                                  src={work.image as StaticImageData}
+                                  alt={`${t(work.company)} logo`}
+                                  height={150}
+                                  className="object-contain rounded-md shadow-md"
+                              />
+                            </a>
+                        )}
                       </div>
-                    )}
+                    </Card>
                   </div>
-                </Card>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
-    </div>
   );
 };
 

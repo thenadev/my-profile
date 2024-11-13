@@ -1,6 +1,7 @@
 {
   "Navbar": {
     "home": "Home",
+    "services": "Services",
     "about": "About",
     "work": "Work",
     "projects": "Projects",
@@ -93,26 +94,26 @@
   "Projects": {
     "title": "My Projects",
     "technologies_used": "Technologies Used",
-    "planningPokerDescription": "A free Online Planning Poker Website",
+    "planningPokerDescription": "A free online planning poker platform for collaborative estimation and project planning.",
     "planningPokerTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
-    "myDexDescription": "A fully decentralized Exchange deployed on the Sepolia Testnet, including the Solidity smart contracts.",
+    "myDexDescription": "A fully decentralized exchange deployed on the Sepolia Testnet, featuring custom Solidity smart contracts for secure and efficient token trading.",
     "myDexTechnologies": "React, Solidity, Hardhat, Foundry",
-    "perionDashboardDescription": "A dashboard portfolio which grabs daily data for crypto prices and other relevant web3 meta data",
+    "perionDashboardDescription": "A personalized dashboard portfolio that collects and displays real-time cryptocurrency prices and relevant Web3 metadata.",
     "perionDashboardTechnologies": "React.js, TypeScript, APIs, Cron",
-    "portfolioDescription": "My portfolio website",
+    "portfolioDescription": "A modern portfolio website showcasing my projects, skills, and professional journey.",
     "portfolioTechnologies": "React, TypeScript, Tailwind",
+    "amselDescription": "An interactive website presenting the Amsel App, which combines regional product promotion with modern vending technology and sustainability.",
+    "amselTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
     "viewProject": "View Project",
     "viewSource": "View Source"
   },
   "Work": {
     "title": "Work Experience",
-
     "freelancerCompany": "Freelancer",
     "freelancerRole": "Fullstack Senior Developer | Testautomation | Android",
     "freelancerDuration": "Oct 2023 - Today",
     "freelancerLocation": "Wetzlar",
     "freelancerBullet1": "I am eager to expand my contributions in this area as I begin my journey and look forward to the valuable experiences ahead.",
-
     "amselCompany": "Amsel UG",
     "amselRole": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
     "amselDuration": "Jul 2023 - Today",
@@ -121,7 +122,6 @@
     "amselBullet2": "Extensive knowledge in the evaluation and implementation of new technologies",
     "amselBullet3": "Good understanding of Flutter framework and Dart programming",
     "amselBullet4": "Backend Development with Java / Spring-Boot",
-
     "vmCompany": "Valtech-Mobility GmbH",
     "vmRole": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
     "vmDuration": "Mar 2023 - Sep 2024",
@@ -129,7 +129,6 @@
     "vmBullet2": "Project management of consulting projects, including time planning and resource management",
     "vmBullet3": "Development of in-car apps with Android Automotive and Java/Kotlin",
     "vmBullet4": "Development of web applications with Angular and Typescript",
-
     "alcedisCompany": "Alcedis GmbH",
     "alcedisRole": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
     "alcedisDuration": "Jul 2020 - Feb 2023",
@@ -137,7 +136,6 @@
     "alcedisBullet2": "Integration of test automation into the development process",
     "alcedisBullet3": "3 years of experience in the development of web applications with HTML, CSS, Laravel, PHP, React, TypeScript, Docker",
     "alcedisBullet4": "Experience in implementing and managing containers with Docker and Kubernetes.",
-
     "alcedisTesterCompany": "Alcedis GmbH",
     "alcedisTesterRole": "Software tester",
     "alcedisTesterDuration": "Jun 2018 - Jul 2020",
@@ -145,6 +143,150 @@
     "alcedisTesterBullet2": "Execution of manual functional and regression tests",
     "alcedisTesterBullet3": "Development and maintenance of automated test scripts for web applications",
     "alcedisTesterBullet4": "Collaborating with developers and other stakeholders to analyze errors"
+  },
+  "Services": {
+    "title": "Service Packages",
+    "websiteDescription": "Your new website: fast, beautiful, and perfectly tailored to your target audience.",
+    "appDescription": "Discover how we transform your vision into impressive apps.",
+    "wordPressDescription": "From installation to optimization: Everything from a single source for your WordPress site.",
+    "freelance": {
+      "title": "Professional Support on a Project Basis",
+      "description": "As a versatile freelancer, I bring not only technical expertise but also strong communication and adaptability skills. Whether it's developing modern websites, optimizing existing systems, or implementing creative solutions – I deliver results-oriented and efficient work.",
+      "skillsTitle": "My Key Strengths at a Glance",
+      "skills": {
+        "communication": "Excellent communication skills: Clear, precise, and client-oriented",
+        "adaptability": "High adaptability: Flexible solutions for individual requirements",
+        "skillset": "Broad skillset: From frontend development to performance optimization"
+      },
+      "benefitsTitle": "Benefits for Your Business",
+      "benefits": {
+        "fastDelivery": "Quick implementation and on-time delivery",
+        "creativeSolutions": "Tailored and creative solutions for your projects",
+        "costEfficiency": "Cost-efficient results without compromising quality"
+      }
+    },
+    "websiteRedesign": {
+      "title": "Web Redesign, UX & SEO Optimization",
+      "technologiesTitle": "Technologies:",
+      "technologies": {
+        "angular": "Angular – Modern framework for dynamic web applications",
+        "react": "React.js – Component-based UI development",
+        "next": "Next.js – Server-side rendering and SEO optimization",
+        "nest": "Nest.js – High-performance backend for modern applications",
+        "typescript": "TypeScript – Type-safe JavaScript for reliable code",
+        "google": "Google Analytics – Analysis of user behavior and performance",
+        "hotjar": "Hotjar – Heatmaps and user recordings for better UX",
+        "semrush": "SEMrush – All-in-one SEO and content marketing tool",
+        "mailchimp": "Mailchimp – Email marketing and automation"
+      },
+      "conclusion": "Here are some before-and-after images; hover over the images to see the old design.",
+      "description": "With my Web Redesign, UX & SEO Optimization package, I breathe new life into your website. I modernize your existing site, make it more visually appealing, and improve user experience (UX). My goal is to design user navigation so that your visitors can intuitively and quickly find the content they need. Through clear structures, appealing design, and well-thought-out navigation, I ensure that users feel comfortable on your site and achieve their goals efficiently.",
+      "description2": "Additionally, I optimize search engine friendliness (SEO) to make your site more visible in search results. This increases your reach and helps you target your audience effectively. I also use heatmaps to continuously analyze user behavior. These allow me to see which areas of your site are heavily used and where users might encounter difficulties. Based on these insights, I continuously adapt the site to provide an optimal user experience.",
+      "description3": "Through targeted measures, I not only enhance the attractiveness of your site but also its discoverability and customer satisfaction – for long-term online success.",
+      "keyBenefits": "Key Benefits for Your Business",
+      "benefits": {
+        "design": "Modern, contemporary, and professional design that perfectly represents your brand.",
+        "collaboration": "Long-term collaboration for continuous updates and adjustments.",
+        "cms": "Integration of a",
+        "cmsTooltipLabel": "CMS",
+        "cmsTooltipLabel2": "system, enabling you to independently customize your website content without programming knowledge.",
+        "cmsTooltip1": "A CMS like ",
+        "cmsTooltip2": "FireCMS",
+        "cmsTooltip3": "or",
+        "cmsTooltip4": "Storyblok",
+        "cmsTooltip5": "allows you to easily add, edit, update, and publish content – all without programming knowledge."
+      },
+      "beforeImageAlt": "Previous Design",
+      "afterImageAlt": "Updated Design",
+      "arrowTooltip": "Transformation to a modern design",
+      "testimonial": {
+        "text": "Thanks to the redesign, our website now has a completely new look, and our customers interact much more frequently with our offerings. The collaboration was professional and efficient.",
+        "author": "– Amsel UG"
+      }
+    },
+    "appDevelopment": {
+      "title": "Mobile App Development",
+      "whyChooseMe": "I offer both hybrid app development with Flutter and native Android development. Using modern technologies and tailored solutions, I enable you to reach your audience across multiple platforms – efficiently and effectively.",
+      "benefitsTitle": "Your Key Advantages at a Glance",
+      "exampleDesigns": "Example Designs",
+      "intro": {
+        "androidTitle": "Android Automotive",
+        "androidDescription1": "With years of experience in mobile app development, I help businesses create modern and high-performance applications. My work includes native ",
+        "androidDescription2": "Android Automotive apps",
+        "androidDescription3": " for renowned brands like ",
+        "androidDescription4": "Porsche",
+        "androidDescription5": " and ",
+        "androidDescription6": "Audi",
+        "androidDescription7": " that meet the highest standards for performance and user experience.",
+        "androidDescription8": "",
+        "androidTechnologiesTitle": "Technologies:",
+        "androidTechnologies": {
+          "gradle": "Gradle – Build management tool",
+          "daggerHilt": "Dependency Injection – Dagger & Hilt",
+          "koin": "Dependency Injection – Koin",
+          "animations": "Custom Animations – User-defined animations",
+          "ui": "UI Development – Jetpack Compose"
+        },
+        "flutterTitle": "Flutter Development",
+        "flutterDescription1": "In addition, I have developed ",
+        "flutterDescription2": "Flutter",
+        "flutterDescription3": " hybrid apps that run across Android and iOS. A highlight is the app for the consensus procedure of an HPV study, as well as projects like the ",
+        "flutterDescription4": "Amsel App",
+        "flutterDescription5": " and BodyForge, which I fully implemented. These applications combine intuitive user interfaces, modern design, and technically advanced features.",
+        "flutterTechnologiesTitle": "Technologies:",
+        "flutterTechnologies": {
+          "routing": "Routing – GoRouter & auto_route",
+          "state": "State Management – BLoC Pattern",
+          "animations": "Custom Animations – User-defined animations",
+          "dj": "Dependency Injection – get_it & Provider"
+        },
+        "conclusion": "Let’s work together to transform your vision into an app that excites your audience and drives your business forward."
+      },
+      "examples": "Examples of My Work",
+      "screenshot": {
+        "amselAppLogin": "Amsel App – Login Screen",
+        "amselAppCheckout": "Amsel App – Payment Screen",
+        "amselAppSettings": "Amsel App – Settings Screen",
+        "bodyForgeDashboard": "BodyForge – Dashboard",
+        "bodyForgeWorkout": "BodyForge – Workout Tracking",
+        "bodyForgeNutrition": "BodyForge – Nutrition Tracking"
+      },
+      "benefit": {
+        "hybridDevelopment": "Hybrid development with Flutter – one app, multiple platforms.",
+        "nativeDevelopment": "Native Android development for optimal performance and hardware access.",
+        "fastPerformance": "Fast loading times and powerful features for exceptional user experiences.",
+        "scalableArchitecture": "Scalable and maintainable architecture – ready for the future.",
+        "modernIntegration": "Integration of modern features such as push notifications and APIs.",
+        "userFocus": "Focus on intuitive designs for maximum user satisfaction."
+      }
+    },
+    "wordpressDevelopment": {
+      "title": "WordPress Development",
+      "description3": "Let’s elevate your WordPress website to the next level – for better performance, more visitors, and satisfied customers. Contact me now!",
+      "description": "I help you turn your WordPress website into an impressive and powerful tool for your business. From customized designs to the integration of popular plugins – my expertise ensures results that will amaze you.",
+      "popularPluginsTitle": "Popular Plugins I Integrate for You",
+      "keyBenefitsTitle": "Benefits for Your Business",
+      "popularPlugins": {
+        "yoast": "Yoast SEO – Optimization for better rankings",
+        "woocommerce": "WooCommerce – Comprehensive e-commerce solutions",
+        "sliderRevolution": "Slider Revolution – Visually appealing sliders",
+        "contactForm": "Contact Form 7 – Simple and effective contact forms"
+      },
+      "keyBenefits": {
+        "optimizedTemplates": "+50% faster loading times through optimized templates",
+        "betterSEO": "+70% better SEO rankings through intelligent plugin integration",
+        "responsiveDesigns": "+30% conversion rate increase with responsive and modern designs"
+      }
+    },
+    "close": "Close",
+    "learnMore": "Learn More",
+    "before": "Before",
+    "after": "After",
+    "keyBenefits": "Your Benefits",
+    "benefitsNumbers": "Benefits in Numbers",
+    "exampleDesigns": "Example Designs",
+    "beforeImageAlt": "Before image of the website",
+    "afterImageAlt": "After image of the website"
   },
   "Privacy": {
     "title": "Privacy Policy",

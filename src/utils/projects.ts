@@ -1,4 +1,4 @@
-import AmselLogo from "../assets/amsel_logo.jpg";
+import AmselLogo from "../assets/amsel-website.png";
 import MyDexLogo from "../assets/mydex.png";
 import PerionDashboard from "../assets/perion_dashboard.png";
 import PlanningPoker from "../assets/planning-poker.png";
@@ -11,6 +11,13 @@ export const projects = [
     descriptionKey: "planningPokerDescription",
     technologiesKey: "planningPokerTechnologies",
     livePreviewLink: "https://www.online-planning-poker.de/",
+  },
+  {
+    id: 1,
+    image: AmselLogo,
+    descriptionKey: "amselDescription",
+    technologiesKey: "amselTechnologies",
+    livePreviewLink: "https://www.amsel-store.de/",
   },
   {
     id: 2,
@@ -38,11 +45,11 @@ export const projects = [
   },
 ];
 
-  // {
-  //   id: 1,
-  //   image: AmselLogo,
-  //   description:
-  //     "A hybrid Webapp for searching/buying farmer and vending machine products.",
-  //   technologies: "Flutter, Firebase, TypeScript, APIs",
-  //   livePreviewLink: "https://amsel-ths.web.app/#/",
-  // },
+// {
+//   id: 1,
+//   image: AmselLogo,
+//   description:
+//     "A hybrid Webapp for searching/buying farmer and vending machine products.",
+//   technologies: "Flutter, Firebase, TypeScript, APIs",
+//   livePreviewLink: "https://amsel-ths.web.app/#/",
+// },

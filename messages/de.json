@@ -1,8 +1,9 @@
 {
   "Navbar": {
     "home": "Startseite",
+    "services": "Leistungspakete",
     "about": "Über mich",
-    "work": "Arbeit",
+    "work": "Berufserfahrung",
     "projects": "Projekte",
     "documents": "Dokumente",
     "contact": "Kontakt"
@@ -93,26 +94,26 @@
   "Projects": {
     "title": "Meine Projekte",
     "technologies_used": "Verwendete Technologien",
-    "planningPokerDescription": "Eine kostenlose Online Planning Poker Website",
+    "planningPokerDescription": "Eine kostenlose Online-Planning-Poker-Plattform für kollaborative Schätzungen und Projektplanung.",
     "planningPokerTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
-    "myDexDescription": "Eine vollständig dezentrale Börse, die auf dem Sepolia Testnet bereitgestellt wird, einschließlich der Solidity-Smart-Contracts.",
+    "myDexDescription": "Eine vollständig dezentrale Börse, die auf dem Sepolia Testnet bereitgestellt wird. Enthält selbstentwickelte Solidity-Smart-Contracts für den sicheren und effizienten Tokenhandel.",
     "myDexTechnologies": "React, Solidity, Hardhat, Foundry",
-    "perionDashboardDescription": "Ein Dashboard-Portfolio, das täglich Daten zu Kryptopreisen und anderen relevanten Web3-Metadaten abruft",
+    "perionDashboardDescription": "Ein personalisiertes Dashboard-Portfolio, das Echtzeitdaten zu Kryptowährungen und relevanten Web3-Metadaten sammelt und ansprechend darstellt.",
     "perionDashboardTechnologies": "React.js, TypeScript, APIs, Cron",
-    "portfolioDescription": "Meine Portfolio-Website",
+    "portfolioDescription": "Eine moderne Portfolio-Website, die meine Projekte, Fähigkeiten und berufliche Reise präsentiert.",
     "portfolioTechnologies": "React, TypeScript, Tailwind",
+    "amselDescription": "Eine interaktive Website zur Präsentation der Amsel App, die regionale Produkte über moderne Automatentechnologie und Nachhaltigkeit verbindet.",
+    "amselTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
     "viewProject": "Projekt ansehen",
     "viewSource": "Quelle ansehen"
   },
   "Work": {
     "title": "Berufserfahrung",
-
     "freelancerCompany": "Freelancer",
     "freelancerRole": "Fullstack Senior Developer | Testautomation | Android",
     "freelancerDuration": "Okt 2023 - Heute",
     "freelancerLocation": "Wetzlar",
     "freelancerBullet1": "Da ich gerade erst starte, freue ich mich darauf, meine Beiträge in diesem Bereich in sehr naher Zukunft erweitern zu können",
-
     "amselCompany": "Amsel UG",
     "amselRole": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
     "amselDuration": "Jul 2023 - Heute",
@@ -121,7 +122,6 @@
     "amselBullet2": "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
     "amselBullet3": "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
     "amselBullet4": "Backend Entwicklung mit Java / Spring-Boot",
-
     "vmCompany": "Valtech-Mobility GmbH",
     "vmRole": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
     "vmDuration": "Mär 2023 - Sep 2024",
@@ -129,7 +129,6 @@
     "vmBullet2": "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
     "vmBullet3": "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
     "vmBullet4": "Entwicklung von Webanwendungen mit Angular in TypeScript",
-
     "alcedisCompany": "Alcedis GmbH",
     "alcedisRole": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
     "alcedisDuration": "Jul 2020 - Feb 2023",
@@ -137,7 +136,6 @@
     "alcedisBullet2": "Integration von Testautomatisierung in den Entwicklungsprozess",
     "alcedisBullet3": "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
     "alcedisBullet4": "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes",
-
     "alcedisTesterCompany": "Alcedis GmbH",
     "alcedisTesterRole": "Software tester",
     "alcedisTesterDuration": "Jun 2018 - Jul 2020",
@@ -145,6 +143,150 @@
     "alcedisTesterBullet2": "Durchführung von manuellen Funktions- und Regressionstests",
     "alcedisTesterBullet3": "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
     "alcedisTesterBullet4": "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
+  },
+  "Services": {
+    "title": "Leistungspakete",
+    "websiteDescription": "Ihre neue Website: schnell, schön und perfekt auf Ihre Zielgruppe abgestimmt.",
+    "appDescription": "Entdecken Sie, wie wir Ihre Vision in beeindruckende Apps verwandeln.",
+    "wordPressDescription": "Von der Installation bis zur Optimierung: Alles aus einer Hand für Ihre WordPress-Seite.",
+    "freelance": {
+      "title": "Professionelle Unterstützung auf Projektbasis",
+      "description": "Als vielseitiger Freelancer bringe ich nicht nur technisches Know-how, sondern auch starke Kommunikations- und Anpassungsfähigkeiten mit. Ob es um die Entwicklung moderner Websites, die Optimierung bestehender Systeme oder die Umsetzung kreativer Lösungen geht – ich liefere ergebnisorientiert und effizient.",
+      "skillsTitle": "Meine Stärken auf einen Blick",
+      "skills": {
+        "communication": "Exzellente Kommunikationsfähigkeit: Klar, präzise und kundenorientiert",
+        "adaptability": "Hohe Anpassungsfähigkeit: Flexible Lösungen für individuelle Anforderungen",
+        "skillset": "Breites Skillset: Von Frontend-Entwicklung bis hin zu Performance-Optimierung"
+      },
+      "benefitsTitle": "Vorteile für Ihr Unternehmen",
+      "benefits": {
+        "fastDelivery": "Schnelle Umsetzung und pünktliche Lieferung",
+        "creativeSolutions": "Individuelle und kreative Lösungen für Ihre Projekte",
+        "costEfficiency": "Kosteneffiziente Ergebnisse ohne Kompromisse bei der Qualität"
+      }
+    },
+    "websiteRedesign": {
+      "title": "WebRedesign, UX- & SEO-Optimierung",
+      "technologiesTitle": "Technologien:",
+      "technologies": {
+        "angular": "Angular – Modernes Framework für dynamische Webanwendungen",
+        "react": "React.js – Component-Based UI Development",
+        "next": "Next.js – Server-Side Rendering und SEO-Optimierung",
+        "nest": "Nest.js – Performantes Backend für moderne Anwendungen",
+        "typescript": "TypeScript – Typensicheres JavaScript für zuverlässigen Code",
+        "google": "Google Analytics – Analyse von Benutzerverhalten und Performance",
+        "hotjar": "Hotjar – Heatmaps und Benutzeraufzeichnung für bessere UX",
+        "semrush": "SEMrush – All-in-One SEO- und Content-Marketing-Tool",
+        "mailchimp": "Mailchimp – E-Mail-Marketing und Automatisierung"
+      },
+      "conclusion": "Hier sind einige Vorher-Nachher-Bilder, bewegen Sie die Maus über die Bilder, um das alte Design zu sehen.",
+      "description": "Mit meinem WebRedesign, UX- & SEO-Optimierung Paket verleihe ich Ihrer Website neuen Schwung. Ich modernisiere Ihre bestehende Website, mache sie visuell ansprechender und optimiere die Benutzerfreundlichkeit (UX). Ziel ist es, die Nutzerführung so zu gestalten, dass Ihre Besucher intuitiv und zügig die für sie wichtigen Inhalte finden. Durch klare Strukturen, ansprechendes Design und eine durchdachte Navigation sorge ich dafür, dass die Nutzer sich auf Ihrer Website wohlfühlen und ihre Ziele effizient erreichen.",
+      "description2": "Darüber hinaus optimiere ich die Suchmaschinenfreundlichkeit (SEO), damit Ihre Website in den Suchergebnissen besser sichtbar wird. Dies steigert die Reichweite und hilft Ihnen, Ihre Zielgruppe gezielt anzusprechen. Ergänzend setze ich Heatmaps ein, um das Nutzerverhalten kontinuierlich zu analysieren. Diese ermöglichen es mir, genau zu sehen, welche Bereiche Ihrer Website besonders stark genutzt werden und wo die Nutzer möglicherweise Schwierigkeiten haben. Anhand dieser Erkenntnisse passe ich die Website laufend an, um eine optimale Benutzererfahrung zu gewährleisten.",
+      "description3": "Durch gezielte Maßnahmen steigere ich nicht nur die Attraktivität Ihrer Website, sondern auch deren Auffindbarkeit und die Zufriedenheit Ihrer Kunden – für einen langfristigen Erfolg im Netz.",
+      "keyBenefits": "Wichtige Vorteile für Ihr Unternehmen",
+      "benefits": {
+        "design": "Modernes, zeitgemäßes und professionelles Design, das Ihre Marke perfekt repräsentiert.",
+        "collaboration": "Langfristige Zusammenarbeit für kontinuierliche Updates und Anpassungswünsche.",
+        "cms": "Integration von einem",
+        "cmsTooltipLabel": "CMS",
+        "cmsTooltipLabel2": "System, damit Sie den Inhalt Ihrer Website eigenständig ohne Programmierkenntnisse anpassen können.",
+        "cmsTooltip1": "Ein CMS wie ",
+        "cmsTooltip2": "FireCMS",
+        "cmsTooltip3": "oder",
+        "cmsTooltip4": "Storyblok",
+        "cmsTooltip5": "ermöglicht es Ihnen, Inhalte einfach hinzuzufügen, zu bearbeiten, zu aktualisieren und zu veröffentlichen – alles ohne Programmierkenntnisse."
+      },
+      "beforeImageAlt": "Vorheriges Design",
+      "afterImageAlt": "Nachheriges Design",
+      "arrowTooltip": "Transformation zum modernen Design",
+      "testimonial": {
+        "text": "Dank des Redesigns hat unsere Website einen komplett neuen Look erhalten, und unsere Kunden interagieren jetzt viel häufiger mit unseren Angeboten. Die Zusammenarbeit war professionell und effizient.",
+        "author": "– Amsel UG"
+      }
+    },
+    "appDevelopment": {
+      "title": "Mobile App Entwicklung",
+      "whyChooseMe": "Ich biete sowohl hybride App-Entwicklung mit Flutter als auch native Android-Entwicklung an. Durch moderne Technologien und maßgeschneiderte Lösungen ermögliche ich Ihnen, Ihre Zielgruppe auf mehreren Plattformen zu erreichen – effizient und leistungsstark.",
+      "benefitsTitle": "Ihre Vorteile auf einen Blick",
+      "exampleDesigns": "Beispielhafte Designs",
+      "intro": {
+        "androidTitle": "Android Automotive",
+        "androidDescription1": "Mit jahrelanger Erfahrung in der Entwicklung mobiler Apps unterstütze ich Unternehmen dabei, moderne und leistungsstarke Anwendungen zu realisieren. Meine Arbeit umfasst native ",
+        "androidDescription2": "Android Automotive Apps",
+        "androidDescription3": " für renommierte Marken wie ",
+        "androidDescription4": "Porsche ",
+        "androidDescription5": "und ",
+        "androidDescription6": "Audi",
+        "androidDescription7": "die den höchsten Ansprüchen an Performance und Benutzererlebnis gerecht",
+        "androidDescription8": "werden.",
+        "androidTechnologiesTitle": "Technologien:",
+        "androidTechnologies": {
+          "gradle": "Gradle – Build-Management-Tool",
+          "daggerHilt": "Dependency Injection – Dagger & Hilt",
+          "koin": "Dependency Injection - Koin",
+          "animations": "Custom Animations – Benutzerdefinierte Animationen",
+          "ui": "UI-Entwicklung - Jetpack Compose"
+        },
+        "flutterTitle": "Flutter Entwicklung",
+        "flutterDescription1": "Darüber hinaus habe ich mit ",
+        "flutterDescription2": "Flutter",
+        "flutterDescription3": " hybride Apps entwickelt, die plattformübergreifend auf Android und iOS eingesetzt werden können. Ein Highlight ist die App für das Einstimmungsverfahren einer HPV Studie, sowie Projekte wie die ",
+        "flutterDescription4": "Amsel App",
+        "flutterDescription5": " und BodyForge, die ich vollständig umgesetzt habe. Diese Anwendungen vereinen intuitive Benutzeroberflächen, modernes Design und technisch fortschrittliche\n Funktionen.",
+        "flutterTechnologiesTitle": "Technologien:",
+        "flutterTechnologies": {
+          "routing": "Routing - GoRouter & auto_route",
+          "state": "State Management - BLoC Pattern",
+          "animations": "Custom Animations – Benutzerdefinierte Animationen",
+          "dj": "Dependency Injection – get_it & Provider"
+          },
+        "conclusion": "Lassen Sie uns gemeinsam Ihre Vision in eine App umsetzen, die Ihre Zielgruppe begeistert und Ihr Unternehmen voranbringt."
+      },
+      "examples": "Beispiele meiner Arbeit",
+      "screenshot": {
+        "amselAppLogin": "Amsel App – Login Screen",
+        "amselAppCheckout": "Amsel App – Payment Screen",
+        "amselAppSettings": "Amsel App – Settings Screen",
+        "bodyForgeDashboard": "BodyForge – Dashboard",
+        "bodyForgeWorkout": "BodyForge – Workout Tracking",
+        "bodyForgeNutrition": "BodyForge – Nutrition Tracking"
+      },
+      "benefit": {
+        "hybridDevelopment": "Hybride Entwicklung mit Flutter – eine App, mehrere Plattformen.",
+        "nativeDevelopment": "Native Android-Entwicklung für optimale Performance und Hardwarezugriff.",
+        "fastPerformance": "Schnelle Ladezeiten und leistungsstarke Features für herausragende Nutzererlebnisse.",
+        "scalableArchitecture": "Skalierbare und wartungsfreundliche Architektur – bereit für die Zukunft.",
+        "modernIntegration": "Integration moderner Features wie Push-Benachrichtigungen und APIs.",
+        "userFocus": "Fokus auf intuitive Designs für maximale Nutzerzufriedenheit."
+      }
+    },
+    "wordpressDevelopment": {
+      "title": "Wordpress Entwicklung",
+      "description3": "Lassen Sie uns Ihre WordPress-Website auf das nächste Level bringen – für bessere Performance, mehr Besucher und zufriedene Kunden. Nehmen Sie jetzt Kontakt auf!",
+      "description": "Ich helfe Ihnen, Ihre WordPress-Website zu einem beeindruckenden und leistungsstarken Tool für Ihr Unternehmen zu machen. Von maßgeschneiderten Designs bis hin zur Integration beliebter Plugins – meine Expertise garantiert Ihnen Ergebnisse, die begeistern.",
+      "popularPluginsTitle": "Beliebte Plugins, die ich für Sie integriere",
+      "keyBenefitsTitle": "Vorteile für Ihr Unternehmen",
+      "popularPlugins": {
+        "yoast": "Yoast SEO – Optimierung für bessere Rankings",
+        "woocommerce": "WooCommerce – Umfassende E-Commerce-Lösungen",
+        "sliderRevolution": "Slider Revolution – Visuell ansprechende Slider",
+        "contactForm": "Contact Form 7 – Einfache und effektive Kontaktformulare"
+      },
+      "keyBenefits": {
+        "optimizedTemplates": "+50% schnellere Ladezeiten durch optimierte Templates",
+        "betterSEO": "+70% bessere SEO-Rankings durch intelligente Plugin-Integration",
+        "responsiveDesigns": "+30% Conversion-Rate durch responsive und moderne Designs"
+      }
+    },
+    "close": "Schließen",
+    "learnMore": "Mehr Erfahren",
+    "before": "Vorher",
+    "after": "Nachher",
+    "keyBenefits": "Ihre Vorteile",
+    "benefitsNumbers": "Nutzen in Zahlen",
+    "exampleDesigns": "Beispielhafte Designs",
+    "beforeImageAlt": "Vorher Bild der Webseite",
+    "afterImageAlt": "Nachher Bild der Webseite"
   },
   "Privacy": {
     "title": "Datenschutzerklärung",

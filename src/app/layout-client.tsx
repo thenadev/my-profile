@@ -14,8 +14,11 @@ export default function ClientLayout({
 }) {
   const [showCookieConsent, setShowCookieConsent] = useState<boolean>(true);
 
-  const TRACKING_ID = "G-63C2KDFQHT";
-  ReactGA.initialize(TRACKING_ID);
+  // Only run this in production
+  if (process.env.NODE_ENV === "production") {
+    const TRACKING_ID = "G-63C2KDFQHT";
+    ReactGA.initialize(TRACKING_ID);
+  }
 
   useEffect(() => {
     // Set the initial locale from the cookie

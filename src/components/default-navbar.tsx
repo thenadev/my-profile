@@ -10,6 +10,7 @@ const Navbar = () => {
   const t = useTranslations("Navbar"); 
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
@@ -23,6 +24,13 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -62,23 +70,37 @@ const Navbar = () => {
           <Logo />
 
           <ul className="hidden md:flex space-x-4 text-base font-semibold cursor-pointer">
-            {["home", "about", "work", "projects", "documents", "contact"].map(
-              (section) => (
-                <li key={section} className="hover:bg-gray-200 py-2 px-4">
-                  <Link
-                    href={`/#${section}`}
-                    onClick={() => scrollToSection(section)}
-                  >
-                    {t(section)}
-                  </Link>
-                </li>
-              )
+            {[
+              "home",
+              ...(!isMobile ? ["services"] : []),
+              "about",
+              "work",
+              "projects",
+              "contact",
+            ].map(
+                (section) => (
+                    <li key={section} className="hover:bg-gray-200 py-2 px-4">
+                      <Link
+                          href={`/#${section}`}
+                          onClick={() => scrollToSection(section)}
+                      >
+                        {t(section)}
+                      </Link>
+                    </li>
+                )
             )}
+            <li key="documents" className="hover:bg-gray-200 py-2 px-4">
+              <Link
+                  href={`/documents`}
+              >
+                {t("documents")}
+              </Link>
+            </li>
           </ul>
 
           <button
-            className="block md:hidden py-3 px-4 rounded focus:outline-none hover:bg-gray-200"
-            onClick={toggleMenu}
+              className="block md:hidden py-3 px-4 rounded focus:outline-none hover:bg-gray-200"
+              onClick={toggleMenu}
           >
             <div className="w-5 h-1 bg-gray-600 mb-1"></div>
             <div className="w-5 h-1 bg-gray-600 mb-1"></div>
