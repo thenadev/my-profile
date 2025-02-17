@@ -42,11 +42,6 @@ const SiteFooter = () => {
                 {t("imprint")}
               </a>
             </Link>
-            <Link href="/contact" passHref legacyBehavior>
-              <a className="hover:text-blue-400 transition-colors duration-200 text-sm sm:text-base">
-                {t("contact")}
-              </a>
-            </Link>
           </div>
         </div>
 

@@ -7,15 +7,10 @@ import ProjectsSection from "@/sections/projects-section";
 import ServicesSection from "@/sections/services-section";
 import WorkExperienceSection from "@/sections/work-experience-section";
 import React, {useEffect, useState} from "react";
-import ReactGA from "react-ga4";
 import "./globals.css";
 
 const HomePage: React.FC = () => {
     const [isMobile, setIsMobile] = useState(false);
-
-  if (process.env.NODE_ENV === "production") {
-    ReactGA.send("pageview");
-  }
 
     useEffect(() => {
         const handleResize = () => {
