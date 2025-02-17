@@ -12,6 +12,9 @@ export const metadata = {
   author: "Thomas Schwabauer",
   keywords:
     "thomas schwabauer, freelancer, senior fullstack developer, testautomation, android, flutter, scrum, android, ios, react, angular, nestjs, nextjs, java, typescript, javascript, mobile development, web development, software engineering, agile, devops, ci/cd, testing, quality assurance, consulting, fullstack, backend, frontend, cross-platform, cloud computing, aws, azure",
+  alternates: {
+    canonical: "https://www.thomas-schwabauer.de"
+  },
 };
 
 export default async function RootLayout({
