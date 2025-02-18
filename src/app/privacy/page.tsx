@@ -120,7 +120,6 @@ const PrivacyPage: React.FC = () => {
               </h2>
               <p className="mb-4">
                 {t("contactUsText")}
-
                 <a
                   href={`mailto:${siteConfig.contactEmail}`}
                   className="text-blue-500 underline hover:text-blue-700"

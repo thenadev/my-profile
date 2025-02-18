@@ -14,10 +14,6 @@ export const metadata = {
     "thomas schwabauer, freelancer, senior fullstack developer, testautomation, android, flutter, scrum, android, ios, react, angular, nestjs, nextjs, java, typescript, javascript, mobile development, web development, software engineering, agile, devops, ci/cd, testing, quality assurance, consulting, fullstack, backend, frontend, cross-platform, cloud computing, aws, azure",
   alternates: {
     canonical: "https://www.thomas-schwabauer.de",
-    languages: {
-      de: "https://www.thomas-schwabauer.de/de",
-      en: "https://www.thomas-schwabauer.de/en",
-    },
   },
   openGraph: {
     type: "website",
