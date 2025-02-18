@@ -6,12 +6,27 @@ import "./globals.css";
 import ClientLayout from "./layout-client";
 
 export const metadata = {
-  title: "Thomas Schwabauer",
+  title: {
+    default:
+      "Thomas Schwabauer - Fullstack Developer | React, Flutter & Angular",
+    template: "%s | Thomas Schwabauer - React, Flutter & Angular",
+  },
   description:
-    "Freelancer | Senior Fullstack Entwickler | Web & Mobile (Java, Flutter, Android, Angular, React, NestJS, NextJS)",
+    "Senior Fullstack Developer & Freelancer aus Wetzlar. React.js | Flutter | Angular | Java | Spezialisiert auf Web- & Mobile-Entwicklung. ✓ 5+ Jahre Erfahrung ✓ Agile Entwicklung",
   author: "Thomas Schwabauer",
-  keywords:
-    "thomas schwabauer, freelancer, senior fullstack developer, testautomation, android, flutter, scrum, android, ios, react, angular, nestjs, nextjs, java, typescript, javascript, mobile development, web development, software engineering, agile, devops, ci/cd, testing, quality assurance, consulting, fullstack, backend, frontend, cross-platform, cloud computing, aws, azure",
+  keywords: [
+    "fullstack entwickler",
+    "freelancer",
+    "webentwicklung",
+    "mobile app entwicklung",
+    "react entwickler",
+    "flutter entwickler",
+    "angular entwickler",
+    "java entwickler",
+    "software engineering",
+    "wetzlar",
+    "frankfurt",
+  ].join(", "),
   alternates: {
     canonical: "https://www.thomas-schwabauer.de",
   },
@@ -20,16 +35,16 @@ export const metadata = {
     locale: "de_DE",
     alternateLocale: ["en_US"],
     url: "https://www.thomas-schwabauer.de",
-    siteName: "Thomas Schwabauer - Fullstack Developer",
-    title: "Thomas Schwabauer - Senior Fullstack Developer",
+    siteName: "Thomas Schwabauer - Fullstack Development",
+    title: "Thomas Schwabauer - React, Flutter & Angular Developer",
     description:
-      "Freelancer | Senior Fullstack Entwickler | Web & Mobile (Java, Flutter, Android, Angular, React, NestJS, NextJS)",
+      "Senior Fullstack Developer & Freelancer aus Wetzlar. Experte für React.js, Flutter & Angular. Moderne Webanwendungen & Mobile Apps. Kontaktieren Sie mich für Ihr nächstes Projekt!",
     images: [
       {
         url: "/me-laptop.jpg",
         width: 600,
         height: 600,
-        alt: "Thomas Schwabauer - Fullstack Developer Portfolio",
+        alt: "Thomas Schwabauer - React, Flutter & Angular Developer aus Wetzlar",
       },
     ],
   },
@@ -37,8 +52,9 @@ export const metadata = {
     card: "summary_large_image",
     site: "@ThenaDev",
     creator: "@ThenaDev",
-    title: "Thomas Schwabauer - Senior Fullstack Developer",
-    description: "Freelancer | Senior Fullstack Entwickler | Web & Mobile",
+    title: "Thomas Schwabauer - React, Flutter & Angular Developer",
+    description:
+      "Web & Mobile Entwicklung | ⚡ React.js ⚡ Flutter ⚡ Angular | Freelancer aus Wetzlar",
     images: ["/me-laptop.jpg"],
   },
 };

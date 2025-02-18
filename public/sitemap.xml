@@ -4,7 +4,7 @@
     <!-- Hauptseiten -->
     <url>
         <loc>https://www.thomas-schwabauer.de/</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-02-18</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
@@ -12,14 +12,14 @@
     <!-- Rechtliche Seiten -->
     <url>
         <loc>https://www.thomas-schwabauer.de/imprint</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-02-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
 
     <url>
         <loc>https://www.thomas-schwabauer.de/privacy</loc>
-        <lastmod>2024-03-20</lastmod>
+        <lastmod>2025-02-18</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.3</priority>
     </url>
