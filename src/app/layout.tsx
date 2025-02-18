@@ -7,12 +7,11 @@ import ClientLayout from "./layout-client";
 
 export const metadata = {
   title: {
-    default:
-      "Thomas Schwabauer - Fullstack Developer aus Wetzlar | React, Flutter & Angular",
+    default: "Thomas Schwabauer - Fullstack Developer aus Wetzlar",
     template: "%s | Thomas Schwabauer - Fullstack Developer Wetzlar",
   },
   description:
-    "Senior Fullstack Developer & Freelancer aus Wetzlar (Hessen). React.js | Flutter | Angular | Java | Spezialisiert auf Web- & Mobile-Entwicklung. ✓ 5+ Jahre Erfahrung ✓ Agile Entwicklung",
+    "Senior Fullstack Developer & Freelancer aus Wetzlar (Hessen). React.js | Flutter | Angular | Java | Spezialisiert auf Web- & Mobile-Entwicklung.",
   author: "Thomas Schwabauer",
   keywords: [
     "fullstack entwickler wetzlar",
