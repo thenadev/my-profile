@@ -14,6 +14,36 @@ export const metadata = {
     "thomas schwabauer, freelancer, senior fullstack developer, testautomation, android, flutter, scrum, android, ios, react, angular, nestjs, nextjs, java, typescript, javascript, mobile development, web development, software engineering, agile, devops, ci/cd, testing, quality assurance, consulting, fullstack, backend, frontend, cross-platform, cloud computing, aws, azure",
   alternates: {
     canonical: "https://www.thomas-schwabauer.de",
+    languages: {
+      de: "https://www.thomas-schwabauer.de/de",
+      en: "https://www.thomas-schwabauer.de/en",
+    },
+  },
+  openGraph: {
+    type: "website",
+    locale: "de_DE",
+    alternateLocale: ["en_US"],
+    url: "https://www.thomas-schwabauer.de",
+    siteName: "Thomas Schwabauer - Fullstack Developer",
+    title: "Thomas Schwabauer - Senior Fullstack Developer",
+    description:
+      "Freelancer | Senior Fullstack Entwickler | Web & Mobile (Java, Flutter, Android, Angular, React, NestJS, NextJS)",
+    images: [
+      {
+        url: "/me-laptop.jpg",
+        width: 600,
+        height: 600,
+        alt: "Thomas Schwabauer - Fullstack Developer Portfolio",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    site: "@ThenaDev",
+    creator: "@ThenaDev",
+    title: "Thomas Schwabauer - Senior Fullstack Developer",
+    description: "Freelancer | Senior Fullstack Entwickler | Web & Mobile",
+    images: ["/me-laptop.jpg"],
   },
 };
 
