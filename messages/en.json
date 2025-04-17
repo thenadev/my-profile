@@ -21,6 +21,7 @@
     "title": "Freelance Fullstack Developer",
     "location": "Wetzlar, Germany",
     "contact": "Contact",
+    "priceCalculator": "Price Calculator",
     "learnMore": "Learn More",
     "orb_1": "Kotlin is a concise, modern programming language for Android and Java development.",
     "orb_2": "Docker simplifies creating, deploying, and running applications using containers.",

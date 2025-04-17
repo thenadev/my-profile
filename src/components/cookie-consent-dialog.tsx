@@ -64,7 +64,7 @@ export default function CookieConsent({
       <div className="dark:bg-card bg-background rounded-md m-3 border border-border shadow-lg">
         <div className="grid gap-2">
           <div className="border-b border-border h-14 flex items-center justify-between p-4">
-            <h2 className="text-lg font-medium">{t("title")}</h2>
+            <h3 className="text-lg font-medium">{t("title")}</h3>
             <FaCookieBite className="h-[1.2rem] w-[1.2rem]" />
           </div>
           <div className="p-4">
@@ -99,7 +99,7 @@ export default function CookieConsent({
       >
         <div className="m-3 dark:bg-card bg-background border border-border rounded-lg">
           <div className="flex items-center justify-between p-3">
-            <h2 className="text-lg font-medium">{t("titleSmall")}</h2>
+            <h3 className="text-lg font-medium">{t("titleSmall")}</h3>
             <FaCookieBite className="h-[1.2rem] w-[1.2rem]" />
           </div>
           <div className="p-3 -mt-2">

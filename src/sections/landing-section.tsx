@@ -11,8 +11,10 @@ import { cn } from "@/lib/utils";
 import { getRandomOrbPosition } from "@/utils/getRandomOrbPos";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import router from "next/router";
 import React, { useEffect, useState } from "react";
-import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
+import { FaCalculator, FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { SiFreelancermap } from "react-icons/si";
 import MyAvatar from "../assets/me-laptop.webp";
@@ -99,7 +101,10 @@ const LandingSection: React.FC = () => {
   }, [hasScrolled, hoveredOrbIndex, orbPositions]);
 
   return (
-    <div className="pt-16 min-h-screen flex items-center justify-center" id="home">
+    <div
+      className="pt-16 min-h-screen flex items-center justify-center"
+      id="home"
+    >
       <section className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between py-10 px-4 md:px-10">
         <div className="">
           {orbPositions.map((orb) => (
@@ -167,6 +172,17 @@ const LandingSection: React.FC = () => {
               {t("location")}
             </a>
           </h2>
+          <div className="w-full md:w-auto mb-8">
+            <Link href="/preisrechner" passHref legacyBehavior>
+              <button className="group flex items-center justify-center gap-3 px-6 py-3 text-lg md:text-xl text-white bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-105 hover:shadow-xl w-full md:w-auto">
+                <FaCalculator className="text-2xl group-hover:animate-bounce" />
+                <span className="font-semibold">{t("priceCalculator")}</span>
+                <span className="hidden md:inline-block bg-blue-500 px-2 py-1 text-sm rounded-full">
+                  NEU
+                </span>
+              </button>
+            </Link>
+          </div>
           <div className="flex flex-wrap gap-2 z-40 mb-4 md:mb-0 justify-center md:justify-start">
             <div className="w-full md:w-auto mb-2">
               <button
