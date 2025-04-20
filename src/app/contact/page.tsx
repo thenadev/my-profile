@@ -22,7 +22,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaCopy } from "react-icons/fa6";
 import { z } from "zod";
-import ContactImg from "../assets/me-contact.png";
+import ContactImg from "../../assets/me-contact.png";
 
 const ContactSection: React.FC = () => {
   const t = useTranslations("Contact"); // Use translations from "Contact" namespace

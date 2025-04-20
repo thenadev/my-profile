@@ -2,9 +2,11 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useTranslations } from "next-intl";
+import { useRouter } from "next/navigation";
 
 export default function PriceCalculator() {
   const t = useTranslations("PriceCalculator");
+  const router = useRouter();
 
   return (
     <>
@@ -21,7 +23,10 @@ export default function PriceCalculator() {
 
         <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
           {/* Website Entwicklung */}
-          <Card className="shadow-lg hover:shadow-xl transition-shadow">
+          <Card
+            className="shadow-lg hover:shadow-xl transition-shadow cursor-pointer"
+            onClick={() => router.push("/preisrechner/website")}
+          >
             <CardHeader>
               <CardTitle className="text-2xl">Website Entwicklung</CardTitle>
             </CardHeader>

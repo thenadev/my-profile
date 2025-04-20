@@ -1,21 +1,20 @@
-import FreelanceLogo from "../assets/logo-owl-big.png";
-import AlcedisLogo from "../assets/alcedis_logo.webp";
-import AmselLogo from "../assets/amsel_logo.png";
-import ValtechLogo from "../assets/valtech_logo.jpeg";
-import {StaticImageData} from "next/image";
+import { StaticImageData } from "next/image";
+import AlcedisLogo from "../assets/work/alcedis_logo.webp";
+import AmselLogo from "../assets/work/amsel_logo.png";
+import FreelanceLogo from "../assets/work/logo-owl-big.png";
+import ValtechLogo from "../assets/work/valtech_logo.jpeg";
 
 export interface WorkStation {
-  company: string,
-  role: string,
-  duration: string,
-  location: string,
-  link: string,
-  image: StaticImageData,
-  bulletpoints: string[],
+  company: string;
+  role: string;
+  duration: string;
+  location: string;
+  link: string;
+  image: StaticImageData;
+  bulletpoints: string[];
 }
 
-export const workStations= (): WorkStation[]  => {
-
+export const workStations = (): WorkStation[] => {
   return [
     {
       company: "freelancerCompany",
@@ -24,7 +23,11 @@ export const workStations= (): WorkStation[]  => {
       location: "freelancerLocation",
       link: "https://www.thomas-schwabauer.de/",
       image: FreelanceLogo,
-      bulletpoints: ["freelancerBullet1"],
+      bulletpoints: [
+        "freelancerBullet1",
+        "freelancerBullet2",
+        "freelancerBullet3",
+      ],
     },
     {
       company: "amselCompany",
@@ -78,4 +81,4 @@ export const workStations= (): WorkStation[]  => {
       ],
     },
   ];
-}
+};

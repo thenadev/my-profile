@@ -101,7 +101,7 @@ const SiteFooter = () => {
       {/* Copyright and Attribution */}
       <div className="container mx-auto mt-8 text-center">
         <p className="text-xs leading-loose text-muted-foreground">
-          © 2024 Thomas Schwabauer
+          © {new Date().getFullYear()} Thomas Schwabauer
         </p>
       </div>
     </footer>

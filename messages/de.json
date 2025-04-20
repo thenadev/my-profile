@@ -1,6 +1,7 @@
 {
   "Navbar": {
     "home": "Startseite",
+    "preisrechner": "Preisrechner",
     "services": "Leistungspakete",
     "about": "Über mich",
     "work": "Berufserfahrung",
@@ -17,7 +18,7 @@
     "language_de": "Deutsch"
   },
   "Home": {
-    "welcome": "Hi, ich bin Thomas Schwabauer!",
+    "welcome": "Thomas Schwabauer",
     "title": "Freelance Fullstack Entwickler",
     "location": "Wetzlar, Deutschland",
     "contact": "Kontakt",
@@ -95,6 +96,7 @@
   "Projects": {
     "title": "Meine Projekte",
     "technologies_used": "Verwendete Technologien",
+    "triconDescription": "Eine individuell zugeschnittene Unternehmenswebsite für ein Bau und Sanierungsunternehmen mit Key-Word Optimierung und Kontaktformular.",
     "planningPokerDescription": "Eine kostenlose Online-Planning-Poker-Plattform für kollaborative Schätzungen und Projektplanung.",
     "planningPokerTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
     "myDexDescription": "Eine vollständig dezentrale Börse, die auf dem Sepolia Testnet bereitgestellt wird. Enthält selbstentwickelte Solidity-Smart-Contracts für den sicheren und effizienten Tokenhandel.",
@@ -105,6 +107,7 @@
     "portfolioTechnologies": "React, TypeScript, Tailwind",
     "amselDescription": "Eine interaktive Website zur Präsentation der Amsel App, die regionale Produkte über moderne Automatentechnologie und Nachhaltigkeit verbindet.",
     "amselTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
+    "triconTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
     "viewProject": "Projekt ansehen",
     "viewSource": "Quelle ansehen"
   },
@@ -114,7 +117,9 @@
     "freelancerRole": "Fullstack Senior Developer | Testautomation | Android",
     "freelancerDuration": "Okt 2023 - Heute",
     "freelancerLocation": "Wetzlar",
-    "freelancerBullet1": "Da ich gerade erst starte, freue ich mich darauf, meine Beiträge in diesem Bereich in sehr naher Zukunft erweitern zu können",
+    "freelancerBullet1": "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
+    "freelancerBullet2": "Mobile Apps mit Flutter, Android Automotive, Android Native",
+    "freelancerBullet3": "Individualsoftware für die Prozessoptimierung und Automatisierung",
     "amselCompany": "Amsel UG",
     "amselRole": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
     "amselDuration": "Jul 2023 - Heute",
@@ -240,7 +245,7 @@
           "state": "State Management - BLoC Pattern",
           "animations": "Custom Animations – Benutzerdefinierte Animationen",
           "dj": "Dependency Injection – get_it & Provider"
-          },
+        },
         "conclusion": "Lassen Sie uns gemeinsam Ihre Vision in eine App umsetzen, die Ihre Zielgruppe begeistert und Ihr Unternehmen voranbringt."
       },
       "examples": "Beispiele meiner Arbeit",

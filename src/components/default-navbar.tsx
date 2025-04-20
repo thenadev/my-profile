@@ -1,13 +1,23 @@
 "use client";
 
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import MyLogo from "../assets/logo-owl.png";
-import { useTranslations } from "next-intl";
+import {
+  FiBriefcase,
+  FiDollarSign,
+  FiFileText,
+  FiHome,
+  FiMail,
+  FiMenu,
+  FiUser,
+  FiX,
+} from "react-icons/fi";
+import MyLogo from "../assets/logo-owl-simple.png";
 
 const Navbar = () => {
-  const t = useTranslations("Navbar"); 
+  const t = useTranslations("Navbar");
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
@@ -41,7 +51,7 @@ const Navbar = () => {
     const section = document.getElementById(id);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
-      setIsMenuOpen(false); // Close menu after navigating
+      setIsMenuOpen(false);
     }
   };
 
@@ -53,7 +63,7 @@ const Navbar = () => {
           alt="Logo"
           height={100}
           width={100}
-          className="h-16 w-auto mr-4" // Adjust height for logo
+          className="h-16 w-auto mr-4 text-gray-700"
         />
         <span className="text-sm md:text-xl font-bold">
           Thomas <br />
@@ -63,79 +73,113 @@ const Navbar = () => {
     </Link>
   );
 
+  const mainNavItems = [
+    { id: "home", icon: <FiHome className="w-5 h-5" />, href: "/" },
+    { id: "about", icon: <FiUser className="w-5 h-5" />, href: "/#about" },
+    { id: "work", icon: <FiBriefcase className="w-5 h-5" />, href: "/#work" },
+    {
+      id: "projects",
+      icon: <FiFileText className="w-5 h-5" />,
+      href: "/#projects",
+    },
+    {
+      id: "documents",
+      icon: <FiFileText className="w-5 h-5" />,
+      href: "/documents",
+    },
+  ];
+
+  const actionNavItems = [
+    {
+      id: "preisrechner",
+      icon: <FiDollarSign className="w-5 h-5" />,
+      href: "/preisrechner",
+    },
+    { id: "contact", icon: <FiMail className="w-5 h-5" />, href: "/#contact" },
+  ];
+
+  const mobileNavItems = [
+    { id: "home", icon: <FiHome className="w-5 h-5" /> },
+    { id: "about", icon: <FiUser className="w-5 h-5" /> },
+    { id: "work", icon: <FiBriefcase className="w-5 h-5" /> },
+    { id: "projects", icon: <FiFileText className="w-5 h-5" /> },
+    { id: "preisrechner", icon: <FiDollarSign className="w-5 h-5" /> },
+    { id: "contact", icon: <FiMail className="w-5 h-5" /> },
+  ];
+
   return (
-    <div className="fixed top-0 left-0 w-full z-50 bg-white shadow">
+    <div className="fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
       <nav className="w-full">
-        <div className="flex items-center text-gray-700 px-4 py-3">
+        <div className="flex items-center justify-between text-gray-700 px-4 py-3">
           <Logo />
 
-          <ul className="hidden md:flex space-x-4 text-base font-semibold cursor-pointer">
-            {[
-              "home",
-              ...(!isMobile ? ["services"] : []),
-              "about",
-              "work",
-              "projects",
-              "contact",
-            ].map(
-                (section) => (
-                    <li key={section} className="hover:bg-gray-200 py-2 px-4">
-                      <Link
-                          href={`/#${section}`}
-                          onClick={() => scrollToSection(section)}
-                      >
-                        {t(section)}
-                      </Link>
-                    </li>
-                )
-            )}
-            <li key="documents" className="hover:bg-gray-200 py-2 px-4">
-              <Link
-                  href={`/documents`}
-              >
-                {t("documents")}
-              </Link>
-            </li>
+          {/* Hauptnavigation in der Mitte */}
+          <ul className="hidden md:flex space-x-2 text-base font-medium">
+            {mainNavItems.map((item) => (
+              <li key={item.id} className="group">
+                <Link
+                  href={item.href}
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg transition-colors hover:bg-gray-100 group-hover:text-blue-600"
+                >
+                  {item.icon}
+                  <span>{t(item.id)}</span>
+                </Link>
+              </li>
+            ))}
           </ul>
 
+          {/* Aktions-Buttons rechts */}
+          <div className="hidden md:flex items-center gap-2">
+            {actionNavItems.map((item) => (
+              <Link
+                key={item.id}
+                href={item.href}
+                className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
+                  item.id === "preisrechner"
+                    ? "bg-blue-600 text-white hover:bg-blue-700"
+                    : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                }`}
+              >
+                {item.icon}
+                <span>{t(item.id)}</span>
+              </Link>
+            ))}
+          </div>
+
           <button
-              className="block md:hidden py-3 px-4 rounded focus:outline-none hover:bg-gray-200"
-              onClick={toggleMenu}
+            className="block md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
+            onClick={toggleMenu}
           >
-            <div className="w-5 h-1 bg-gray-600 mb-1"></div>
-            <div className="w-5 h-1 bg-gray-600 mb-1"></div>
-            <div className="w-5 h-1 bg-gray-600"></div>
+            {isMenuOpen ? (
+              <FiX className="w-6 h-6" />
+            ) : (
+              <FiMenu className="w-6 h-6" />
+            )}
           </button>
         </div>
 
         {/* Mobile menu */}
         <div
           ref={menuRef}
-          className={`fixed top-0 right-0 h-screen w-8/12 bg-white border transition-all duration-300 ${
-            isMenuOpen
-              ? "translate-x-0 opacity-100"
-              : "translate-x-full opacity-0"
+          className={`fixed top-0 right-0 h-screen w-64 bg-white/95 backdrop-blur-md border-l ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
-          <div className="flex flex-col w-full text-base cursor-pointer pt-10 text-left">
+          <div className="flex flex-col w-full text-base pt-20">
             <ul className="list-none p-0 m-0">
-              {[
-                "home",
-                "about",
-                "work",
-                "projects",
-                "documents",
-                "contact",
-              ].map((section) => (
-                <li
-                  key={section}
-                  className="hover:bg-gray-200 py-4 px-6 w-full"
-                >
+              {mobileNavItems.map((item) => (
+                <li key={item.id}>
                   <Link
-                    href={`/#${section}`}
-                    onClick={() => scrollToSection(section)}
+                    href={`/#${item.id}`}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`flex items-center gap-3 py-4 px-6 w-full transition-colors ${
+                      item.id === "preisrechner"
+                        ? "bg-blue-50 text-blue-600 hover:bg-blue-100"
+                        : "hover:bg-gray-100"
+                    }`}
                   >
-                    {t(section)}
+                    {item.icon}
+                    <span>{t(item.id)}</span>
                   </Link>
                 </li>
               ))}

@@ -1,7 +1,7 @@
 import ProjectItem from "@/components/project-item";
+import { useTranslations } from "next-intl";
 import React from "react";
 import { projects } from "../utils/projects";
-import { useTranslations } from "next-intl";
 
 export const ProjectsSection: React.FC = () => {
   const t = useTranslations("Projects");

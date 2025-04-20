@@ -1,16 +1,17 @@
-import AmselLogo from "../assets/amsel-website.png";
-import MyDexLogo from "../assets/mydex.png";
-import PerionDashboard from "../assets/perion_dashboard.png";
-import PlanningPoker from "../assets/planning-poker.png";
-import Portfolio from "../assets/portfolio.png";
+import AmselLogo from "../assets/projects/amsel-website.png";
+import MyDexLogo from "../assets/projects/mydex.png";
+import PerionDashboard from "../assets/projects/perion_dashboard.png";
+import PlanningPoker from "../assets/projects/planning-poker.png";
+import Portfolio from "../assets/projects/portfolio.png";
+import TriconLogo from "../assets/projects/tricon.png";
 
 export const projects = [
   {
     id: 0,
-    image: PlanningPoker,
-    descriptionKey: "planningPokerDescription",
-    technologiesKey: "planningPokerTechnologies",
-    livePreviewLink: "https://www.online-planning-poker.de/",
+    image: TriconLogo,
+    descriptionKey: "triconDescription",
+    technologiesKey: "triconTechnologies",
+    livePreviewLink: "https://www.tricon-gmbh.de/",
   },
   {
     id: 1,
@@ -18,6 +19,14 @@ export const projects = [
     descriptionKey: "amselDescription",
     technologiesKey: "amselTechnologies",
     livePreviewLink: "https://www.amsel-store.de/",
+  },
+  {
+    id: 3,
+    image: PerionDashboard,
+    descriptionKey: "perionDashboardDescription",
+    technologiesKey: "perionDashboardTechnologies",
+    // githubLink: 'https://github.com/tjoooobooo/perion_dashboard',
+    livePreviewLink: "https://perion-dashboard.vercel.app/",
   },
   {
     id: 2,
@@ -28,12 +37,11 @@ export const projects = [
     livePreviewLink: "https://my-o2wznex4e-tjoooobooo.vercel.app/",
   },
   {
-    id: 3,
-    image: PerionDashboard,
-    descriptionKey: "perionDashboardDescription",
-    technologiesKey: "perionDashboardTechnologies",
-    // githubLink: 'https://github.com/tjoooobooo/perion_dashboard',
-    livePreviewLink: "https://perion-dashboard.vercel.app/",
+    id: 0,
+    image: PlanningPoker,
+    descriptionKey: "planningPokerDescription",
+    technologiesKey: "planningPokerTechnologies",
+    livePreviewLink: "https://www.online-planning-poker.de/",
   },
   {
     id: 4,

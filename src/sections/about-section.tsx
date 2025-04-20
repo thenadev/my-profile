@@ -2,17 +2,20 @@
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import { motion, useInView } from "framer-motion";
 import moment from "moment";
-import React from "react";
-import { useTranslations } from "next-intl"; // Import the useTranslations hook
+import { useTranslations } from "next-intl";
+import React, { useRef } from "react";
+import { FaCode, FaDatabase, FaDocker, FaReact } from "react-icons/fa";
 
 const getAge = () => {
   return moment().diff("1997-06-04", "years");
 };
 
 const AboutSection: React.FC = () => {
-  const t = useTranslations('About'); // Load the "About" namespace
+  const t = useTranslations("About");
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
 
   const skills = {
     frameworks: {
@@ -48,171 +51,220 @@ const AboutSection: React.FC = () => {
     },
   };
 
-  return (
-    <div
-      className="pt-28 z-20 w-full min-h-screen p-5 flex flex-col items-center justify-center gap-10 relative"
-      id="about"
+  const SkillBar = ({ name, level }: { name: string; level: string }) => (
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+      transition={{ duration: 1, ease: "easeOut" }}
+      className="mb-4 w-full"
     >
-      <h2 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 text-center">
-        {t('title')}
-      </h2>
-      {/* Combined About Me and Skill Matrix Card */}
-      <Card className="w-full md:w-5/6 lg:w-3/4 shadow-lg rounded-lg z-30">
-        <CardContent>
-          <div className="flex flex-col lg:flex-row gap-8 p-6">
-            {/* About Me Section */}
-            <div className="w-full lg:w-2/5">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                {t('whoAmI')}
-              </h2>
-              <p className="text-base md:text-lg text-muted-foreground">
-                {t('description')}
-              </p>
-              <Separator className="my-4" />
-              <p className="text-base md:text-lg text-muted-foreground">
-                {t('career')}{' '}
-                <a href="#work" className="text-blue-500 hover:underline">
-                  {t('careerLink')}
-                </a>
-                {t('careerProjects')}{' '}
-                <a
-                  href="https://www.audi.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Audi
-                </a>
-                ,{' '}
-                <a
-                  href="https://www.porsche.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Porsche
-                </a>
-                , {t('and')}{' '}
-                <a
-                  href="https://www.bayer.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-blue-500 hover:underline"
-                >
-                  Bayer
-                </a>
-                {t('includingProjects')}
-              </p>
-              <Separator className="my-4" />
-              <p className="text-base md:text-lg text-muted-foreground">
-                {t('niceToKnow', { age: getAge() })}
-              </p>
-            </div>
+      <div className="flex justify-between mb-1">
+        <span className="text-sm font-semibold">{name}</span>
+        <span className="text-sm text-blue-600">{level}/5</span>
+      </div>
+      <div className="h-2 bg-gray-200 rounded-full w-full">
+        <motion.div
+          initial={{ width: 0 }}
+          animate={
+            isInView ? { width: `${(Number(level) / 5) * 100}%` } : { width: 0 }
+          }
+          transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          className="h-full bg-gradient-to-r from-blue-500 to-blue-700 rounded-full"
+        />
+      </div>
+    </motion.div>
+  );
 
-            {/* Skill Matrix Section */}
-            <div className="w-full lg:w-1/2">
-              <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
-                {t('skillMatrix')}
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    {t('frameworksLibraries')}
-                  </h3>
-                  <ul className="list-none">
-                    {Object.entries(skills.frameworks).map(
-                      ([name, rating], index) => {
-                        return (
-                          <li key={index} className="flex justify-between">
-                            <span>{name}</span>
-                            <span className="text-blue-500">
-                              {"★".repeat(Number(rating)) +
-                                "☆".repeat(5 - Number(rating))}
-                            </span>
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                  <Separator className="my-4" />
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    {t('programmingLanguages')}
-                  </h3>
-                  <ul className="list-none">
-                    {Object.entries(skills.programming_languages).map(
-                      ([name, rating], index) => {
-                        return (
-                          <li key={index} className="flex justify-between">
-                            <span>{name}</span>
-                            <span className="text-blue-500">
-                              {"★".repeat(Number(rating)) +
-                                "☆".repeat(5 - Number(rating))}
-                            </span>
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    {t('devOpsTools')}
-                  </h3>
-                  <ul className="list-none">
-                    {Object.entries(skills.devops_tools).map(
-                      ([name, rating], index) => {
-                        return (
-                          <li key={index} className="flex justify-between">
-                            <span>{name}</span>
-                            <span className="text-blue-500">
-                              {"★".repeat(Number(rating)) +
-                                "☆".repeat(5 - Number(rating))}
-                            </span>
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                  <Separator className="my-4" />
-                  <h3 className="text-xl md:text-2xl font-semibold mb-2">
-                    {t('databasesApis')}
-                  </h3>
-                  <ul className="list-none">
-                    {Object.entries(skills.databases_apis).map(
-                      ([name, rating], index) => {
-                        return (
-                          <li key={index} className="flex justify-between">
-                            <span>{name}</span>
-                            <span className="text-blue-500">
-                              {"★".repeat(Number(rating)) +
-                                "☆".repeat(5 - Number(rating))}
-                            </span>
-                          </li>
-                        );
-                      }
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-          {/* Contact Button */}
-          <div className="w-full flex justify-center">
-            <Button
-              className="mt-6 w-full md:w-1/2 lg:w-1/4 bg-blue-500 rounded shadow-md z-30
-        transition-transform duration-300 transform hover:bg-blue-600 
-        hover:scale-105"
-              onClick={() =>
-                document
-                  .getElementById("contact")
-                  ?.scrollIntoView({ behavior: "smooth" })
-              }
+  const SkillCategory = ({
+    title,
+    icon,
+    skills,
+  }: {
+    title: string;
+    icon: React.ReactNode;
+    skills: Record<string, string>;
+  }) => (
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+      transition={{ duration: 0.5 }}
+    >
+      <Card className="w-full">
+        <CardContent className="p-6">
+          <div className="flex items-center gap-3 mb-6">
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={isInView ? { scale: 1 } : { scale: 0 }}
+              transition={{ duration: 0.3, delay: 0.2 }}
+              className="p-3 bg-blue-100 rounded-lg"
             >
-              {t('contactButton')}
-            </Button>
+              {icon}
+            </motion.div>
+            <h3 className="text-xl font-bold">{title}</h3>
+          </div>
+          <div className="space-y-4 w-full">
+            {Object.entries(skills).map(([name, level], index) => (
+              <motion.div
+                key={`${name}-${level}`}
+                initial={{ opacity: 0, x: -20 }}
+                animate={
+                  isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                }
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+              >
+                <SkillBar name={name} level={level} />
+              </motion.div>
+            ))}
           </div>
         </CardContent>
       </Card>
+    </motion.div>
+  );
+
+  return (
+    <div className="pt-28 w-full min-h-screen p-5" id="about" ref={sectionRef}>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+        transition={{ duration: 0.5 }}
+        className="max-w-7xl mx-auto space-y-8"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5 }}
+          className="text-4xl font-bold text-center mb-12 relative"
+        >
+          {t("title")}
+        </motion.h2>
+
+        {/* About Me Card - Full Width */}
+        <motion.div
+          initial={{ opacity: 0, y: -20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          <Card className="w-full">
+            <CardContent className="p-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <motion.div
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                  }
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="space-y-6"
+                >
+                  <h3 className="text-3xl font-bold text-blue-600">
+                    {t("whoAmI")}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed text-lg">
+                    {t("description")}
+                  </p>
+                  <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    animate={
+                      isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -20 }
+                    }
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="border-l-4 border-blue-500 pl-4 py-2"
+                  >
+                    <p className="text-gray-600">
+                      {t("niceToKnow", { age: getAge() })}
+                    </p>
+                  </motion.div>
+                </motion.div>
+                <motion.div
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={
+                    isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 20 }
+                  }
+                  transition={{ duration: 0.5, delay: 0.3 }}
+                  className="space-y-6"
+                >
+                  <h3 className="text-2xl font-bold text-blue-600 mb-4">
+                    Karriere Highlights
+                  </h3>
+                  <p className="text-gray-600">
+                    {t("career")}{" "}
+                    <a href="#work" className="text-blue-500 hover:underline">
+                      {t("careerLink")}
+                    </a>
+                    {t("careerProjects")}{" "}
+                  </p>
+                  <div className="flex flex-wrap gap-3">
+                    {["Audi", "Porsche", "Bayer"].map((company, index) => (
+                      <motion.a
+                        key={company}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={
+                          isInView
+                            ? { opacity: 1, y: 0 }
+                            : { opacity: 0, y: 20 }
+                        }
+                        transition={{ duration: 0.3, delay: 0.5 + index * 0.1 }}
+                        href={`https://www.${company.toLowerCase()}.com`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 bg-gray-100 px-4 py-2 rounded-full text-sm text-blue-600 hover:bg-blue-100 transition-colors"
+                      >
+                        {company}
+                      </motion.a>
+                    ))}
+                  </div>
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={
+                      isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
+                    }
+                    transition={{ duration: 0.5, delay: 0.8 }}
+                  >
+                    <Button
+                      className="w-full bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 text-white mt-4"
+                      onClick={() =>
+                        document
+                          .getElementById("contact")
+                          ?.scrollIntoView({ behavior: "smooth" })
+                      }
+                    >
+                      {t("contactButton")}
+                    </Button>
+                  </motion.div>
+                </motion.div>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
+
+        {/* Skills Grid */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+        >
+          <SkillCategory
+            title={t("frameworksLibraries")}
+            icon={<FaReact className="text-blue-600 text-2xl" />}
+            skills={skills.frameworks}
+          />
+          <SkillCategory
+            title={t("programmingLanguages")}
+            icon={<FaCode className="text-blue-600 text-2xl" />}
+            skills={skills.programming_languages}
+          />
+          <SkillCategory
+            title={t("devOpsTools")}
+            icon={<FaDocker className="text-blue-600 text-2xl" />}
+            skills={skills.devops_tools}
+          />
+          <SkillCategory
+            title={t("databasesApis")}
+            icon={<FaDatabase className="text-blue-600 text-2xl" />}
+            skills={skills.databases_apis}
+          />
+        </motion.div>
+      </motion.div>
     </div>
   );
 };
