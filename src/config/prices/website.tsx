@@ -1,3 +1,4 @@
+import { CheckboxGroupContent } from "@/components/price-forms/checkbox-group-content";
 import { InfoSection } from "@/components/price-forms/info-section";
 import { RadioGroupContent } from "@/components/price-forms/radio-group-content";
 import { SliderContent } from "@/components/price-forms/slider-content";
@@ -17,9 +18,19 @@ export const websiteConfig = {
   websitePackage: {
     basic: {
       id: "basic",
-      title: "Template Design",
-      description: "",
+      title: "Basic Template Design",
+      description:
+        "Ein vorgefertigtes, modernes Design bei dem nur die Inhalte angepasst werden können. Das Design selbst bleibt weitgehend unverändert. Perfekt für kleine Unternehmen, die schnell und kostengünstig online gehen möchten.",
       price: 2000,
+      pagePrice: 50,
+    },
+    premium: {
+      id: "premium",
+      title: "Premium Template Design",
+      description:
+        "Ein flexibles Design-System mit verschiedenen Komponenten zur Auswahl. Ermöglicht individuelle Anpassungen durch Kombination der Elemente. Ideal für Unternehmen, die sich von der Masse abheben möchten.",
+      price: 3000,
+      pagePrice: 100,
     },
     individual: {
       id: "individual",
@@ -27,11 +38,8 @@ export const websiteConfig = {
       description:
         "Ein komplett maßgeschneidertes Design, das speziell auf Ihre Marke und Ihre Anforderungen zugeschnitten ist. Für Unternehmen mit besonderen Anforderungen.",
       price: 5000,
+      pagePrice: 150,
     },
-  },
-  pages: {
-    basic: 200,
-    premium: 300,
   },
   features: {
     contact: {
@@ -49,13 +57,23 @@ export const websiteConfig = {
       price: 500,
     },
   },
-  maintenance: {
-    price: 80,
-    description: "Hosting & monatliche Wartung",
-  },
-  seo: {
-    price: 500,
-    description: "SEO-Optimierung",
+  additional: {
+    maintenance: {
+      id: "maintenance",
+      price: 80,
+      monthly: true,
+      title: "Hosting & Wartung",
+      description:
+        "Ich übernehme das Hosting und die Wartung für Ihre Website, damit Sie sich auf Ihr Kern-Business konzentrieren können, falls nötig registriere ich auch die Domain für Sie. Wenn die Option nicht gewählt wird, übermittele ich Ihnen nach Projektabschluss jediglich den Code für die Website.",
+    },
+    brochure: {
+      id: "brochure",
+      price: 1000,
+      title: "Unternehmensbroschüre",
+      description:
+        "Eine Broschüre mit allen Informationen zu Ihrem Unternehmen.",
+      monthly: false,
+    },
   },
 };
 
@@ -80,18 +98,10 @@ export const websiteSteps = [
       content: (
         <InfoSection
           title="Wie unterscheiden sich die Pakete?"
-          content={[
-            {
-              title: "Template Design",
-              description:
-                "Ein modernes, vorgefertigtes Design mit grundlegenden Anpassungsmöglichkeiten. Perfekt für kleine Unternehmen und Startups.",
-            },
-            {
-              title: "Individuelles Design",
-              description:
-                "Ein komplett maßgeschneidertes Design, das speziell auf Ihre Marke und Ihre Anforderungen zugeschnitten ist. Für Unternehmen mit besonderen Anforderungen.",
-            },
-          ]}
+          content={Object.values(websiteConfig.websitePackage).map((pkg) => ({
+            title: pkg.title,
+            description: pkg.description,
+          }))}
         />
       ),
     },
@@ -109,8 +119,10 @@ export const websiteSteps = [
         step={1}
         pricePerUnit={
           design === "basic"
-            ? websiteConfig.pages.basic
-            : websiteConfig.pages.premium
+            ? websiteConfig.websitePackage.basic.pagePrice
+            : design === "premium"
+              ? websiteConfig.websitePackage.premium.pagePrice
+              : websiteConfig.websitePackage.individual.pagePrice
         }
         unitLabel="Seite"
       />
@@ -144,42 +156,17 @@ export const websiteSteps = [
   {
     id: 3,
     title: "Funktionen",
-    description: "Welche Funktionen benötigen Sie?",
-    content: ((features, setFeatures, _, __) => (
-      <div className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {Object.values(websiteConfig.features).map((feature) => (
-            <div
-              key={feature.id}
-              className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
-              onClick={() => {
-                const newChecked = !(features as string[]).includes(feature.id);
-                if (newChecked) {
-                  setFeatures?.([
-                    ...(features as string[]),
-                    feature.id,
-                  ] as string[]);
-                } else {
-                  setFeatures?.(
-                    (features as string[]).filter((f) => f !== feature.id)
-                  );
-                }
-              }}
-            >
-              <Checkbox
-                id={feature.id}
-                checked={(features as string[]).includes(feature.id)}
-              />
-              <div className="flex flex-col">
-                <Label className="font-medium" htmlFor={feature.id}>
-                  {feature.title}
-                </Label>
-                <span className="text-sm text-gray-500">€{feature.price}</span>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+    description: "Welche Funktionen benötigen Sie für Ihre Website?",
+    content: ((features, setFeatures) => (
+      <CheckboxGroupContent
+        value={features as string[]}
+        onValueChange={setFeatures!}
+        options={Object.values(websiteConfig.features).map((feature) => ({
+          id: feature.id,
+          title: feature.title,
+          price: feature.price,
+        }))}
+      />
     )) as ContentFunction,
     info: {
       title: "Funktionen im Detail",
@@ -198,55 +185,31 @@ export const websiteSteps = [
   },
   {
     id: 4,
-    title: "Zusätzliche Optionen",
+    title: "Zusätzliche Services",
     description: "Wählen Sie weitere Optionen",
-    content: ((seo, setSeo, maintenance, setMaintenance) => (
-      <div className="space-y-4">
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="seo"
-            checked={seo as boolean}
-            onCheckedChange={(checked) => setSeo?.(checked as boolean)}
-          />
-          <Label htmlFor="seo">
-            SEO-Optimierung (€{websiteConfig.seo.price})
-          </Label>
-        </div>
-        <div className="flex items-center space-x-2">
-          <Checkbox
-            id="maintenance"
-            checked={maintenance as boolean}
-            onCheckedChange={(checked) => setMaintenance?.(checked as boolean)}
-          />
-          <Label htmlFor="maintenance">
-            {websiteConfig.maintenance.description} (€
-            {websiteConfig.maintenance.price} monatlich)
-          </Label>
-        </div>
-      </div>
+    content: ((additional, setAdditional) => (
+      <CheckboxGroupContent
+        value={additional as string[]}
+        onValueChange={setAdditional!}
+        options={Object.values(websiteConfig.additional).map((additional) => ({
+          id: additional.id,
+          title: additional.title,
+          price: additional.price,
+          monthly: additional.monthly,
+        }))}
+      />
     )) as ContentFunction,
     info: {
       title: "Zusätzliche Services",
       content: (
         <InfoSection
           title="Zusätzliche Services"
-          content={[
-            {
-              title: "SEO-Optimierung",
-              description:
-                "Professionelle Suchmaschinenoptimierung für bessere Sichtbarkeit in Google und anderen Suchmaschinen.",
-            },
-            {
-              title: "SEO-Optimierung",
-              description:
-                "Professionelle Suchmaschinenoptimierung für bessere Sichtbarkeit in Google und anderen Suchmaschinen.",
-            },
-            {
-              title: "Hosting & Wartung",
-              description:
-                "Ich übernehme das Hosting und die Wartung für Ihre Website, damit Sie sich auf Ihr Kern-Business konzentrieren können, falls nötig registriere ich auch die Domain für Sie. Wenn die Option nicht gewählt wird, übermittele ich Ihnen nach Projektabschluss jediglich den Code für die Website.",
-            },
-          ]}
+          content={Object.values(websiteConfig.additional).map(
+            (additional) => ({
+              title: additional.title,
+              description: additional.description,
+            })
+          )}
         />
       ),
     },
@@ -255,14 +218,29 @@ export const websiteSteps = [
     id: 5,
     title: "Gesamtkosten",
     description: "Ihre geschätzten Kosten",
-    content: ((calculatePrice, _, __, ___) => (
-      <div className="text-center">
-        <p className="text-4xl font-bold text-blue-600">
-          €{(calculatePrice as () => number)().toLocaleString()}
-        </p>
-        <p className="text-gray-600 mt-2">
-          Alle Preise verstehen sich zzgl. MwSt.
-        </p>
+    content: ((calculatePrice, calculateMonthlyPrice) => (
+      <div className="text-center space-y-6">
+        <div>
+          <p className="text-4xl font-bold text-blue-600">
+            €{(calculatePrice as () => number)().toLocaleString()}
+          </p>
+          <p className="text-gray-600 mt-2">
+            Alle Preise verstehen sich zzgl. MwSt.
+          </p>
+        </div>
+
+        <div>
+          <p className="text-2xl font-bold text-blue-600">
+            €{(calculateMonthlyPrice as () => number)().toLocaleString()}/Monat
+          </p>
+          <p className="text-gray-600 mt-2">
+            Monatliche Kosten bei Hosting & Wartung
+          </p>
+        </div>
+
+        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium">
+          Jetzt kostenloses Angebot anfordern
+        </button>
       </div>
     )) as ContentFunction,
     info: {

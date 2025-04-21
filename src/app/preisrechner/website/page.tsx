@@ -17,8 +17,7 @@ const WebsiteCalculator = () => {
   const [design, setDesign] = useState<string>("basic");
   const [pages, setPages] = useState<number>(5);
   const [features, setFeatures] = useState<string[]>([]);
-  const [seo, setSeo] = useState<boolean>(false);
-  const [maintenance, setMaintenance] = useState<boolean>(true);
+  const [additional, setAdditional] = useState<string[]>(["maintenance"]);
 
   const calculatePrice = () => {
     let basePrice = 0;
@@ -28,12 +27,19 @@ const WebsiteCalculator = () => {
       case "basic":
         basePrice += websiteConfig.websitePackage.basic.price;
         // Seiten-Kosten
-        basePrice += (pages - 1) * websiteConfig.pages.basic;
+        basePrice += (pages - 1) * websiteConfig.websitePackage.basic.pagePrice;
+        break;
+      case "premium":
+        basePrice += websiteConfig.websitePackage.premium.price;
+        // Seiten-Kosten
+        basePrice +=
+          (pages - 1) * websiteConfig.websitePackage.premium.pagePrice;
         break;
       case "individual":
         basePrice += websiteConfig.websitePackage.individual.price;
         // Seiten-Kosten
-        basePrice += (pages - 1) * websiteConfig.pages.premium;
+        basePrice +=
+          (pages - 1) * websiteConfig.websitePackage.individual.pagePrice;
         break;
     }
 
@@ -49,10 +55,13 @@ const WebsiteCalculator = () => {
       }
     });
 
-    // SEO-Kosten
-    if (seo) {
-      basePrice += websiteConfig.seo.price;
-    }
+    additional.forEach((additional) => {
+      switch (additional) {
+        case "brochure":
+          basePrice += websiteConfig.additional.brochure.price;
+          break;
+      }
+    });
 
     return basePrice;
   };
@@ -61,10 +70,13 @@ const WebsiteCalculator = () => {
     let monthlyPrice = 0;
 
     // Wartungskosten
-    if (maintenance) {
-      monthlyPrice += websiteConfig.maintenance.price;
-    }
-
+    additional.forEach((additional) => {
+      switch (additional) {
+        case "maintenance":
+          monthlyPrice += websiteConfig.additional.maintenance.price;
+          break;
+      }
+    });
     return monthlyPrice;
   };
 
@@ -143,14 +155,9 @@ const WebsiteCalculator = () => {
                   case 3:
                     return step.content(features, setFeatures);
                   case 4:
-                    return step.content(
-                      seo,
-                      setSeo,
-                      maintenance,
-                      setMaintenance
-                    );
+                    return step.content(additional, setAdditional);
                   case 5:
-                    return step.content(calculatePrice);
+                    return step.content(calculatePrice, calculateMonthlyPrice);
                   default:
                     return null;
                 }
@@ -161,20 +168,24 @@ const WebsiteCalculator = () => {
             <div className="mt-auto border-t border-gray-200">
               <div className="p-6">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  <div className="flex gap-4 w-full sm:w-auto">
-                    <div>
-                      <p className="text-sm text-gray-600">Aktueller Preis</p>
-                      <p className="text-2xl font-bold text-blue-600">
-                        €{calculatePrice().toLocaleString()}
-                      </p>
+                  {currentStep !== websiteSteps.length && (
+                    <div className="flex gap-4 w-full sm:w-auto">
+                      <div>
+                        <p className="text-sm text-gray-600">Aktueller Preis</p>
+                        <p className="text-2xl font-bold text-blue-600">
+                          €{calculatePrice().toLocaleString()}
+                        </p>
+                      </div>
+                      <div>
+                        <p className="text-sm text-gray-600">
+                          Monatlicher Preis
+                        </p>
+                        <p className="text-2xl font-bold text-blue-600">
+                          €{calculateMonthlyPrice().toLocaleString()}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <p className="text-sm text-gray-600">Monatlicher Preis</p>
-                      <p className="text-2xl font-bold text-blue-600">
-                        €{calculateMonthlyPrice().toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
+                  )}
                   <div className="flex gap-4 w-full sm:w-auto">
                     <Button
                       variant="outline"
@@ -198,16 +209,7 @@ const WebsiteCalculator = () => {
                         Weiter
                       </Button>
                     ) : (
-                      <Button
-                        className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto"
-                        onClick={() => {
-                          alert(
-                            "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze bei Ihnen melden."
-                          );
-                        }}
-                      >
-                        Kostenloses Angebot anfordern
-                      </Button>
+                      <div />
                     )}
                   </div>
                 </div>
