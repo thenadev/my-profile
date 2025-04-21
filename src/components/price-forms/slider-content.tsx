@@ -42,7 +42,7 @@ export const SliderContent = ({
         </span>
       </div>
       <p className="text-sm text-gray-500">
-        Jede zusätzliche {unitLabel} kostet €{pricePerUnit}
+        Jede zusätzliche {unitLabel} kostet {pricePerUnit} €
       </p>
     </div>
   );

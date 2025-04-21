@@ -60,6 +60,9 @@ const WebsiteCalculator = () => {
         case "brochure":
           basePrice += websiteConfig.additional.brochure.price;
           break;
+        case "media":
+          basePrice += websiteConfig.additional.media.price;
+          break;
       }
     });
 
@@ -132,7 +135,9 @@ const WebsiteCalculator = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-6"
+          className={`grid gap-6 ${
+            currentStep === 1 ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-2"
+          }`}
         >
           {/* Form Card */}
           <Card className="border-2 border-gray-200 shadow-lg flex flex-col h-full">
@@ -149,14 +154,16 @@ const WebsiteCalculator = () => {
                 const step = websiteSteps[currentStep - 1];
                 switch (currentStep) {
                   case 1:
-                    return step.content(design, setDesign);
+                    return step.content();
                   case 2:
-                    return step.content(pages, setPages, design);
+                    return step.content(design, setDesign);
                   case 3:
-                    return step.content(features, setFeatures);
+                    return step.content(pages, setPages, design);
                   case 4:
-                    return step.content(additional, setAdditional);
+                    return step.content(features, setFeatures);
                   case 5:
+                    return step.content(additional, setAdditional);
+                  case 6:
                     return step.content(calculatePrice, calculateMonthlyPrice);
                   default:
                     return null;
@@ -168,7 +175,7 @@ const WebsiteCalculator = () => {
             <div className="mt-auto border-t border-gray-200">
               <div className="p-6">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  {currentStep !== websiteSteps.length && (
+                  {currentStep !== 1 && currentStep !== websiteSteps.length && (
                     <div className="flex gap-4 w-full sm:w-auto">
                       <div>
                         <p className="text-sm text-gray-600">Aktueller Preis</p>
@@ -186,13 +193,13 @@ const WebsiteCalculator = () => {
                       </div>
                     </div>
                   )}
-                  <div className="flex gap-4 w-full sm:w-auto">
+                  <div className="flex gap-4 w-full sm:w-auto ml-auto">
                     <Button
                       variant="outline"
                       onClick={() =>
-                        setCurrentStep((prev) => Math.max(1, prev - 1))
+                        setCurrentStep((prev) => Math.max(0, prev - 1))
                       }
-                      disabled={currentStep === 1}
+                      disabled={currentStep === 0}
                       className="w-full sm:w-auto"
                     >
                       Zurück
@@ -217,7 +224,7 @@ const WebsiteCalculator = () => {
             </div>
           </Card>
 
-          {websiteSteps[currentStep - 1].info.content}
+          {websiteSteps[currentStep - 1].info?.content}
         </motion.div>
       </div>
     </div>

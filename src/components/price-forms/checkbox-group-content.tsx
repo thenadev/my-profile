@@ -39,12 +39,11 @@ export const CheckboxGroupContent = ({
           >
             <Checkbox id={option.id} checked={value.includes(option.id)} />
             <div className="flex flex-col">
-              <Label className="font-medium" htmlFor={option.id}>
+              <Label className="font-medium text-lg block" htmlFor={option.id}>
                 {option.title}
               </Label>
-              <span className="text-sm text-gray-500">
-                €{option.price}
-                {option.monthly && " / Monat"}
+              <span className="text-blue-600 font-bold block mt-1">
+                {option.price} €{option.monthly && " / Monat"}
               </span>
               {option.description && (
                 <span className="text-sm text-gray-500 mt-1">

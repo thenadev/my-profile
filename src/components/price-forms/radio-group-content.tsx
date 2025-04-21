@@ -47,7 +47,7 @@ export const RadioGroupContent = ({
               {option.title}
             </Label>
             <span className="text-blue-600 font-bold block mt-1">
-              €{option.price}
+              {option.price} €
             </span>
           </div>
         </div>

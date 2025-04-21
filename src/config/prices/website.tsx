@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
 
 type ContentFunction = (
-  value: string | number | boolean | string[] | (() => number),
+  value?: string | number | boolean | string[] | (() => number),
   setValue?: (value: any) => void,
   additionalValue?: any,
   setAdditionalValue?: (value: any) => void
@@ -66,6 +66,14 @@ export const websiteConfig = {
       description:
         "Ich übernehme das Hosting und die Wartung für Ihre Website, damit Sie sich auf Ihr Kern-Business konzentrieren können, falls nötig registriere ich auch die Domain für Sie. Wenn die Option nicht gewählt wird, übermittele ich Ihnen nach Projektabschluss jediglich den Code für die Website.",
     },
+    media: {
+      id: "media",
+      price: 200,
+      title: "Mediengenerierung",
+      description:
+        "Ich erstelle professionelle Fotos und Videos für Ihre Website. Dies umfasst Produkt- und Teamfotos, Imagevideos oder andere visuelle Inhalte, die Ihre Website ansprechend und authentisch gestalten. Die genauen Inhalte werden individuell nach Ihren Bedürfnissen abgestimmt.",
+      monthly: false,
+    },
     brochure: {
       id: "brochure",
       price: 1000,
@@ -80,6 +88,59 @@ export const websiteConfig = {
 export const websiteSteps = [
   {
     id: 1,
+    title: "Wie funktioniert der Preisrechner?",
+    content: () => (
+      <div className="space-y-8 mx-auto">
+        <div className="">
+          <p className="text-gray-600 leading-relaxed mb-6">
+            Der Preisrechner hilft Ihnen, die Kosten für Ihre neue Website zu
+            schätzen. Sie können verschiedene Optionen auswählen und sehen
+            sofort, wie sich diese auf den Gesamtpreis auswirken.
+          </p>
+
+          <div className="bg-gray-50 rounded-xl p-6">
+            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+              Schritte zur Konfiguration:
+            </h3>
+            <div className="space-y-3">
+              {[
+                "Wählen Sie das passende Design-Paket",
+                "Bestimmen Sie die Anzahl der benötigten Seiten",
+                "Fügen Sie gewünschte Funktionen hinzu",
+                "Wählen Sie zusätzliche Services",
+                "Sehen Sie Ihre geschätzten Kosten",
+              ].map((step, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
+                    {i + 1}
+                  </div>
+                  <span className="text-gray-700">{step}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <p className="text-gray-600 mt-6 text-center">
+            Sie können die Konfiguration selbst vornehmen oder mich direkt
+            kontaktieren, um ein individuelles Angebot zu erhalten.
+          </p>
+        </div>
+
+        <div className="flex justify-center">
+          <button
+            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-medium shadow-lg transform transition hover:scale-105"
+            onClick={() =>
+              (window.location.href = "mailto:email@thomas-schwabauer.de")
+            }
+          >
+            Direkt Kontakt aufnehmen
+          </button>
+        </div>
+      </div>
+    ),
+  },
+  {
+    id: 2,
     title: "Basis Paket",
     description: "Wählen Sie das Design für Ihre Website",
     content: ((design, setDesign) => (
@@ -107,7 +168,7 @@ export const websiteSteps = [
     },
   },
   {
-    id: 2,
+    id: 3,
     title: "Anzahl der Seiten",
     description: "Wie viele Seiten soll Ihre Website haben?",
     content: ((pages, setPages, design) => (
@@ -154,7 +215,7 @@ export const websiteSteps = [
     },
   },
   {
-    id: 3,
+    id: 4,
     title: "Funktionen",
     description: "Welche Funktionen benötigen Sie für Ihre Website?",
     content: ((features, setFeatures) => (
@@ -184,7 +245,7 @@ export const websiteSteps = [
     },
   },
   {
-    id: 4,
+    id: 5,
     title: "Zusätzliche Services",
     description: "Wählen Sie weitere Optionen",
     content: ((additional, setAdditional) => (
@@ -215,7 +276,7 @@ export const websiteSteps = [
     },
   },
   {
-    id: 5,
+    id: 6,
     title: "Gesamtkosten",
     description: "Ihre geschätzten Kosten",
     content: ((calculatePrice, calculateMonthlyPrice) => (
