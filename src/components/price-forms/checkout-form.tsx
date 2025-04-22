@@ -10,6 +10,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { forwardRef, useImperativeHandle } from "react";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -25,7 +26,14 @@ const formSchema = z.object({
   additionalInfo: z.string().optional(),
 });
 
-export const CheckoutForm = () => {
+interface CheckoutFormProps {
+  onSubmit: (values: z.infer<typeof formSchema>) => void;
+}
+
+export const CheckoutForm = forwardRef<
+  { handleSubmit: () => void },
+  CheckoutFormProps
+>(({ onSubmit }, ref) => {
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -41,10 +49,16 @@ export const CheckoutForm = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
-    // Hier können Sie die Daten an Ihren Backend-Service senden
-    console.log(values);
+  const handleSubmit = async () => {
+    const isValid = await form.trigger();
+    if (isValid) {
+      onSubmit(form.getValues());
+    }
   };
+
+  useImperativeHandle(ref, () => ({
+    handleSubmit,
+  }));
 
   return (
     <Form {...form}>
@@ -183,4 +197,4 @@ export const CheckoutForm = () => {
       </form>
     </Form>
   );
-};
+});

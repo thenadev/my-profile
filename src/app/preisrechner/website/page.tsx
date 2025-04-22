@@ -16,7 +16,7 @@ import {
   calculatePrice,
 } from "@/utils/websitePriceUtils";
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const WebsiteCalculator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -24,6 +24,15 @@ const WebsiteCalculator = () => {
   const [pages, setPages] = useState<number>(5);
   const [features, setFeatures] = useState<string[]>([]);
   const [additional, setAdditional] = useState<string[]>(["maintenance"]);
+  const formRef = useRef<{ handleSubmit: () => void }>(null);
+
+  const handleSubmit = (values: any) => {
+    // Hier können Sie die Daten an Ihren Backend-Service senden
+    console.log(values);
+    alert(
+      "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze bei Ihnen melden."
+    );
+  };
 
   return (
     <div className="min-h-screen py-28 px-4 sm:px-6 lg:px-8">
@@ -117,7 +126,9 @@ const WebsiteCalculator = () => {
                       />
                     );
                   case 7:
-                    return <CheckoutForm />;
+                    return (
+                      <CheckoutForm ref={formRef} onSubmit={handleSubmit} />
+                    );
                   default:
                     return null;
                 }
@@ -178,6 +189,7 @@ const WebsiteCalculator = () => {
                       <Button
                         type="submit"
                         className="bg-blue-600 hover:bg-blue-700"
+                        onClick={() => formRef.current?.handleSubmit()}
                       >
                         Angebot anfordern
                       </Button>

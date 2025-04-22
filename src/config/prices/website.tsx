@@ -330,8 +330,9 @@ export const websiteSteps = [
   },
   {
     id: "🎉",
-    title: "Checkout",
-    description: "Checkout",
+    title: "Angebot anfordern",
+    description:
+      "Geben Sie Ihre Informationen ein und ich erstelle Ihnen ein individuelles Angebot.",
     content: (() => <></>) as ContentFunction,
   },
 ];
