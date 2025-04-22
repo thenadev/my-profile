@@ -1,6 +1,7 @@
 "use client";
 
 import { CheckoutForm } from "@/components/price-forms/checkout-form";
+import { SummaryForm } from "@/components/price-forms/summary-form";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -44,7 +45,7 @@ const WebsiteCalculator = () => {
         {/* Progress Bar */}
         <div className="mb-8">
           <div className="flex justify-between mb-2">
-            {websiteSteps.map((_, index) => (
+            {websiteSteps.map((step, index) => (
               <div
                 key={index}
                 className={`w-8 h-8 rounded-full flex items-center justify-center ${
@@ -55,7 +56,7 @@ const WebsiteCalculator = () => {
                       : "bg-gray-200 text-gray-600"
                 }`}
               >
-                {index + 1}
+                {step.id}
               </div>
             ))}
           </div>
@@ -77,7 +78,9 @@ const WebsiteCalculator = () => {
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
           className={`grid gap-6 ${
-            currentStep === 1 ? "grid-cols-1" : "grid-cols-1 lg:grid-cols-2"
+            currentStep === 1 || currentStep === 7
+              ? "grid-cols-1"
+              : "grid-cols-1 lg:grid-cols-2"
           }`}
         >
           {/* Form Card */}
@@ -106,13 +109,15 @@ const WebsiteCalculator = () => {
                     return step.content(additional, setAdditional);
                   case 6:
                     return (
-                      <CheckoutForm
+                      <SummaryForm
                         design={design}
                         pages={pages}
                         features={features}
                         additional={additional}
                       />
                     );
+                  case 7:
+                    return <CheckoutForm />;
                   default:
                     return null;
                 }
@@ -123,7 +128,7 @@ const WebsiteCalculator = () => {
             <div className="mt-auto border-t border-gray-200">
               <div className="p-6">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-                  {currentStep !== 1 && currentStep !== websiteSteps.length && (
+                  {currentStep !== 1 && currentStep < 6 && (
                     <div className="flex gap-4 w-full sm:w-auto">
                       <div>
                         <p className="text-sm text-gray-600">Aktueller Preis</p>
@@ -170,7 +175,12 @@ const WebsiteCalculator = () => {
                         Weiter
                       </Button>
                     ) : (
-                      <div />
+                      <Button
+                        type="submit"
+                        className="bg-blue-600 hover:bg-blue-700"
+                      >
+                        Angebot anfordern
+                      </Button>
                     )}
                   </div>
                 </div>

@@ -328,4 +328,10 @@ export const websiteSteps = [
       ),
     },
   },
+  {
+    id: "🎉",
+    title: "Checkout",
+    description: "Checkout",
+    content: (() => <></>) as ContentFunction,
+  },
 ];
