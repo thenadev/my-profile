@@ -29,10 +29,6 @@ const WebsiteCalculator = () => {
 
   const handleSubmit = (values: any) => {
     // Hier können Sie die Daten an Ihren Backend-Service senden
-    console.log(values);
-    alert(
-      "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze bei Ihnen melden."
-    );
   };
 
   const goToCheckout = () => {
