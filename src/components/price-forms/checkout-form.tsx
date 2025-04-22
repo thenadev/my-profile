@@ -34,6 +34,7 @@ interface CheckoutFormProps {
   additional: string[];
   basePrice: number;
   monthlyPrice: number;
+  skippedConfig: boolean;
 }
 
 export const CheckoutForm = forwardRef<
@@ -41,7 +42,16 @@ export const CheckoutForm = forwardRef<
   CheckoutFormProps
 >(
   (
-    { onSubmit, design, pages, features, additional, basePrice, monthlyPrice },
+    {
+      onSubmit,
+      design,
+      pages,
+      features,
+      additional,
+      basePrice,
+      monthlyPrice,
+      skippedConfig,
+    },
     ref
   ) => {
     const form = useForm<z.infer<typeof formSchema>>({
@@ -77,6 +87,7 @@ export const CheckoutForm = forwardRef<
               additional,
               basePrice,
               monthlyPrice,
+              skippedConfig,
             }),
           });
 

@@ -8,7 +8,7 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Slider } from "@/components/ui/slider";
 
 type ContentFunction = (
-  value?: string | number | boolean | string[] | (() => number),
+  value?: string | number | boolean | string[] | (() => number) | (() => void),
   setValue?: (value: any) => void,
   additionalValue?: any,
   setAdditionalValue?: (value: any) => void
@@ -88,18 +88,21 @@ export const websiteConfig = {
 export const websiteSteps = [
   {
     id: 1,
-    title: "Wie funktioniert der Preisrechner?",
-    content: () => (
-      <div className="space-y-8 mx-auto">
-        <div className="">
-          <p className="text-gray-600 leading-relaxed mb-6">
-            Der Preisrechner hilft Ihnen, die Kosten für Ihre neue Website zu
-            schätzen. Sie können verschiedene Optionen auswählen und sehen
-            sofort, wie sich diese auf den Gesamtpreis auswirken.
-          </p>
+    title: "Website Preisrechner",
+    description: "Wie funktioniert der Preisrechner?",
+    content: ((goToCheckout: () => void) => (
+      <div className="space-y-8 p-4">
+        <div className="space-y-6">
+          <div className="text-center">
+            <p className="mt-2 text-gray-600">
+              Der Preisrechner hilft Ihnen, die Kosten für Ihre neue Website zu
+              schätzen. Sie können verschiedene Optionen auswählen und sehen
+              sofort, wie sich diese auf den Gesamtpreis auswirken.
+            </p>
+          </div>
 
-          <div className="bg-gray-50 rounded-xl p-6">
-            <h3 className="text-xl font-semibold text-gray-800 mb-4">
+          <div className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-xl p-6">
+            <h3 className="text-xl font-semibold mb-4 text-gray-800">
               Schritte zur Konfiguration:
             </h3>
             <div className="space-y-3">
@@ -109,35 +112,24 @@ export const websiteSteps = [
                 "Fügen Sie gewünschte Funktionen hinzu",
                 "Wählen Sie zusätzliche Services",
                 "Sehen Sie Ihre geschätzten Kosten",
-              ].map((step, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="flex-shrink-0 w-8 h-8 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold">
-                    {i + 1}
-                  </div>
+              ].map((step, index) => (
+                <div key={index} className="flex items-center gap-3">
+                  <span className="flex items-center justify-center w-6 h-6 rounded-full bg-blue-600 text-white text-sm">
+                    {index + 1}
+                  </span>
                   <span className="text-gray-700">{step}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <p className="text-gray-600 mt-6 text-center">
+          <p className="text-center text-gray-600">
             Sie können die Konfiguration selbst vornehmen oder mich direkt
             kontaktieren, um ein individuelles Angebot zu erhalten.
           </p>
         </div>
-
-        <div className="flex justify-center">
-          <button
-            className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white px-8 py-4 rounded-xl font-medium shadow-lg transform transition hover:scale-105"
-            onClick={() =>
-              (window.location.href = "mailto:email@thomas-schwabauer.de")
-            }
-          >
-            Direkt Kontakt aufnehmen
-          </button>
-        </div>
       </div>
-    ),
+    )) as ContentFunction,
   },
   {
     id: 2,

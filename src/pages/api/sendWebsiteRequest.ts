@@ -24,6 +24,9 @@ interface WebsiteRequest {
   // Preisberechnung
   basePrice: number;
   monthlyPrice: number;
+
+  // Skip Config
+  skippedConfig: boolean;
 }
 
 // API Handler Function
@@ -72,6 +75,9 @@ export default async function handler(
                 ${data.zipCode} ${data.city}</p>
               </div>
 
+              ${
+                !data.skippedConfig
+                  ? `
               <div class="section">
                 <h2>Website Konfiguration</h2>
                 <p><strong>Design:</strong> ${data.design}</p>
@@ -79,7 +85,6 @@ export default async function handler(
                 <p><strong>Features:</strong> ${data.features.join(", ")}</p>
                 <p><strong>Zusätzliche Services:</strong> ${data.additional.join(", ")}</p>
               </div>
-
               <div class="section">
                 <h2>Preisberechnung</h2>
                 <p><span class="price">Einmalige Kosten: €${data.basePrice.toLocaleString()}</span></p>
@@ -90,6 +95,9 @@ export default async function handler(
                 <h2>Zusätzliche Informationen</h2>
                 <p>${data.additionalInfo || "Keine"}</p>
               </div>
+              `
+                  : "<div class='section'><h2>Konfiguration wurde übersprungen</h2></div>"
+              }
             </div>
           </body>
         </html>

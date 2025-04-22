@@ -25,6 +25,7 @@ const WebsiteCalculator = () => {
   const [features, setFeatures] = useState<string[]>([]);
   const [additional, setAdditional] = useState<string[]>(["maintenance"]);
   const formRef = useRef<{ handleSubmit: () => void }>(null);
+  const [skippedConfig, setSkippedConfig] = useState<boolean>(false);
 
   const handleSubmit = (values: any) => {
     // Hier können Sie die Daten an Ihren Backend-Service senden
@@ -32,6 +33,11 @@ const WebsiteCalculator = () => {
     alert(
       "Vielen Dank für Ihr Interesse! Wir werden uns in Kürze bei Ihnen melden."
     );
+  };
+
+  const goToCheckout = () => {
+    setCurrentStep(7);
+    setSkippedConfig(true);
   };
 
   return (
@@ -107,7 +113,7 @@ const WebsiteCalculator = () => {
                 const step = websiteSteps[currentStep - 1];
                 switch (currentStep) {
                   case 1:
-                    return step.content();
+                    return step.content(goToCheckout);
                   case 2:
                     return step.content(design, setDesign);
                   case 3:
@@ -130,6 +136,7 @@ const WebsiteCalculator = () => {
                       <CheckoutForm
                         ref={formRef}
                         onSubmit={handleSubmit}
+                        skippedConfig={skippedConfig}
                         design={
                           websiteConfig.websitePackage[
                             design as keyof typeof websiteConfig.websitePackage
@@ -192,16 +199,27 @@ const WebsiteCalculator = () => {
                     </div>
                   )}
                   <div className="flex gap-4 w-full sm:w-auto ml-auto">
-                    <Button
-                      variant="outline"
-                      onClick={() =>
-                        setCurrentStep((prev) => Math.max(0, prev - 1))
-                      }
-                      disabled={currentStep === 0}
-                      className="w-full sm:w-auto"
-                    >
-                      Zurück
-                    </Button>
+                    {currentStep === 1 ? (
+                      <Button
+                        onClick={goToCheckout}
+                        variant="outline"
+                        className="w-full sm:w-auto"
+                      >
+                        Direkt Kontakt aufnehmen
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="outline"
+                        onClick={() => {
+                          setCurrentStep((prev) => Math.max(0, prev - 1));
+                          setSkippedConfig(false);
+                        }}
+                        disabled={currentStep === 0}
+                        className="w-full sm:w-auto"
+                      >
+                        Zurück
+                      </Button>
+                    )}
                     {currentStep < websiteSteps.length ? (
                       <Button
                         onClick={() =>
@@ -209,9 +227,9 @@ const WebsiteCalculator = () => {
                             Math.min(websiteSteps.length, prev + 1)
                           )
                         }
-                        className="w-full sm:w-auto"
+                        className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700"
                       >
-                        Weiter
+                        {currentStep === 1 ? "Jetzt Preis berechnen" : "Weiter"}
                       </Button>
                     ) : (
                       <Button
