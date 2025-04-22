@@ -27,7 +27,7 @@ export default function ClientLayout({
   const pathname = usePathname();
 
   // Only run this in production
-  if (process.env.NODE_ENV === "production") {
+  if (process.env.NODE_ENV === "production" || true) {
     const TRACKING_ID = "G-63C2KDFQHT";
     ReactGA.initialize(TRACKING_ID);
   }

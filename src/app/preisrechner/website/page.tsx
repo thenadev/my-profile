@@ -11,12 +11,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { websiteConfig, websiteSteps } from "@/config/prices/website";
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import {
   calculateMonthlyPrice,
   calculatePrice,
 } from "@/utils/websitePriceUtils";
 import { motion } from "framer-motion";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const WebsiteCalculator = () => {
   const [currentStep, setCurrentStep] = useState(1);
@@ -34,32 +35,38 @@ const WebsiteCalculator = () => {
   const goToCheckout = () => {
     setCurrentStep(7);
     setSkippedConfig(true);
+    console.log("Sending Google event: website_price_direct_contact");
+    sendGoogleEvent("website_price_direct_contact");
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, [currentStep]);
+
   return (
-    <div className="min-h-screen py-28 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-24 md:py-28 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-12"
+          className="text-center mb-8 md:mb-12"
         >
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3 md:mb-4">
             Website Preisrechner
           </h1>
-          <p className="text-xl text-gray-600 font-bold">
+          <p className="text-lg md:text-xl text-gray-600 font-bold">
             Berechnen Sie die Kosten für Ihre neue Website
           </p>
         </motion.div>
 
         {/* Progress Bar */}
-        <div className="mb-8">
+        <div className="mb-6 md:mb-8">
           <div className="flex justify-between mb-2">
             {websiteSteps.map((step, index) => (
               <div
                 key={index}
-                className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                className={`w-6 h-6 md:w-8 md:h-8 rounded-full flex items-center justify-center text-sm md:text-base ${
                   currentStep > index + 1
                     ? "bg-blue-600 text-white"
                     : currentStep === index + 1
@@ -88,7 +95,7 @@ const WebsiteCalculator = () => {
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: -20 }}
           transition={{ duration: 0.3 }}
-          className={`grid gap-6 ${
+          className={`grid gap-4 md:gap-6 ${
             currentStep === 1 || currentStep === 7
               ? "grid-cols-1"
               : "grid-cols-1 lg:grid-cols-2"
@@ -96,15 +103,15 @@ const WebsiteCalculator = () => {
         >
           {/* Form Card */}
           <Card className="border-2 border-gray-200 shadow-lg flex flex-col h-full">
-            <CardHeader>
-              <CardTitle className="text-2xl font-bold">
+            <CardHeader className="p-4 md:p-6">
+              <CardTitle className="text-xl md:text-2xl font-bold">
                 {websiteSteps[currentStep - 1].title}
               </CardTitle>
-              <CardDescription className="text-lg">
+              <CardDescription className="text-base md:text-lg">
                 {websiteSteps[currentStep - 1].description}
               </CardDescription>
             </CardHeader>
-            <CardContent className="flex-grow">
+            <CardContent className="flex-grow p-4 md:p-6">
               {(() => {
                 const step = websiteSteps[currentStep - 1];
                 switch (currentStep) {
@@ -168,13 +175,13 @@ const WebsiteCalculator = () => {
 
             {/* Price and Navigation */}
             <div className="mt-auto border-t border-gray-200">
-              <div className="p-6">
+              <div className="p-4 md:p-6">
                 <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
                   {currentStep !== 1 && currentStep < 6 && (
                     <div className="flex gap-4 w-full sm:w-auto">
                       <div>
                         <p className="text-sm text-gray-600">Aktueller Preis</p>
-                        <p className="text-2xl font-bold text-blue-600">
+                        <p className="text-xl md:text-2xl font-bold text-blue-600">
                           €
                           {calculatePrice(
                             design,
@@ -188,13 +195,13 @@ const WebsiteCalculator = () => {
                         <p className="text-sm text-gray-600">
                           Monatlicher Preis
                         </p>
-                        <p className="text-2xl font-bold text-blue-600">
+                        <p className="text-xl md:text-2xl font-bold text-blue-600">
                           €{calculateMonthlyPrice(additional).toLocaleString()}
                         </p>
                       </div>
                     </div>
                   )}
-                  <div className="flex gap-4 w-full sm:w-auto ml-auto">
+                  <div className="gap-4 w-full sm:w-auto ml-auto grid grid-cols-1 lg:grid-cols-2">
                     {currentStep === 1 ? (
                       <Button
                         onClick={goToCheckout}
@@ -231,7 +238,10 @@ const WebsiteCalculator = () => {
                       <Button
                         type="submit"
                         className="bg-blue-600 hover:bg-blue-700"
-                        onClick={() => formRef.current?.handleSubmit()}
+                        onClick={() => {
+                          sendGoogleEvent("website_price_offer_request");
+                          formRef.current?.handleSubmit();
+                        }}
                       >
                         Angebot anfordern
                       </Button>
