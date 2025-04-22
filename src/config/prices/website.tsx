@@ -279,54 +279,52 @@ export const websiteSteps = [
     id: 6,
     title: "Gesamtkosten",
     description: "Ihre geschätzten Kosten",
-    content: ((calculatePrice, calculateMonthlyPrice) => (
-      <div className="text-center space-y-6">
-        <div>
-          <p className="text-4xl font-bold text-blue-600">
-            €{(calculatePrice as () => number)().toLocaleString()}
-          </p>
-          <p className="text-gray-600 mt-2">
-            Alle Preise verstehen sich zzgl. MwSt.
-          </p>
-        </div>
-
-        <div>
-          <p className="text-2xl font-bold text-blue-600">
-            €{(calculateMonthlyPrice as () => number)().toLocaleString()}/Monat
-          </p>
-          <p className="text-gray-600 mt-2">
-            Monatliche Kosten bei Hosting & Wartung
-          </p>
-        </div>
-
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium">
-          Jetzt kostenloses Angebot anfordern
-        </button>
-      </div>
-    )) as ContentFunction,
+    content: (() => <></>) as ContentFunction,
     info: {
       title: "Was ist im Preis enthalten?",
       content: (
-        <InfoSection
-          title="Was ist im Preis enthalten?"
-          content={[
-            {
-              title: "Komplettes Paket",
-              description:
-                "Der Preis beinhaltet Design, Entwicklung, Hosting-Einrichtung und grundlegende Schulung.",
-            },
-            {
-              title: "Zeitplan",
-              description:
-                "Die Entwicklung Ihrer Website dauert in der Regel 4-8 Wochen, abhängig von Umfang und Komplexität.",
-            },
-            {
-              title: "Support",
-              description:
-                "Nach der Fertigstellung erhalten Sie 30 Tage kostenlosen Support für Fragen und kleinere Anpassungen.",
-            },
-          ]}
-        />
+        <div className="space-y-4">
+          <InfoSection
+            title="Was ist im Preis enthalten?"
+            content={[
+              {
+                title: "Komplettes Paket",
+                description:
+                  "Der Preis beinhaltet Design, Entwicklung, Hosting-Einrichtung und grundlegende Schulung.",
+              },
+              {
+                title: "Zeitplan",
+                description:
+                  "Die Entwicklung Ihrer Website dauert in der Regel 4-8 Wochen, abhängig von Umfang und Komplexität.",
+              },
+              {
+                title: "Support",
+                description:
+                  "Nach der Fertigstellung erhalten Sie 30 Tage kostenlosen Support für Fragen und kleinere Anpassungen.",
+              },
+            ]}
+          />
+          <InfoSection
+            title="Wie geht es weiter?"
+            content={[
+              {
+                title: "Erstgespräch",
+                description:
+                  "In einem kostenlosen Beratungsgespräch besprechen wir Ihre Anforderungen und Wünsche für die Website und ich erstelle Ihnen ein individuelles Angebot, basierend auf Ihren Angaben.",
+              },
+              {
+                title: "Vertragsabschluss",
+                description:
+                  "Wir schließen einen Vertrag ab, der die vereinbarten Leistungen und Zahlungsmodalitäten festlegt.",
+              },
+              {
+                title: "Website Erstellung",
+                description:
+                  "Ich erstelle Ihre Website nach Ihren Wünschen und Sie haben die Möglichkeit, bis zu fünf Mal Anpassungen und Änderungen vorzunehmen.",
+              },
+            ]}
+          />
+        </div>
       ),
     },
   },

@@ -1,5 +1,6 @@
 "use client";
 
+import { CheckoutForm } from "@/components/price-forms/checkout-form";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,6 +10,10 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { websiteConfig, websiteSteps } from "@/config/prices/website";
+import {
+  calculateMonthlyPrice,
+  calculatePrice,
+} from "@/utils/websitePriceUtils";
 import { motion } from "framer-motion";
 import { useState } from "react";
 
@@ -18,70 +23,6 @@ const WebsiteCalculator = () => {
   const [pages, setPages] = useState<number>(5);
   const [features, setFeatures] = useState<string[]>([]);
   const [additional, setAdditional] = useState<string[]>(["maintenance"]);
-
-  const calculatePrice = () => {
-    let basePrice = 0;
-
-    // Design-Kosten
-    switch (design) {
-      case "basic":
-        basePrice += websiteConfig.websitePackage.basic.price;
-        // Seiten-Kosten
-        basePrice += (pages - 1) * websiteConfig.websitePackage.basic.pagePrice;
-        break;
-      case "premium":
-        basePrice += websiteConfig.websitePackage.premium.price;
-        // Seiten-Kosten
-        basePrice +=
-          (pages - 1) * websiteConfig.websitePackage.premium.pagePrice;
-        break;
-      case "individual":
-        basePrice += websiteConfig.websitePackage.individual.price;
-        // Seiten-Kosten
-        basePrice +=
-          (pages - 1) * websiteConfig.websitePackage.individual.pagePrice;
-        break;
-    }
-
-    // Feature-Kosten
-    features.forEach((feature) => {
-      switch (feature) {
-        case "contact":
-          basePrice += websiteConfig.features.contact.price;
-          break;
-        case "blog":
-          basePrice += websiteConfig.features.blog.price;
-          break;
-      }
-    });
-
-    additional.forEach((additional) => {
-      switch (additional) {
-        case "brochure":
-          basePrice += websiteConfig.additional.brochure.price;
-          break;
-        case "media":
-          basePrice += websiteConfig.additional.media.price;
-          break;
-      }
-    });
-
-    return basePrice;
-  };
-
-  const calculateMonthlyPrice = () => {
-    let monthlyPrice = 0;
-
-    // Wartungskosten
-    additional.forEach((additional) => {
-      switch (additional) {
-        case "maintenance":
-          monthlyPrice += websiteConfig.additional.maintenance.price;
-          break;
-      }
-    });
-    return monthlyPrice;
-  };
 
   return (
     <div className="min-h-screen py-28 px-4 sm:px-6 lg:px-8">
@@ -164,7 +105,14 @@ const WebsiteCalculator = () => {
                   case 5:
                     return step.content(additional, setAdditional);
                   case 6:
-                    return step.content(calculatePrice, calculateMonthlyPrice);
+                    return (
+                      <CheckoutForm
+                        design={design}
+                        pages={pages}
+                        features={features}
+                        additional={additional}
+                      />
+                    );
                   default:
                     return null;
                 }
@@ -180,7 +128,13 @@ const WebsiteCalculator = () => {
                       <div>
                         <p className="text-sm text-gray-600">Aktueller Preis</p>
                         <p className="text-2xl font-bold text-blue-600">
-                          €{calculatePrice().toLocaleString()}
+                          €
+                          {calculatePrice(
+                            design,
+                            pages,
+                            features,
+                            additional
+                          ).toLocaleString()}
                         </p>
                       </div>
                       <div>
@@ -188,7 +142,7 @@ const WebsiteCalculator = () => {
                           Monatlicher Preis
                         </p>
                         <p className="text-2xl font-bold text-blue-600">
-                          €{calculateMonthlyPrice().toLocaleString()}
+                          €{calculateMonthlyPrice(additional).toLocaleString()}
                         </p>
                       </div>
                     </div>

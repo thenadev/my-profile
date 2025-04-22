@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { WorkStation, workStations } from "@/utils/work-stations";
+import { WorkStation, workStations } from "@/config/work-stations";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";

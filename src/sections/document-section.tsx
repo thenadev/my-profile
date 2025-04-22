@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { documents } from "@/utils/docs";
+import { documents } from "@/config/docs";
 import { useTranslations } from "next-intl";
 import React from "react";
 import {
