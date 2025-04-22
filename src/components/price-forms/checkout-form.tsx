@@ -28,173 +28,212 @@ const formSchema = z.object({
 
 interface CheckoutFormProps {
   onSubmit: (values: z.infer<typeof formSchema>) => void;
+  design: string;
+  pages: number;
+  features: string[];
+  additional: string[];
+  basePrice: number;
+  monthlyPrice: number;
 }
 
 export const CheckoutForm = forwardRef<
   { handleSubmit: () => void },
   CheckoutFormProps
->(({ onSubmit }, ref) => {
-  const form = useForm<z.infer<typeof formSchema>>({
-    resolver: zodResolver(formSchema),
-    defaultValues: {
-      companyName: "",
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      city: "",
-      zipCode: "",
-      additionalInfo: "",
-    },
-  });
+>(
+  (
+    { onSubmit, design, pages, features, additional, basePrice, monthlyPrice },
+    ref
+  ) => {
+    const form = useForm<z.infer<typeof formSchema>>({
+      resolver: zodResolver(formSchema),
+      defaultValues: {
+        companyName: "",
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        city: "",
+        zipCode: "",
+        additionalInfo: "",
+      },
+    });
 
-  const handleSubmit = async () => {
-    const isValid = await form.trigger();
-    if (isValid) {
-      onSubmit(form.getValues());
-    }
-  };
+    const handleSubmit = async () => {
+      const isValid = await form.trigger();
+      if (isValid) {
+        const formData = form.getValues();
+        try {
+          const response = await fetch("/api/sendWebsiteRequest", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              ...formData,
+              design,
+              pages,
+              features,
+              additional,
+              basePrice,
+              monthlyPrice,
+            }),
+          });
 
-  useImperativeHandle(ref, () => ({
-    handleSubmit,
-  }));
+          if (!response.ok) {
+            throw new Error("Fehler beim Senden der Anfrage");
+          }
 
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          onSubmit(formData);
+        } catch (error) {
+          console.error("Fehler beim Senden der Anfrage:", error);
+          alert(
+            "Es gab einen Fehler beim Senden der Anfrage. Bitte versuchen Sie es später erneut."
+          );
+        }
+      }
+    };
+
+    useImperativeHandle(ref, () => ({
+      handleSubmit,
+    }));
+
+    return (
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <FormField
+              control={form.control}
+              name="companyName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Firmenname</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Ihre Firma GmbH" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="firstName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Vorname</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Max" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="lastName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Nachname</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Mustermann" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="email"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>E-Mail</FormLabel>
+                  <FormControl>
+                    <Input placeholder="max@mustermann.de" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="phone"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Telefon</FormLabel>
+                  <FormControl>
+                    <Input placeholder="+49 123 456789" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="address"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Adresse</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Musterstraße 123" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="city"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Stadt</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Berlin" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="zipCode"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Postleitzahl</FormLabel>
+                  <FormControl>
+                    <Input placeholder="12345" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+
           <FormField
             control={form.control}
-            name="companyName"
+            name="additionalInfo"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Firmenname</FormLabel>
+                <FormLabel>Zusätzliche Informationen</FormLabel>
                 <FormControl>
-                  <Input placeholder="Ihre Firma GmbH" {...field} />
+                  <Textarea
+                    placeholder="Haben Sie noch weitere Wünsche oder Anforderungen?"
+                    className="min-h-[100px]"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
-          <FormField
-            control={form.control}
-            name="firstName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Vorname</FormLabel>
-                <FormControl>
-                  <Input placeholder="Max" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="lastName"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Nachname</FormLabel>
-                <FormControl>
-                  <Input placeholder="Mustermann" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="email"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>E-Mail</FormLabel>
-                <FormControl>
-                  <Input placeholder="max@mustermann.de" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="phone"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Telefon</FormLabel>
-                <FormControl>
-                  <Input placeholder="+49 123 456789" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="address"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Adresse</FormLabel>
-                <FormControl>
-                  <Input placeholder="Musterstraße 123" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="city"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Stadt</FormLabel>
-                <FormControl>
-                  <Input placeholder="Berlin" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <FormField
-            control={form.control}
-            name="zipCode"
-            render={({ field }) => (
-              <FormItem>
-                <FormLabel>Postleitzahl</FormLabel>
-                <FormControl>
-                  <Input placeholder="12345" {...field} />
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-        </div>
-
-        <FormField
-          control={form.control}
-          name="additionalInfo"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Zusätzliche Informationen</FormLabel>
-              <FormControl>
-                <Textarea
-                  placeholder="Haben Sie noch weitere Wünsche oder Anforderungen?"
-                  className="min-h-[100px]"
-                  {...field}
-                />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-      </form>
-    </Form>
-  );
-});
+        </form>
+      </Form>
+    );
+  }
+);

@@ -127,7 +127,35 @@ const WebsiteCalculator = () => {
                     );
                   case 7:
                     return (
-                      <CheckoutForm ref={formRef} onSubmit={handleSubmit} />
+                      <CheckoutForm
+                        ref={formRef}
+                        onSubmit={handleSubmit}
+                        design={
+                          websiteConfig.websitePackage[
+                            design as keyof typeof websiteConfig.websitePackage
+                          ].title
+                        }
+                        pages={pages}
+                        features={features.map(
+                          (f) =>
+                            websiteConfig.features[
+                              f as keyof typeof websiteConfig.features
+                            ].title
+                        )}
+                        additional={additional.map(
+                          (a) =>
+                            websiteConfig.additional[
+                              a as keyof typeof websiteConfig.additional
+                            ].title
+                        )}
+                        basePrice={calculatePrice(
+                          design,
+                          pages,
+                          features,
+                          additional
+                        )}
+                        monthlyPrice={calculateMonthlyPrice(additional)}
+                      />
                     );
                   default:
                     return null;
