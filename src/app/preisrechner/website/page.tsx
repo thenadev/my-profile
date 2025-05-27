@@ -252,7 +252,40 @@ const WebsiteCalculator = () => {
             </div>
           </Card>
 
-          {websiteSteps[currentStep - 1].info?.content}
+          {websiteSteps[currentStep - 1].info?.content && (
+            <div className="h-full">
+              {websiteSteps[currentStep - 1].info?.content}
+            </div>
+          )}
+          {design === "basic" && currentStep === 2 && (
+            <div className="mt-8">
+              <h3 className="text-xl font-semibold mb-4">
+                Beispielwebsites im Basic-Design
+              </h3>
+              <div className="grid grid-cols-1 gap-4">
+                <div className="aspect-[16/9] w-full h-[600px] relative group overflow-hidden">
+                  <iframe
+                    src="https://basic-package-template1.vercel.app/"
+                    className="w-full h-full rounded-xl shadow-2xl transform transition-transform duration-500 group-hover:scale-105"
+                    title="Beispielwebsite 1"
+                    loading="lazy"
+                  />
+                  <a
+                    href="https://basic-package-template1.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center"
+                  >
+                    <div className="w-full backdrop-blur-sm bg-white/10 transform translate-y-full group-hover:translate-y-0 transition-transform duration-500 py-6">
+                      <span className="text-white text-2xl font-bold block text-center drop-shadow-lg">
+                        Basic Template Design ansehen
+                      </span>
+                    </div>
+                  </a>
+                </div>
+              </div>
+            </div>
+          )}
         </motion.div>
       </div>
     </div>
