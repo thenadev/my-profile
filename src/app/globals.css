@@ -90,75 +90,50 @@ body {
   backface-visibility: hidden;
 }
 
+/* Optimized moving gradient overlay with reduced complexity */
 .moving-gradient-overlay {
-  position: fixed; /* Ensure it sticks to the screen and fills the viewport */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   background: radial-gradient(
       circle at 10% 10%,
-      rgba(239, 204, 129, 0.5),
+      rgba(239, 204, 129, 0.3),
       transparent 30%
     ),
-    radial-gradient(circle at 70% 20%, rgba(54, 153, 202, 0.5), transparent 40%),
+    radial-gradient(circle at 70% 20%, rgba(54, 153, 202, 0.3), transparent 40%),
     radial-gradient(
       circle at 40% 80%,
-      rgba(238, 244, 255, 0.5),
+      rgba(238, 244, 255, 0.3),
       transparent 50%
-    ),
-    radial-gradient(circle at 90% 60%, rgba(189, 147, 69, 0.5), transparent 50%);
-  background-size: 300% 300%;
-  animation: circleMove 8s ease infinite;
-  opacity: 0.3; /* Adjusted for transparency of the gradient */
-  z-index: -1; /* Places the overlay behind other content */
+    );
+  background-size: 200% 200%;
+  animation: circleMove 12s ease infinite;
+  opacity: 0.2;
+  z-index: -1;
+  will-change: background-position;
 }
 
 @keyframes circleMove {
-  0% {
+  0%, 100% {
     background-position: 0% 0%;
-  }
-  25% {
-    background-position: 50% 25%;
   }
   50% {
     background-position: 100% 100%;
-  }
-  75% {
-    background-position: 25% 75%;
-  }
-  100% {
-    background-position: 0% 0%;
   }
 }
 
 .moving-gradient-content {
   position: relative;
-  z-index: 1; /* Ensures text/content appears above the gradient */
-  color: white; /* Maintains the text color */
+  z-index: 1;
+  color: white;
 }
 
-@keyframes circleMove {
-  0% {
-    background-position: 0% 0%;
-  }
-  25% {
-    background-position: 50% 50%;
-  }
-  50% {
-    background-position: 100% 100%;
-  }
-  75% {
-    background-position: 50% 50%;
-  }
-  100% {
-    background-position: 0% 0%;
-  }
-}
-
+/* Optimized slide animations */
 @keyframes slideIn {
   0% {
-    transform: translateY(100%);
+    transform: translateY(20px);
     opacity: 0;
   }
   100% {
@@ -173,292 +148,128 @@ body {
     opacity: 1;
   }
   100% {
-    transform: translateY(100%);
+    transform: translateY(20px);
     opacity: 0;
   }
 }
 
-@keyframes explode {
+@keyframes fadeIn {
   0% {
-    transform: scale(1);
-    opacity: 1;
+    opacity: 0;
   }
   100% {
-    transform: scale(1.5);
-    opacity: 0;
+    opacity: 1;
   }
 }
 
 .toast-enter {
-  animation: slideIn 0.5s ease-out forwards;
+  animation: slideIn 0.3s ease-out forwards;
 }
 
 .toast-exit {
-  animation: slideOut 0.5s ease-out forwards;
+  animation: slideOut 0.3s ease-out forwards;
 }
 
 .exploding-toast-container {
-  position: relative;
-  width: 16rem; /* Width of the toast */
-  height: 8rem; /* Height of the toast */
-  padding: 1rem;
-  background-color: #4299e1; /* Blue color */
-  color: white;
-  border-radius: 0.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  overflow: hidden; /* Hide overflowing particles */
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
 }
 
+/* Optimized particle animations */
 .particle {
   position: absolute;
-  width: 0.5rem;
-  height: 0.5rem;
-  background-color: white;
-  border-radius: 50%;
   pointer-events: none;
+  will-change: transform, opacity;
 }
 
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-@layer base {
-  :root {
-    --radius: 0.5rem;
-  }
-}
-
-/* styles.css or a CSS module file */
-@keyframes orbAnimation1 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-15px, -15px);
-  }
-  50% {
-    transform: translate(15px, 5px);
-  }
-  75% {
-    transform: translate(-5px, 20px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation2 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(20px, -10px);
-  }
-  50% {
-    transform: translate(-10px, 15px);
-  }
-  75% {
-    transform: translate(10px, 10px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation3 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-25px, 5px);
-  }
-  50% {
-    transform: translate(5px, -25px);
-  }
-  75% {
-    transform: translate(20px, 0);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation4 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(15px, 15px);
-  }
-  50% {
-    transform: translate(-15px, -15px);
-  }
-  75% {
-    transform: translate(-10px, 10px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation5 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-20px, -5px);
-  }
-  50% {
-    transform: translate(20px, 15px);
-  }
-  75% {
-    transform: translate(-5px, 20px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation6 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(5px, -20px);
-  }
-  50% {
-    transform: translate(-15px, 5px);
-  }
-  75% {
-    transform: translate(20px, -10px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
-@keyframes orbAnimation7 {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(-10px, -15px);
-  }
-  50% {
-    transform: translate(15px, 10px);
-  }
-  75% {
-    transform: translate(-20px, 5px);
-  }
-  100% {
-    transform: translate(0, 0);
-  }
-}
-
+/* Optimized orb animations with reduced complexity */
 .orb {
-  border-radius: 50%;
+  will-change: transform;
+  transform: translateZ(0); /* Force hardware acceleration */
 }
 
-/* Apply animation for each orb */
 .orb-1,
-.orb-8 {
-  animation: orbAnimation1 6s ease-in-out infinite alternate;
-}
-
 .orb-2,
-.orb-9 {
-  animation: orbAnimation2 7s ease-in-out infinite alternate;
-}
-
 .orb-3,
-.orb-10 {
-  animation: orbAnimation3 3s ease-in-out infinite alternate;
-}
-
-.orb-4 {
-  animation: orbAnimation4 4s ease-in-out infinite alternate;
-}
-
+.orb-4,
 .orb-5 {
-  animation: orbAnimation5 5s ease-in-out infinite alternate;
+  animation: orbFloat 8s ease-in-out infinite;
 }
 
-.orb-6 {
-  animation: orbAnimation6 5s ease-in-out infinite alternate;
-}
-
+.orb-6,
 .orb-7 {
-  animation: orbAnimation7 5s ease-in-out infinite alternate;
+  animation: orbFloat 10s ease-in-out infinite reverse;
 }
-/* Add more orbs as needed */
 
-/* Add to your global CSS file */
+@keyframes orbFloat {
+  0%, 100% {
+    transform: translateY(0px) translateX(0px);
+  }
+  25% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px);
+  }
+  75% {
+    transform: translateY(5px) translateX(10px);
+  }
+}
+
+/* Optimized work timeline */
 .work-timeline {
   position: relative;
 }
 
 .work-timeline::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 2px; /* Timeline width */
-  background-color: #ccc; /* Color of the timeline */
+  width: 2px;
+  background: linear-gradient(to bottom, #3b82f6, #1d4ed8);
   transform: translateX(-50%);
 }
 
 .work-timeline-item {
   position: relative;
-  margin: 20px 0;
+  margin-bottom: 2rem;
 }
 
 .work-timeline-item::after {
-  content: "";
+  content: '';
   position: absolute;
   left: 50%;
-  width: 15px; /* Circle size */
-  height: 15px; /* Circle size */
-  background-color: #007bff; /* Circle color */
+  top: 1rem;
+  width: 12px;
+  height: 12px;
+  background: #3b82f6;
   border-radius: 50%;
   transform: translateX(-50%);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+/* Performance optimizations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Optimize for mobile */
+@media (max-width: 768px) {
+  .moving-gradient-overlay {
+    animation-duration: 16s;
+  }
+  
+  .orb {
+    animation-duration: 12s;
+  }
 }
