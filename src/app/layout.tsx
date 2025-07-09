@@ -6,6 +6,7 @@ import "./globals.css";
 import ClientLayout from "./layout-client";
 
 export const metadata = {
+  metadataBase: new URL('https://www.thomas-schwabauer.de'),
   title: {
     default: "Thomas Schwabauer - Fullstack Developer aus Wetzlar",
     template: "%s | Thomas Schwabauer - Fullstack Developer Wetzlar",
@@ -56,6 +57,17 @@ export const metadata = {
     description:
       "Web & Mobile Entwicklung aus Wetzlar | React.js | Flutter | Angular | Freelancer in Mittelhessen",
     images: ["/me-laptop.jpg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
   },
 };
 
@@ -116,6 +128,23 @@ export default async function RootLayout({
           {/* Render the client-side layout here */}
           <ClientLayout>{children}</ClientLayout>
         </NextIntlClientProvider>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('SW registered: ', registration);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('SW registration failed: ', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   );

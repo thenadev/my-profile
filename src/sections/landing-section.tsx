@@ -13,7 +13,8 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import router from "next/router";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
+// Optimized icon imports - only import what we need
 import { FaCalculator, FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import { SiFreelancermap } from "react-icons/si";
@@ -23,47 +24,44 @@ const LandingSection: React.FC = () => {
   const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   const t = useTranslations("Home");
 
-  const [orbPositions, setOrbPositions] = useState(() =>
-    initialOrbs.map((orb) => ({
+  // Optimize orb positions with state management
+  const [orbPositions, setOrbPositions] = useState(() => 
+    initialOrbs.slice(0, 5).map((orb) => ({
       ...orb,
       top: "50%",
       left: "50%",
     }))
   );
 
-  const scrollToContact = () => {
+  const scrollToContact = useCallback(() => {
     const section = document.getElementById("contact");
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
     }
-  };
-
-  useEffect(() => {
-    setOrbPositions((prevPositions) =>
-      prevPositions.map((orb) => ({
-        ...orb,
-        ...getRandomOrbPosition(false, orb),
-      }))
-    );
   }, []);
 
-  const updateOrbPosition = (orb: any) => {
+  // Optimize orb position updates
+  const updateOrbPosition = useCallback((orb: any) => {
     return {
       ...orb,
       ...getRandomOrbPosition(hasScrolled, orb),
     };
-  };
+  }, [hasScrolled]);
+
+  useEffect(() => {
+    // Lazy load animations after component mounts
+    const timer = setTimeout(() => setIsVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
     };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
 
     const handleScroll = () => {
       if (window.scrollY > 550) {
@@ -73,12 +71,15 @@ const LandingSection: React.FC = () => {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
+    // Reduce animation frequency for better performance
     const intervalIds = orbPositions.map((orb) => {
       return setInterval(
         () => {
-          if (hoveredOrbIndex !== orb.id) {
+          if (hoveredOrbIndex !== orb.id && isVisible) {
             setOrbPositions((prevPositions) =>
               prevPositions.map((currentOrb) => {
                 if (currentOrb.id === orb.id) {
@@ -89,7 +90,7 @@ const LandingSection: React.FC = () => {
             );
           }
         },
-        Math.random() * 2000 + 1000
+        Math.random() * 3000 + 2000 // Increased interval for better performance
       );
     });
 
@@ -98,7 +99,7 @@ const LandingSection: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, [hasScrolled, hoveredOrbIndex, orbPositions]);
+  }, [hasScrolled, hoveredOrbIndex, orbPositions, updateOrbPosition, isVisible]);
 
   return (
     <div
@@ -129,6 +130,7 @@ const LandingSection: React.FC = () => {
                       display: "flex",
                       alignItems: "center",
                       justifyContent: "center",
+                      willChange: "transform", // Optimize for animations
                     }}
                     onMouseEnter={() => setHoveredOrbIndex(orb.id)}
                     onMouseLeave={() => setHoveredOrbIndex(null)}
@@ -240,6 +242,8 @@ const LandingSection: React.FC = () => {
             className="max-w-[200px] sm:max-w-[300px] md:max-w-[400px] h-auto rounded-full shadow-lg animate-fadeIn"
             alt="Avatar"
             height={300}
+            width={400}
+            priority
             style={{
               filter: "drop-shadow(5px 5px 5px #222)",
             }}
