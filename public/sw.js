@@ -1,9 +1,7 @@
 const CACHE_NAME = 'thomas-schwabauer-v1';
 const urlsToCache = [
   '/',
-  '/static/css/main.css',
-  '/static/js/main.js',
-  '/me-laptop.png',
+  '/me-laptop.webp',
   '/favicon.ico',
 ];
 
