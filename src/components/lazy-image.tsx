@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 interface LazyImageProps {
   src: string;
@@ -24,6 +24,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
 }) => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [isInView, setIsInView] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (priority) {
@@ -44,8 +45,9 @@ const LazyImage: React.FC<LazyImageProps> = ({
       }
     );
 
-    const imgElement = document.createElement("img");
-    observer.observe(imgElement);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
 
     return () => {
       observer.disconnect();
@@ -53,7 +55,7 @@ const LazyImage: React.FC<LazyImageProps> = ({
   }, [priority]);
 
   return (
-    <div className={`relative overflow-hidden ${className || ""}`}>
+    <div ref={containerRef} className={`relative overflow-hidden ${className || ""}`}>
       {!isLoaded && (
         <div
           className="absolute inset-0 bg-gray-200 animate-pulse"
