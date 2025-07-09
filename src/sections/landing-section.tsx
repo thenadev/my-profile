@@ -99,7 +99,7 @@ const LandingSection: React.FC = () => {
       window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
-  }, [hasScrolled, hoveredOrbIndex, orbPositions, updateOrbPosition, isVisible]);
+  }, [hasScrolled, hoveredOrbIndex, updateOrbPosition, isVisible]);
 
   return (
     <div
