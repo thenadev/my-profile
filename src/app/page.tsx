@@ -2,10 +2,10 @@
 
 import About from "@/components/home/About";
 import HomeContact from "@/components/home/Contact";
+import WorkExperienceSection from "@/components/home/Experience";
 import HomeHero from "@/components/home/HomeHero";
 import ProjectsSection from "@/components/home/Projects";
 import ServicesSection from "@/components/home/Services";
-import WorkExperienceSection from "@/components/home/Experience";
 import React, { useEffect, useState } from "react";
 import "./globals.css";
 
@@ -24,7 +24,6 @@ const HomePage: React.FC = () => {
   return (
     <>
       <HomeHero />
-      {!isMobile && <ServicesSection />}
       <About />
       <WorkExperienceSection />
       <ProjectsSection />
