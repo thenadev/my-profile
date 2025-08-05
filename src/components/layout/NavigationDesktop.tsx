@@ -4,7 +4,7 @@ import { menuItems } from "@/config/menuItems";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
@@ -12,6 +12,7 @@ export default function NavigationDesktop() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [locale, setLocale] = useState<string>("en");
   const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,6 +34,14 @@ export default function NavigationDesktop() {
     router.refresh();
   };
 
+  const isActiveLink = (href: string) => {
+    if (!pathname) return false;
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
@@ -41,17 +50,27 @@ export default function NavigationDesktop() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div
-          className={`rounded-full transition-all duration-300 ${
+          className={`rounded-full transition-all duration-500 ease-in-out ${
             isScrolled
-              ? "bg-gray-600/70 backdrop-blur-md shadow-lg"
-              : "bg-gray-700 backdrop-blur-sm"
+              ? "bg-white/80 backdrop-blur-md shadow-lg border border-gray-200/40"
+              : "bg-gray-700/90 backdrop-blur-sm border border-gray-600/30"
           }`}
         >
           <div className="flex justify-between items-center h-16 px-6">
             {/* Logo */}
             <div className="flex items-center">
-              <Link href="/" className="flex items-center">
-                <h1 className="text-2xl font-bold text-white tracking-wide">
+              <Link
+                href="/"
+                className="flex items-center group transition-all duration-200 hover:scale-105"
+                aria-label="Zur Startseite"
+              >
+                <h1
+                  className={`text-2xl font-bold tracking-wide transition-colors duration-300 ${
+                    isScrolled
+                      ? "text-gray-800 group-hover:text-gray-600"
+                      : "text-gray-100 group-hover:text-gray-200"
+                  }`}
+                >
                   Thomas Schwabauer
                 </h1>
               </Link>
@@ -59,16 +78,58 @@ export default function NavigationDesktop() {
 
             {/* Navigation Links */}
             <div className="flex items-center space-x-8">
-              {menuItems.map((item) => (
-                <Link
-                  key={item.title}
-                  href={item.href}
-                  className="flex items-center gap-2 text-white hover:text-gray-300 transition-colors duration-200 text-sm font-medium"
-                >
-                  <span className="text-lg">{item.icon}</span>
-                  {item.title}
-                </Link>
-              ))}
+              {menuItems.map((item) => {
+                const isActive = isActiveLink(item.href);
+                return (
+                  <Link
+                    key={item.title}
+                    href={item.href}
+                    className={`flex items-center gap-2 transition-all duration-300 text-sm font-medium relative group ${
+                      isScrolled
+                        ? isActive
+                          ? "text-gray-800"
+                          : "text-gray-600 hover:text-gray-800"
+                        : isActive
+                          ? "text-gray-100"
+                          : "text-gray-200 hover:text-gray-100"
+                    }`}
+                    aria-label={`Navigation zu ${item.title}`}
+                  >
+                    <span
+                      className={`text-lg transition-all duration-300 ${
+                        isScrolled
+                          ? isActive
+                            ? "text-blue-500"
+                            : "group-hover:text-blue-400"
+                          : isActive
+                            ? "text-blue-300"
+                            : "group-hover:text-blue-200"
+                      }`}
+                    >
+                      {item.icon}
+                    </span>
+                    {item.title}
+                    {/* Active indicator */}
+                    {isActive && (
+                      <div
+                        className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
+                          isScrolled ? "bg-blue-500" : "bg-blue-300"
+                        }`}
+                      ></div>
+                    )}
+                    {/* Hover indicator */}
+                    <div
+                      className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
+                        isScrolled
+                          ? "bg-blue-500/0 group-hover:bg-blue-500/50"
+                          : "bg-blue-300/0 group-hover:bg-blue-300/50"
+                      }`}
+                    ></div>
+                    {/* Focus indicator for keyboard navigation */}
+                    <div className="absolute inset-0 rounded-md focus-within:ring-2 focus-within:ring-blue-300 focus-within:ring-opacity-50 transition-all duration-200"></div>
+                  </Link>
+                );
+              })}
             </div>
 
             {/* Language Switcher and Contact Button */}
@@ -76,32 +137,60 @@ export default function NavigationDesktop() {
               {/* Contact Button */}
               <Link
                 href="/contact"
-                className="bg-white text-black px-6 py-2 rounded-full hover:bg-gray-100 transition-all duration-200 flex items-center gap-2 font-medium text-sm hover:scale-105"
+                className={`px-6 py-2.5 rounded-full transition-all duration-300 flex items-center gap-2 font-medium text-sm hover:scale-105 transform focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                  isScrolled
+                    ? "bg-black/80 text-white hover:bg-black/90 hover:shadow-lg"
+                    : "bg-white text-black hover:bg-gray-100 hover:shadow-lg"
+                }`}
+                aria-label="Kontakt aufnehmen"
               >
                 <FaEnvelope className="text-lg" />
                 Kontakt
               </Link>
 
-              {/* Language Switcher */}
-              <div className="flex items-center">
+              {/* Language Switcher - verbesserte Accessibility */}
+              <div
+                className={`flex items-center rounded-full px-2 py-1 transition-all duration-300 ${
+                  isScrolled ? "bg-gray-100/70" : "bg-gray-600/50"
+                }`}
+              >
                 <button
                   onClick={() => handleLanguageChange("de")}
-                  className={`px-1 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
-                    locale === "de"
-                      ? "text-white"
-                      : "text-gray-400 hover:text-gray-300"
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                    isScrolled
+                      ? locale === "de"
+                        ? "text-white bg-blue-500/90 shadow-sm"
+                        : "text-gray-600 hover:text-gray-800 hover:bg-gray-200/60"
+                      : locale === "de"
+                        ? "text-white bg-blue-500/30 shadow-sm"
+                        : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
+                  aria-label="Sprache auf Deutsch wechseln"
+                  aria-pressed={locale === "de"}
                 >
                   DE
                 </button>
-                <span className="text-gray-500 text-sm">/</span>
+                <span
+                  className={`text-sm mx-1 transition-colors duration-300 ${
+                    isScrolled ? "text-gray-400" : "text-gray-400"
+                  }`}
+                  aria-hidden="true"
+                >
+                  /
+                </span>
                 <button
                   onClick={() => handleLanguageChange("en")}
-                  className={`px-1 py-1 rounded-full text-sm font-medium transition-all duration-200 ${
-                    locale === "en"
-                      ? "text-white"
-                      : "text-gray-400 hover:text-gray-300"
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                    isScrolled
+                      ? locale === "en"
+                        ? "text-white bg-blue-500/90 shadow-sm"
+                        : "text-gray-600 hover:text-gray-800 hover:bg-gray-200/60"
+                      : locale === "en"
+                        ? "text-white bg-blue-500/30 shadow-sm"
+                        : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
+                  aria-label="Switch to English"
+                  aria-pressed={locale === "en"}
                 >
                   EN
                 </button>
