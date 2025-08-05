@@ -49,6 +49,20 @@ export default function NavigationMobile() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when mobile navigation is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    // Cleanup function to restore scroll when component unmounts
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
   const handleLanguageChange = (lang: string) => {
     setLocale(lang);
     Cookies.set("NEXT_LOCALE", lang, { path: "/" });
@@ -198,68 +212,153 @@ export default function NavigationMobile() {
               damping: 25,
               duration: 0.3,
             }}
-            className="fixed top-0 left-0 h-screen w-full bg-gradient-to-br from-zinc-900/95 via-zinc-800/90 to-zinc-900/95 backdrop-blur-xl shadow-2xl z-50 overflow-y-auto"
+            className="fixed inset-0 w-full bg-gradient-to-br from-zinc-900/95 via-zinc-800/90 to-zinc-900/95 backdrop-blur-xl shadow-2xl z-50 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="p-6 flex flex-col h-full justify-between mx-auto pt-8">
-              <div className="space-y-6">
-                {/* Header mit Branding */}
-                <div className="flex items-center justify-between pb-6 border-b border-white/20">
-                  <div className="flex items-center gap-4">
-                    <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg">
-                      <Image
-                        src={MyAvatar}
-                        alt="Thomas Schwabauer"
-                        width={40}
-                        height={40}
-                        className="w-full h-full object-cover"
-                      />
+            <div className="h-full overflow-auto">
+              <div className="p-6 flex flex-col h-full justify-between mx-auto pt-8">
+                <div className="space-y-6">
+                  {/* Header mit Branding */}
+                  <div className="flex items-center justify-between pb-6 border-b border-white/20">
+                    <div className="flex items-center gap-4">
+                      <div className="w-20 h-20 rounded-full overflow-hidden shadow-lg">
+                        <Image
+                          src={MyAvatar}
+                          alt="Thomas Schwabauer"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h2 className="text-white font-semibold text-lg">
+                          Thomas Schwabauer
+                        </h2>
+                        <p className="text-white/70 text-sm">
+                          Fullstack Developer
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h2 className="text-white font-semibold text-lg">
-                        Thomas Schwabauer
-                      </h2>
-                      <p className="text-white/70 text-sm">
-                        Fullstack Developer
-                      </p>
-                    </div>
-                  </div>
-                  <button
-                    onClick={() => setIsOpen(false)}
-                    className="text-white/70 hover:text-white transition-all duration-200 hover:scale-110 p-2 rounded-full hover:bg-white/10 active:scale-95"
-                    aria-label="Menü schließen"
-                  >
-                    <svg
-                      className="h-6 w-6"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+                    <button
+                      onClick={() => setIsOpen(false)}
+                      className="text-white/80 hover:text-white transition-all duration-200 hover:scale-110 p-3 rounded-full hover:bg-white/15 active:scale-95 min-w-[44px] min-h-[44px] flex items-center justify-center"
+                      aria-label="Menü schließen"
                     >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
-                  </button>
-                </div>
+                      <svg
+                        className="h-6 w-6"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  </div>
 
-                {/* Navigation Links */}
-                <nav className="space-y-3">
-                  {menuItems.map((item) => {
-                    const isActive = isActiveLink(item.href);
-                    return (
-                      <div key={item.title} className="space-y-2">
-                        {item.subItems.length > 0 ? (
-                          <>
-                            <button
-                              onClick={() => toggleItem(item.title)}
-                              className={`flex items-center gap-4 text-lg font-medium w-full text-left h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
+                  {/* Navigation Links */}
+                  <nav className="space-y-3">
+                    {menuItems.map((item) => {
+                      const isActive = isActiveLink(item.href);
+                      return (
+                        <div key={item.title} className="space-y-2">
+                          {item.subItems.length > 0 ? (
+                            <>
+                              <button
+                                onClick={() => toggleItem(item.title)}
+                                className={`flex items-center gap-4 text-lg font-medium w-full text-left h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
+                                  isActive
+                                    ? "text-blue-300 bg-white/20 border-l-4 border-blue-300 shadow-lg font-semibold"
+                                    : "text-white hover:text-blue-200 hover:bg-white/10"
+                                }`}
+                              >
+                                <span
+                                  className={`text-xl transition-all duration-200 ${
+                                    isActive ? "text-blue-300" : "text-white"
+                                  }`}
+                                >
+                                  {item.icon}
+                                </span>
+                                <span
+                                  className={`${isActive ? "font-semibold" : "font-medium"}`}
+                                >
+                                  {item.title}
+                                </span>
+                                <motion.svg
+                                  className="h-5 w-5 ml-auto"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                  animate={{
+                                    rotate: expandedItems[item.title] ? 180 : 0,
+                                  }}
+                                  transition={{ duration: 0.2 }}
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth="2"
+                                    d="M19 9l-7 7-7-7"
+                                  />
+                                </motion.svg>
+                              </button>
+                              <motion.div
+                                initial={{ height: 0, opacity: 0 }}
+                                animate={{
+                                  height: expandedItems[item.title]
+                                    ? "auto"
+                                    : 0,
+                                  opacity: expandedItems[item.title] ? 1 : 0,
+                                }}
+                                transition={{ duration: 0.3 }}
+                                className="overflow-hidden"
+                              >
+                                <div className="mt-2 ml-6 space-y-1">
+                                  {item.subItems.map((subItem, index) => (
+                                    <motion.div
+                                      key={subItem.title}
+                                      initial={{ opacity: 0, x: -10 }}
+                                      animate={{
+                                        opacity: expandedItems[item.title]
+                                          ? 1
+                                          : 0,
+                                        x: expandedItems[item.title] ? 0 : -10,
+                                      }}
+                                      transition={{
+                                        duration: 0.2,
+                                        delay: expandedItems[item.title]
+                                          ? index * 0.05
+                                          : 0,
+                                      }}
+                                    >
+                                      <Link
+                                        href={subItem.href}
+                                        className="flex items-center gap-2 block py-2 px-3 text-sm text-white/70 hover:text-white hover:translate-x-1 rounded-lg transition-all duration-200 active:scale-[0.98]"
+                                        onClick={() => setIsOpen(false)}
+                                      >
+                                        <span className="text-blue-300 text-xs">
+                                          •
+                                        </span>
+                                        {subItem.title}
+                                      </Link>
+                                    </motion.div>
+                                  ))}
+                                </div>
+                              </motion.div>
+                            </>
+                          ) : (
+                            <Link
+                              href={item.href}
+                              className={`flex items-center gap-4 text-lg font-medium h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
                                 isActive
                                   ? "text-blue-300 bg-white/20 border-l-4 border-blue-300 shadow-lg font-semibold"
                                   : "text-white hover:text-blue-200 hover:bg-white/10"
                               }`}
+                              onClick={() => setIsOpen(false)}
                             >
                               <span
                                 className={`text-xl transition-all duration-200 ${
@@ -273,91 +372,25 @@ export default function NavigationMobile() {
                               >
                                 {item.title}
                               </span>
-                              <motion.svg
-                                className="h-5 w-5 ml-auto"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                                animate={{
-                                  rotate: expandedItems[item.title] ? 180 : 0,
-                                }}
-                                transition={{ duration: 0.2 }}
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth="2"
-                                  d="M19 9l-7 7-7-7"
-                                />
-                              </motion.svg>
-                            </button>
-                            <motion.div
-                              initial={{ height: 0, opacity: 0 }}
-                              animate={{
-                                height: expandedItems[item.title] ? "auto" : 0,
-                                opacity: expandedItems[item.title] ? 1 : 0,
-                              }}
-                              transition={{ duration: 0.3 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-14 space-y-2">
-                                {item.subItems.map((subItem) => (
-                                  <Link
-                                    key={subItem.title}
-                                    href={subItem.href}
-                                    className="block py-3 px-4 text-sm hover:text-blue-300 hover:bg-white/10 rounded-lg transition-all duration-200 active:scale-[0.98]"
-                                    onClick={() => setIsOpen(false)}
-                                  >
-                                    {subItem.title}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          </>
-                        ) : (
-                          <Link
-                            href={item.href}
-                            className={`flex items-center gap-4 text-lg font-medium h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
-                              isActive
-                                ? "text-blue-300 bg-white/20 border-l-4 border-blue-300 shadow-lg font-semibold"
-                                : "text-white hover:text-blue-200 hover:bg-white/10"
-                            }`}
-                            onClick={() => setIsOpen(false)}
-                          >
-                            <span
-                              className={`text-xl transition-all duration-200 ${
-                                isActive ? "text-blue-300" : "text-white"
-                              }`}
-                            >
-                              {item.icon}
-                            </span>
-                            <span
-                              className={`${isActive ? "font-semibold" : "font-medium"}`}
-                            >
-                              {item.title}
-                            </span>
-                          </Link>
-                        )}
-                      </div>
-                    );
-                  })}
-                </nav>
-              </div>
+                            </Link>
+                          )}
+                        </div>
+                      );
+                    })}
+                  </nav>
+                </div>
 
-              {/* Sticky Contact Button */}
-              <div className="pt-6">
-                <Link
-                  href="/contact"
-                  className={`flex items-center justify-center gap-3 w-full py-4 rounded-xl transition-all duration-200 font-medium shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
-                    isScrolled
-                      ? "bg-gradient-to-r from-blue-500 to-blue-600 text-white hover:from-blue-600 hover:to-blue-700 shadow-blue-500/25"
-                      : "bg-white text-black hover:bg-gray-100 shadow-lg"
-                  }`}
-                  onClick={() => setIsOpen(false)}
-                >
-                  <FaEnvelope className="text-lg" />
-                  Kontakt aufnehmen
-                </Link>
+                {/* Sticky Contact Button */}
+                <div className="pt-6">
+                  <Link
+                    href="/contact"
+                    className={`flex items-center justify-center gap-4 w-full h-16 rounded-xl transition-all duration-200 font-semibold text-lg shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-blue-500/25 ring-2 ring-blue-500/20`}
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <FaEnvelope className="text-xl" />
+                    Kontakt aufnehmen
+                  </Link>
+                </div>
               </div>
             </div>
           </motion.div>
