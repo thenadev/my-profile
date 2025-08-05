@@ -9,7 +9,7 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "../components/ui/card"; // Adjust import based on your file structure
+} from "../ui/card"; // Adjust import based on your file structure
 
 const DocumentSection: React.FC = () => {
   const t = useTranslations("Documents");

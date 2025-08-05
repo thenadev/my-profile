@@ -10,9 +10,9 @@ export default async function handler(
   if (req.method === "POST") {
     const { email, topic, message } = req.body;
 
-    // Set up Nodemailer transport using IONOS SMTP
+    // Set up Nodemailer transport using STRATO SMTP
     const transporter = nodemailer.createTransport({
-      host: "smtp.ionos.de",
+      host: "smtp.strato.de",
       port: 465,
       secure: true,
       auth: {

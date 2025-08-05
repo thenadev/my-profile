@@ -12,7 +12,7 @@ const getAge = () => {
   return moment().diff("1997-06-04", "years");
 };
 
-const AboutSection: React.FC = () => {
+const HomeAbout: React.FC = () => {
   const t = useTranslations("About");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
@@ -269,4 +269,4 @@ const AboutSection: React.FC = () => {
   );
 };
 
-export default AboutSection;
+export default HomeAbout;
