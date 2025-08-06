@@ -4,6 +4,7 @@ import {
   FaEnvelope,
   FaFileAlt,
   FaHome,
+  FaRocket,
   FaTools,
   FaUser,
 } from "react-icons/fa";
@@ -34,27 +35,13 @@ export const menuItems: MenuItem[] = [
     subItems: [],
   },
   {
-    title: "Projekte",
-    href: "/portfolio",
-    icon: <FaBriefcase />,
-    subItems: [],
-  },
-  {
     title: "Services",
     href: "/services",
     icon: <FaTools />,
     subItems: [
       {
-        title: "Webentwicklung",
-        href: "/services/web-development",
-      },
-      {
-        title: "App-Entwicklung",
-        href: "/services/app-development",
-      },
-      {
-        title: "WordPress",
-        href: "/services/wordpress",
+        title: "Startup-Beratung",
+        href: "/services/startup-beratung",
       },
     ],
   },

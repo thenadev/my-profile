@@ -11,6 +11,10 @@ import { FaEnvelope } from "react-icons/fa";
 export default function NavigationDesktop() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [locale, setLocale] = useState<string>("en");
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
+    null
+  );
   const router = useRouter();
   const pathname = usePathname();
 
@@ -40,6 +44,21 @@ export default function NavigationDesktop() {
       return pathname === "/";
     }
     return pathname.startsWith(href);
+  };
+
+  const handleMouseEnter = (itemTitle: string) => {
+    if (dropdownTimeout) {
+      clearTimeout(dropdownTimeout);
+      setDropdownTimeout(null);
+    }
+    setHoveredItem(itemTitle);
+  };
+
+  const handleMouseLeave = () => {
+    const timeout = setTimeout(() => {
+      setHoveredItem(null);
+    }, 150); // 150ms Verzögerung
+    setDropdownTimeout(timeout);
   };
 
   return (
@@ -80,54 +99,108 @@ export default function NavigationDesktop() {
             <div className="flex items-center space-x-8">
               {menuItems.map((item) => {
                 const isActive = isActiveLink(item.href);
+                const hasSubItems = item.subItems && item.subItems.length > 0;
+
                 return (
-                  <Link
+                  <div
                     key={item.title}
-                    href={item.href}
-                    className={`flex items-center gap-2 transition-all duration-300 text-sm font-medium relative group ${
-                      isScrolled
-                        ? isActive
-                          ? "text-gray-800"
-                          : "text-gray-600 hover:text-gray-800"
-                        : isActive
-                          ? "text-gray-100"
-                          : "text-gray-200 hover:text-gray-100"
-                    }`}
-                    aria-label={`Navigation zu ${item.title}`}
+                    className="relative"
+                    onMouseEnter={() => handleMouseEnter(item.title)}
+                    onMouseLeave={handleMouseLeave}
                   >
-                    <span
-                      className={`text-lg transition-all duration-300 ${
+                    <Link
+                      href={item.href}
+                      className={`flex items-center gap-2 transition-all duration-300 text-sm font-medium relative group ${
                         isScrolled
                           ? isActive
-                            ? "text-blue-500"
-                            : "group-hover:text-blue-400"
+                            ? "text-gray-800"
+                            : "text-gray-600 hover:text-gray-800"
                           : isActive
-                            ? "text-blue-300"
-                            : "group-hover:text-blue-200"
+                            ? "text-gray-100"
+                            : "text-gray-200 hover:text-gray-100"
                       }`}
+                      aria-label={`Navigation zu ${item.title}`}
                     >
-                      {item.icon}
-                    </span>
-                    {item.title}
-                    {/* Active indicator */}
-                    {isActive && (
+                      <span
+                        className={`text-lg transition-all duration-300 ${
+                          isScrolled
+                            ? isActive
+                              ? "text-blue-500"
+                              : "group-hover:text-blue-400"
+                            : isActive
+                              ? "text-blue-300"
+                              : "group-hover:text-blue-200"
+                        }`}
+                      >
+                        {item.icon}
+                      </span>
+                      {item.title}
+                      {hasSubItems && (
+                        <svg
+                          className={`w-3 h-3 transition-transform duration-200 ${
+                            hoveredItem === item.title ? "rotate-180" : ""
+                          }`}
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M19 9l-7 7-7-7"
+                          />
+                        </svg>
+                      )}
+                      {/* Active indicator */}
+                      {isActive && (
+                        <div
+                          className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
+                            isScrolled ? "bg-blue-500" : "bg-blue-300"
+                          }`}
+                        ></div>
+                      )}
+                      {/* Hover indicator */}
                       <div
                         className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
-                          isScrolled ? "bg-blue-500" : "bg-blue-300"
+                          isScrolled
+                            ? "bg-blue-500/0 group-hover:bg-blue-500/50"
+                            : "bg-blue-300/0 group-hover:bg-blue-300/50"
                         }`}
                       ></div>
+                    </Link>
+
+                    {/* Dropdown Menu */}
+                    {hasSubItems && hoveredItem === item.title && (
+                      <div className="absolute top-full left-0 mt-2 w-48 rounded-xl shadow-lg transition-all duration-200 opacity-100 transform translate-y-0">
+                        <div
+                          className={`rounded-xl border transition-all duration-200 ${
+                            isScrolled
+                              ? "bg-white/95 backdrop-blur-md border-gray-200/40 shadow-xl"
+                              : "bg-gray-800/95 backdrop-blur-md border-gray-600/40 shadow-xl"
+                          }`}
+                        >
+                          <div className="py-2">
+                            {item.subItems.map((subItem) => (
+                              <Link
+                                key={subItem.title}
+                                href={subItem.href}
+                                className={`block px-4 py-3 text-sm transition-all duration-200 hover:bg-opacity-10 ${
+                                  isScrolled
+                                    ? "text-gray-700 hover:text-gray-900 hover:bg-blue-500"
+                                    : "text-gray-200 hover:text-gray-100 hover:bg-blue-400"
+                                }`}
+                              >
+                                {subItem.title}
+                              </Link>
+                            ))}
+                          </div>
+                        </div>
+                        {/* Extended hover area */}
+                        <div className="absolute -top-4 -bottom-4 -left-4 -right-4 z-[-1]"></div>
+                      </div>
                     )}
-                    {/* Hover indicator */}
-                    <div
-                      className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
-                        isScrolled
-                          ? "bg-blue-500/0 group-hover:bg-blue-500/50"
-                          : "bg-blue-300/0 group-hover:bg-blue-300/50"
-                      }`}
-                    ></div>
-                    {/* Focus indicator for keyboard navigation */}
-                    <div className="absolute inset-0 rounded-md focus-within:ring-2 focus-within:ring-blue-300 focus-within:ring-opacity-50 transition-all duration-200"></div>
-                  </Link>
+                  </div>
                 );
               })}
             </div>
