@@ -14,71 +14,63 @@ export interface WorkStation {
   bulletpoints: string[];
 }
 
+// Konfiguration für Work Stations mit Anzahl der Bullet Points
+interface WorkStationConfig {
+  key: string;
+  link: string;
+  image: StaticImageData;
+  bulletPointCount: number;
+}
+
+const workStationConfigs: WorkStationConfig[] = [
+  {
+    key: "freelancer",
+    link: "https://www.thomas-schwabauer.de/",
+    image: FreelanceLogo,
+    bulletPointCount: 3,
+  },
+  {
+    key: "amsel",
+    link: "https://www.amsel-store.de/",
+    image: AmselLogo,
+    bulletPointCount: 4,
+  },
+  {
+    key: "vm",
+    link: "https://valtech-mobility.de/",
+    image: ValtechLogo,
+    bulletPointCount: 4,
+  },
+  {
+    key: "alcedis",
+    link: "https://www.alcedis.de/en",
+    image: AlcedisLogo,
+    bulletPointCount: 4,
+  },
+  {
+    key: "alcedisTester",
+    link: "https://www.alcedis.de/en",
+    image: AlcedisLogo,
+    bulletPointCount: 4,
+  },
+];
+
+// Hilfsfunktion um dynamisch Bullet Points zu generieren
+const generateBulletPoints = (stationKey: string, count: number): string[] => {
+  return Array.from(
+    { length: count },
+    (_, index) => `workStations.${stationKey}.bulletPoints.${index}`
+  );
+};
+
 export const workStations = (): WorkStation[] => {
-  return [
-    {
-      company: "freelancerCompany",
-      role: "freelancerRole",
-      duration: "freelancerDuration",
-      location: "freelancerLocation",
-      link: "https://www.thomas-schwabauer.de/",
-      image: FreelanceLogo,
-      bulletpoints: [
-        "freelancerBullet1",
-        "freelancerBullet2",
-        "freelancerBullet3",
-      ],
-    },
-    {
-      company: "amselCompany",
-      role: "amselRole",
-      duration: "amselDuration",
-      location: "amselLocation",
-      link: "https://www.amsel-store.de/",
-      image: AmselLogo,
-      bulletpoints: [
-        "amselBullet1",
-        "amselBullet2",
-        "amselBullet3",
-        "amselBullet4",
-      ],
-    },
-    {
-      company: "vmCompany",
-      role: "vmRole",
-      duration: "vmDuration",
-      location: "amselLocation",
-      link: "https://valtech-mobility.de/",
-      image: ValtechLogo,
-      bulletpoints: ["vmBullet1", "vmBullet2", "vmBullet3", "vmBullet4"],
-    },
-    {
-      company: "alcedisCompany",
-      role: "alcedisRole",
-      location: "amselLocation",
-      duration: "alcedisDuration",
-      link: "https://www.alcedis.de/en",
-      image: AlcedisLogo,
-      bulletpoints: [
-        "alcedisBullet1",
-        "alcedisBullet2",
-        "alcedisBullet3",
-        "alcedisBullet4",
-      ],
-    },
-    {
-      company: "alcedisTesterCompany",
-      role: "alcedisTesterRole",
-      location: "amselLocation",
-      duration: "alcedisTesterDuration",
-      link: "https://www.alcedis.de/en",
-      image: AlcedisLogo,
-      bulletpoints: [
-        "alcedisTesterBullet1",
-        "alcedisTesterBullet2",
-        "alcedisTesterBullet3",
-        "alcedisTesterBullet4",
-      ],
-    },
-  ];
+  return workStationConfigs.map((config) => ({
+    company: `workStations.${config.key}.company`,
+    role: `workStations.${config.key}.role`,
+    duration: `workStations.${config.key}.duration`,
+    location: `workStations.${config.key}.location`,
+    link: config.link,
+    image: config.image,
+    bulletpoints: generateBulletPoints(config.key, config.bulletPointCount),
+  }));
 };

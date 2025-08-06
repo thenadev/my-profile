@@ -13,11 +13,165 @@
     "privacy": "Datenschutzerklärung",
     "imprint": "Impressum",
     "contact": "Kontakt",
+    "blog": "Blog",
     "language": "Sprache",
     "language_en": "Englisch",
     "language_de": "Deutsch"
   },
   "Home": {
+    "Hero": {
+      "introText": "Hi, ich bin",
+      "title": "Thomas Schwabauer",
+      "subtitle": "Freelance Fullstack Entwickler",
+      "description": "Ich baue performante Web- und Mobile-Anwendungen mit modernen Technologien.",
+      "technologiesTitle": "Technologien",
+      "projectStartButton": "Projekt starten",
+      "projectStartAriaLabel": "Projekt starten per Kontaktformular - Antwort innerhalb von 24h",
+      "cvButton": "Lebenslauf",
+      "cvAriaLabel": "Lebenslauf und Dokumente anzeigen - PDF Download verfügbar",
+      "microCopy": "Direkt anfragen oder CV ansehen • Antwort innerhalb von 24h",
+      "location": "Wetzlar, Deutschland",
+      "locationAriaLabel": "Standort: Wetzlar, Deutschland - In Google Maps öffnen",
+      "avatarAlt": "Portrait von Thomas Schwabauer - Fullstack Developer",
+      "avatarTitle": "Hi 👋"
+    },
+    "About": {
+      "badge": "Über mich",
+      "title": "Ihr Partner für digitale Lösungen",
+      "description": "Leidenschaftlicher Freelancer mit Fokus auf moderne Webtechnologien und nutzerzentriertes Design.",
+      "name": "Thomas Schwabauer",
+      "role": "Fullstack Developer & UI/UX Designer",
+      "location": "📍 Deutschland, Wetzlar • 🌐 Remote verfügbar",
+      "bio": "Mit über 5 Jahren Erfahrung in der Webentwicklung helfe ich Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine Leidenschaft liegt in der Entwicklung performanter, benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.",
+      "skillsTitle": "Kernkompetenzen",
+      "skills": {
+        "reactNextjs": "React & Next.js",
+        "typescript": "TypeScript",
+        "flutter": "Flutter",
+        "agileDevelopment": "Agile Development",
+        "uiuxDesign": "UI/UX Design",
+        "apiDevelopment": "API Development"
+      },
+      "services": {
+        "webDevelopment": {
+          "title": "Webentwicklung",
+          "description": "Moderne, responsive Webanwendungen mit React und Next.js"
+        },
+        "uiuxDesign": {
+          "title": "UI/UX Design",
+          "description": "Benutzerfreundliche Interfaces die begeistern"
+        },
+        "performanceOptimization": {
+          "title": "Performance Optimierung",
+          "description": "Schnelle, suchmaschinenoptimierte Websites"
+        },
+        "consulting": {
+          "title": "Beratung",
+          "description": "Strategische Digitalberatung für Ihr Unternehmen"
+        }
+      },
+      "stats": {
+        "projects": "Projekte",
+        "yearsExperience": "Jahre Erfahrung",
+        "satisfiedCustomers": "Zufriedene Kunden",
+        "support": "Support"
+      },
+      "buttons": {
+        "fullProfile": "Vollständiges Profil",
+        "fullProfileAriaLabel": "Vollständiges Profil anzeigen - Mehr über Thomas Schwabauer erfahren",
+        "contact": "Kontakt aufnehmen",
+        "contactAriaLabel": "Kontakt aufnehmen - Projekt besprechen"
+      },
+      "clients": {
+        "title": "Vertrauen von Unternehmen weltweit",
+        "subtitle": "Erfolgreiche Projekte mit führenden Unternehmen",
+        "trustIndicators": {
+          "satisfaction": "100% Kundenzufriedenheit",
+          "delivery": "Pünktliche Lieferung",
+          "partnerships": "Langfristige Partnerschaften"
+        }
+      }
+    },
+    "WorkExperience": {
+      "badge": "Beruflicher Werdegang",
+      "title": "Meine Reise in der Tech-Welt",
+      "description": "Von ersten Schritten bis zu komplexen Enterprise-Lösungen - eine Reise durch moderne Technologien und wachsende Verantwortung.",
+      "location": "Remote / Deutschland",
+      "technologies": {
+        "react": "React",
+        "nextjs": "Next.js",
+        "typescript": "TypeScript",
+        "java": "Java",
+        "springBoot": "Spring Boot"
+      },
+      "callToAction": {
+        "title": "Bereit für Ihr nächstes Projekt?",
+        "description": "Mit meiner Erfahrung in modernen Technologien und bewährten Methoden helfe ich Ihnen dabei, Ihre Vision in die Realität umzusetzen.",
+        "discussProject": "Projekt besprechen",
+        "viewResume": "Lebenslauf ansehen"
+      },
+      "workStations": {
+        "freelancer": {
+          "company": "Freelancer",
+          "role": "Senior Fullstack Entwickler | Web & Mobile",
+          "duration": "Okt 2023 - Heute",
+          "location": "Wetzlar",
+          "bulletPoints": [
+            "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
+            "Mobile Apps mit Flutter, Android Automotive, Android Native",
+            "Individualsoftware für die Prozessoptimierung und Automatisierung"
+          ]
+        },
+        "amsel": {
+          "company": "Amsel UG",
+          "role": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
+          "duration": "Jul 2023 - Heute",
+          "location": "Langgöns",
+          "bulletPoints": [
+            "Expertise in der Planung und Umsetzung von komplexen Softwareprojekten",
+            "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
+            "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
+            "Backend Entwicklung mit Java / Spring-Boot"
+          ]
+        },
+        "vm": {
+          "company": "Valtech-Mobility GmbH",
+          "role": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
+          "duration": "Mär 2023 - Sep 2024",
+          "location": "Remote",
+          "bulletPoints": [
+            "Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden sowie die Pflege der Geschäftsbeziehungen",
+            "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
+            "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
+            "Entwicklung von Webanwendungen mit Angular in TypeScript"
+          ]
+        },
+        "alcedis": {
+          "company": "Alcedis GmbH",
+          "role": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
+          "duration": "Jul 2020 - Feb 2023",
+          "location": "Gießen",
+          "bulletPoints": [
+            "Entwicklung von Automatisierungstests für Webanwendungen mit Selenium/Gauge",
+            "Integration von Testautomatisierung in den Entwicklungsprozess",
+            "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
+            "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes"
+          ]
+        },
+        "alcedisTester": {
+          "company": "Alcedis GmbH",
+          "role": "Software tester",
+          "duration": "Jun 2018 - Jul 2020",
+          "location": "Gießen",
+          "bulletPoints": [
+            "Erstellung und Pflege von Testdokumenten",
+            "Durchführung von manuellen Funktions- und Regressionstests",
+            "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
+            "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
+          ]
+        }
+      }
+    },
     "welcome": "Thomas Schwabauer",
     "title": "Freelance Fullstack Entwickler",
     "location": "Wetzlar, Deutschland",
@@ -112,43 +266,7 @@
     "viewSource": "Quelle ansehen"
   },
   "Work": {
-    "title": "Berufserfahrung",
-    "freelancerCompany": "Freelancer",
-    "freelancerRole": "Fullstack Senior Developer | Testautomation | Android",
-    "freelancerDuration": "Okt 2023 - Heute",
-    "freelancerLocation": "Wetzlar",
-    "freelancerBullet1": "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
-    "freelancerBullet2": "Mobile Apps mit Flutter, Android Automotive, Android Native",
-    "freelancerBullet3": "Individualsoftware für die Prozessoptimierung und Automatisierung",
-    "amselCompany": "Amsel UG",
-    "amselRole": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
-    "amselDuration": "Jul 2023 - Heute",
-    "amselLocation": "Langgöns",
-    "amselBullet1": "Expertise in der Planung und Umsetzung von komplexen Softwareprojekten",
-    "amselBullet2": "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
-    "amselBullet3": "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
-    "amselBullet4": "Backend Entwicklung mit Java / Spring-Boot",
-    "vmCompany": "Valtech-Mobility GmbH",
-    "vmRole": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
-    "vmDuration": "Mär 2023 - Sep 2024",
-    "vmBullet1": "Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden sowie die Pflege der Geschäftsbeziehungen",
-    "vmBullet2": "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
-    "vmBullet3": "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
-    "vmBullet4": "Entwicklung von Webanwendungen mit Angular in TypeScript",
-    "alcedisCompany": "Alcedis GmbH",
-    "alcedisRole": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
-    "alcedisDuration": "Jul 2020 - Feb 2023",
-    "alcedisBullet1": "Entwicklung von Automatisierungstests für Webanwendungen mit Selenium/Gauge",
-    "alcedisBullet2": "Integration von Testautomatisierung in den Entwicklungsprozess",
-    "alcedisBullet3": "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
-    "alcedisBullet4": "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes",
-    "alcedisTesterCompany": "Alcedis GmbH",
-    "alcedisTesterRole": "Software tester",
-    "alcedisTesterDuration": "Jun 2018 - Jul 2020",
-    "alcedisTesterBullet1": "Erstellung und Pflege von Testdokumenten",
-    "alcedisTesterBullet2": "Durchführung von manuellen Funktions- und Regressionstests",
-    "alcedisTesterBullet3": "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
-    "alcedisTesterBullet4": "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
+    "title": "Meine berufliche Laufbahn"
   },
   "Services": {
     "title": "Leistungspakete",

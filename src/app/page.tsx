@@ -1,9 +1,9 @@
 "use client";
 
-import About from "@/components/home/About";
 import HomeContact from "@/components/home/Contact";
-import WorkExperienceSection from "@/components/home/Experience";
+import About from "@/components/home/HomeAbout";
 import HomeHero from "@/components/home/HomeHero";
+import HomeWorkExperience from "@/components/home/HomeWorkExperience";
 import ProjectsSection from "@/components/home/Projects";
 import ServicesSection from "@/components/home/Services";
 import React, { useEffect, useState } from "react";
@@ -25,7 +25,7 @@ const HomePage: React.FC = () => {
     <>
       <HomeHero />
       <About />
-      <WorkExperienceSection />
+      <HomeWorkExperience />
       <ProjectsSection />
       {/*<DocumentSection />*/}
       <HomeContact />

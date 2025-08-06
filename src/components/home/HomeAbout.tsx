@@ -7,6 +7,8 @@ import { motion, useInView } from "framer-motion";
 import moment from "moment";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 import {
   FaAward,
@@ -21,6 +23,7 @@ import {
   FaRocket,
   FaUsers,
 } from "react-icons/fa";
+import { FaMessage } from "react-icons/fa6";
 
 const getAge = () => {
   return moment().diff("1997-06-04", "years");
@@ -28,6 +31,8 @@ const getAge = () => {
 
 // ClientsSection Komponente
 function ClientsSection() {
+  const t = useTranslations("Home.About.clients");
+
   const clients = [
     { name: "Porsche", logo: "/customer/porsche.png" },
     { name: "Audi", logo: "/customer/audi.png" },
@@ -42,16 +47,12 @@ function ClientsSection() {
   const duplicatedClients = [...clients, ...clients];
 
   return (
-    <section className="py-12 px-4 bg-gray-50/50">
+    <section className="py-12 px-4">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <h3 className="text-gray-600 mb-2 font-medium">
-            Vertrauen von Unternehmen weltweit
-          </h3>
-          <p className="text-sm text-gray-500">
-            Erfolgreiche Projekte mit führenden Unternehmen
-          </p>
+          <h3 className="text-gray-600 mb-2 font-medium">{t("title")}</h3>
+          <p className="text-sm text-gray-500">{t("subtitle")}</p>
         </div>
 
         {/* Scrolling Logos */}
@@ -94,15 +95,15 @@ function ClientsSection() {
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-sm text-gray-500">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-            <span>100% Kundenzufriedenheit</span>
+            <span>{t("trustIndicators.satisfaction")}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
-            <span>Pünktliche Lieferung</span>
+            <span>{t("trustIndicators.delivery")}</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
-            <span>Langfristige Partnerschaften</span>
+            <span>{t("trustIndicators.partnerships")}</span>
           </div>
         </div>
       </div>
@@ -111,63 +112,42 @@ function ClientsSection() {
 }
 
 const HomeAbout: React.FC = () => {
-  const t = useTranslations("About");
+  const t = useTranslations("Home.About");
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-
-  // Trust-Metriken
-  const trustMetrics = [
-    {
-      icon: <FaCheckCircle className="text-green-500" />,
-      value: "100%",
-      label: "Kundenzufriedenheit",
-      description: "Alle Projekte erfolgreich abgeschlossen",
-    },
-    {
-      icon: <FaClock className="text-blue-500" />,
-      value: "Pünktlich",
-      label: "Projektabgabe",
-      description: "Nie ein Projekt verspätet",
-    },
-    {
-      icon: <FaHandshake className="text-purple-500" />,
-      value: "Langfristig",
-      label: "Partnerschaften",
-      description: "Wiederkehrende Kunden",
-    },
-  ];
+  const router = useRouter();
 
   // Kernkompetenzen
   const skills = [
-    "React & Next.js",
-    "TypeScript",
-    "Flutter",
-    "Agile Development",
-    "UI/UX Design",
-    "API Development",
+    t("skills.reactNextjs"),
+    t("skills.typescript"),
+    t("skills.flutter"),
+    t("skills.agileDevelopment"),
+    t("skills.uiuxDesign"),
+    t("skills.apiDevelopment"),
   ];
 
   // Services
   const services = [
     {
       icon: FaCode,
-      title: "Webentwicklung",
-      description: "Moderne, responsive Webanwendungen mit React und Next.js",
+      title: t("services.webDevelopment.title"),
+      description: t("services.webDevelopment.description"),
     },
     {
       icon: FaPalette,
-      title: "UI/UX Design",
-      description: "Benutzerfreundliche Interfaces die begeistern",
+      title: t("services.uiuxDesign.title"),
+      description: t("services.uiuxDesign.description"),
     },
     {
       icon: FaBolt,
-      title: "Performance Optimierung",
-      description: "Schnelle, suchmaschinenoptimierte Websites",
+      title: t("services.performanceOptimization.title"),
+      description: t("services.performanceOptimization.description"),
     },
     {
       icon: FaUsers,
-      title: "Beratung",
-      description: "Strategische Digitalberatung für Ihr Unternehmen",
+      title: t("services.consulting.title"),
+      description: t("services.consulting.description"),
     },
   ];
 
@@ -187,15 +167,12 @@ const HomeAbout: React.FC = () => {
           className="text-center mb-12"
         >
           <Badge variant="secondary" className="mb-4">
-            Über mich
+            {t("badge")}
           </Badge>
           <h2 className="text-3xl md:text-4xl mb-4 font-bold text-gray-900">
-            Ihr Partner für digitale Lösungen
+            {t("title")}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Leidenschaftlicher Freelancer mit Fokus auf moderne Webtechnologien
-            und nutzerzentriertes Design.
-          </p>
+          <p className="text-gray-600 max-w-2xl mx-auto">{t("description")}</p>
         </motion.div>
 
         <motion.div
@@ -210,7 +187,7 @@ const HomeAbout: React.FC = () => {
               <div className="relative">
                 <Image
                   src="/thomas_schwabauer.webp"
-                  alt="Thomas Schwabauer"
+                  alt={t("name")}
                   width={160}
                   height={160}
                   className="w-40 h-40 rounded-full object-cover border-4 border-white shadow-lg"
@@ -219,35 +196,26 @@ const HomeAbout: React.FC = () => {
               </div>
               <div>
                 <h3 className="text-xl mb-2 font-bold text-gray-900">
-                  Thomas Schwabauer
+                  {t("name")}
                 </h3>
-                <p className="text-gray-600 mb-3">
-                  Fullstack Developer & UI/UX Designer
-                </p>
-                <p className="text-sm text-gray-500">
-                  📍 Deutschland, Wetzlar • 🌐 Remote verfügbar
-                </p>
+                <p className="text-gray-600 mb-3">{t("role")}</p>
+                <p className="text-sm text-gray-500">{t("location")}</p>
               </div>
             </div>
 
             <div>
-              <p className="text-gray-600 leading-relaxed">
-                Mit über 5 Jahren Erfahrung in der Webentwicklung helfe ich
-                Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine
-                Leidenschaft liegt in der Entwicklung performanter,
-                benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.
-              </p>
+              <p className="text-gray-600 leading-relaxed">{t("bio")}</p>
             </div>
 
             {/* Skills */}
             <div>
               <h4 className="mb-3 font-semibold text-gray-900">
-                Kernkompetenzen
+                {t("skillsTitle")}
               </h4>
               <div className="flex flex-wrap gap-2">
                 {skills.map((skill, index) => (
                   <motion.div
-                    key={skill}
+                    key={"skill" + index}
                     initial={{ opacity: 0, scale: 0.8 }}
                     animate={
                       isInView
@@ -264,12 +232,23 @@ const HomeAbout: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex gap-3">
-              <Button className="flex-1 sm:flex-none bg-gray-900 hover:bg-gray-800 text-white">
-                Vollständiges Profil
-                <FaRocket className="ml-2 h-4 w-4" />
-              </Button>
-              <Button variant="outline">Kontakt aufnehmen</Button>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+              <Link
+                href="/about"
+                className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold text-sm sm:text-base md:text-lg h-10 sm:h-12"
+                aria-label={t("buttons.fullProfileAriaLabel")}
+              >
+                <FaRocket className="text-lg sm:text-xl" aria-hidden="true" />
+                {t("buttons.fullProfile")}
+              </Link>
+              <Link
+                href="/contact"
+                className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-blue-600 border-2 border-blue-600 rounded-lg hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold text-sm sm:text-base md:text-lg h-10 sm:h-12"
+                aria-label={t("buttons.contactAriaLabel")}
+              >
+                <FaMessage className="text-lg sm:text-xl" aria-hidden="true" />
+                {t("buttons.contact")}
+              </Link>
             </div>
           </div>
 
@@ -277,58 +256,24 @@ const HomeAbout: React.FC = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             {services.map((service, index) => (
               <motion.div
-                key={service.title}
+                key={"service" + index}
                 initial={{ opacity: 0, y: 20 }}
                 animate={
                   isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
                 }
                 transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
               >
-                <Card className="group hover:shadow-md transition-all duration-300 border-gray-200">
-                  <CardContent className="p-6">
+                <Card className="group hover:shadow-md transition-all duration-300 border-gray-200 h-full">
+                  <CardContent className="p-6 h-full flex flex-col">
                     <service.icon className="h-8 w-8 text-blue-600 mb-4 group-hover:scale-110 transition-transform" />
                     <h4 className="mb-2 font-semibold text-gray-900">
                       {service.title}
                     </h4>
-                    <p className="text-sm text-gray-600 leading-relaxed">
+                    <p className="text-sm text-gray-600 leading-relaxed flex-grow">
                       {service.description}
                     </p>
                   </CardContent>
                 </Card>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
-        {/* Trust Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          className="text-center space-y-8 mb-12"
-        >
-          {/* Trust Metrics */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-            {trustMetrics.map((metric, index) => (
-              <motion.div
-                key={metric.label}
-                initial={{ opacity: 0, y: 20 }}
-                animate={
-                  isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }
-                }
-                transition={{ duration: 0.5, delay: 0.6 + index * 0.1 }}
-                className="text-center"
-              >
-                <div className="flex justify-center mb-2">{metric.icon}</div>
-                <div className="text-2xl font-bold text-gray-900 mb-1">
-                  {metric.value}
-                </div>
-                <div className="text-sm font-medium text-gray-700 mb-1">
-                  {metric.label}
-                </div>
-                <div className="text-xs text-gray-500">
-                  {metric.description}
-                </div>
               </motion.div>
             ))}
           </div>
@@ -342,13 +287,13 @@ const HomeAbout: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-white rounded-xl border border-gray-200 shadow-sm mb-12"
         >
           {[
-            { value: "20+", label: "Projekte" },
-            { value: "5+", label: "Jahre Erfahrung" },
-            { value: "10+", label: "Zufriedene Kunden" },
-            { value: "24/7", label: "Support" },
+            { value: "20+", label: t("stats.projects") },
+            { value: "5+", label: t("stats.yearsExperience") },
+            { value: "10+", label: t("stats.satisfiedCustomers") },
+            { value: "24/7", label: t("stats.support") },
           ].map((stat, index) => (
             <motion.div
-              key={stat.label}
+              key={"stat" + index}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={
                 isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }

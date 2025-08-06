@@ -36,9 +36,8 @@ const PersonalValues: React.FC = () => {
               Qualität
             </h3>
             <p className="text-slate-600 text-sm">
-              Sauberer Code, nachhaltige Architekturen und
-              benutzerfreundliche Lösungen stehen im Mittelpunkt meiner
-              Arbeit.
+              Sauberer Code, nachhaltige Architekturen und benutzerfreundliche
+              Lösungen stehen im Mittelpunkt meiner Arbeit.
             </p>
           </Card>
         </div>
@@ -53,7 +52,7 @@ const PersonalValues: React.FC = () => {
               Zusammenarbeit
             </h3>
             <p className="text-slate-600 text-sm">
-              Der beste Code entsteht im Team. Ich schätze offene
+              Der beste Code entsteht im Team. Ich schätze eine offene
               Kommunikation und den Austausch von Wissen und Erfahrungen.
             </p>
           </Card>
@@ -63,4 +62,4 @@ const PersonalValues: React.FC = () => {
   );
 };
 
-export default PersonalValues; 
+export default PersonalValues;

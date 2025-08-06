@@ -13,7 +13,7 @@ const ContactSection: React.FC = () => {
 
         <Card className="bg-white/90 backdrop-blur-sm border border-gray-100/50 shadow-2xl rounded-3xl p-8">
           <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
-            Lass uns zusammenarbeiten
+            Lass Sie uns zusammenarbeiten
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
@@ -38,7 +38,7 @@ const ContactSection: React.FC = () => {
               <div className="flex items-center gap-3">
                 <FaMapPin className="w-5 h-5 text-purple-600" />
                 <span className="text-slate-600">
-                  {siteConfig.city}, {siteConfig.country}
+                  {siteConfig.city}, Deutschland
                 </span>
               </div>
             </div>
@@ -73,4 +73,4 @@ const ContactSection: React.FC = () => {
   );
 };
 
-export default ContactSection; 
+export default ContactSection;

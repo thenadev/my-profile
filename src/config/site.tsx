@@ -4,7 +4,6 @@ export const siteConfig = {
   streetAddress: "Kirschenwäldchen 8d",
   city: "Wetzlar",
   zipCode: "35578",
-  country: "germany",
   contactPhone: "+4917656120050",
   contactPhoneDisplay: "+49 176 56120050",
   contactEmail: "email@thomas-schwabauer.de",
