@@ -2,10 +2,13 @@
 
 import { Card } from "@/components/ui/card";
 import { siteConfig } from "@/config/site";
+import { useTranslations } from "next-intl";
 import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
 
 const ContactSection: React.FC = () => {
+  const t = useTranslations("About.ContactSection");
+
   return (
     <section className="w-full">
       <div className="relative group">
@@ -13,7 +16,7 @@ const ContactSection: React.FC = () => {
 
         <Card className="bg-white/90 backdrop-blur-sm border border-gray-100/50 shadow-2xl rounded-3xl p-8">
           <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
-            Lass Sie uns zusammenarbeiten
+            {t("title")}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-4">
@@ -51,7 +54,7 @@ const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-blue-600 hover:underline"
                 >
-                  LinkedIn Profil
+                  {t("social.linkedin")}
                 </a>
               </div>
               <div className="flex items-center gap-3">
@@ -62,7 +65,7 @@ const ContactSection: React.FC = () => {
                   rel="noopener noreferrer"
                   className="text-gray-800 hover:underline"
                 >
-                  GitHub Projekte
+                  {t("social.github")}
                 </a>
               </div>
             </div>

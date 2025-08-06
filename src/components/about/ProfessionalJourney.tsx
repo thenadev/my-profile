@@ -2,12 +2,15 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Car, Music, Users, Zap } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ProfessionalJourney: React.FC = () => {
+  const t = useTranslations("About.ProfessionalJourney");
+
   return (
     <section className="w-full space-y-8">
       <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">
-        Ein paar Karriere-Highlights
+        {t("title")}
       </h2>
 
       <div className="max-w-6xl mx-auto">
@@ -19,10 +22,10 @@ const ProfessionalJourney: React.FC = () => {
             <CardHeader className="pb-6 border-b border-gray-100">
               <div className="space-y-2">
                 <CardTitle className="text-2xl font-semibold text-gray-900">
-                  Valtech Mobility GmbH
+                  {t("valtech.title")}
                 </CardTitle>
                 <p className="text-base text-gray-600">
-                  Porsche & Audi Projekte
+                  {t("valtech.subtitle")}
                 </p>
               </div>
             </CardHeader>
@@ -55,24 +58,22 @@ const ProfessionalJourney: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Briefcase className="w-4 h-4 text-gray-600" />
-                      <h3 className="font-semibold text-gray-900">Tätigkeit</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        {t("valtech.activity.title")}
+                      </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Beratung & Umsetzung für Porsche und Audi</span>
+                        <span>{t("valtech.activity.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Tägliche Gespräche mit internen Entwicklerteams
-                        </span>
+                        <span>{t("valtech.activity.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Integration von Apple Music, Spotify, Apple Podcasts
-                        </span>
+                        <span>{t("valtech.activity.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -82,21 +83,21 @@ const ProfessionalJourney: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Car className="w-4 h-4 text-gray-600" />
                       <h3 className="font-semibold text-gray-900">
-                        Verantwortung
+                        {t("valtech.responsibility.title")}
                       </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>QR-Code Login für Porsche & Audi</span>
+                        <span>{t("valtech.responsibility.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Premium UX in Automotive-Kontext</span>
+                        <span>{t("valtech.responsibility.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Entwicklung innovativer Fahrzeugfunktionen</span>
+                        <span>{t("valtech.responsibility.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -105,24 +106,22 @@ const ProfessionalJourney: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-gray-600" />
-                      <h3 className="font-semibold text-gray-900">Learnings</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        {t("valtech.learnings.title")}
+                      </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Fokus auf Teamarbeit & hohe Softwarequalität
-                        </span>
+                        <span>{t("valtech.learnings.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Premium UX in Automotive-Kontext</span>
+                        <span>{t("valtech.learnings.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Wie es sich anfühlt, in einem Porsche zu sitzen 😄
-                        </span>
+                        <span>{t("valtech.learnings.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -131,19 +130,19 @@ const ProfessionalJourney: React.FC = () => {
                   <div className="pt-4 border-t border-gray-100">
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Angular
+                        {t("valtech.technologies.0")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        TypeScript
+                        {t("valtech.technologies.1")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Agile
+                        {t("valtech.technologies.2")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Apple Integration
+                        {t("valtech.technologies.3")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        QR-Code Login
+                        {t("valtech.technologies.4")}
                       </span>
                     </div>
                   </div>

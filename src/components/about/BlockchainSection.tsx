@@ -2,9 +2,12 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Briefcase, Building2, Globe, Users, Zap } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 const BlockchainSection: React.FC = () => {
+  const t = useTranslations("About.BlockchainSection");
+
   return (
     <section className="w-full space-y-8">
       <div className="max-w-6xl mx-auto">
@@ -16,27 +19,22 @@ const BlockchainSection: React.FC = () => {
             <CardHeader className="pb-6 border-b border-gray-100">
               <div className="space-y-2">
                 <CardTitle className="text-2xl font-semibold text-gray-900">
-                  Digitalsocial.ID Ltd.
+                  {t("dsid.title")}
                 </CardTitle>
-                <p className="text-base text-gray-600">
-                  Blockchain-Startup für digitale Identitäten
-                </p>
+                <p className="text-base text-gray-600">{t("dsid.subtitle")}</p>
                 <div className="pt-4 space-y-2">
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <Globe className="w-4 h-4 text-gray-600" />
                     <span className="font-medium text-gray-700">
-                      European Blockchain Convention 2023
+                      {t("dsid.convention.title")}
                     </span>
                   </div>
                   <p className="text-gray-600 text-sm leading-relaxed">
-                    Als Mitglied des Teams war ich bei der European Blockchain
-                    Convention in Barcelona dabei. Eine aufregende Erfahrung,
-                    bei der wir Digitalsocial.ID einem internationalen Publikum
-                    präsentiert haben.
+                    {t("dsid.convention.description")}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-gray-500">
                     <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                    Barcelona, Spanien
+                    {t("dsid.convention.location")}
                   </div>
                 </div>
               </div>
@@ -50,28 +48,22 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Briefcase className="w-4 h-4 text-gray-600" />
-                      <h3 className="font-semibold text-gray-900">Tätigkeit</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        {t("dsid.activity.title")}
+                      </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Entwicklung innovativer Blockchain-Lösungen für
-                          digitale Identitäten
-                        </span>
+                        <span>{t("dsid.activity.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Arbeit im Team von Simon Molitor an sicheren und
-                          dezentralen Identitätsverwaltungssystemen
-                        </span>
+                        <span>{t("dsid.activity.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Schnittstelle zwischen Technologie und Gesellschaft
-                        </span>
+                        <span>{t("dsid.activity.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -81,26 +73,21 @@ const BlockchainSection: React.FC = () => {
                     <div className="flex items-center gap-2">
                       <Building2 className="w-4 h-4 text-gray-600" />
                       <h3 className="font-semibold text-gray-900">
-                        Verantwortung
+                        {t("dsid.responsibility.title")}
                       </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Blockchain-Technologie für digitale Identitäten
-                        </span>
+                        <span>{t("dsid.responsibility.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Dezentrale Identitätsverwaltungssysteme</span>
+                        <span>{t("dsid.responsibility.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Präsentation bei der European Blockchain Convention
-                          2023
-                        </span>
+                        <span>{t("dsid.responsibility.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -109,26 +96,22 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-gray-600" />
-                      <h3 className="font-semibold text-gray-900">Learnings</h3>
+                      <h3 className="font-semibold text-gray-900">
+                        {t("dsid.learnings.title")}
+                      </h3>
                     </div>
                     <ul className="space-y-2 text-gray-700 text-sm">
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Tiefe Einblicke in Blockchain-Technologie und digitale
-                          Identität
-                        </span>
+                        <span>{t("dsid.learnings.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>Zukunft der digitalen Identität und Web3</span>
+                        <span>{t("dsid.learnings.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
                         <span className="w-1.5 h-1.5 bg-gray-400 rounded-full mt-2 flex-shrink-0"></span>
-                        <span>
-                          Internationale Präsentation bei der European
-                          Blockchain Convention in Barcelona
-                        </span>
+                        <span>{t("dsid.learnings.items.2")}</span>
                       </li>
                     </ul>
                   </div>
@@ -137,19 +120,19 @@ const BlockchainSection: React.FC = () => {
                   <div className="pt-4 border-t border-gray-100">
                     <div className="flex flex-wrap gap-2">
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Blockchain
+                        {t("dsid.technologies.0")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Solana
+                        {t("dsid.technologies.1")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Digital Identity
+                        {t("dsid.technologies.2")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Web3
+                        {t("dsid.technologies.3")}
                       </span>
                       <span className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-medium">
-                        Startup
+                        {t("dsid.technologies.4")}
                       </span>
                     </div>
                   </div>
@@ -161,14 +144,14 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-4">
                     <Image
                       src="/about/dsid_stand.jpg"
-                      alt="DSID Präsentation"
+                      alt={t("dsid.images.presentation")}
                       className="w-full h-60 object-cover rounded-lg"
                       width={900}
                       height={600}
                     />
                     <Image
                       src="/about/dsid_stage.jpg"
-                      alt="DSID Stand bei der European Blockchain Convention"
+                      alt={t("dsid.images.stand")}
                       className="w-full h-60 object-cover rounded-lg"
                       width={900}
                       height={600}

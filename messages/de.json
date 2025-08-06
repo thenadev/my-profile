@@ -189,23 +189,6 @@
     "orb_9": "Java ist eine vielseitige, hochrangige Programmiersprache, die häufig für plattformübergreifende Entwicklung verwendet wird.",
     "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration."
   },
-  "About": {
-    "title": "Über mich",
-    "whoAmI": "Wer bin ich?",
-    "description": "Als Softwareentwickler verfüge ich über umfassende Erfahrung in der Entwicklung von Anwendungen, im Projektmanagement, im Testen von Software sowie im Kundensupport. Mein Anspruch ist es, qualitativ hochwertige, praxisnahe Lösungen zu realisieren und dabei meine Fähigkeiten und mein Wissen stetig zu erweitern.",
-    "career": "Im Laufe meiner",
-    "careerLink": "Karriere",
-    "careerProjects": " habe ich an Projekten für namhafte Kunden wie ",
-    "and": "und",
-    "includingProjects": " mitgewirkt, einschließlich Webanwendungen, mobilen Apps und Backendsystemen.",
-    "niceToKnow": "Randfakten: Ich bin {age} Jahre alt, lebe in Wetzlar, Deutschland und praktiziere Natural Bodybuilding, was sowohl für meine persönliche als auch berufliche Disziplin spricht.",
-    "skillMatrix": "Kompetenzmatrix",
-    "frameworksLibraries": "Frameworks & Bibliotheken",
-    "programmingLanguages": "Programmiersprachen",
-    "devOpsTools": "DevOps & Tools",
-    "databasesApis": "Datenbanken & APIs",
-    "contactButton": "Kontaktiere mich"
-  },
   "Contact": {
     "title": "Kontakt",
     "yourEmail": "Ihre E-Mail",
@@ -411,6 +394,162 @@
     "exampleDesigns": "Beispielhafte Designs",
     "beforeImageAlt": "Vorher Bild der Webseite",
     "afterImageAlt": "Nachher Bild der Webseite"
+  },
+  "About": {
+    "Hero": {
+      "title": "Über mich",
+      "description": "Entdecke die Person hinter dem Code - meine Leidenschaft für Technologie, meine Reise als Entwickler und was mich antreibt."
+    },
+    "PersonalStory": {
+      "title": "Die Person hinter dem Code",
+      "intro": "Hi, ich bin Thomas – Fullstack-Freelancer mit Tech-Leidenschaft und Startup-DNA",
+      "story1": "Meine Begeisterung für Technik begann früh – wie bei vielen anderen auch, zunächst mit Spielekonsolen, später mit meinem ersten Computer. Der entscheidende Moment kam aber beim Abitur: Im Fach EDV merkte ich zum ersten Mal, wie sehr mich Softwareentwicklung fesselt. Die Stunden verflogen – und damit war klar, dass ich daraus mehr machen will.",
+      "story2": "Nach meinem Studium der Informatik an der Technischen Hochschule Mittelhessen in Gießen habe ich meine Leidenschaft für Softwareentwicklung zum Beruf gemacht.",
+      "story3": "Heute entwickle ich Web- und Mobile-Anwendungen mit Next.js, React, Tailwind und TypeScript im Frontend sowie Python und KI-Anbindungen im Backend. Ich liebe Greenfield-Projekte, bei denen ich von Anfang an mitdenken, mitgestalten und skalierbare Architekturen aufbauen kann.",
+      "imageAlt": "Thomas Schwabauer - DSID Digitalsocial.ID Portrait",
+      "imageTitle": "Entwickler-Modus",
+      "imageDescription": "Konzentriert bei der Arbeit an innovativen Lösungen",
+      "workStyle": {
+        "title": "Mein Arbeitsstil",
+        "subtitle": "Je nach Projektphase bringe ich die passende Herangehensweise mit",
+        "strategic": {
+          "title": "Strategisch",
+          "description": "Architektur und Skalierung"
+        },
+        "creative": {
+          "title": "Kreativ",
+          "description": "UX und UI Design"
+        },
+        "pragmatic": {
+          "title": "Pragmatisch",
+          "description": "MVP schnell live"
+        }
+      },
+      "startupWork": {
+        "title": "Warum ich am liebsten mit Startups arbeite",
+        "description": "Ich arbeite gerne mit Menschen, die für ihre Ideen brennen. Genau das finde ich bei Gründer:innen, Startups und Einzelpersonen mit einer klaren Vision. Mir ist wichtig, nicht nur umzusetzen, sondern auch mitzudenken, zu hinterfragen und Verantwortung zu übernehmen. Ich bin kein Entwickler, der nur Tasks abarbeitet – sondern ein Sparringspartner, der ehrlich kommuniziert, mitdenkt aber auch umsetzt."
+      },
+      "background": {
+        "title": "Persönlich motiviert, technisch neugierig",
+        "quote": "\"Wenn ich in der Karriere hätte weiter gehen können, hätte ich das gemacht.\"",
+        "quoteDescription": "Meine Eltern kamen als Russlanddeutsche nach Deutschland zurück und mussten sich hier ein neues Leben aufbauen. Dieser Satz meines Vaters begleitet mich bis heute. Er motiviert mich, mutig zu sein, Verantwortung zu übernehmen und neue Wege zu gehen – sowohl im Leben als auch in der Technik.",
+        "bodybuilding": "Wenn ich nicht code, findet man mich wahrscheinlich im Gym oder bei Marvel-Filmen im Kino oder beim Essen. Ich betreibe Natural Bodybuilding – 2018 stand ich bei der GNBF auf der Bühne und holte den 2. Platz bei der Kategorie Junior Bodybuilding bis 21 Jahre Über 75kg."
+      },
+      "bodybuildingImageAlt": "Thomas Schwabauer - GNBF Bodybuilding Wettkampf 2018, 2. Platz",
+      "bodybuildingTitle": "GNBF 2018 - 2. Platz",
+      "bodybuildingDescription": "Natural Bodybuilding - Deutsche Meisterschaft"
+    },
+    "PersonalValues": {
+      "title": "Was mich antreibt",
+      "innovation": {
+        "title": "Innovation",
+        "description": "Ich liebe es, neue Technologien zu erkunden und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen."
+      },
+      "quality": {
+        "title": "Qualität",
+        "description": "Sauberer Code, nachhaltige Architekturen und benutzerfreundliche Lösungen stehen im Mittelpunkt meiner Arbeit."
+      },
+      "collaboration": {
+        "title": "Zusammenarbeit",
+        "description": "Der beste Code entsteht im Team. Ich schätze eine offene Kommunikation und den Austausch von Wissen und Erfahrungen."
+      }
+    },
+    "ProfessionalJourney": {
+      "title": "Ein paar Karriere-Highlights",
+      "valtech": {
+        "title": "Valtech Mobility GmbH",
+        "subtitle": "Porsche & Audi Projekte",
+        "activity": {
+          "title": "Tätigkeit",
+          "items": [
+            "Beratung & Umsetzung für Porsche und Audi",
+            "Tägliche Gespräche mit internen Entwicklerteams",
+            "Integration von Apple Music, Spotify, Apple Podcasts"
+          ]
+        },
+        "responsibility": {
+          "title": "Verantwortung",
+          "items": [
+            "QR-Code Login für Porsche & Audi",
+            "Premium UX in Automotive-Kontext",
+            "Entwicklung innovativer Fahrzeugfunktionen"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Fokus auf Teamarbeit & hohe Softwarequalität",
+            "Premium UX in Automotive-Kontext",
+            "Wie es sich anfühlt, in einem Porsche zu sitzen 😄"
+          ]
+        },
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "Agile",
+          "Apple Integration",
+          "QR-Code Login"
+        ]
+      }
+    },
+    "BlockchainSection": {
+      "dsid": {
+        "title": "Digitalsocial.ID Ltd.",
+        "subtitle": "Blockchain-Startup für digitale Identitäten",
+        "convention": {
+          "title": "European Blockchain Convention 2023",
+          "description": "Als Mitglied des Teams war ich bei der European Blockchain Convention in Barcelona dabei. Eine aufregende Erfahrung, bei der wir Digitalsocial.ID einem internationalen Publikum präsentiert haben.",
+          "location": "Barcelona, Spanien"
+        },
+        "activity": {
+          "title": "Tätigkeit",
+          "items": [
+            "Entwicklung innovativer Blockchain-Lösungen für digitale Identitäten",
+            "Arbeit im Team von Simon Molitor an sicheren und dezentralen Identitätsverwaltungssystemen",
+            "Schnittstelle zwischen Technologie und Gesellschaft"
+          ]
+        },
+        "responsibility": {
+          "title": "Verantwortung",
+          "items": [
+            "Blockchain-Technologie für digitale Identitäten",
+            "Dezentrale Identitätsverwaltungssysteme",
+            "Präsentation bei der European Blockchain Convention 2023"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Tiefe Einblicke in Blockchain-Technologie und digitale Identität",
+            "Zukunft der digitalen Identität und Web3",
+            "Internationale Präsentation bei der European Blockchain Convention in Barcelona"
+          ]
+        },
+        "technologies": [
+          "Blockchain",
+          "Solana",
+          "Digital Identity",
+          "Web3",
+          "Startup"
+        ],
+        "images": {
+          "presentation": "DSID Präsentation",
+          "stand": "DSID Stand bei der European Blockchain Convention"
+        }
+      }
+    },
+    "ContactSection": {
+      "title": "Lass Sie uns zusammenarbeiten",
+      "contact": {
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "location": "Standort"
+      },
+      "social": {
+        "linkedin": "LinkedIn Profil",
+        "github": "GitHub Projekte"
+      }
+    }
   },
   "Privacy": {
     "title": "Datenschutzerklärung",

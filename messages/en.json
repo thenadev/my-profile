@@ -190,21 +190,160 @@
     "orb_10": "Spring Boot simplifies building production-ready Java applications with minimal configuration."
   },
   "About": {
-    "title": "About me",
-    "whoAmI": "Who am I?",
-    "description": "I'm a software developer experienced in building software, managing projects, testing applications, and providing customer support. My goal is to build high-quality, practical solutions while continuously learning.",
-    "career": "Throughout my",
-    "careerLink": "career",
-    "careerProjects": ", I have contributed to projects for prominent customers such as ",
-    "and": "and",
-    "includingProjects": ", including web applications, mobile apps, and backend systems.",
-    "niceToKnow": "Nice to know: I am {age} years old, live in Wetzlar, Germany and practice natural bodybuilding, which speaks to my dedication and discipline both personally and professionally.",
-    "skillMatrix": "Skill Matrix",
-    "frameworksLibraries": "Frameworks & Libraries",
-    "programmingLanguages": "Programming Languages",
-    "devOpsTools": "DevOps & Tools",
-    "databasesApis": "Databases & APIs",
-    "contactButton": "Contact Me"
+    "Hero": {
+      "title": "About me",
+      "description": "Discover the person behind the code - my passion for technology, my journey as a developer and what drives me."
+    },
+    "PersonalStory": {
+      "title": "The person behind the code",
+      "intro": "Hi, I'm Thomas – Fullstack freelancer with tech passion and startup DNA",
+      "story1": "My enthusiasm for technology started early – like many others, first with gaming consoles, later with my first computer. But the decisive moment came during high school: In the IT class, I realized for the first time how much software development fascinates me. The hours flew by – and that's when it was clear that I wanted to make more of this.",
+      "story2": "After studying Computer Science at the Technical University of Central Hesse in Gießen, I turned my passion for software development into a career.",
+      "story3": "Today I develop web and mobile applications with Next.js, React, Tailwind and TypeScript in the frontend as well as Python and AI integrations in the backend. I love greenfield projects where I can think along, help shape and build scalable architectures from the beginning.",
+      "imageAlt": "Thomas Schwabauer - DSID Digitalsocial.ID Portrait",
+      "imageTitle": "Developer Mode",
+      "imageDescription": "Focused on working on innovative solutions",
+      "workStyle": {
+        "title": "My work style",
+        "subtitle": "Depending on the project phase, I bring the right approach",
+        "strategic": {
+          "title": "Strategic",
+          "description": "Architecture and scaling"
+        },
+        "creative": {
+          "title": "Creative",
+          "description": "UX and UI design"
+        },
+        "pragmatic": {
+          "title": "Pragmatic",
+          "description": "MVP quickly live"
+        }
+      },
+      "startupWork": {
+        "title": "Why I prefer working with startups",
+        "description": "I enjoy working with people who are passionate about their ideas. That's exactly what I find with founders, startups and individuals with a clear vision. It's important to me not just to implement, but also to think along, question and take responsibility. I'm not a developer who just works through tasks – but a sparring partner who communicates honestly, thinks along but also implements."
+      },
+      "background": {
+        "title": "Personally motivated, technically curious",
+        "quote": "\"If I could have gone further in my career, I would have done it.\"",
+        "quoteDescription": "My parents came back to Germany as Russian Germans and had to build a new life here. This sentence from my father accompanies me to this day. It motivates me to be brave, take responsibility and go new ways – both in life and in technology.",
+        "bodybuilding": "When I'm not coding, you'll probably find me at the gym or at Marvel movies in the cinema or eating. I do Natural Bodybuilding – in 2018 I stood on stage at the GNBF and won 2nd place in the Junior Bodybuilding category up to 21 years Over 75kg."
+      },
+      "bodybuildingImageAlt": "Thomas Schwabauer - GNBF Bodybuilding Competition 2018, 2nd Place",
+      "bodybuildingTitle": "GNBF 2018 - 2nd Place",
+      "bodybuildingDescription": "Natural Bodybuilding - German Championship"
+    },
+    "PersonalValues": {
+      "title": "What drives me",
+      "innovation": {
+        "title": "Innovation",
+        "description": "I love exploring new technologies and developing innovative solutions that create real value."
+      },
+      "quality": {
+        "title": "Quality",
+        "description": "Clean code, sustainable architectures and user-friendly solutions are at the center of my work."
+      },
+      "collaboration": {
+        "title": "Collaboration",
+        "description": "The best code is created in a team. I value open communication and the exchange of knowledge and experiences."
+      }
+    },
+    "ProfessionalJourney": {
+      "title": "A few career highlights",
+      "valtech": {
+        "title": "Valtech Mobility GmbH",
+        "subtitle": "Porsche & Audi Projects",
+        "activity": {
+          "title": "Activity",
+          "items": [
+            "Consulting & implementation for Porsche and Audi",
+            "Daily conversations with internal development teams",
+            "Integration of Apple Music, Spotify, Apple Podcasts"
+          ]
+        },
+        "responsibility": {
+          "title": "Responsibility",
+          "items": [
+            "QR-Code login for Porsche & Audi",
+            "Premium UX in automotive context",
+            "Development of innovative vehicle functions"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Focus on teamwork & high software quality",
+            "Premium UX in automotive context",
+            "How it feels to sit in a Porsche 😄"
+          ]
+        },
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "Agile",
+          "Apple Integration",
+          "QR-Code Login"
+        ]
+      }
+    },
+    "BlockchainSection": {
+      "dsid": {
+        "title": "Digitalsocial.ID Ltd.",
+        "subtitle": "Blockchain startup for digital identities",
+        "convention": {
+          "title": "European Blockchain Convention 2023",
+          "description": "As a member of the team, I was at the European Blockchain Convention in Barcelona. An exciting experience where we presented Digitalsocial.ID to an international audience.",
+          "location": "Barcelona, Spain"
+        },
+        "activity": {
+          "title": "Activity",
+          "items": [
+            "Development of innovative blockchain solutions for digital identities",
+            "Working in Simon Molitor's team on secure and decentralized identity management systems",
+            "Interface between technology and society"
+          ]
+        },
+        "responsibility": {
+          "title": "Responsibility",
+          "items": [
+            "Blockchain technology for digital identities",
+            "Decentralized identity management systems",
+            "Presentation at the European Blockchain Convention 2023"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Deep insights into blockchain technology and digital identity",
+            "Future of digital identity and Web3",
+            "International presentation at the European Blockchain Convention in Barcelona"
+          ]
+        },
+        "technologies": [
+          "Blockchain",
+          "Solana",
+          "Digital Identity",
+          "Web3",
+          "Startup"
+        ],
+        "images": {
+          "presentation": "DSID Presentation",
+          "stand": "DSID Stand at the European Blockchain Convention"
+        }
+      }
+    },
+    "ContactSection": {
+      "title": "Let's work together",
+      "contact": {
+        "email": "Email",
+        "phone": "Phone",
+        "location": "Location"
+      },
+      "social": {
+        "linkedin": "LinkedIn Profile",
+        "github": "GitHub Projects"
+      }
+    }
   },
   "Contact": {
     "title": "Contact",
