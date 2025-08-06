@@ -13,11 +13,165 @@
     "privacy": "Datenschutzerklärung",
     "imprint": "Impressum",
     "contact": "Kontakt",
+    "blog": "Blog",
     "language": "Sprache",
     "language_en": "Englisch",
     "language_de": "Deutsch"
   },
   "Home": {
+    "Hero": {
+      "introText": "Hi, ich bin",
+      "title": "Thomas Schwabauer",
+      "subtitle": "Freelance Fullstack Entwickler",
+      "description": "Ich baue performante Web- und Mobile-Anwendungen mit modernen Technologien.",
+      "technologiesTitle": "Technologien",
+      "projectStartButton": "Projekt starten",
+      "projectStartAriaLabel": "Projekt starten per Kontaktformular - Antwort innerhalb von 24h",
+      "cvButton": "Lebenslauf",
+      "cvAriaLabel": "Lebenslauf und Dokumente anzeigen - PDF Download verfügbar",
+      "microCopy": "Direkt anfragen oder CV ansehen • Antwort innerhalb von 24h",
+      "location": "Wetzlar, Deutschland",
+      "locationAriaLabel": "Standort: Wetzlar, Deutschland - In Google Maps öffnen",
+      "avatarAlt": "Portrait von Thomas Schwabauer - Fullstack Developer",
+      "avatarTitle": "Hi 👋"
+    },
+    "About": {
+      "badge": "Über mich",
+      "title": "Ihr Partner für digitale Lösungen",
+      "description": "Leidenschaftlicher Freelancer mit Fokus auf moderne Webtechnologien und nutzerzentriertes Design.",
+      "name": "Thomas Schwabauer",
+      "role": "Fullstack Developer & UI/UX Designer",
+      "location": "📍 Deutschland, Wetzlar • 🌐 Remote verfügbar",
+      "bio": "Mit über 5 Jahren Erfahrung in der Webentwicklung helfe ich Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine Leidenschaft liegt in der Entwicklung performanter, benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.",
+      "skillsTitle": "Kernkompetenzen",
+      "skills": {
+        "reactNextjs": "React & Next.js",
+        "typescript": "TypeScript",
+        "flutter": "Flutter",
+        "agileDevelopment": "Agile Development",
+        "uiuxDesign": "UI/UX Design",
+        "apiDevelopment": "API Development"
+      },
+      "services": {
+        "webDevelopment": {
+          "title": "Webentwicklung",
+          "description": "Moderne, responsive Webanwendungen mit React und Next.js"
+        },
+        "uiuxDesign": {
+          "title": "UI/UX Design",
+          "description": "Benutzerfreundliche Interfaces die begeistern"
+        },
+        "performanceOptimization": {
+          "title": "Performance Optimierung",
+          "description": "Schnelle, suchmaschinenoptimierte Websites"
+        },
+        "consulting": {
+          "title": "Beratung",
+          "description": "Strategische Digitalberatung für Ihr Unternehmen"
+        }
+      },
+      "stats": {
+        "projects": "Projekte",
+        "yearsExperience": "Jahre Erfahrung",
+        "satisfiedCustomers": "Zufriedene Kunden",
+        "support": "Support"
+      },
+      "buttons": {
+        "fullProfile": "Vollständiges Profil",
+        "fullProfileAriaLabel": "Vollständiges Profil anzeigen - Mehr über Thomas Schwabauer erfahren",
+        "contact": "Kontakt aufnehmen",
+        "contactAriaLabel": "Kontakt aufnehmen - Projekt besprechen"
+      },
+      "clients": {
+        "title": "Vertrauen von Unternehmen weltweit",
+        "subtitle": "Erfolgreiche Projekte mit führenden Unternehmen",
+        "trustIndicators": {
+          "satisfaction": "100% Kundenzufriedenheit",
+          "delivery": "Pünktliche Lieferung",
+          "partnerships": "Langfristige Partnerschaften"
+        }
+      }
+    },
+    "WorkExperience": {
+      "badge": "Beruflicher Werdegang",
+      "title": "Meine Reise in der Tech-Welt",
+      "description": "Von ersten Schritten bis zu komplexen Enterprise-Lösungen - eine Reise durch moderne Technologien und wachsende Verantwortung.",
+      "location": "Remote / Deutschland",
+      "technologies": {
+        "react": "React",
+        "nextjs": "Next.js",
+        "typescript": "TypeScript",
+        "java": "Java",
+        "springBoot": "Spring Boot"
+      },
+      "callToAction": {
+        "title": "Bereit für Ihr nächstes Projekt?",
+        "description": "Mit meiner Erfahrung in modernen Technologien und bewährten Methoden helfe ich Ihnen dabei, Ihre Vision in die Realität umzusetzen.",
+        "discussProject": "Projekt besprechen",
+        "viewResume": "Lebenslauf ansehen"
+      },
+      "workStations": {
+        "freelancer": {
+          "company": "Freelancer",
+          "role": "Senior Fullstack Entwickler | Web & Mobile",
+          "duration": "Okt 2023 - Heute",
+          "location": "Wetzlar",
+          "bulletPoints": [
+            "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
+            "Mobile Apps mit Flutter, Android Automotive, Android Native",
+            "Individualsoftware für die Prozessoptimierung und Automatisierung"
+          ]
+        },
+        "amsel": {
+          "company": "Amsel UG",
+          "role": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
+          "duration": "Jul 2023 - Heute",
+          "location": "Langgöns",
+          "bulletPoints": [
+            "Expertise in der Planung und Umsetzung von komplexen Softwareprojekten",
+            "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
+            "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
+            "Backend Entwicklung mit Java / Spring-Boot"
+          ]
+        },
+        "vm": {
+          "company": "Valtech-Mobility GmbH",
+          "role": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
+          "duration": "Mär 2023 - Sep 2024",
+          "location": "Remote",
+          "bulletPoints": [
+            "Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden sowie die Pflege der Geschäftsbeziehungen",
+            "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
+            "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
+            "Entwicklung von Webanwendungen mit Angular in TypeScript"
+          ]
+        },
+        "alcedis": {
+          "company": "Alcedis GmbH",
+          "role": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
+          "duration": "Jul 2020 - Feb 2023",
+          "location": "Gießen",
+          "bulletPoints": [
+            "Entwicklung von Automatisierungstests für Webanwendungen mit Selenium/Gauge",
+            "Integration von Testautomatisierung in den Entwicklungsprozess",
+            "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
+            "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes"
+          ]
+        },
+        "alcedisTester": {
+          "company": "Alcedis GmbH",
+          "role": "Software tester",
+          "duration": "Jun 2018 - Jul 2020",
+          "location": "Gießen",
+          "bulletPoints": [
+            "Erstellung und Pflege von Testdokumenten",
+            "Durchführung von manuellen Funktions- und Regressionstests",
+            "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
+            "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
+          ]
+        }
+      }
+    },
     "welcome": "Thomas Schwabauer",
     "title": "Freelance Fullstack Entwickler",
     "location": "Wetzlar, Deutschland",
@@ -34,23 +188,6 @@
     "orb_8": "Flutter ermöglicht die Erstellung nativ kompilierter Anwendungen für Mobilgeräte, Web und Desktop.",
     "orb_9": "Java ist eine vielseitige, hochrangige Programmiersprache, die häufig für plattformübergreifende Entwicklung verwendet wird.",
     "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration."
-  },
-  "About": {
-    "title": "Über mich",
-    "whoAmI": "Wer bin ich?",
-    "description": "Als Softwareentwickler verfüge ich über umfassende Erfahrung in der Entwicklung von Anwendungen, im Projektmanagement, im Testen von Software sowie im Kundensupport. Mein Anspruch ist es, qualitativ hochwertige, praxisnahe Lösungen zu realisieren und dabei meine Fähigkeiten und mein Wissen stetig zu erweitern.",
-    "career": "Im Laufe meiner",
-    "careerLink": "Karriere",
-    "careerProjects": " habe ich an Projekten für namhafte Kunden wie ",
-    "and": "und",
-    "includingProjects": " mitgewirkt, einschließlich Webanwendungen, mobilen Apps und Backendsystemen.",
-    "niceToKnow": "Randfakten: Ich bin {age} Jahre alt, lebe in Wetzlar, Deutschland und praktiziere Natural Bodybuilding, was sowohl für meine persönliche als auch berufliche Disziplin spricht.",
-    "skillMatrix": "Kompetenzmatrix",
-    "frameworksLibraries": "Frameworks & Bibliotheken",
-    "programmingLanguages": "Programmiersprachen",
-    "devOpsTools": "DevOps & Tools",
-    "databasesApis": "Datenbanken & APIs",
-    "contactButton": "Kontaktiere mich"
   },
   "Contact": {
     "title": "Kontakt",
@@ -112,43 +249,7 @@
     "viewSource": "Quelle ansehen"
   },
   "Work": {
-    "title": "Berufserfahrung",
-    "freelancerCompany": "Freelancer",
-    "freelancerRole": "Fullstack Senior Developer | Testautomation | Android",
-    "freelancerDuration": "Okt 2023 - Heute",
-    "freelancerLocation": "Wetzlar",
-    "freelancerBullet1": "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
-    "freelancerBullet2": "Mobile Apps mit Flutter, Android Automotive, Android Native",
-    "freelancerBullet3": "Individualsoftware für die Prozessoptimierung und Automatisierung",
-    "amselCompany": "Amsel UG",
-    "amselRole": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
-    "amselDuration": "Jul 2023 - Heute",
-    "amselLocation": "Langgöns",
-    "amselBullet1": "Expertise in der Planung und Umsetzung von komplexen Softwareprojekten",
-    "amselBullet2": "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
-    "amselBullet3": "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
-    "amselBullet4": "Backend Entwicklung mit Java / Spring-Boot",
-    "vmCompany": "Valtech-Mobility GmbH",
-    "vmRole": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
-    "vmDuration": "Mär 2023 - Sep 2024",
-    "vmBullet1": "Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden sowie die Pflege der Geschäftsbeziehungen",
-    "vmBullet2": "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
-    "vmBullet3": "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
-    "vmBullet4": "Entwicklung von Webanwendungen mit Angular in TypeScript",
-    "alcedisCompany": "Alcedis GmbH",
-    "alcedisRole": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
-    "alcedisDuration": "Jul 2020 - Feb 2023",
-    "alcedisBullet1": "Entwicklung von Automatisierungstests für Webanwendungen mit Selenium/Gauge",
-    "alcedisBullet2": "Integration von Testautomatisierung in den Entwicklungsprozess",
-    "alcedisBullet3": "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
-    "alcedisBullet4": "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes",
-    "alcedisTesterCompany": "Alcedis GmbH",
-    "alcedisTesterRole": "Software tester",
-    "alcedisTesterDuration": "Jun 2018 - Jul 2020",
-    "alcedisTesterBullet1": "Erstellung und Pflege von Testdokumenten",
-    "alcedisTesterBullet2": "Durchführung von manuellen Funktions- und Regressionstests",
-    "alcedisTesterBullet3": "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
-    "alcedisTesterBullet4": "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
+    "title": "Meine berufliche Laufbahn"
   },
   "Services": {
     "title": "Leistungspakete",
@@ -294,6 +395,162 @@
     "beforeImageAlt": "Vorher Bild der Webseite",
     "afterImageAlt": "Nachher Bild der Webseite"
   },
+  "About": {
+    "Hero": {
+      "title": "Über mich",
+      "description": "Entdecke die Person hinter dem Code - meine Leidenschaft für Technologie, meine Reise als Entwickler und was mich antreibt."
+    },
+    "PersonalStory": {
+      "title": "Die Person hinter dem Code",
+      "intro": "Hi, ich bin Thomas – Fullstack-Freelancer mit Tech-Leidenschaft und Startup-DNA",
+      "story1": "Meine Begeisterung für Technik begann früh – wie bei vielen anderen auch, zunächst mit Spielekonsolen, später mit meinem ersten Computer. Der entscheidende Moment kam aber beim Abitur: Im Fach EDV merkte ich zum ersten Mal, wie sehr mich Softwareentwicklung fesselt. Die Stunden verflogen – und damit war klar, dass ich daraus mehr machen will.",
+      "story2": "Nach meinem Studium der Informatik an der Technischen Hochschule Mittelhessen in Gießen habe ich meine Leidenschaft für Softwareentwicklung zum Beruf gemacht.",
+      "story3": "Heute entwickle ich Web- und Mobile-Anwendungen mit Next.js, React, Tailwind und TypeScript im Frontend sowie Python und KI-Anbindungen im Backend. Ich liebe Greenfield-Projekte, bei denen ich von Anfang an mitdenken, mitgestalten und skalierbare Architekturen aufbauen kann.",
+      "imageAlt": "Thomas Schwabauer - DSID Digitalsocial.ID Portrait",
+      "imageTitle": "Entwickler-Modus",
+      "imageDescription": "Konzentriert bei der Arbeit an innovativen Lösungen",
+      "workStyle": {
+        "title": "Mein Arbeitsstil",
+        "subtitle": "Je nach Projektphase bringe ich die passende Herangehensweise mit",
+        "strategic": {
+          "title": "Strategisch",
+          "description": "Architektur und Skalierung"
+        },
+        "creative": {
+          "title": "Kreativ",
+          "description": "UX und UI Design"
+        },
+        "pragmatic": {
+          "title": "Pragmatisch",
+          "description": "MVP schnell live"
+        }
+      },
+      "startupWork": {
+        "title": "Warum ich am liebsten mit Startups arbeite",
+        "description": "Ich arbeite gerne mit Menschen, die für ihre Ideen brennen. Genau das finde ich bei Gründer:innen, Startups und Einzelpersonen mit einer klaren Vision. Mir ist wichtig, nicht nur umzusetzen, sondern auch mitzudenken, zu hinterfragen und Verantwortung zu übernehmen. Ich bin kein Entwickler, der nur Tasks abarbeitet – sondern ein Sparringspartner, der ehrlich kommuniziert, mitdenkt aber auch umsetzt."
+      },
+      "background": {
+        "title": "Persönlich motiviert, technisch neugierig",
+        "quote": "\"Wenn ich in der Karriere hätte weiter gehen können, hätte ich das gemacht.\"",
+        "quoteDescription": "Meine Eltern kamen als Russlanddeutsche nach Deutschland zurück und mussten sich hier ein neues Leben aufbauen. Dieser Satz meines Vaters begleitet mich bis heute. Er motiviert mich, mutig zu sein, Verantwortung zu übernehmen und neue Wege zu gehen – sowohl im Leben als auch in der Technik.",
+        "bodybuilding": "Wenn ich nicht code, findet man mich wahrscheinlich im Gym oder bei Marvel-Filmen im Kino oder beim Essen. Ich betreibe Natural Bodybuilding – 2018 stand ich bei der GNBF auf der Bühne und holte den 2. Platz bei der Kategorie Junior Bodybuilding bis 21 Jahre Über 75kg."
+      },
+      "bodybuildingImageAlt": "Thomas Schwabauer - GNBF Bodybuilding Wettkampf 2018, 2. Platz",
+      "bodybuildingTitle": "GNBF 2018 - 2. Platz",
+      "bodybuildingDescription": "Natural Bodybuilding - Deutsche Meisterschaft"
+    },
+    "PersonalValues": {
+      "title": "Was mich antreibt",
+      "innovation": {
+        "title": "Innovation",
+        "description": "Ich liebe es, neue Technologien zu erkunden und innovative Lösungen zu entwickeln, die echten Mehrwert schaffen."
+      },
+      "quality": {
+        "title": "Qualität",
+        "description": "Sauberer Code, nachhaltige Architekturen und benutzerfreundliche Lösungen stehen im Mittelpunkt meiner Arbeit."
+      },
+      "collaboration": {
+        "title": "Zusammenarbeit",
+        "description": "Der beste Code entsteht im Team. Ich schätze eine offene Kommunikation und den Austausch von Wissen und Erfahrungen."
+      }
+    },
+    "ProfessionalJourney": {
+      "title": "Ein paar Karriere-Highlights",
+      "valtech": {
+        "title": "Valtech Mobility GmbH",
+        "subtitle": "Porsche & Audi Projekte",
+        "activity": {
+          "title": "Tätigkeit",
+          "items": [
+            "Beratung & Umsetzung für Porsche und Audi",
+            "Tägliche Gespräche mit internen Entwicklerteams",
+            "Integration von Apple Music, Spotify, Apple Podcasts"
+          ]
+        },
+        "responsibility": {
+          "title": "Verantwortung",
+          "items": [
+            "QR-Code Login für Porsche & Audi",
+            "Premium UX in Automotive-Kontext",
+            "Entwicklung innovativer Fahrzeugfunktionen"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Fokus auf Teamarbeit & hohe Softwarequalität",
+            "Premium UX in Automotive-Kontext",
+            "Wie es sich anfühlt, in einem Porsche zu sitzen 😄"
+          ]
+        },
+        "technologies": [
+          "Angular",
+          "TypeScript",
+          "Agile",
+          "Apple Integration",
+          "QR-Code Login"
+        ]
+      }
+    },
+    "BlockchainSection": {
+      "dsid": {
+        "title": "Digitalsocial.ID Ltd.",
+        "subtitle": "Blockchain-Startup für digitale Identitäten",
+        "convention": {
+          "title": "European Blockchain Convention 2023",
+          "description": "Als Mitglied des Teams war ich bei der European Blockchain Convention in Barcelona dabei. Eine aufregende Erfahrung, bei der wir Digitalsocial.ID einem internationalen Publikum präsentiert haben.",
+          "location": "Barcelona, Spanien"
+        },
+        "activity": {
+          "title": "Tätigkeit",
+          "items": [
+            "Entwicklung innovativer Blockchain-Lösungen für digitale Identitäten",
+            "Arbeit im Team von Simon Molitor an sicheren und dezentralen Identitätsverwaltungssystemen",
+            "Schnittstelle zwischen Technologie und Gesellschaft"
+          ]
+        },
+        "responsibility": {
+          "title": "Verantwortung",
+          "items": [
+            "Blockchain-Technologie für digitale Identitäten",
+            "Dezentrale Identitätsverwaltungssysteme",
+            "Präsentation bei der European Blockchain Convention 2023"
+          ]
+        },
+        "learnings": {
+          "title": "Learnings",
+          "items": [
+            "Tiefe Einblicke in Blockchain-Technologie und digitale Identität",
+            "Zukunft der digitalen Identität und Web3",
+            "Internationale Präsentation bei der European Blockchain Convention in Barcelona"
+          ]
+        },
+        "technologies": [
+          "Blockchain",
+          "Solana",
+          "Digital Identity",
+          "Web3",
+          "Startup"
+        ],
+        "images": {
+          "presentation": "DSID Präsentation",
+          "stand": "DSID Stand bei der European Blockchain Convention"
+        }
+      }
+    },
+    "ContactSection": {
+      "title": "Lass Sie uns zusammenarbeiten",
+      "contact": {
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "location": "Standort"
+      },
+      "social": {
+        "linkedin": "LinkedIn Profil",
+        "github": "GitHub Projekte"
+      }
+    }
+  },
   "Privacy": {
     "title": "Datenschutzerklärung",
     "introductionTitle": "Einleitung",
@@ -338,6 +595,7 @@
     "contactPhone": "Telefon",
     "contactEmail": "E-Mail",
     "vatIdTitle": "Umsatzsteuer-ID",
+    "country": "Deutschland",
     "vatIdText": "Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz",
     "disclaimerTitle": "Haftungsausschluss",
     "accountabilityForContentTitle": "Haftung für Inhalte",

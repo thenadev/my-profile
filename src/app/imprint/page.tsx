@@ -28,7 +28,7 @@ const ImprintPage: React.FC = () => {
                 {/* {siteConfig.companyName} <br /> */}
                 {siteConfig.streetAddress} <br />
                 {siteConfig.city}, {siteConfig.zipCode} <br />
-                {t(siteConfig.country)}
+                {t("country")}
               </p>
 
               {/* Contact Section */}

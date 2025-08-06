@@ -1,12 +1,15 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { useTranslations } from "next-intl";
 
 const PersonalValues: React.FC = () => {
+  const t = useTranslations("About.PersonalValues");
+
   return (
     <section className="w-full space-y-8">
       <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">
-        Was mich antreibt
+        {t("title")}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -17,11 +20,10 @@ const PersonalValues: React.FC = () => {
           <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
             <div className="text-4xl mb-4">🚀</div>
             <h3 className="text-lg font-semibold text-slate-800 mb-3">
-              Innovation
+              {t("innovation.title")}
             </h3>
             <p className="text-slate-600 text-sm">
-              Ich liebe es, neue Technologien zu erkunden und innovative
-              Lösungen zu entwickeln, die echten Mehrwert schaffen.
+              {t("innovation.description")}
             </p>
           </Card>
         </div>
@@ -33,13 +35,9 @@ const PersonalValues: React.FC = () => {
           <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
             <div className="text-4xl mb-4">✨</div>
             <h3 className="text-lg font-semibold text-slate-800 mb-3">
-              Qualität
+              {t("quality.title")}
             </h3>
-            <p className="text-slate-600 text-sm">
-              Sauberer Code, nachhaltige Architekturen und
-              benutzerfreundliche Lösungen stehen im Mittelpunkt meiner
-              Arbeit.
-            </p>
+            <p className="text-slate-600 text-sm">{t("quality.description")}</p>
           </Card>
         </div>
 
@@ -50,11 +48,10 @@ const PersonalValues: React.FC = () => {
           <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
             <div className="text-4xl mb-4">🤝</div>
             <h3 className="text-lg font-semibold text-slate-800 mb-3">
-              Zusammenarbeit
+              {t("collaboration.title")}
             </h3>
             <p className="text-slate-600 text-sm">
-              Der beste Code entsteht im Team. Ich schätze offene
-              Kommunikation und den Austausch von Wissen und Erfahrungen.
+              {t("collaboration.description")}
             </p>
           </Card>
         </div>
@@ -63,4 +60,4 @@ const PersonalValues: React.FC = () => {
   );
 };
 
-export default PersonalValues; 
+export default PersonalValues;
