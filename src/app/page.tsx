@@ -1,37 +1,34 @@
 "use client";
 
-import About from "@/sections/about-section";
-import ContactSection from "@/sections/contact-section";
-import LandingSection from "@/sections/landing-section";
-import ProjectsSection from "@/sections/projects-section";
-import ServicesSection from "@/sections/services-section";
-import WorkExperienceSection from "@/sections/work-experience-section";
-import React, {useEffect, useState} from "react";
+import About from "@/components/home/About";
+import HomeContact from "@/components/home/Contact";
+import WorkExperienceSection from "@/components/home/Experience";
+import HomeHero from "@/components/home/HomeHero";
+import ProjectsSection from "@/components/home/Projects";
+import ServicesSection from "@/components/home/Services";
+import React, { useEffect, useState } from "react";
 import "./globals.css";
 
 const HomePage: React.FC = () => {
-    const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMobile(window.innerWidth <= 768);
-        };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
 
-        handleResize();
-        window.addEventListener("resize", handleResize);
-    }, []);
+    handleResize();
+    window.addEventListener("resize", handleResize);
+  }, []);
 
   return (
     <>
-      <LandingSection />
-        {!isMobile && (
-            <ServicesSection />
-        )}
+      <HomeHero />
       <About />
       <WorkExperienceSection />
       <ProjectsSection />
       {/*<DocumentSection />*/}
-      <ContactSection />
+      <HomeContact />
     </>
   );
 };
