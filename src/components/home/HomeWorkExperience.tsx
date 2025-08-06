@@ -162,21 +162,11 @@ const HomeWorkExperience: React.FC = () => {
                         {/* Technologies Badge */}
                         <div className="mt-6 pt-6 border-t border-gray-100">
                           <div className="flex flex-wrap gap-2">
-                            <Badge variant="outline" className="text-xs">
-                              {t("technologies.react")}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {t("technologies.nextjs")}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {t("technologies.typescript")}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {t("technologies.java")}
-                            </Badge>
-                            <Badge variant="outline" className="text-xs">
-                              {t("technologies.springBoot")}
-                            </Badge>
+                            {work.technologies.map((technology: string) => (
+                              <Badge variant="outline" className="text-xs">
+                                {technology}
+                              </Badge>
+                            ))}
                           </div>
                         </div>
                       </CardContent>

@@ -12,6 +12,7 @@ export interface WorkStation {
   link: string;
   image: StaticImageData;
   bulletpoints: string[];
+  technologies: string[];
 }
 
 // Konfiguration für Work Stations mit Anzahl der Bullet Points
@@ -20,6 +21,7 @@ interface WorkStationConfig {
   link: string;
   image: StaticImageData;
   bulletPointCount: number;
+  technologies: string[];
 }
 
 const workStationConfigs: WorkStationConfig[] = [
@@ -28,30 +30,85 @@ const workStationConfigs: WorkStationConfig[] = [
     link: "https://www.thomas-schwabauer.de/",
     image: FreelanceLogo,
     bulletPointCount: 3,
+    technologies: [
+      "Next.js",
+      "React.js",
+      "Angular",
+      "Vue.js",
+      "TypeScript",
+      "PHP",
+      "Tailwind",
+      "Shadcn/ui",
+      "Flutter",
+      "Dart",
+      "Jest",
+      "Eslint",
+      "Docker",
+      "Kubernetes",
+    ],
   },
   {
     key: "amsel",
     link: "https://www.amsel-store.de/",
     image: AmselLogo,
     bulletPointCount: 4,
+    technologies: [
+      "Flutter",
+      "Dart",
+      "Java",
+      "SpringBoot",
+      "Typescript",
+      "Jest",
+      "Eslint",
+      "Next.js",
+      "React.js",
+      "Tailwind",
+      "Shadcn/ui",
+      "Firebase",
+    ],
   },
   {
     key: "vm",
     link: "https://valtech-mobility.de/",
     image: ValtechLogo,
     bulletPointCount: 4,
+    technologies: [
+      "Angular",
+      "Typescript",
+      "Node.js",
+      "Kotlin",
+      "Android Automotive",
+      "Jest",
+      "Eslint",
+      "Docker",
+      "SonarQube",
+      "Jira",
+      "Confluence",
+    ],
   },
   {
     key: "alcedis",
     link: "https://www.alcedis.de/en",
     image: AlcedisLogo,
     bulletPointCount: 4,
+    technologies: [
+      "PHP",
+      "Laravel",
+      "TypeScript",
+      "React.js",
+      "Docker",
+      "Kubernetes",
+      "Gitlab",
+      "Selenium",
+      "Gauge"
+    ],
   },
   {
     key: "alcedisTester",
     link: "https://www.alcedis.de/en",
     image: AlcedisLogo,
     bulletPointCount: 4,
+    technologies: [],
   },
 ];
 
@@ -72,5 +129,6 @@ export const workStations = (): WorkStation[] => {
     link: config.link,
     image: config.image,
     bulletpoints: generateBulletPoints(config.key, config.bulletPointCount),
+    technologies: config.technologies,
   }));
 };
