@@ -110,71 +110,31 @@ export default function NavigationDesktop() {
                   >
                     <Link
                       href={item.href}
-                      className={`flex items-center gap-2 transition-all duration-300 text-sm font-medium relative group ${
+                      className={`relative px-3 py-2 text-sm font-medium transition-all duration-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
                         isScrolled
                           ? isActive
-                            ? "text-gray-800"
-                            : "text-gray-600 hover:text-gray-800"
+                            ? "text-blue-600 bg-blue-50/80"
+                            : "text-gray-700 hover:text-blue-600 hover:bg-blue-50/60"
                           : isActive
-                            ? "text-gray-100"
-                            : "text-gray-200 hover:text-gray-100"
+                            ? "text-blue-300 bg-blue-500/20"
+                            : "text-gray-200 hover:text-blue-300 hover:bg-blue-500/10"
                       }`}
-                      aria-label={`Navigation zu ${item.title}`}
                     >
-                      <span
-                        className={`text-lg transition-all duration-300 ${
-                          isScrolled
-                            ? isActive
-                              ? "text-blue-500"
-                              : "group-hover:text-blue-400"
-                            : isActive
-                              ? "text-blue-300"
-                              : "group-hover:text-blue-200"
-                        }`}
-                      >
-                        {item.icon}
-                      </span>
                       {item.title}
-                      {hasSubItems && (
-                        <svg
-                          className={`w-3 h-3 transition-transform duration-200 ${
-                            hoveredItem === item.title ? "rotate-180" : ""
-                          }`}
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M19 9l-7 7-7-7"
-                          />
-                        </svg>
-                      )}
-                      {/* Active indicator */}
                       {isActive && (
-                        <div
-                          className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
-                            isScrolled ? "bg-blue-500" : "bg-blue-300"
+                        <span
+                          className={`absolute inset-x-0 -bottom-px h-px transition-colors duration-300 ${
+                            isScrolled ? "bg-blue-600" : "bg-blue-300"
                           }`}
-                        ></div>
+                        />
                       )}
-                      {/* Hover indicator */}
-                      <div
-                        className={`absolute -bottom-1 left-0 right-0 h-0.5 rounded-full transition-all duration-300 ${
-                          isScrolled
-                            ? "bg-blue-500/0 group-hover:bg-blue-500/50"
-                            : "bg-blue-300/0 group-hover:bg-blue-300/50"
-                        }`}
-                      ></div>
                     </Link>
 
                     {/* Dropdown Menu */}
                     {hasSubItems && hoveredItem === item.title && (
-                      <div className="absolute top-full left-0 mt-2 w-48 rounded-xl shadow-lg transition-all duration-200 opacity-100 transform translate-y-0">
+                      <div className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border transition-all duration-200 ease-in-out">
                         <div
-                          className={`rounded-xl border transition-all duration-200 ${
+                          className={`py-2 rounded-lg border transition-all duration-200 ${
                             isScrolled
                               ? "bg-white/95 backdrop-blur-md border-gray-200/40 shadow-xl"
                               : "bg-gray-800/95 backdrop-blur-md border-gray-600/40 shadow-xl"

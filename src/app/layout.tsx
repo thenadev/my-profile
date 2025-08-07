@@ -1,9 +1,11 @@
 // RootLayout.tsx - Server Component (No "use client")
+import CookieConsentWrapper from "@/components/cookie-consent-wrapper";
+import SiteFooter from "@/components/layout/Footer";
+import NavigationWrapper from "@/components/navigation-wrapper";
 import { NextIntlClientProvider } from "next-intl";
 import { getLocale, getMessages } from "next-intl/server";
 import { ReactNode } from "react";
 import "./globals.css";
-import ClientLayout from "./layout-client";
 
 export const metadata = {
   title: {
@@ -94,10 +96,6 @@ export default async function RootLayout({
 }: {
   children: ReactNode;
 }) {
-  // Get the language from the cookie set by middleware
-  // const cookieStore = cookies();
-  // const locale = cookieStore.get("NEXT_LOCALE")?.value || "en";
-
   const locale = await getLocale();
   const messages = await getMessages();
 
@@ -113,8 +111,11 @@ export default async function RootLayout({
       </head>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {/* Render the client-side layout here */}
-          <ClientLayout>{children}</ClientLayout>
+          <NavigationWrapper />
+          <CookieConsentWrapper />
+          {children}
+          <div className="moving-gradient-overlay" />
+          <SiteFooter />
         </NextIntlClientProvider>
       </body>
     </html>
