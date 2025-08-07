@@ -417,6 +417,23 @@
     "websiteDescription": "Your new website: fast, beautiful, and perfectly tailored to your target audience.",
     "appDescription": "Discover how we transform your vision into impressive apps.",
     "wordPressDescription": "From installation to optimization: Everything from a single source for your WordPress site.",
+    "unternehmenswebsite": {
+      "title": "Corporate Website",
+      "description": "Professional corporate websites from Wetzlar - Modern, responsive and SEO-optimized web designs for your company",
+      "benefitsTitle": "Your Benefits",
+      "benefits": {
+        "modernDesign": "Modern Web Designs",
+        "responsiveDesign": "Responsive Design",
+        "seoOptimized": "SEO-Optimized",
+        "localExpertise": "Local Expertise"
+      },
+      "packagesTitle": "Our Packages",
+      "packages": {
+        "basic": "Basic Website from €1,200",
+        "professional": "Professional Website from €3,500",
+        "ecommerce": "E-Commerce Website from €8,000"
+      }
+    },
     "freelance": {
       "title": "Professional Support on a Project Basis",
       "description": "As a versatile freelancer, I bring not only technical expertise but also strong communication and adaptability skills. Whether it's developing modern websites, optimizing existing systems, or implementing creative solutions – I deliver results-oriented and efficient work.",

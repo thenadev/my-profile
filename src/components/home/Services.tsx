@@ -3,6 +3,7 @@
 import AppDevelopmentCard from "@/components/service-cards/app-development-card";
 import FreelancerCardContent from "@/components/service-cards/freelancer-card-content";
 import StartupBeratungCard from "@/components/service-cards/startup-beratung-card";
+import UnternehmenswebsiteCard from "@/components/service-cards/unternehmenswebsite-card";
 import WebRedesignCard from "@/components/service-cards/web-redesign-card";
 import WordpressCard from "@/components/service-cards/wordpress-card";
 import AppDevelopmentSection from "@/components/services/app-development-section";
@@ -44,27 +45,35 @@ const ServicesSection = () => {
     },
     {
       id: 1,
+      title: "Unternehmenswebsite",
+      description:
+        "Professionelle Unternehmenswebsites aus Wetzlar - Moderne, responsive und SEO-optimierte Webdesigns",
+      cardContent: <UnternehmenswebsiteCard />,
+      detailedContent: <WebRedesignSection />,
+    },
+    {
+      id: 2,
       title: t("freelance.title"),
       description: "",
       cardContent: <FreelancerCardContent />,
       detailedContent: <WebRedesignSection />,
     },
     {
-      id: 2,
+      id: 3,
       title: t("websiteRedesign.title"),
       description: t("websiteDescription"),
       cardContent: <WebRedesignCard />,
       detailedContent: <WebRedesignSection />,
     },
     {
-      id: 3,
+      id: 4,
       title: t("appDevelopment.title"),
       description: t("appDescription"),
       cardContent: <AppDevelopmentCard />,
       detailedContent: <AppDevelopmentSection />,
     },
     {
-      id: 4,
+      id: 5,
       title: t("wordpressDevelopment.title"),
       description: t("wordPressDescription"),
       cardContent: <WordpressCard />,

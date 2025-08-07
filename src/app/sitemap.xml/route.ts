@@ -32,6 +32,12 @@ export async function GET(request: NextRequest) {
       priority: "0.9",
     },
     {
+      url: "/services/unternehmenswebsite",
+      lastmod: currentDate,
+      changefreq: "weekly",
+      priority: "0.9",
+    },
+    {
       url: "/preisrechner",
       lastmod: currentDate,
       changefreq: "monthly",

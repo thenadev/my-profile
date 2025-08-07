@@ -43,6 +43,10 @@ export const menuItems: MenuItem[] = [
         title: "Startup-Beratung",
         href: "/services/startup-beratung",
       },
+      {
+        title: "Unternehmenswebsite",
+        href: "/services/unternehmenswebsite",
+      },
     ],
   },
   {

@@ -261,6 +261,23 @@
     "websiteDescription": "Ihre neue Website: schnell, schön und perfekt auf Ihre Zielgruppe abgestimmt.",
     "appDescription": "Entdecken Sie, wie wir Ihre Vision in beeindruckende Apps verwandeln.",
     "wordPressDescription": "Von der Installation bis zur Optimierung: Alles aus einer Hand für Ihre WordPress-Seite.",
+    "unternehmenswebsite": {
+      "title": "Unternehmenswebsite",
+      "description": "Professionelle Unternehmenswebsites aus Wetzlar - Moderne, responsive und SEO-optimierte Webdesigns für Ihr Unternehmen",
+      "benefitsTitle": "Ihre Vorteile",
+      "benefits": {
+        "modernDesign": "Moderne Webdesigns",
+        "responsiveDesign": "Responsive Design",
+        "seoOptimized": "SEO-Optimiert",
+        "localExpertise": "Lokale Expertise"
+      },
+      "packagesTitle": "Unsere Pakete",
+      "packages": {
+        "basic": "Basic Website ab €1.200",
+        "professional": "Professional Website ab €3.500",
+        "ecommerce": "E-Commerce Website ab €8.000"
+      }
+    },
     "freelance": {
       "title": "Professionelle Unterstützung auf Projektbasis",
       "description": "Als vielseitiger Freelancer bringe ich nicht nur technisches Know-how, sondern auch starke Kommunikations- und Anpassungsfähigkeiten mit. Ob es um die Entwicklung moderner Websites, die Optimierung bestehender Systeme oder die Umsetzung kreativer Lösungen geht – ich liefere ergebnisorientiert und effizient.",
