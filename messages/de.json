@@ -207,10 +207,15 @@
     "errorMessage": "Es scheint, dass die Leitung besetzt ist. Bitte versuchen Sie es später erneut oder senden Sie mir eine E-Mail an {email}.",
     "goHome": "Zur Startseite",
     "close": "Schließen",
+    "privacyPolicyText": "Ich stimme der",
+    "privacyPolicyTextContinuation": "zu und bin damit einverstanden, dass meine Daten zur Bearbeitung meiner Anfrage verwendet werden.",
+    "privacyPolicy": "Datenschutzerklärung",
+    "sending": "Wird gesendet...",
     "errors": {
       "invalidEmail": "Bitte geben Sie eine gültige E-Mail-Adresse ein",
       "topicRequired": "Thema ist erforderlich",
-      "messageMin": "Die Nachricht muss mindestens 5 Zeichen lang sein"
+      "messageMin": "Die Nachricht muss mindestens 5 Zeichen lang sein",
+      "privacyPolicyRequired": "Sie müssen der Datenschutzerklärung zustimmen"
     }
   },
   "Documents": {

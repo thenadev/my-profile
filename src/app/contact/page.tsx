@@ -9,6 +9,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
 import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
@@ -32,6 +33,9 @@ const ContactSection: React.FC = () => {
     email: z.string().email("errors.invalidEmail"),
     topic: z.string().min(1, "errors.topicRequired"),
     message: z.string().min(5, "errors.messageMin"),
+    privacyPolicy: z.boolean().refine((val) => val === true, {
+      message: "errors.privacyPolicyRequired",
+    }),
   });
 
   type FormValues = z.infer<typeof formSchema>;
@@ -41,9 +45,13 @@ const ContactSection: React.FC = () => {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    setValue,
+    watch,
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
   });
+
+  const privacyPolicyAccepted = watch("privacyPolicy");
 
   const router = useRouter();
   const [showDialog, setShowDialog] = useState<boolean>(false);
@@ -217,6 +225,41 @@ const ContactSection: React.FC = () => {
                           {t(errors.message.message as string)}
                         </p>
                       )}
+                    </div>
+
+                    {/* Privacy Policy Checkbox */}
+                    <div className="flex items-start space-x-3">
+                      <Checkbox
+                        id="privacyPolicy"
+                        checked={privacyPolicyAccepted}
+                        onCheckedChange={(checked) => {
+                          setValue("privacyPolicy", checked as boolean);
+                        }}
+                        className="mt-1"
+                      />
+                      <div className="flex-1">
+                        <label
+                          htmlFor="privacyPolicy"
+                          className="text-sm text-gray-700 cursor-pointer"
+                        >
+                          {t("privacyPolicyText")}{" "}
+                          <a
+                            href="/privacy"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-600 hover:underline font-medium"
+                          >
+                            {t("privacyPolicy")}
+                          </a>{" "}
+                          {t("privacyPolicyTextContinuation")}*
+                        </label>
+                        {errors.privacyPolicy && (
+                          <p className="text-red-500 text-sm mt-2 flex items-center gap-1">
+                            <span className="text-red-500">⚠</span>
+                            {t(errors.privacyPolicy.message as string)}
+                          </p>
+                        )}
+                      </div>
                     </div>
 
                     {/* Submit Button */}

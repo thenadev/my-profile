@@ -363,10 +363,15 @@
     "errorMessage": "Seems like the line is busy. Please try again later or reach out to me via email at {email}.",
     "goHome": "Go Home",
     "close": "Close",
+    "privacyPolicyText": "I agree to the",
+    "privacyPolicyTextContinuation": "and consent to the processing of my data for handling my request.",
+    "privacyPolicy": "Privacy Policy",
+    "sending": "Sending...",
     "errors": {
       "invalidEmail": "Please enter a valid email address",
       "topicRequired": "Topic is required",
-      "messageMin": "Message must be at least 5 characters long"
+      "messageMin": "Message must be at least 5 characters long",
+      "privacyPolicyRequired": "You must agree to the privacy policy"
     }
   },
   "Documents": {
