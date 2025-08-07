@@ -16,7 +16,15 @@
     "blog": "Blog",
     "language": "Sprache",
     "language_en": "Englisch",
-    "language_de": "Deutsch"
+    "language_de": "Deutsch",
+    "about": "Über mich",
+    "services": "Services",
+    "documents": "Dokumente",
+    "email": "E-Mail",
+    "allRightsReserved": "Alle Rechte vorbehalten",
+    "fullstackDeveloper": "Fullstack Developer & Freelancer",
+    "location": "aus Wetzlar, Deutschland",
+    "specialization": "Spezialisiert auf moderne Web-Technologien und innovative Lösungen"
   },
   "Home": {
     "Hero": {

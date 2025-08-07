@@ -1,33 +1,20 @@
 "use client";
 
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
-import moment from "moment";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
 import {
-  FaAward,
   FaBolt,
-  FaCheckCircle,
-  FaClock,
   FaCode,
-  FaGlobe,
-  FaHandshake,
-  FaMapMarkerAlt,
   FaPalette,
   FaRocket,
   FaUsers,
 } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
-
-const getAge = () => {
-  return moment().diff("1997-06-04", "years");
-};
 
 // ClientsSection Komponente
 function ClientsSection() {
@@ -114,8 +101,7 @@ function ClientsSection() {
 const HomeAbout: React.FC = () => {
   const t = useTranslations("Home.About");
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
-  const router = useRouter();
+  const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
 
   // Kernkompetenzen
   const skills = [

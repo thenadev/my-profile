@@ -1,20 +1,10 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/config/site";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-import React, { useEffect, useState } from "react";
-import {
-  FaCalculator,
-  FaFilePdf,
-  FaGithub,
-  FaJava,
-  FaLinkedin,
-  FaMapPin,
-} from "react-icons/fa";
+import React, { useEffect } from "react";
+import { FaFilePdf, FaJava, FaMapPin } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 import {
   SiAngular,
@@ -28,10 +18,6 @@ import {
 import MyAvatar from "../../assets/me-laptop.webp";
 
 const HomeHero: React.FC = () => {
-  const router = useRouter();
-  const [hasScrolled, setHasScrolled] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
   const t = useTranslations("Home.Hero");
 
   // Tech Stack Icons mit Labels
@@ -52,30 +38,6 @@ const HomeHero: React.FC = () => {
       section.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-
-    handleResize();
-    window.addEventListener("resize", handleResize);
-
-    const handleScroll = () => {
-      if (window.scrollY > 550) {
-        setHasScrolled(true);
-      } else {
-        setHasScrolled(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   return (
     <div
