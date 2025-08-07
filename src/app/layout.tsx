@@ -1,5 +1,5 @@
 // RootLayout.tsx - Server Component (No "use client")
-import CookieConsentWrapper from "@/components/cookie-consent-wrapper";
+import CookieConsent from "@/components/CookieConsent";
 import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
 import { NextIntlClientProvider } from "next-intl";
@@ -109,10 +109,10 @@ export default async function RootLayout({
           }}
         />
       </head>
-      <body>
+      <body className="overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           <NavigationWrapper />
-          <CookieConsentWrapper />
+          {/* <CookieConsent /> */}
           {children}
           <div className="moving-gradient-overlay" />
           <SiteFooter />

@@ -2,8 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
 @layer utilities {
@@ -94,8 +100,10 @@ body {
   position: fixed; /* Ensure it sticks to the screen and fills the viewport */
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw; /* Use viewport width instead of 100% */
   height: 100vh; /* Full viewport height */
+  max-width: 100vw; /* Ensure it doesn't exceed viewport width */
+  overflow: hidden; /* Prevent overflow */
   background: radial-gradient(
       circle at 10% 10%,
       rgba(239, 204, 129, 0.5),
@@ -461,4 +469,19 @@ html {
   background-color: #007bff; /* Circle color */
   border-radius: 50%;
   transform: translateX(-50%);
+}
+
+#cc-main {
+  --cc-btn-primary-bg: #007bff;
+  --cc-btn-primary-color: #fff;
+  --cc-btn-primary-hover-bg: #0056b3;
+  --cc-btn-primary-hover-color: #fff;
+  --cc-btn-primary-active-bg: #004494;
+  --cc-btn-primary-active-color: #fff;
+
+  /** Also make toggles the same color as the button **/
+  --cc-toggle-on-bg: var(--cc-btn-primary-bg);
+
+  /** Make the buttons a bit rounder **/
+  --cc-btn-border-radius: 10px;
 }

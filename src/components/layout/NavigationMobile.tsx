@@ -71,11 +71,11 @@ export default function NavigationMobile() {
 
   return (
     <nav
-      className={`fixed w-full z-50 transition-all duration-500 ease-in-out ${
+      className={`fixed w-full z-50 transition-all duration-500 ease-in-out overflow-hidden ${
         isScrolled ? "top-2" : "top-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div
           className={`rounded-full transition-all duration-500 ease-in-out ${
             isScrolled
@@ -196,7 +196,7 @@ export default function NavigationMobile() {
       {/* Mobile Navigation Sidebar */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/50 backdrop-blur-md z-40"
+          className="fixed inset-0 bg-black/50 backdrop-blur-md z-40 overflow-hidden"
           onClick={() => setIsOpen(false)}
         >
           <motion.div
@@ -215,7 +215,7 @@ export default function NavigationMobile() {
             className="fixed inset-0 w-full bg-gradient-to-br from-zinc-900/95 via-zinc-800/90 to-zinc-900/95 backdrop-blur-xl shadow-2xl z-50 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="h-full overflow-auto">
+            <div className="h-full overflow-auto overflow-x-hidden">
               <div className="p-6 flex flex-col h-full justify-between mx-auto pt-8">
                 <div className="space-y-6">
                   {/* Header mit Branding */}

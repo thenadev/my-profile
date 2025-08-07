@@ -23,7 +23,7 @@ export const getRandomOrbPosition = (scrolled: boolean, orb: any) => {
   }
 
   return {
-    top: `${Math.max(10, Math.min(90, top))}%`,
-    left: `${Math.max(5, Math.min(95, left))}%`,
+    top: `${Math.max(5, Math.min(85, top))}%`,
+    left: `${Math.max(5, Math.min(85, left))}%`,
   };
 };

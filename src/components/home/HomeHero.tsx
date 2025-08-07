@@ -79,10 +79,10 @@ const HomeHero: React.FC = () => {
 
   return (
     <div
-      className="pt-16 min-h-[100svh] flex items-center justify-center"
+      className="pt-16 min-h-[100svh] flex items-center justify-center overflow-hidden"
       id="home"
     >
-      <section className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-10 gap-6 md:gap-8 lg:gap-12">
+      <section className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:justify-between py-6 sm:py-8 md:py-10 px-4 sm:px-6 md:px-10 gap-6 md:gap-8 lg:gap-12 max-w-full">
         {/* Left side with orbs */}
         {/* <TechStackOrbs isMobile={isMobile} hasScrolled={hasScrolled} /> */}
 

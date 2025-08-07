@@ -16,7 +16,10 @@ interface TechStackOrbsProps {
   hasScrolled: boolean;
 }
 
-const TechStackOrbs: React.FC<TechStackOrbsProps> = ({ isMobile, hasScrolled }) => {
+const TechStackOrbs: React.FC<TechStackOrbsProps> = ({
+  isMobile,
+  hasScrolled,
+}) => {
   const [hoveredOrbIndex, setHoveredOrbIndex] = useState<number | null>(null);
   const t = useTranslations("Home");
 
@@ -69,7 +72,7 @@ const TechStackOrbs: React.FC<TechStackOrbsProps> = ({ isMobile, hasScrolled }) 
   }, [hasScrolled, hoveredOrbIndex, orbPositions]);
 
   return (
-    <div className="relative w-full md:w-1/2 h-96 md:h-full">
+    <div className="relative w-full md:w-1/2 h-96 md:h-full overflow-hidden">
       {orbPositions.map((orb) => (
         <div
           key={`orb-key-${orb.id}`}
@@ -92,6 +95,8 @@ const TechStackOrbs: React.FC<TechStackOrbsProps> = ({ isMobile, hasScrolled }) 
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
+                  maxWidth: "100%",
+                  maxHeight: "100%",
                 }}
                 onMouseEnter={() => setHoveredOrbIndex(orb.id)}
                 onMouseLeave={() => setHoveredOrbIndex(null)}
@@ -119,4 +124,4 @@ const TechStackOrbs: React.FC<TechStackOrbsProps> = ({ isMobile, hasScrolled }) 
   );
 };
 
-export default TechStackOrbs; 
+export default TechStackOrbs;

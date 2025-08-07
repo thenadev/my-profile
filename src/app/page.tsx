@@ -7,13 +7,13 @@ import ServicesSection from "@/components/home/Services";
 
 export default function HomePage() {
   return (
-    <>
+    <div className="overflow-hidden">
       <HomeHero />
       <About />
       <HomeWorkExperience />
       <ProjectsSection />
       {/*<DocumentSection />*/}
       <HomeContact />
-    </>
+    </div>
   );
 }

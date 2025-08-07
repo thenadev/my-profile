@@ -34,8 +34,8 @@ export default function CookieConsent() {
         hideFromBots: true,
         guiOptions: {
           consentModal: {
-            layout: "bar",
-            position: "bottom",
+            layout: "box",
+            position: "middle center",
             equalWeightButtons: true,
             flipButtons: true,
           },
