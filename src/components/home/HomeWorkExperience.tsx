@@ -2,22 +2,13 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
+import WorkExperienceCard from "@/components/work/WorkExperienceCard";
 import { WorkStation, workStations } from "@/config/work-stations";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
-import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/navigation";
 import React, { useRef } from "react";
-import {
-  FaBriefcase,
-  FaCalendarAlt,
-  FaExternalLinkAlt,
-  FaMapMarkerAlt,
-  FaRocket,
-  FaStar,
-  FaUsers,
-} from "react-icons/fa";
+import { FaRocket } from "react-icons/fa";
 
 const HomeWorkExperience: React.FC = () => {
   const t = useTranslations("Home.WorkExperience");
@@ -85,92 +76,7 @@ const HomeWorkExperience: React.FC = () => {
                   <div
                     className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}
                   >
-                    <Card className="h-full overflow-hidden hover:shadow-2xl transition-all duration-500 border-0 bg-white/80 backdrop-blur-sm shadow-xl hover:scale-[1.02] group">
-                      <CardContent className="p-6 md:p-8">
-                        {/* Header */}
-                        <div className="flex items-start justify-between mb-6">
-                          <div className="flex items-center gap-4">
-                            {work.image && (
-                              <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg bg-white p-2">
-                                <Image
-                                  src={work.image as StaticImageData}
-                                  alt={`${t(work.company)} logo`}
-                                  width={64}
-                                  height={64}
-                                  className="w-full h-full object-contain"
-                                />
-                              </div>
-                            )}
-                            <div>
-                              <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
-                                <a
-                                  href={work.link}
-                                  target="_blank"
-                                  rel="noreferrer"
-                                  className="flex items-center gap-2 hover:text-blue-600 transition-colors"
-                                >
-                                  {t(work.company)}
-                                  <FaExternalLinkAlt className="text-sm opacity-60" />
-                                </a>
-                              </h3>
-                              <p className="text-lg text-blue-600 font-semibold">
-                                {t(work.role)}
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Duration & Location */}
-                        <div className="flex items-center gap-4 mb-6 text-sm text-gray-500">
-                          <div className="flex items-center gap-2">
-                            <FaCalendarAlt className="text-blue-500" />
-                            <span>{t(work.duration)}</span>
-                          </div>
-                          <div className="flex items-center gap-2">
-                            <FaMapMarkerAlt className="text-blue-500" />
-                            <span>{t("location")}</span>
-                          </div>
-                        </div>
-
-                        {/* Bullet Points */}
-                        <div className="space-y-3">
-                          {work.bulletpoints.map(
-                            (bulletPoint: string, idx: number) => (
-                              <motion.div
-                                key={"bulletPoint" + idx}
-                                initial={{ opacity: 0, x: -20 }}
-                                animate={
-                                  isInView
-                                    ? { opacity: 1, x: 0 }
-                                    : { opacity: 0, x: -20 }
-                                }
-                                transition={{
-                                  duration: 0.4,
-                                  delay: 0.8 + index * 0.2 + idx * 0.1,
-                                }}
-                                className="flex items-start gap-3"
-                              >
-                                <div className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></div>
-                                <p className="text-gray-700 leading-relaxed">
-                                  {t(bulletPoint)}
-                                </p>
-                              </motion.div>
-                            )
-                          )}
-                        </div>
-
-                        {/* Technologies Badge */}
-                        <div className="mt-6 pt-6 border-t border-gray-100">
-                          <div className="flex flex-wrap gap-2">
-                            {work.technologies.map((technology: string) => (
-                              <Badge variant="outline" className="text-xs">
-                                {technology}
-                              </Badge>
-                            ))}
-                          </div>
-                        </div>
-                      </CardContent>
-                    </Card>
+                    <WorkExperienceCard work={work} />
                   </div>
 
                   {/* Visual Element - Desktop Only */}

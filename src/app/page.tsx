@@ -1,8 +1,8 @@
 import HomeContact from "@/components/home/Contact";
 import About from "@/components/home/HomeAbout";
 import HomeHero from "@/components/home/HomeHero";
+import HomeProjects from "@/components/home/HomeProjects";
 import HomeWorkExperience from "@/components/home/HomeWorkExperience";
-import ProjectsSection from "@/components/home/Projects";
 import ServicesSection from "@/components/home/Services";
 
 export default function HomePage() {
@@ -11,7 +11,7 @@ export default function HomePage() {
       <HomeHero />
       <About />
       <HomeWorkExperience />
-      <ProjectsSection />
+      <HomeProjects />
       {/*<DocumentSection />*/}
       <HomeContact />
     </div>

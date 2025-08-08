@@ -3,7 +3,7 @@ import { useTranslations } from "next-intl";
 import React from "react";
 import { projects } from "../../config/projects";
 
-export const ProjectsSection: React.FC = () => {
+export const HomeProjects: React.FC = () => {
   const t = useTranslations("Projects");
 
   return (
@@ -31,4 +31,4 @@ export const ProjectsSection: React.FC = () => {
   );
 };
 
-export default ProjectsSection;
+export default HomeProjects;

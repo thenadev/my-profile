@@ -5,31 +5,34 @@ import FreelanceLogo from "../assets/work/logo-owl-big.png";
 import ValtechLogo from "../assets/work/valtech_logo.jpeg";
 
 export interface WorkStation {
+  slug: string;
   company: string;
   role: string;
   duration: string;
   location: string;
-  link: string;
+  link?: string;
   image: StaticImageData;
   bulletpoints: string[];
   technologies: string[];
+  employmentType: string; // i18n key under Home.WorkExperience.employment
 }
 
 // Konfiguration für Work Stations mit Anzahl der Bullet Points
 interface WorkStationConfig {
   key: string;
-  link: string;
+  link?: string;
   image: StaticImageData;
   bulletPointCount: number;
   technologies: string[];
+  employmentType: "fulltime" | "parttime" | "workingStudent";
 }
 
 const workStationConfigs: WorkStationConfig[] = [
   {
     key: "freelancer",
-    link: "https://www.thomas-schwabauer.de/",
     image: FreelanceLogo,
     bulletPointCount: 3,
+    employmentType: "fulltime",
     technologies: [
       "Next.js",
       "React.js",
@@ -52,6 +55,7 @@ const workStationConfigs: WorkStationConfig[] = [
     link: "https://www.amsel-store.de/",
     image: AmselLogo,
     bulletPointCount: 4,
+    employmentType: "parttime",
     technologies: [
       "Flutter",
       "Dart",
@@ -72,6 +76,7 @@ const workStationConfigs: WorkStationConfig[] = [
     link: "https://valtech-mobility.de/",
     image: ValtechLogo,
     bulletPointCount: 4,
+    employmentType: "fulltime",
     technologies: [
       "Angular",
       "Typescript",
@@ -91,6 +96,7 @@ const workStationConfigs: WorkStationConfig[] = [
     link: "https://www.alcedis.de/en",
     image: AlcedisLogo,
     bulletPointCount: 4,
+    employmentType: "fulltime",
     technologies: [
       "PHP",
       "Laravel",
@@ -100,7 +106,7 @@ const workStationConfigs: WorkStationConfig[] = [
       "Kubernetes",
       "Gitlab",
       "Selenium",
-      "Gauge"
+      "Gauge",
     ],
   },
   {
@@ -108,6 +114,7 @@ const workStationConfigs: WorkStationConfig[] = [
     link: "https://www.alcedis.de/en",
     image: AlcedisLogo,
     bulletPointCount: 4,
+    employmentType: "workingStudent",
     technologies: [],
   },
 ];
@@ -122,6 +129,7 @@ const generateBulletPoints = (stationKey: string, count: number): string[] => {
 
 export const workStations = (): WorkStation[] => {
   return workStationConfigs.map((config) => ({
+    slug: config.key,
     company: `workStations.${config.key}.company`,
     role: `workStations.${config.key}.role`,
     duration: `workStations.${config.key}.duration`,
@@ -130,5 +138,6 @@ export const workStations = (): WorkStation[] => {
     image: config.image,
     bulletpoints: generateBulletPoints(config.key, config.bulletPointCount),
     technologies: config.technologies,
+    employmentType: `employment.${config.employmentType}`,
   }));
 };

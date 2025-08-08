@@ -101,6 +101,11 @@
       }
     },
     "WorkExperience": {
+      "employment": {
+        "fulltime": "Full-time",
+        "parttime": "Part-time",
+        "workingStudent": "Working student"
+      },
       "badge": "Professional Journey",
       "title": "My Journey in the Tech World",
       "description": "From first steps to complex enterprise solutions - a journey through modern technologies and growing responsibility.",
@@ -118,11 +123,13 @@
         "discussProject": "Discuss Project",
         "viewResume": "View Resume"
       },
+      "viewDetails": "View details",
+      "hideDetails": "Hide details",
       "workStations": {
         "freelancer": {
           "company": "Freelancer",
           "role": "Senior Fullstack Developer | Web & Mobile",
-          "duration": "Oct 2023 - Today",
+          "duration": "October 2024 - Present",
           "location": "Wetzlar",
           "bulletPoints": [
             "Modern business websites with Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
@@ -132,8 +139,8 @@
         },
         "amsel": {
           "company": "Amsel UG",
-          "role": "CTO - Flutter, Spring Boot, TypeScript, Java, Firebase",
-          "duration": "Jul 2023 - Today",
+          "role": "CTO",
+          "duration": "July 2023 - Today",
           "location": "Langgöns",
           "bulletPoints": [
             "Expertise in the planning and implementation of complex software projects",
@@ -144,8 +151,8 @@
         },
         "vm": {
           "company": "Valtech-Mobility GmbH",
-          "role": "Consultant - Angular, TypeScript, Android, Kotlin, Java",
-          "duration": "Mar 2023 - Sep 2024",
+          "role": "Consultant",
+          "duration": "March 2023 - September 2024",
           "location": "Remote",
           "bulletPoints": [
             "Responsible for direct cooperation and customer care as well as the maintenance of business relationships",
@@ -156,8 +163,8 @@
         },
         "alcedis": {
           "company": "Alcedis GmbH",
-          "role": "Software developer - TypeScript, PHP, Laravel, React.js, Flutter, Docker, Kubernetes",
-          "duration": "Jul 2020 - Feb 2023",
+          "role": "Software developer",
+          "duration": "July 2020 - February 2023",
           "location": "Gießen",
           "bulletPoints": [
             "Development of automation tests for web applications in an agile environment",
@@ -168,8 +175,8 @@
         },
         "alcedisTester": {
           "company": "Alcedis GmbH",
-          "role": "Software tester",
-          "duration": "Jun 2018 - Jul 2020",
+          "role": "Software Tester",
+          "duration": "June 2018 - July 2020",
           "location": "Gießen",
           "bulletPoints": [
             "Creation and maintenance of test documentation",
