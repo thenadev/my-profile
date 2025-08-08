@@ -125,65 +125,102 @@
       },
       "viewDetails": "Details ansehen",
       "hideDetails": "Details verbergen",
+      "highlightsTitle": "Highlights",
       "workStations": {
         "freelancer": {
           "company": "Freelancer",
           "role": "Senior Fullstack Entwickler | Web & Mobile",
           "duration": "Oktober 2024 - Heute",
-          "location": "Wetzlar",
-          "bulletPoints": [
-            "Moderne Unternehmenswebsiten mit Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
-            "Mobile Apps mit Flutter, Android Automotive, Android Native",
-            "Individualsoftware für die Prozessoptimierung und Automatisierung"
-          ]
+          "location": "Wetzlar, Deutschland",
+          "details": {
+            "intro": [
+              "Eigenständiges Tech-Business mit Schwerpunkt auf der Entwicklung moderner Web‑ und Mobile‑Lösungen für Startups, KMU und Agenturen – von Beratung bis Betrieb.",
+              "Als Freelancer habe ich End‑to‑End umgesetzt: Architektur, Frontend (React/Next.js/Angular/Vue), Mobile (Flutter/Dart) sowie Backend (Java/Spring Boot) inkl. Datenbanken (Firebase/Firestore, PostgreSQL, MySQL)."
+            ],
+            "highlights": [
+              "Barrierefreie Webanwendungen (WCAG) mit React/Next.js",
+              "Flutter-Apps für Android/iOS",
+              "Photogrammetrie- und 3D-Scanning mit Machine Learning & Computer Vision",
+              "Skalierbare Datenbanken (Firebase, Firestore, PostgreSQL, MySQL)",
+              "Technische Beratung zur digitalen Transformation"
+            ]
+          },
+          "bulletPoints": []
         },
         "amsel": {
           "company": "Amsel UG",
           "role": "CTO",
           "duration": "Juli 2023 - Heute",
-          "location": "Langgöns",
-          "bulletPoints": [
-            "Expertise in der Planung und Umsetzung von komplexen Softwareprojekten",
-            "Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen Technologien",
-            "Gutes Verständnis von Flutter-Framework und Dart-Programmierung",
-            "Backend Entwicklung mit Java / Spring-Boot"
-          ]
+          "location": "Langgöns, Deutschland",
+          "details": {
+            "intro": [
+              "Die Amsel UG ist ein Tech‑Startup aus Langgöns mit einer Marketing‑ und Shop‑Plattform für regionale Produzenten und Automatenbetreiber.",
+              "Als CTO habe ich die technische Roadmap verantwortet und die Umsetzung geleitet: Flutter/Dart‑App (Android/iOS) mit sicherem Login & Rechtemodell sowie ein skalierbares Java/Spring‑Boot‑Backend."
+            ],
+            "highlights": [
+              "Leitung von komplexen Softwareprojekten",
+              "Technologieauswahl und Architekturentscheidungen",
+              "Flutter/Dart Entwicklung",
+              "Java/Spring Boot Backend"
+            ]
+          },
+          "bulletPoints": []
         },
         "vm": {
           "company": "Valtech-Mobility GmbH",
           "role": "Consultant",
           "duration": "März 2023 - September 2024",
-          "location": "Remote",
-          "bulletPoints": [
-            "Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden sowie die Pflege der Geschäftsbeziehungen",
-            "Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und Ressourcenmanagement",
-            "Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java",
-            "Entwicklung von Webanwendungen mit Angular in TypeScript"
-          ]
+          "location": "Neu-Isenburg, Deutschland",
+          "details": {
+            "intro": [
+              "Valtech Mobility ist ein Entwicklungs‑ und Beratungspartner im Automotive‑Bereich (Connected Car) für Premium‑Marken wie Porsche, Audi, Bentley und Lamborghini.",
+              "Als Consultant habe ich die technische Umsetzung und Integration neuer Infotainment‑Funktionen verantwortet, Kunden eng abgestimmt und die Auslieferungsqualität im cross‑funktionalen Team gesichert."
+            ],
+            "highlights": [
+              "Integration von Apple Music, Podcast & Spotify in Porsche Infotainment",
+              "Implementierung QR-Code Login für Porsche & Audi",
+              "POC für neue Login-Funktionen für Porsche Android Automotive",
+              "Agile Entwicklung mit Scrum und Kanban",
+              "Rollout in über 15 Fahrzeugmodellen weltweit"
+            ]
+          },
+          "bulletPoints": []
         },
         "alcedis": {
           "company": "Alcedis GmbH",
           "role": "Software Entwickler",
           "duration": "Juli 2020 - Februar 2023",
-          "location": "Gießen",
-          "bulletPoints": [
-            "Entwicklung von Automatisierungstests für Webanwendungen mit Selenium/Gauge",
-            "Integration von Testautomatisierung in den Entwicklungsprozess",
-            "3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, HTML, CSS, PHP, TypeScript",
-            "Erfahrung in der Implementierung und Verwaltung von Containern mit Docker und Kubernetes"
-          ]
+          "location": "Gießen, Deutschland",
+          "details": {
+            "intro": [
+              "Die Alcedis GmbH ist ein Anbieter im Bereich klinischer Studien mit Fokus auf eClinical‑/Clinical‑Data‑Management‑Lösungen.",
+              "Als Softwareentwickler habe ich Testautomatisierung mit Selenium/Gauge aufgebaut, in den Entwicklungsprozess integriert und Webanwendungen mit Laravel, HTML/CSS/PHP und TypeScript umgesetzt."
+            ],
+            "highlights": [
+              "Testautomatisierung in den Entwicklungsprozess integriert",
+              "3 Jahre Webentwicklung mit Laravel/PHP/TypeScript",
+              "Containerisierung mit Docker & Kubernetes"
+            ]
+          },
+          "bulletPoints": []
         },
         "alcedisTester": {
           "company": "Alcedis GmbH",
           "role": "Software Tester",
           "duration": "Juni 2018 - Juli 2020",
-          "location": "Gießen",
-          "bulletPoints": [
-            "Erstellung und Pflege von Testdokumenten",
-            "Durchführung von manuellen Funktions- und Regressionstests",
-            "Entwicklung und Wartung von automatisierten Testskripten für Webanwendungen",
-            "Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur Fehleranalyse"
-          ]
+          "location": "Gießen, Deutschland",
+          "details": {
+            "intro": [
+              "Die Alcedis GmbH ist ein Anbieter im Bereich klinischer Studien mit Fokus auf eClinical‑/Clinical‑Data‑Management‑Lösungen.",
+              "Als Softwaretester habe ich Funktions‑ und Regressionstests durchgeführt, Testdokumente aufgebaut/gepflegt und erste Automatisierung mit Selenium/Gauge umgesetzt."
+            ],
+            "highlights": [
+              "Aufbau und Pflege von Testdokumenten",
+              "Automatisierte Tests für Webanwendungen",
+              "Enge Zusammenarbeit mit Entwicklungsteams bei der Fehleranalyse"
+            ]
+          },
+          "bulletPoints": []
         }
       }
     },

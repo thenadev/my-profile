@@ -1,0 +1,670 @@
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 1 von 7 
+ 
+PERSÖNLICHE DATEN 
+ 
+Name: 
+ 
+ 
+Thomas Schwabauer 
+Adresse: 
+ 
+ 
+Bergstr. 37 
+ 
+ 
+ 
+35578 Wetzlar 
+ 
+Telefon: 
+ 
+ 
+0152 02913640 
+E-Mail: 
+ 
+ 
+email@thomas-schwabauer.de 
+ 
+Geburtsdatum/ -ort: 
+06.04.1997 in Weilburg 
+Familienstand:  
+ledig 
+ 
+ 
+BERUFSERFAHRUNG 
+ 
+10/2024 – heute 
+Freelancer 
+ 
+ 
+ 
+Selbstständig, Wetzlar 
+• 
+Entwicklung und Architekturplanung von Softwarelösungen für verschiedene 
+Kundenprojekte 
+• 
+Frontend-Entwicklung mit React.js, Next.js, Angular und Vue.js für 
+moderne Webanwendungen – unter besonderer Berücksichtigung von 
+Barrierefreiheit (Accessibility) gemäß WCAG-Standards 
+• 
+Spezialisiert auf Flutter- und Dart-basierte App-Entwicklung für mobile 
+Plattformen 
+• 
+Entwicklung und Optimierung von Backend-Systemen mit Java und 
+Spring Boot 
+• 
+Integration von Machine Learning und Computer Vision für 
+Photogrammetrie- und 3D-Scanning-Anwendungen 
+• 
+Aufbau skalierbarer Datenbanken und Cloud-Lösungen mit Firebase, 
+Firestore, PostgreSQL und MySQL  
+• 
+Technische Beratung und Unterstützung bei der digitalen Transformation 
+von Unternehmen 
+ 
+07/2023 – heute 
+CTO 
+ 
+ 
+ 
+Amsel UG, Langgöns 
+• 
+Expertise in der Planung und Umsetzung von komplexen 
+Softwareprojekten 
+• 
+Umfangreiche Kenntnisse in der Evaluierung und Umsetzung von neuen 
+Technologien 
+• 
+Gutes Verständnis von Flutter-Framework und Dart-Programmierung 
+• 
+Backend Entwicklung mit Java / Spring-Boot 
+ 
+ 
+03/2023 – 10/2024 
+Consultant 
+ 
+ 
+ 
+Valtech-Mobility GmbH, Frankfurt 
+• 
+Verantwortlich für die direkte Zusammenarbeit und Betreuung der Kunden 
+sowie die Pflege der Geschäftsbeziehungen 
+• 
+Projektmanagement von Beratungsprojekten, einschließlich Zeitplanung und 
+Ressourcenmanagement 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 2 von 7 
+• 
+Entwicklung von In-Car Apps im Umfeld Android Automotive mit Kotlin/Java 
+• 
+Entwicklung von Webanwendungen mit Angular in TypeScript 
+ 
+ 
+ 
+ 
+07/2020 – 02/2023 
+Softwareentwickler 
+ 
+ 
+ 
+Alcedis GmbH, Gießen 
+• 
+Entwicklung von Automatisierungstests für Webanwendungen mit 
+Selenium/Gauge 
+• 
+Integration von Testautomatisierung in den Entwicklungsprozess 
+• 
+3 Jahre Erfahrung in der Entwicklung von Webanwendungen mit Laravel, 
+HTML, CSS, PHP, TypeScript 
+06/2018 – 06/2020 
+Softwaretester 
+ 
+ 
+ 
+Alcedis GmbH, Gießen 
+• 
+Erstellung und Pflege von Testdokumenten 
+• 
+Durchführung von manuellen Funktions- und Regressionstests 
+• 
+Entwicklung und Wartung von automatisierten Testskripten für 
+Webanwendungen 
+• 
+Zusammenarbeit mit Entwicklern und anderen Stakeholdern zur 
+Fehleranalyse 
+ 
+ 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 3 von 7 
+ 
+AUSBILDUNG 
+ 
+08/2016 – 07/2020 
+Studium Informatik 
+ 
+ 
+ 
+Technische Hochschule Mittelhessen, Gießen 
+ 
+ 
+ 
+Abschluss: Bachelor of Science 
+ 
+ 
+ 
+ 
+08/2013 – 06/2016 
+Allgemeine Hochschulreife 
+ 
+ 
+ 
+Wilhelm-Knapp-Schule, Weilburg 
+ 
+ 
+ 
+Abschluss: Abitur 
+ 
+ 
+ 
+KENNTNISSE 
+EDV Kenntnisse: 
+Programmiersprachen:  
+JavaScript (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+TypeScript (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Dart (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kotlin (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Java (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+PHP (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+HTML (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+CSS (5 Jahre) 
+ 
+ 
+ 
+Mobile Frameworks: 
+ 
+Flutter (5 Jahre) 
+ 
+ 
+ 
+Frontend Frameworks:  
+Angular (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ReactJS (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Vue.js (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Nuxt.js (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Laravel (3 Jahre) 
+ 
+ 
+ 
+Backend Frameworks:  
+Node.js (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NextJS (2 Jahr) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NestJS (1 Jahr) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Spring Boot (1 Jahr) 
+ 
+ 
+ 
+Databases: 
+ 
+ 
+MySQL (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+NoSQL (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Firebase (3 Jahre) 
+ 
+                  Testing: 
+Selenium (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Jest (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Cypress (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Cucumber (1 Jahr) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Appium (0.5 Jahre) 
+ 
+                  IDE: 
+Visual Studio Code (5 Jahre) 
+ 
+ 
+Webstorm (5 Jahre) 
+ 
+ 
+IntelliJ (5 Jahre) 
+ 
+ 
+Android Studio (5 Jahre) 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 4 von 7 
+ 
+ 
+ 
+Tools:  
+ 
+ 
+Git (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Jira (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Confluence (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Bitbucket (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Gitlab CI/CD (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ES Lint (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Stylelint (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Jenkins CI/CD (2 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+SonarQube (2 Jahre) 
+ 
+ 
+ 
+Containerization:  
+ 
+Docker (3 Jahre) 
+ 
+ 
+ 
+Orchestration:   
+ 
+Docker Swarm mode (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Kubernetes (3 Jahre) 
+ 
+ 
+ 
+Other:   
+ 
+ 
+REST API (5 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Gauge (3 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Android Development (4 Jahre) 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+Apache (1 Jahr) 
+ 
+ 
+Sprachen: 
+ 
+ 
+Deutsch (Muttersprache) 
+ 
+ 
+ 
+Englisch (sehr gute Kenntnisse in Wort und Schrift) 
+ 
+ 
+ 
+Russisch (Grundkenntnisse) 
+ 
+ 
+Hobbies: 
+ 
+ 
+Bodybuilding, Fußball 
+ 
+ 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 5 von 7 
+ 
+ 
+PROJEKTÜBERSICHT 
+ 
+Projekt: Diverse Unternehmenswebsites (03/2025 - laufend) 
+Entwicklung mehrerer Corporate-Websites mit Next.js und React in TypeScript, gestylt mittels Tailwind 
+CSS. Realisierung sowohl statischer (SSG) als auch serverseitig gerenderter (SSR) Seiten, Anbindung an 
+Fire-CMS, Implementierung modularer Komponenten, Responsive Design und Berücksichtigung von 
+Barrierefreiheit (Accessibility) nach WCAG-Standards. CI/CD-Pipelines (Vercel/GitHub Actions) sorgen für 
+automatisierte Builds, Deployments und Performance-Optimierung. 
+ 
+Techstack: Next.js, React, TypeScript, Tailwind CSS, Fire-CMS, Vercel, GitHub Actions. 
+ 
+Projekt: Shopify-App für Goldeneringe.de (02/2025 – 04/2025) 
+Als Lead-Entwickler migrierte ich die Website von Shopware 5 zu Shopify und integrierte einen 
+bestehenden 3D-Konfigurator in eine Private Shopify-App mit App-Bridge und Polaris. Über ein Remix-
+Backend mit GraphQL-API steuern Resolver Material- und Gravurparameter, während Three.js clientseitig 
+das Live-Modell rendert. Webhooks, Background-Jobs und ein CDN synchronisieren Bestellungen und 
+liefern 3D-Assets performant aus. Automatisierte Tests (Jest), Git-basiertes CI/CD und Scrum runden das 
+Projekt ab. 
+ 
+Techstack: Shopify App-Bridge & Polaris, Remix (Node.js), GraphQL, Three.js, Webhooks, CDN, Jest, 
+GitHub CI/CD. 
+ 
+Projekt: Betzimra – Musik-App für Asyrer (01/2025-03/2025) 
+Als alleiniger Entwickler konzipierte und implementierte ich eine PHP-basierte Musikplattform für die 
+assyrische Community mit Streaming, Bibliotheken, Playlists und Audio-Uploads. Ein MySQL-Backend 
+kommuniziert per REST-API mit einem HTML5/CSS3/JavaScript-Frontend, während Amazon S3 für 
+skalierbares Medienhosting sorgt. Zusätzliche Features: rollenbasiertes Rechtemanagement, PHPUnit-
+Tests und eine automatisierte Pipeline via Git, Composer und CI/CD. Durch regelmäßiges Stakeholder-
+Feedback optimierte ich kontinuierlich Performance und UX. 
+ 
+Techstack: PHP, MySQL, HTML5, CSS3, JavaScript, Amazon S3, REST-API, Git, Composer, CI/CD, PHPUnit, 
+GitHub 
+ 
+Projekt: Digitalsocial.ID Ltd. – Blockchain Credibility Verification (10/2023-10/2024) 
+Im Rahmen des Projekts war ich als Fullstack-Entwickler für die Umsetzung zentraler Komponenten einer 
+Webplattform zur digitalen Identitätsverifikation auf Basis der Solana-Blockchain verantwortlich. 
+Ich arbeitete sowohl am Frontend mit React.js und Next.js als auch am Backend mit NestJS und Supabase. 
+Ein Schwerpunkt lag auf der Integration von Solana-Wallets mittels @solana/web3.js und 
+@solana/wallet-adapter, um eine sichere und dezentrale Authentifizierung zu ermöglichen. 
+Weitere Aufgaben umfassten die Anbindung an Supabase-Datenbanken, das Implementieren von API-
+Endpunkten, rollenbasiertes Rechtemanagement sowie die kontinuierliche Verbesserung der 
+Benutzeroberfläche und Performance auf Basis von Team-Feedback. 
+ 
+Techstack: React.js, Next.js, NestJS, Supabase, Solana Wallet Integration, ethers.js, web3.js, TypeScript, 
+REST API, Git, CI/CD (GitHub Actions), Vercel 
+ 
+ 
+ 
+ 
+ 
+Projekt: Web-based-Login In-Car-App (03/2023-10/2024) 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 6 von 7 
+Als Hauptverantwortlicher war ich für die Entwicklung einer In-Car-App für Porsche und Audi zuständig, 
+die den Login-Prozess für Benutzer durch die Nutzung eines QR-Codes vereinfachen sollte. Die App 
+kommunizierte mit einem Backend, um den QR-Code zu generieren, führte Polling durch, um den 
+erfolgreichen Login des Benutzers zu überprüfen, und ermöglichte anschließend den Login im Fahrzeug. 
+Diese App wurde für verschiedene Fahrzeuggenerationen entwickelt, wobei Angular in TypeScript für die 
+Webanwendung und Kotlin für die Android Automotive-Version zum Einsatz kamen. Neben meiner Rolle 
+als technischer Leiter war ich maßgeblich an der Abstimmung mit dem Kunden beteiligt, fungierte als 
+Berater und setzte die Implementierung in einem kleinen Team erfolgreich um. 
+ 
+Techstack: Angular, Node.js, TypeScript, Kotlin, REST-API, Jest, Cypress, EsLint, Stylelint, Scrum, 
+Confluence, Bitbucket 
+ 
+Projekt: Media In-Car-App (03/2023-10/2024) 
+Als Mitentwickler war ich an der Integration von Diensten wie Spotify, Apple Music und Apple Podcasts in 
+eine In-Car-App von Porsche beteiligt. Das Projekt wurde in TypeScript entwickelt und legte besonderen 
+Wert auf eine hohe Testabdeckung, die mithilfe von Jest sichergestellt wurde. 
+Meine Aufgaben umfassten die Implementierung und Optimierung der Integrationen sowie die 
+Erstellung und Durchführung umfassender Tests, um die Qualität und Zuverlässigkeit der Anwendung zu 
+gewährleisten. Zusätzlich wirkte ich an der Anbindung der Anwendung an Splunk zur Überwachung und 
+Analyse von Logs und Systemmetriken mit. 
+ 
+Techstack: Angular, Node.js, TypeScript, Kotlin, REST-API, Jest, Cypress, EsLint, Stylelint, Scrum, 
+Confluence, Bitbucket, Splunk 
+ 
+ 
+Projekt: Amsel (07/2023 – heute) 
+Als alleiniger Entwickler habe ich eine mobile Applikation für Android und iOS mit Flutter entwickelt, 
+die als Marketing- und Shop-Plattform für lokale Bauern und Automatenbetreiber dient. Die App 
+integriert eine Firebase-Datenbank. Zusätzlich habe ich ein leistungsfähiges Backend mit Java und 
+Spring Boot entwickelt, um eine robuste und skalierbare Architektur zu gewährleisten. Zu den 
+zentralen Funktionen der App gehören ein sicheres Login-System und ein differenziertes 
+Rechtesystem für verschiedene Nutzerrollen, darunter Benutzer, Bauern/Automatenbetreiber und 
+Administratoren. In diesem Projekt war ich vollständig verantwortlich für die Architektur, Entwicklung 
+und Implementierung der App. 
+ 
+Techstack: Next.js, TypeScript, Jest, Flutter, REST-API, Firebase, Fire-CMS, Java, Spring Boot, GitHub 
+ 
+ 
+Projekt: Einwilligungserklärung für klinische Studien (08/2022 - 02/2023) 
+In einem kleinen Team war ich verantwortlich für die Planung und Umsetzung einer hybriden App, die in 
+Flutter entwickelt wurde. Die App wurde speziell dafür konzipiert, Einverständniserklärungen von 
+Patienten, die an klinischen Studien teilnehmen möchten, digital zu erfassen, einschließlich der 
+Möglichkeit, Unterschriften direkt in der App zu hinterlegen. Die Anwendung beinhaltete eine API-
+Anbindung an ein Backend sowie ein Login-System, das eine E-Mail-Verifikation erfordert. In diesem 
+Projekt war ich maßgeblich an der Konzeption und Implementierung beteiligt. 
+ 
+Techstack: Flutter, REST-API, Scrum, GitLab 
+ 
+ 
+ 
+
+
+Thomas Schwabauer 
+ 
+ 
+Lebenslauf 7 von 7 
+ 
+ 
+ 
+Projekt: Testautomation (07/2020 – 02/2023) 
+Als Werkstudent führte ich zunächst manuell wiederholte Tests basierend auf einer vorgegebenen 
+Spezifikation durch. Im Rahmen meiner Bachelorarbeit und meiner weiteren Tätigkeit bei der Alcedis 
+GmbH begann ich, diese Spezifikationen zu interpretieren und daraus menschenlesbare Testschritte in 
+Gauge zu generieren. Diese Testschritte wurden anschließend mithilfe von Selenium in einem headless 
+Webbrowser auf verschiedenen Browsern automatisiert ausgeführt. Die Browser und Test Runner wurden 
+dabei automatisch mit Kubernetes skaliert, um eine optimale Ressourcennutzung und Performance 
+sicherzustellen. Durch die Implementierung dieser automatisierten Tests konnte der Aufwand für 
+generische Tests erheblich reduziert und Regressionstests für die Anwendung effizienter durchgeführt 
+werden. Ich war der alleinige Entwickler dieses Projekts, verantwortete die vollständige Konzeption und 
+Planung der Features und setzte das Projekt eigenständig um. 
+ 
+Techstack: Laravel, PHP, TypeScript, React, Selenium, Gauge, Docker, Kubernetes, GitLab 
+ 
+ 
+ 

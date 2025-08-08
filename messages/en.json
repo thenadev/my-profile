@@ -125,65 +125,97 @@
       },
       "viewDetails": "View details",
       "hideDetails": "Hide details",
+      "highlightsTitle": "Highlights",
       "workStations": {
         "freelancer": {
           "company": "Freelancer",
           "role": "Senior Fullstack Developer | Web & Mobile",
           "duration": "October 2024 - Present",
-          "location": "Wetzlar",
-          "bulletPoints": [
-            "Modern business websites with Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
-            "Mobile apps with Flutter, Android Automotive, Android Native",
-            "Custom software for process optimization and automation"
-          ]
+          "location": "Wetzlar, Germany",
+          "details": {
+            "intro": [
+              "Independent tech business focused on building modern web and mobile solutions for startups, SMEs and agencies – from consulting to operations.",
+              "As a freelancer, I delivered end-to-end: architecture, frontend (React/Next.js/Angular/Vue), mobile (Flutter/Dart) and backend (Java/Spring Boot), including databases (Firebase/Firestore, PostgreSQL, MySQL)."
+            ],
+            "highlights": [
+              "Accessible web applications (WCAG) with React/Next.js",
+              "Flutter apps for Android/iOS",
+              "Photogrammetry and 3D scanning using machine learning & computer vision",
+              "Scalable databases (Firebase, Firestore, PostgreSQL, MySQL)",
+              "Technical consulting for digital transformation"
+            ]
+          }
         },
         "amsel": {
           "company": "Amsel UG",
           "role": "CTO",
           "duration": "July 2023 - Today",
-          "location": "Langgöns",
-          "bulletPoints": [
-            "Expertise in the planning and implementation of complex software projects",
-            "Extensive knowledge in the evaluation and implementation of new technologies",
-            "Good understanding of Flutter framework and Dart programming",
-            "Backend Development with Java / Spring-Boot"
-          ]
+          "location": "Langgöns, Germany",
+          "details": {
+            "intro": [
+              "Amsel UG is a tech startup from Langgöns offering a marketing and shop platform for regional producers and vending operators.",
+              "As CTO, I owned the technical roadmap and led implementation: Flutter/Dart app (Android/iOS) with secure login & role model, plus a scalable Java/Spring Boot backend."
+            ],
+            "highlights": [
+              "Led complex software projects",
+              "Technology selection and architecture decisions",
+              "Flutter/Dart development",
+              "Java/Spring Boot backend"
+            ]
+          }
         },
         "vm": {
           "company": "Valtech-Mobility GmbH",
           "role": "Consultant",
           "duration": "March 2023 - September 2024",
-          "location": "Remote",
-          "bulletPoints": [
-            "Responsible for direct cooperation and customer care as well as the maintenance of business relationships",
-            "Project management of consulting projects, including time planning and resource management",
-            "Development of in-car apps with Android Automotive and Java/Kotlin",
-            "Development of web applications with Angular and Typescript"
-          ]
+          "location": "Neu-Isenburg Germany",
+          "details": {
+            "intro": [
+              "Valtech Mobility is a development and consulting partner in the automotive (Connected Car) domain for premium brands such as Porsche, Audi, Bentley and Lamborghini.",
+              "As a consultant, I was responsible for the technical implementation and integration of new infotainment features, closely aligned with customers, and ensured delivery quality in a cross-functional team."
+            ],
+            "highlights": [
+              "Integration of Apple Music, Podcasts & Spotify in Porsche infotainment",
+              "Implemented QR-code login for Porsche & Audi",
+              "POC for new login features for Porsche Android Automotive",
+              "Agile development with Scrum and Kanban",
+              "Rollout across 15+ vehicle models worldwide"
+            ]
+          }
         },
         "alcedis": {
           "company": "Alcedis GmbH",
           "role": "Software developer",
           "duration": "July 2020 - February 2023",
-          "location": "Gießen",
-          "bulletPoints": [
-            "Development of automation tests for web applications in an agile environment",
-            "Integration of test automation into the development process",
-            "3 years of experience in the development of web applications with HTML, CSS, Laravel, PHP, React, TypeScript, Docker",
-            "Experience in implementing and managing containers with Docker and Kubernetes."
-          ]
+          "location": "Gießen, Germany",
+          "details": {
+            "intro": [
+              "Alcedis GmbH is a provider in the clinical studies domain with a focus on eClinical/clinical data management solutions.",
+              "As a software developer, I built test automation with Selenium/Gauge, integrated it into the development process, and developed web applications with Laravel, HTML/CSS/PHP and TypeScript."
+            ],
+            "highlights": [
+              "Integrated test automation into the development process",
+              "3 years of web development with Laravel/PHP/TypeScript",
+              "Containerization with Docker & Kubernetes"
+            ]
+          }
         },
         "alcedisTester": {
           "company": "Alcedis GmbH",
           "role": "Software Tester",
           "duration": "June 2018 - July 2020",
-          "location": "Gießen",
-          "bulletPoints": [
-            "Creation and maintenance of test documentation",
-            "Execution of manual functional and regression tests",
-            "Development and maintenance of automated test scripts for web applications",
-            "Collaborating with developers and other stakeholders to analyze errors"
-          ]
+          "location": "Gießen, Germany",
+          "details": {
+            "intro": [
+              "Alcedis GmbH is a provider in the clinical studies domain with a focus on eClinical/clinical data management solutions.",
+              "As a software tester, I performed functional and regression tests, built and maintained test documentation, and implemented first automation with Selenium/Gauge."
+            ],
+            "highlights": [
+              "Built and maintained test documentation",
+              "Automated tests for web applications",
+              "Close collaboration with engineering teams for defect analysis"
+            ]
+          }
         }
       }
     },

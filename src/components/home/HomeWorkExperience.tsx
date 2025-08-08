@@ -64,7 +64,7 @@ const HomeWorkExperience: React.FC = () => {
                   }
                   transition={{ duration: 0.6, delay: 0.6 + index * 0.2 }}
                   className={`relative flex flex-col md:flex-row ${
-                    index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
+                    work.side === "left" ? "md:flex-row" : "md:flex-row-reverse"
                   } items-center md:items-stretch gap-6 md:gap-8`}
                 >
                   {/* Timeline Dot */}
@@ -74,7 +74,9 @@ const HomeWorkExperience: React.FC = () => {
 
                   {/* Content Card */}
                   <div
-                    className={`w-full md:w-1/2 ${index % 2 === 0 ? "md:pr-8" : "md:pl-8"}`}
+                    className={`w-full md:w-1/2 ${
+                      work.side === "left" ? "md:pr-8" : "md:pl-8"
+                    }`}
                   >
                     <WorkExperienceCard work={work} />
                   </div>
