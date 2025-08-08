@@ -423,6 +423,9 @@
   },
   "Documents": {
     "title": "Documents / Certificates",
+    "heroIntro": "Here you can find my resume, degree and certificates – compact and easy to browse. If you have questions or need something specific, feel free to reach out.",
+    "heroCta": "Get in touch",
+    "heroImageAlt": "Portrait of Thomas Schwabauer",
     "searchAria": "Search documents",
     "searchPlaceholder": "Search by title, platform or tags...",
     "filterAria": "Filter documents",

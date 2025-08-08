@@ -1,5 +1,6 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -9,7 +10,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import {
   Select,
@@ -19,9 +19,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { documents, type DocumentItem } from "@/config/docs";
+import { BadgeCheck, FileText, GraduationCap, Search } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
 import { useTranslations } from "next-intl";
 import React from "react";
-import { FileText, GraduationCap, BadgeCheck, Search } from "lucide-react";
 
 const typeToIcon: Record<string, React.ReactNode> = {
   cv: <FileText className="h-4 w-4" />,
@@ -63,10 +65,35 @@ const DocumentsPage: React.FC = () => {
       id="documents"
     >
       <div className="w-full max-w-5xl">
+        {/* Hero Section */}
+        <div className="rounded-2xl border bg-white/50 dark:bg-neutral-900/50 backdrop-blur p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
+          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6">
+            <div className="flex-1 text-center md:text-left">
+              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
+                {t("title")}
+              </h2>
+              <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
+                {t("heroIntro")}
+              </p>
+              <Link href="/contact">
+                <Button size="sm">{t("heroCta")}</Button>
+              </Link>
+            </div>
+            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl overflow-hidden border shadow-sm">
+              <Image
+                src="/thomas_schwabauer.webp"
+                alt={t("heroImageAlt")}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 112px, 128px"
+                priority
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Controls */}
         <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
-          <h2 className="flex flex-row items-center gap-2 text-2xl sm:text-3xl font-bold">
-            {t("title")}
-          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3">
             <div className="relative sm:col-span-2">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
@@ -86,7 +113,9 @@ const DocumentsPage: React.FC = () => {
                 <SelectItem value="">{t("allTypes")}</SelectItem>
                 <SelectItem value="cv">{t("types.cv")}</SelectItem>
                 <SelectItem value="degree">{t("types.degree")}</SelectItem>
-                <SelectItem value="certificate">{t("types.certificate")}</SelectItem>
+                <SelectItem value="certificate">
+                  {t("types.certificate")}
+                </SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -99,7 +128,10 @@ const DocumentsPage: React.FC = () => {
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {filtered.map((doc, index) => (
-              <Card key={index} className="bg-white/50 dark:bg-neutral-900/50 backdrop-blur shadow-sm rounded-lg flex flex-col justify-between overflow-hidden">
+              <Card
+                key={index}
+                className="bg-white/50 dark:bg-neutral-900/50 backdrop-blur shadow-sm rounded-lg flex flex-col justify-between overflow-hidden"
+              >
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
@@ -111,7 +143,10 @@ const DocumentsPage: React.FC = () => {
                       </CardTitle>
                     </div>
                     {doc.platform && (
-                      <Badge variant="secondary" className="text-[10px] sm:text-xs">
+                      <Badge
+                        variant="secondary"
+                        className="text-[10px] sm:text-xs"
+                      >
                         {doc.platform}
                       </Badge>
                     )}

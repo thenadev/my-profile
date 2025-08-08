@@ -272,6 +272,9 @@
   },
   "Documents": {
     "title": "Dokumente / Zertifikate",
+    "heroIntro": "Hier findest du meinen Lebenslauf, Zeugnisse und Zertifikate – kompakt und übersichtlich. Wenn du Fragen hast oder etwas Bestimmtes benötigst, schreib mir gerne.",
+    "heroCta": "Kontakt aufnehmen",
+    "heroImageAlt": "Portrait von Thomas Schwabauer",
     "searchAria": "Dokumente durchsuchen",
     "searchPlaceholder": "Suchen nach Titel, Plattform oder Tags...",
     "filterAria": "Dokumente filtern",
