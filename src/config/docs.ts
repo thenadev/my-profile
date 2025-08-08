@@ -27,8 +27,8 @@ export const documents: DocumentItem[] = [
     type: "cv",
     tags: ["profile", "resume"],
     links: [
-      { language: "english", url: "/cv-en.pdf" },
-      { language: "german", url: "/cv-de.pdf" },
+      { language: "english", url: "/CV_Thomas-Schwabauer_EN.pdf" },
+      { language: "german", url: "/CV_Thomas-Schwabauer_DE.pdf" },
     ],
   },
   {

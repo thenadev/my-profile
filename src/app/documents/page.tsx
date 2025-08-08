@@ -20,9 +20,9 @@ import {
 } from "@/components/ui/select";
 import { documents, type DocumentItem } from "@/config/docs";
 import { BadgeCheck, FileText, GraduationCap, Search } from "lucide-react";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
-import { useTranslations } from "next-intl";
 import React from "react";
 
 const typeToIcon: Record<string, React.ReactNode> = {
@@ -34,18 +34,39 @@ const typeToIcon: Record<string, React.ReactNode> = {
 function filterDocuments(
   items: DocumentItem[],
   query: string,
-  typeFilter: string
+  typeFilter: string,
+  translate: (key: string) => string
 ) {
-  return items.filter((d) => {
-    const matchesQuery = query
-      ? [d.title, d.description, d.platform, ...(d.tags ?? [])]
-          .filter(Boolean)
-          .some((val) =>
-            (val as string).toLowerCase().includes(query.toLowerCase())
+  const normalizedQuery = query.trim().toLowerCase();
+  return items.filter((doc) => {
+    const matchesType = typeFilter ? doc.type === typeFilter : true;
+    if (!normalizedQuery) return matchesType;
+
+    const titleText = translate(doc.title).toLowerCase();
+    const descriptionText = translate(doc.description).toLowerCase();
+    const platformText = (doc.platform ?? "").toLowerCase();
+    const tagTexts = (doc.tags ?? []).map((t) => t.toLowerCase());
+    const typeLabel = translate(`types.${doc.type}`).toLowerCase();
+    const linkLangs =
+      "links" in doc && doc.links
+        ? doc.links.map((l) =>
+            translate(`language.${l.language}`).toLowerCase()
           )
-      : true;
-    const matchesType = typeFilter ? d.type === typeFilter : true;
-    return matchesQuery && matchesType;
+        : [];
+
+    const haystack = [
+      titleText,
+      descriptionText,
+      platformText,
+      typeLabel,
+      ...tagTexts,
+      ...linkLangs,
+    ];
+
+    const matchesQuery = haystack.some((text) =>
+      text.includes(normalizedQuery)
+    );
+    return matchesType && matchesQuery;
   });
 }
 
@@ -55,42 +76,51 @@ const DocumentsPage: React.FC = () => {
   const [typeFilter, setTypeFilter] = React.useState("");
 
   const filtered = React.useMemo(
-    () => filterDocuments(documents, query, typeFilter),
-    [query, typeFilter]
+    () => filterDocuments(documents, query, typeFilter, t),
+    [query, typeFilter, t]
   );
 
   return (
     <div
-      className="flex flex-col items-center z-20 relative px-4 md:px-6 py-24"
+      className="flex flex-col items-center z-20 relative px-4 md:px-6 pt-16 pb-20"
       id="documents"
     >
-      <div className="w-full max-w-5xl">
-        {/* Hero Section */}
-        <div className="rounded-2xl border bg-white/50 dark:bg-neutral-900/50 backdrop-blur p-4 sm:p-6 md:p-8 mb-6 sm:mb-8">
-          <div className="flex flex-col md:flex-row items-center md:items-start gap-4 sm:gap-6">
-            <div className="flex-1 text-center md:text-left">
-              <h2 className="text-2xl sm:text-3xl font-bold tracking-tight mb-2">
-                {t("title")}
-              </h2>
-              <p className="text-sm sm:text-base text-muted-foreground mb-3 sm:mb-4">
-                {t("heroIntro")}
-              </p>
-              <Link href="/contact">
-                <Button size="sm">{t("heroCta")}</Button>
+      <div className="w-full max-w-7xl">
+        {/* Hero Section aligned with HomeHero look & feel */}
+        <section className="container mx-auto flex flex-col md:flex-row items-center justify-center md:justify-between py-6 sm:py-8 md:py-10 px-0 sm:px-2 gap-6 md:gap-8 lg:gap-12 max-w-full">
+          <div className="flex flex-col items-center md:items-start justify-center text-center md:text-left p-0 text-black w-full md:w-1/2 max-w-lg lg:max-w-md xl:max-w-xl">
+            <h2 className="mb-2 text-2xl sm:text-3xl font-extrabold leading-tight md:text-5xl">
+              {t("title")}
+            </h2>
+            <p className="mb-4 sm:mb-6 text-sm sm:text-base md:text-lg text-gray-600 max-w-md">
+              {t("heroIntro")}
+            </p>
+            <div className="flex flex-col md:flex-row gap-3 sm:gap-4 w-full sm:w-auto">
+              <Link
+                href="/contact"
+                className="flex items-center justify-center gap-2 sm:gap-3 px-6 sm:px-8 py-3 sm:py-4 text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-lg shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1 font-semibold text-sm sm:text-base h-10 sm:h-12"
+                aria-label={t("heroCta")}
+              >
+                {t("heroCta")}
               </Link>
             </div>
-            <div className="relative w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-xl overflow-hidden border shadow-sm">
+          </div>
+
+          <div className="flex justify-center md:justify-end p-3 sm:p-4 w-full md:w-1/2 mt-2 sm:mt-4 md:-ml-4">
+            <div className="relative group">
               <Image
                 src="/thomas_schwabauer.webp"
                 alt={t("heroImageAlt")}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 112px, 128px"
+                className="w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-72 lg:h-72 xl:w-80 xl:h-80 rounded-2xl shadow-2xl transition-all duration-300 group-hover:scale-105 group-hover:rotate-1 group-hover:shadow-2xl border-2 border-blue-500/20 object-cover"
+                width={600}
+                height={600}
                 priority
               />
+              <div className="absolute -inset-6 sm:-inset-8 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all duration-300"></div>
+              <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/30 to-purple-400/30 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300"></div>
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Controls */}
         <div className="flex flex-col gap-3 sm:gap-4 mb-6 sm:mb-8">
@@ -105,12 +135,15 @@ const DocumentsPage: React.FC = () => {
                 className="pl-9"
               />
             </div>
-            <Select value={typeFilter} onValueChange={setTypeFilter}>
+            <Select
+              value={typeFilter || undefined}
+              onValueChange={(v) => setTypeFilter(v === "all" ? "" : v)}
+            >
               <SelectTrigger aria-label={t("filterAria")}>
                 <SelectValue placeholder={t("filterByType")} />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="">{t("allTypes")}</SelectItem>
+                <SelectItem value="all">{t("allTypes")}</SelectItem>
                 <SelectItem value="cv">{t("types.cv")}</SelectItem>
                 <SelectItem value="degree">{t("types.degree")}</SelectItem>
                 <SelectItem value="certificate">
@@ -130,22 +163,22 @@ const DocumentsPage: React.FC = () => {
             {filtered.map((doc, index) => (
               <Card
                 key={index}
-                className="bg-white/50 dark:bg-neutral-900/50 backdrop-blur shadow-sm rounded-lg flex flex-col justify-between overflow-hidden"
+                className="bg-white/50 dark:bg-neutral-900/50 backdrop-blur rounded-xl border border-gray-100 dark:border-neutral-800 shadow-sm hover:shadow-md transform-gpu hover:-translate-y-0.5 transition-all duration-200 flex flex-col justify-between overflow-hidden"
               >
                 <CardHeader className="pb-2">
                   <div className="flex items-start justify-between gap-2">
                     <div className="flex items-center gap-2">
-                      <div className="rounded-md border p-1.5 text-neutral-600 dark:text-neutral-300">
+                      <div className="rounded-md border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 p-1.5 text-neutral-600 dark:text-neutral-300">
                         {typeToIcon[doc.type]}
                       </div>
-                      <CardTitle className="text-sm sm:text-base font-semibold">
+                      <CardTitle className="text-sm sm:text-base font-semibold text-gray-900 dark:text-white">
                         {t(doc.title)}
                       </CardTitle>
                     </div>
                     {doc.platform && (
                       <Badge
                         variant="secondary"
-                        className="text-[10px] sm:text-xs"
+                        className="text-[10px] sm:text-xs bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300"
                       >
                         {doc.platform}
                       </Badge>
@@ -160,7 +193,10 @@ const DocumentsPage: React.FC = () => {
                     <div className="flex flex-wrap gap-1 mt-3">
                       {doc.tags.map((tag) => (
                         <span key={tag}>
-                          <Badge variant="outline" className="text-[10px]">
+                          <Badge
+                            variant="outline"
+                            className="text-[10px] border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300"
+                          >
                             {tag}
                           </Badge>
                         </span>
@@ -176,7 +212,8 @@ const DocumentsPage: React.FC = () => {
                           key={idx}
                           onClick={() => window.open(link.url, "_blank")}
                           size="sm"
-                          className="transition-transform duration-200 hover:scale-[1.02]"
+                          variant="outline"
+                          className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-200"
                           title={t("viewDocumentLang", {
                             language: t(`language.${link.language}`),
                           })}
@@ -191,7 +228,8 @@ const DocumentsPage: React.FC = () => {
                     <Button
                       onClick={() => doc.url && window.open(doc.url, "_blank")}
                       size="sm"
-                      variant="secondary"
+                      variant="outline"
+                      className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-200"
                     >
                       {t("viewDocument")}
                     </Button>

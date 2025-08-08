@@ -54,8 +54,8 @@ const WorkExperienceCard: React.FC<{
     >
       <Card
         className={
-          "h-full overflow-hidden transition-all duration-300 border-0 bg-white shadow-xl group " +
-          (expanded ? "md:shadow-2xl" : "hover:shadow-2xl")
+          "h-full overflow-hidden transition-all duration-300 bg-white/50 dark:bg-neutral-900/50 backdrop-blur border border-gray-100 dark:border-neutral-800 shadow-sm " +
+          (expanded ? "md:shadow-md" : "hover:shadow-md")
         }
       >
         <CardContent className="p-6 md:p-8">
@@ -63,7 +63,7 @@ const WorkExperienceCard: React.FC<{
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center gap-4">
               {work.image && (
-                <div className="w-16 h-16 rounded-xl overflow-hidden shadow-lg bg-white p-2">
+                <div className="w-16 h-16 rounded-xl overflow-hidden shadow bg-white/80 dark:bg-neutral-900/80 border border-gray-100 dark:border-neutral-800 p-2">
                   <Image
                     src={work.image as StaticImageData}
                     alt={`${t(work.company)} logo`}
@@ -75,7 +75,7 @@ const WorkExperienceCard: React.FC<{
               )}
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white transition-colors">
                     {t(work.company)}
                   </h3>
                   {/* Link to company */}
@@ -84,11 +84,11 @@ const WorkExperienceCard: React.FC<{
                       <FaExternalLinkAlt className="opacity-60" />
                     </Link>
                   )}
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full border border-gray-200 bg-white text-gray-600 text-xs md:text-sm">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300 text-xs md:text-sm">
                     {t(work.employmentType)}
                   </span>
                 </div>
-                <p className="text-lg text-blue-600 font-semibold">
+                <p className="text-lg text-gray-700 dark:text-gray-300 font-semibold">
                   {t(work.role)}
                 </p>
               </div>
@@ -96,13 +96,13 @@ const WorkExperienceCard: React.FC<{
           </div>
 
           {/* Duration & Location */}
-          <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-500">
+          <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
             <div className="flex items-center gap-2">
-              <FaCalendarAlt className="text-blue-500" />
+              <FaCalendarAlt className="text-gray-400 dark:text-gray-500" />
               <span>{t(work.duration)}</span>
             </div>
             <div className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-blue-500" />
+              <FaMapMarkerAlt className="text-gray-400 dark:text-gray-500" />
               <span>{t("location")}</span>
             </div>
           </div>
@@ -176,12 +176,12 @@ const WorkExperienceCard: React.FC<{
 
           {/* Technologies (unter Details) */}
           {work.technologies?.length > 0 && (
-            <div className="mt-6 pt-4 border-t border-gray-100">
+            <div className="mt-6 pt-4 border-t border-gray-100 dark:border-neutral-800">
               <div className="flex flex-wrap gap-2">
                 {work.technologies.map((technology: string) => (
                   <span
                     key={`${work.slug}-${technology}`}
-                    className="text-xs inline-flex px-2.5 py-1 rounded-full border border-gray-200 bg-white"
+                    className="text-xs inline-flex px-2.5 py-1 rounded-full border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300"
                   >
                     {technology}
                   </span>
