@@ -272,6 +272,17 @@
   },
   "Documents": {
     "title": "Dokumente / Zertifikate",
+    "searchAria": "Dokumente durchsuchen",
+    "searchPlaceholder": "Suchen nach Titel, Plattform oder Tags...",
+    "filterAria": "Dokumente filtern",
+    "filterByType": "Nach Typ filtern",
+    "allTypes": "Alle Typen",
+    "types": {
+      "cv": "Lebenslauf",
+      "degree": "Abschluss",
+      "certificate": "Zertifikat"
+    },
+    "emptyState": "Keine Dokumente gefunden. Passen Sie die Suche oder Filter an.",
     "viewDocument": "Dokument anzeigen",
     "viewDocumentLang": "Dokument auf {language} anzeigen",
     "bachelorTitle": "Bachelor of Science (B.Sc.)",

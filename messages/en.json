@@ -423,6 +423,17 @@
   },
   "Documents": {
     "title": "Documents / Certificates",
+    "searchAria": "Search documents",
+    "searchPlaceholder": "Search by title, platform or tags...",
+    "filterAria": "Filter documents",
+    "filterByType": "Filter by type",
+    "allTypes": "All types",
+    "types": {
+      "cv": "Resume",
+      "degree": "Degree",
+      "certificate": "Certificate"
+    },
+    "emptyState": "No documents found. Adjust your search or filters.",
     "viewDocument": "View Document",
     "viewDocumentLang": "View {language} Document",
     "bachelorTitle": "Bachelor of Science (B.Sc.)",
