@@ -45,7 +45,9 @@ function filterDocuments(
     const titleText = translate(doc.title).toLowerCase();
     const descriptionText = translate(doc.description).toLowerCase();
     const platformText = (doc.platform ?? "").toLowerCase();
-    const tagTexts = (doc.tags ?? []).map((t) => t.toLowerCase());
+    const tagTexts = (doc.tags ?? []).map((tag) =>
+      translate(`tags.${tag}`).toLowerCase()
+    );
     const typeLabel = translate(`types.${doc.type}`).toLowerCase();
     const linkLangs =
       "links" in doc && doc.links
@@ -197,7 +199,7 @@ const DocumentsPage: React.FC = () => {
                             variant="outline"
                             className="text-[10px] border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300"
                           >
-                            {tag}
+                            {t(`tags.${tag}`)}
                           </Badge>
                         </span>
                       ))}

@@ -299,6 +299,16 @@
     "language": {
       "english": "englisch",
       "german": "deutsch"
+    },
+    "tags": {
+      "profile": "Profil",
+      "resume": "Lebenslauf",
+      "education": "Ausbildung",
+      "university": "Universität",
+      "blockchain": "Blockchain",
+      "web3": "Web3",
+      "java": "Java",
+      "spring": "Spring"
     }
   },
   "Projects": {

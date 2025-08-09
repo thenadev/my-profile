@@ -450,6 +450,16 @@
     "language": {
       "english": "English",
       "german": "German"
+    },
+    "tags": {
+      "profile": "Profile",
+      "resume": "Resume",
+      "education": "Education",
+      "university": "University",
+      "blockchain": "Blockchain",
+      "web3": "Web3",
+      "java": "Java",
+      "spring": "Spring"
     }
   },
   "Projects": {
