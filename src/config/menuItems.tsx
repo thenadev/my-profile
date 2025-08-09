@@ -50,12 +50,6 @@ export const menuItems: MenuItem[] = [
     ],
   },
   {
-    title: "Berufserfahrung",
-    href: "/work",
-    icon: <FaBriefcase />,
-    subItems: [],
-  },
-  {
     title: "Dokumente",
     href: "/documents",
     icon: <FaFileAlt />,
