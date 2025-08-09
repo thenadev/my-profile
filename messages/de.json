@@ -717,5 +717,12 @@
     "decline": "Ablehnen",
     "titleSmall": "Ich verwende Cookies",
     "descriptionSmall": "Ich verwende Cookies, um sicherzustellen, dass Sie die bestmögliche Erfahrung auf meiner Website haben. Für weitere Informationen sehen Sie sich bitte meine Cookie-Richtlinie an."
+  },
+  "NotFound": {
+    "title": "Seite nicht gefunden",
+    "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Kein Problem – hier sind ein paar schnelle Wege zurück.",
+    "goHome": "Zur Startseite",
+    "contact": "Kontakt aufnehmen",
+    "imageAlt": "Portrait von Thomas Schwabauer für 404-Seite"
   }
 }

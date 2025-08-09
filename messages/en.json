@@ -712,5 +712,12 @@
     "decline": "Decline",
     "titleSmall": "I use cookies",
     "descriptionSmall": "I use cookies to make sure you have the best possible experience on my website. For more information, you can check out my cookie policy."
+  },
+  "NotFound": {
+    "title": "Page not found",
+    "description": "The page you’re looking for doesn’t exist or has moved. No worries – here are a few quick ways back.",
+    "goHome": "Go to homepage",
+    "contact": "Get in touch",
+    "imageAlt": "Portrait of Thomas Schwabauer for 404 page"
   }
 }
