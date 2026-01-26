@@ -310,7 +310,8 @@ export default function UnternehmenswebsitePortfolio() {
           {projects.filter(p => p.livePreviewLink && (
             p.livePreviewLink.includes("tricon-gmbh.de") ||
             p.livePreviewLink.includes("amsel-store.de") ||
-            p.livePreviewLink.includes("physio-andre.de")
+            p.livePreviewLink.includes("physio-andre.de") ||
+            p.livePreviewLink.includes("solarwerk.info")
           )).map((project) => (
             <Card
               key={project.id}

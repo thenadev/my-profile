@@ -5,6 +5,7 @@ import PlanningPoker from "../assets/projects/planning-poker.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import TriconLogo from "../assets/projects/tricon.png";
 import PhysioAndreLogo from "../assets/projects/physio-andre.png";
+import SolarwerkLogo from "../assets/projects/solarwerk.png";
 
 export const projects = [
   {
@@ -58,6 +59,13 @@ export const projects = [
     descriptionKey: "physioAndreDescription",
     technologiesKey: "physioAndreTechnologies",
     livePreviewLink: "https://www.physio-andre.de/",
+  },
+  {
+    id: 6,
+    image: SolarwerkLogo,
+    descriptionKey: "solarwerkDescription",
+    technologiesKey: "solarwerkTechnologies",
+    livePreviewLink: "https://www.solarwerk.info/",
   },
 ];
 

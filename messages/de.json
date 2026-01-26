@@ -328,6 +328,8 @@
     "triconTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
     "physioAndreDescription": "Moderne Physiotherapie-Website mit umfassendem Serviceangebot, Online-Terminbuchung und detaillierten Therapieinformationen.",
     "physioAndreTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
+    "solarwerkDescription": "Professionelle Solaranlagen-Website mit detaillierten Informationen zu Photovoltaik, Speichersystemen und Wallboxen für nachhaltige Energieversorgung.",
+    "solarwerkTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
     "viewProject": "Projekt ansehen",
     "viewSource": "Quelle ansehen"
   },
