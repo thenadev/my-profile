@@ -122,7 +122,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
     // Warte kurz, damit iframe geladen ist
     const timer = setTimeout(() => {
       try {
-        // Versuche mit beiden iframes zu kommunizieren (Mobile und Desktop)
+        // Versuche mit iframe zu kommunizieren
         const iframes = document.querySelectorAll(`iframe[title*="Website Preview ${projectId}"]`) as NodeListOf<HTMLIFrameElement>;
         iframes.forEach((iframe) => {
           if (iframe?.contentWindow) {
@@ -153,34 +153,8 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   if (iframeError || showFallback) {
     return (
       <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
-        {/* Mobile: Handy-Seitenverhältnis (9:16) */}
-        <div className="relative w-full aspect-[9/16] md:hidden">
-          <Image
-            src={fallbackImage}
-            alt="Projekt Vorschau"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
-            <Button
-              size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
-              onClick={(e) => {
-                e.stopPropagation();
-                sendGoogleEvent("portfolio_click", {
-                  project_id: projectId,
-                  type: "fallback_link",
-                });
-                window.open(url, "_blank", "noopener,noreferrer");
-              }}
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Website öffnen
-            </Button>
-          </div>
-        </div>
-        {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
-        <div className="relative w-full hidden md:block aspect-[16/10]">
+        {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
+        <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
             src={fallbackImage}
             alt="Projekt Vorschau"
@@ -212,33 +186,8 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   if (!isValidUrl) {
     return (
       <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
-        {/* Mobile: Handy-Seitenverhältnis (9:16) */}
-        <div className="relative w-full aspect-[9/16] md:hidden">
-          <Image
-            src={fallbackImage}
-            alt="Projekt Vorschau"
-            fill
-            className="object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
-            <Button
-              size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
-              onClick={(e) => {
-                e.stopPropagation();
-                sendGoogleEvent("portfolio_click", {
-                  project_id: projectId,
-                  type: "invalid_url",
-                });
-              }}
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Keine Vorschau verfügbar
-            </Button>
-          </div>
-        </div>
-        {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
-        <div className="relative w-full hidden md:block aspect-[16/10]">
+        {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
+        <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
             src={fallbackImage}
             alt="Projekt Vorschau"
@@ -268,8 +217,8 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
 
   return (
     <div className="relative bg-gray-100 rounded-t-lg overflow-hidden group">
-      {/* Mobile: Handy-Seitenverhältnis (9:16) */}
-      <div className="relative w-full aspect-[9/16] md:hidden">
+      {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
+      <div className="relative w-full aspect-[9/14] max-h-[600px]">
         {isLoading && (
           <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
             <div className="flex flex-col items-center gap-2">
@@ -282,52 +231,6 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
           src={embedUrl}
           className="w-full h-full border-0"
           title={`Website Preview ${projectId}`}
-          onLoad={handleIframeLoad}
-          onError={handleIframeError}
-          loading="lazy"
-          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
-          allow="fullscreen"
-          style={{
-            opacity: isLoading ? 0 : 1,
-            transition: "opacity 0.3s ease-in-out",
-          }}
-        />
-        {/* Overlay mit Link zur vollständigen Website */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4 pointer-events-none">
-          <div className="pointer-events-auto">
-            <Button
-              size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
-              onClick={(e) => {
-                e.stopPropagation();
-                sendGoogleEvent("portfolio_click", {
-                  project_id: projectId,
-                  type: "full_site",
-                });
-                window.open(url, "_blank", "noopener,noreferrer");
-              }}
-            >
-              <ExternalLink className="h-4 w-4 mr-2" />
-              Website öffnen
-            </Button>
-          </div>
-        </div>
-      </div>
-
-      {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
-      <div className="relative w-full hidden md:block aspect-[16/10]">
-        {isLoading && (
-          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
-            <div className="flex flex-col items-center gap-2">
-              <RefreshCw className="h-6 w-6 text-gray-400 animate-spin" />
-              <p className="text-sm text-gray-500">Lädt Website...</p>
-            </div>
-          </div>
-        )}
-        <iframe
-          src={embedUrl}
-          className="w-full h-full border-0"
-          title={`Website Preview ${projectId} Desktop`}
           onLoad={handleIframeLoad}
           onError={handleIframeError}
           loading="lazy"
