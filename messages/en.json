@@ -477,6 +477,8 @@
     "amselDescription": "An interactive website presenting the Amsel App, which combines regional product promotion with modern vending technology and sustainability.",
     "amselTechnologies": "Next.js, React.js, TypeScript, Firebase Realtime Database, Tailwind, Shadcn/ui",
     "triconTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
+    "physioAndreDescription": "Modern physiotherapy website with comprehensive service offerings, online appointment booking and detailed therapy information.",
+    "physioAndreTechnologies": "Next.js, React.js, TypeScript, Tailwind, Shadcn/ui",
     "viewProject": "View Project",
     "viewSource": "View Source"
   },

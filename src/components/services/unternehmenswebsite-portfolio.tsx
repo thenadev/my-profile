@@ -18,6 +18,9 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   const [iframeError, setIframeError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showFallback, setShowFallback] = useState(false);
+  
+  // Prüfe, ob URL gültig ist
+  const isValidUrl = url && url.startsWith("http");
 
   // URL-Parameter hinzufügen, um Cookie Consents zu deaktivieren
   const getEmbedUrl = (originalUrl: string): string => {
@@ -52,6 +55,8 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
 
   const handleIframeLoad = () => {
     setIsLoading(false);
+    setIframeError(false);
+    setShowFallback(false);
   };
 
   const handleIframeError = () => {
@@ -61,119 +66,297 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   };
 
   // Versuche zu erkennen, ob iframe blockiert wurde (X-Frame-Options)
+  // Nur für wirklich blockierte iframes, nicht für langsam ladende
   useEffect(() => {
-    // Wenn iframe nach 5 Sekunden noch lädt, könnte es blockiert sein
+    if (!isValidUrl) {
+      setShowFallback(true);
+      setIframeError(true);
+      setIsLoading(false);
+      return;
+    }
+
+    // Längeren Timeout für langsam ladende Websites (15 Sekunden)
+    // Nur wenn nach 15 Sekunden immer noch geladen wird UND kein onLoad Event kam
     const timeout = setTimeout(() => {
       if (isLoading) {
-        setShowFallback(true);
-        setIframeError(true);
-        setIsLoading(false);
+        // Prüfe, ob iframe tatsächlich geladen wurde (manchmal kommt onLoad nicht)
+        const iframes = document.querySelectorAll(`iframe[title*="Website Preview ${projectId}"]`) as NodeListOf<HTMLIFrameElement>;
+        let hasContent = false;
+        iframes.forEach((iframe) => {
+          try {
+            // Versuche auf iframe zuzugreifen (nur same-origin funktioniert)
+            if (iframe.contentDocument && iframe.contentDocument.body) {
+              hasContent = iframe.contentDocument.body.children.length > 0;
+            }
+          } catch (e) {
+            // Cross-origin - das ist normal, bedeutet nicht dass es blockiert ist
+            // Wenn cross-origin, nehmen wir an dass es lädt (nicht auf Fallback umschalten)
+            // Cross-origin iframes können wir nicht prüfen, also zeigen wir sie weiter an
+            hasContent = true;
+          }
+        });
+        
+        // Nur auf Fallback umschalten wenn wirklich kein Content da ist UND same-origin
+        // Bei cross-origin iframes zeigen wir sie weiter an, auch wenn onLoad nicht kam
+        if (!hasContent) {
+          // Nur wenn wirklich kein Content und same-origin - dann blockiert
+          setShowFallback(true);
+          setIframeError(true);
+          setIsLoading(false);
+        } else {
+          // Content ist da oder cross-origin (können wir nicht prüfen) - weiter anzeigen
+          setIsLoading(false);
+        }
       }
-    }, 5000);
+    }, 15000); // 15 Sekunden für langsam ladende Websites
 
     return () => clearTimeout(timeout);
-  }, [isLoading]);
+  }, [isLoading, isValidUrl, projectId]);
 
+  // Versuche Cookie Consents im iframe zu deaktivieren via PostMessage
+  useEffect(() => {
+    if (!isValidUrl || !embedUrl || isLoading || iframeError || showFallback) {
+      return;
+    }
+
+    // Warte kurz, damit iframe geladen ist
+    const timer = setTimeout(() => {
+      try {
+        // Versuche mit beiden iframes zu kommunizieren (Mobile und Desktop)
+        const iframes = document.querySelectorAll(`iframe[title*="Website Preview ${projectId}"]`) as NodeListOf<HTMLIFrameElement>;
+        iframes.forEach((iframe) => {
+          if (iframe?.contentWindow) {
+            try {
+              // Sende Nachricht an iframe, um Cookie Consents zu deaktivieren
+              iframe.contentWindow.postMessage(
+                {
+                  type: "DISABLE_COOKIE_CONSENT",
+                  source: "portfolio-preview",
+                },
+                "*"
+              );
+            } catch (error) {
+              // Cross-origin iframes blockieren PostMessage ohne explizite Erlaubnis
+              // Fehler wird stillschweigend ignoriert
+            }
+          }
+        });
+      } catch (error) {
+        // Fehler wird stillschweigend ignoriert
+      }
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, [isLoading, embedUrl, projectId, iframeError, showFallback, isValidUrl]);
+
+  // Früher Return NACH allen Hooks
   if (iframeError || showFallback) {
     return (
-      <div className="relative h-80 md:h-96 bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
-        <Image
-          src={fallbackImage}
-          alt="Projekt Vorschau"
-          fill
-          className="object-cover"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
-          <Button
-            size="sm"
-            className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
-            onClick={(e) => {
-              e.stopPropagation();
-              sendGoogleEvent("portfolio_click", {
-                project_id: projectId,
-                type: "fallback_link",
-              });
-              window.open(url, "_blank", "noopener,noreferrer");
-            }}
-          >
-            <ExternalLink className="h-4 w-4 mr-2" />
-            Website öffnen
-          </Button>
+      <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
+        {/* Mobile: Handy-Seitenverhältnis (9:16) */}
+        <div className="relative w-full aspect-[9/16] md:hidden">
+          <Image
+            src={fallbackImage}
+            alt="Projekt Vorschau"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "fallback_link",
+                });
+                window.open(url, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Website öffnen
+            </Button>
+          </div>
+        </div>
+        {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
+        <div className="relative w-full hidden md:block aspect-[16/10]">
+          <Image
+            src={fallbackImage}
+            alt="Projekt Vorschau"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "fallback_link",
+                });
+                window.open(url, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Website öffnen
+            </Button>
+          </div>
         </div>
       </div>
     );
   }
 
-  // Versuche Cookie Consents im iframe zu deaktivieren via PostMessage
-  useEffect(() => {
-    if (!isLoading && embedUrl) {
-      // Warte kurz, damit iframe geladen ist
-      const timer = setTimeout(() => {
-        // Versuche mit iframe zu kommunizieren (funktioniert nur bei same-origin)
-        const iframe = document.querySelector(`iframe[title="Website Preview ${projectId}"]`) as HTMLIFrameElement;
-        if (iframe?.contentWindow) {
-          try {
-            // Sende Nachricht an iframe, um Cookie Consents zu deaktivieren
-            iframe.contentWindow.postMessage(
-              {
-                type: "DISABLE_COOKIE_CONSENT",
-                source: "portfolio-preview",
-              },
-              "*"
-            );
-          } catch (error) {
-            // Cross-origin iframes blockieren PostMessage ohne explizite Erlaubnis
-            console.log("PostMessage nicht möglich (Cross-Origin)");
-          }
-        }
-      }, 2000);
-
-      return () => clearTimeout(timer);
-    }
-  }, [isLoading, embedUrl, projectId]);
-
-  return (
-    <div className="relative h-80 md:h-96 bg-gray-100 rounded-t-lg overflow-hidden group">
-      {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
-          <div className="flex flex-col items-center gap-2">
-            <RefreshCw className="h-6 w-6 text-gray-400 animate-spin" />
-            <p className="text-sm text-gray-500">Lädt Website...</p>
+  if (!isValidUrl) {
+    return (
+      <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
+        {/* Mobile: Handy-Seitenverhältnis (9:16) */}
+        <div className="relative w-full aspect-[9/16] md:hidden">
+          <Image
+            src={fallbackImage}
+            alt="Projekt Vorschau"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "invalid_url",
+                });
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Keine Vorschau verfügbar
+            </Button>
           </div>
         </div>
-      )}
-      <iframe
-        src={embedUrl}
-        className="w-full h-full border-0"
-        title={`Website Preview ${projectId}`}
-        onLoad={handleIframeLoad}
-        onError={handleIframeError}
-        loading="lazy"
-        sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
-        allow="fullscreen"
-        style={{
-          opacity: isLoading ? 0 : 1,
-          transition: "opacity 0.3s ease-in-out",
-        }}
-      />
-      {/* Overlay mit Link zur vollständigen Website */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4 pointer-events-none">
-        <div className="pointer-events-auto">
-          <Button
-            size="sm"
-            className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
-            onClick={(e) => {
-              e.stopPropagation();
-              sendGoogleEvent("portfolio_click", {
-                project_id: projectId,
-                type: "full_site",
-              });
-              window.open(url, "_blank", "noopener,noreferrer");
-            }}
-          >
-            <ExternalLink className="h-4 w-4 mr-2" />
-            Website öffnen
-          </Button>
+        {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
+        <div className="relative w-full hidden md:block aspect-[16/10]">
+          <Image
+            src={fallbackImage}
+            alt="Projekt Vorschau"
+            fill
+            className="object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "invalid_url",
+                });
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Keine Vorschau verfügbar
+            </Button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="relative bg-gray-100 rounded-t-lg overflow-hidden group">
+      {/* Mobile: Handy-Seitenverhältnis (9:16) */}
+      <div className="relative w-full aspect-[9/16] md:hidden">
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
+            <div className="flex flex-col items-center gap-2">
+              <RefreshCw className="h-6 w-6 text-gray-400 animate-spin" />
+              <p className="text-sm text-gray-500">Lädt Website...</p>
+            </div>
+          </div>
+        )}
+        <iframe
+          src={embedUrl}
+          className="w-full h-full border-0"
+          title={`Website Preview ${projectId}`}
+          onLoad={handleIframeLoad}
+          onError={handleIframeError}
+          loading="lazy"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
+          allow="fullscreen"
+          style={{
+            opacity: isLoading ? 0 : 1,
+            transition: "opacity 0.3s ease-in-out",
+          }}
+        />
+        {/* Overlay mit Link zur vollständigen Website */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4 pointer-events-none">
+          <div className="pointer-events-auto">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "full_site",
+                });
+                window.open(url, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Website öffnen
+            </Button>
+          </div>
+        </div>
+      </div>
+
+      {/* Desktop: Laptop-Seitenverhältnis (16:10 für alle Websites) */}
+      <div className="relative w-full hidden md:block aspect-[16/10]">
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
+            <div className="flex flex-col items-center gap-2">
+              <RefreshCw className="h-6 w-6 text-gray-400 animate-spin" />
+              <p className="text-sm text-gray-500">Lädt Website...</p>
+            </div>
+          </div>
+        )}
+        <iframe
+          src={embedUrl}
+          className="w-full h-full border-0"
+          title={`Website Preview ${projectId} Desktop`}
+          onLoad={handleIframeLoad}
+          onError={handleIframeError}
+          loading="lazy"
+          sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-top-navigation"
+          allow="fullscreen"
+          style={{
+            opacity: isLoading ? 0 : 1,
+            transition: "opacity 0.3s ease-in-out",
+          }}
+        />
+        {/* Overlay mit Link zur vollständigen Website */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center p-4 pointer-events-none">
+          <div className="pointer-events-auto">
+            <Button
+              size="sm"
+              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              onClick={(e) => {
+                e.stopPropagation();
+                sendGoogleEvent("portfolio_click", {
+                  project_id: projectId,
+                  type: "full_site",
+                });
+                window.open(url, "_blank", "noopener,noreferrer");
+              }}
+            >
+              <ExternalLink className="h-4 w-4 mr-2" />
+              Website öffnen
+            </Button>
+          </div>
         </div>
       </div>
     </div>
@@ -220,8 +403,12 @@ export default function UnternehmenswebsitePortfolio() {
             Webdesign-Projekte an - Live und aktuell
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {projects.slice(0, 3).map((project) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {projects.filter(p => p.livePreviewLink && (
+            p.livePreviewLink.includes("tricon-gmbh.de") ||
+            p.livePreviewLink.includes("amsel-store.de") ||
+            p.livePreviewLink.includes("physio-andre.de")
+          )).map((project) => (
             <Card
               key={project.id}
               className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-300"

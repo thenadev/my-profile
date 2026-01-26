@@ -4,6 +4,7 @@ import PerionDashboard from "../assets/projects/perion_dashboard.png";
 import PlanningPoker from "../assets/projects/planning-poker.png";
 import Portfolio from "../assets/projects/portfolio.png";
 import TriconLogo from "../assets/projects/tricon.png";
+import PhysioAndreLogo from "../assets/projects/physio-andre.png";
 
 export const projects = [
   {
@@ -50,6 +51,13 @@ export const projects = [
     technologiesKey: "portfolioTechnologies",
     githubLink: "https://github.com/tjoooobooo/my-profile",
     livePreviewLink: "https://www.thomas-schwabauer.de/",
+  },
+  {
+    id: 5,
+    image: PhysioAndreLogo,
+    descriptionKey: "physioAndreDescription",
+    technologiesKey: "physioAndreTechnologies",
+    livePreviewLink: "https://www.physio-andre.de/",
   },
 ];
 
