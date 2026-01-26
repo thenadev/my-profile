@@ -23,9 +23,33 @@ import {
   Zap,
 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
+import UnternehmenswebsiteSocialProof from "@/components/services/unternehmenswebsite-social-proof";
+import UnternehmenswebsiteFAQ from "@/components/services/unternehmenswebsite-faq";
+import UnternehmenswebsitePortfolio from "@/components/services/unternehmenswebsite-portfolio";
+import UnternehmenswebsiteContactForm from "@/components/services/unternehmenswebsite-contact-form";
+import UnternehmenswebsiteFinalCTA from "@/components/services/unternehmenswebsite-final-cta";
 
 export default function UnternehmenswebsiteClient() {
   const router = useRouter();
+
+  const handleCTAClick = (ctaType: string) => {
+    sendGoogleEvent("cta_click", {
+      cta_type: ctaType,
+      location: "landing_page",
+      service: "unternehmenswebsite",
+    });
+    if (ctaType === "contact_form") {
+      // Scroll to form
+      setTimeout(() => {
+        document
+          .getElementById("contact-form-section")
+          ?.scrollIntoView({ behavior: "smooth", block: "center" });
+      }, 100);
+    } else {
+      router.push("/contact");
+    }
+  };
 
   return (
     <div className="min-h-screen w-full py-24 md:py-28 flex flex-col items-center gap-8 md:gap-12 px-4 md:px-8">
@@ -48,7 +72,7 @@ export default function UnternehmenswebsiteClient() {
           <Button
             size="lg"
             className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
-            onClick={() => router.push("/contact")}
+            onClick={() => handleCTAClick("contact_form")}
           >
             Kostenlose Beratung
             <ArrowRight className="ml-2 h-4 w-4" />
@@ -56,10 +80,31 @@ export default function UnternehmenswebsiteClient() {
           <Button
             variant="outline"
             size="lg"
-            onClick={() => router.push("/preisrechner")}
+            onClick={() => {
+              sendGoogleEvent("price_calculator_click", {
+                location: "landing_page_hero",
+              });
+              router.push("/preisrechner");
+            }}
           >
             Preisrechner
           </Button>
+        </div>
+
+        {/* Trust Badges */}
+        <div className="flex flex-wrap justify-center items-center gap-6 mt-4 text-sm text-gray-600">
+          <div className="flex items-center gap-2">
+            <CheckCircle className="h-5 w-5 text-green-500" />
+            <span>Kostenlose Erstberatung</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="h-5 w-5 text-green-500" />
+            <span>Unverbindliches Angebot</span>
+          </div>
+          <div className="flex items-center gap-2">
+            <CheckCircle className="h-5 w-5 text-green-500" />
+            <span>5+ Jahre Erfahrung</span>
+          </div>
         </div>
       </div>
 
@@ -155,7 +200,13 @@ export default function UnternehmenswebsiteClient() {
               </ul>
               <Button
                 className="w-full bg-blue-600 hover:bg-blue-700"
-                onClick={() => router.push("/contact")}
+                onClick={() => {
+                  sendGoogleEvent("package_click", {
+                    package: "basic",
+                    location: "landing_page",
+                  });
+                  handleCTAClick("contact_form");
+                }}
               >
                 Basic Website buchen
               </Button>
@@ -217,7 +268,13 @@ export default function UnternehmenswebsiteClient() {
               </ul>
               <Button
                 className="w-full bg-purple-600 hover:bg-purple-700"
-                onClick={() => router.push("/contact")}
+                onClick={() => {
+                  sendGoogleEvent("package_click", {
+                    package: "professional",
+                    location: "landing_page",
+                  });
+                  handleCTAClick("contact_form");
+                }}
               >
                 Professional Website buchen
               </Button>
@@ -276,7 +333,13 @@ export default function UnternehmenswebsiteClient() {
               </ul>
               <Button
                 className="w-full bg-green-600 hover:bg-green-700"
-                onClick={() => router.push("/contact")}
+                onClick={() => {
+                  sendGoogleEvent("package_click", {
+                    package: "ecommerce",
+                    location: "landing_page",
+                  });
+                  handleCTAClick("contact_form");
+                }}
               >
                 E-Commerce Website buchen
               </Button>
@@ -384,33 +447,20 @@ export default function UnternehmenswebsiteClient() {
         </div>
       </div>
 
-      {/* CTA Section */}
-      <div className="w-full max-w-4xl text-center space-y-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8 md:p-12">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-          Bereit für Ihre neue Website?
-        </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-          Lassen Sie uns gemeinsam Ihre Online-Präsenz in Wetzlar auf das
-          nächste Level bringen. Kostenlose Erstberatung inklusive.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
-            onClick={() => router.push("/contact")}
-          >
-            Jetzt beraten lassen
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => router.push("/preisrechner")}
-          >
-            Preisrechner nutzen
-          </Button>
-        </div>
-      </div>
+      {/* Social Proof Section */}
+      <UnternehmenswebsiteSocialProof />
+
+      {/* Portfolio Section */}
+      <UnternehmenswebsitePortfolio />
+
+      {/* FAQ Section */}
+      <UnternehmenswebsiteFAQ />
+
+      {/* Kontaktformular Section */}
+      <UnternehmenswebsiteContactForm />
+
+      {/* Final CTA Section */}
+      <UnternehmenswebsiteFinalCTA onContactClick={() => handleCTAClick("contact_form")} />
     </div>
   );
 }

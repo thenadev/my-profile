@@ -112,7 +112,7 @@ export default async function RootLayout({
       <body className="overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>
           <NavigationWrapper />
-          {/* <CookieConsent /> */}
+          <CookieConsent />
           {children}
           <div className="moving-gradient-overlay" />
           <SiteFooter />

@@ -8,7 +8,7 @@ const PersonalValues: React.FC = () => {
 
   return (
     <section className="w-full space-y-8">
-      <h2 className="text-3xl font-bold text-slate-800 text-center mb-12">
+      <h2 className="text-3xl font-bold text-slate-800 dark:text-white text-center mb-12">
         {t("title")}
       </h2>
 
@@ -17,12 +17,12 @@ const PersonalValues: React.FC = () => {
         <div className="relative group">
           <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm rounded-2xl border border-gray-100/50 dark:border-neutral-800 p-6 text-center">
             <div className="text-4xl mb-4">🚀</div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-3">
+            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
               {t("innovation.title")}
             </h3>
-            <p className="text-slate-600 text-sm">
+            <p className="text-slate-600 dark:text-gray-300 text-sm">
               {t("innovation.description")}
             </p>
           </Card>
@@ -32,12 +32,14 @@ const PersonalValues: React.FC = () => {
         <div className="relative group">
           <div className="absolute -inset-2 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm rounded-2xl border border-gray-100/50 dark:border-neutral-800 p-6 text-center">
             <div className="text-4xl mb-4">✨</div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-3">
+            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
               {t("quality.title")}
             </h3>
-            <p className="text-slate-600 text-sm">{t("quality.description")}</p>
+            <p className="text-slate-600 dark:text-gray-300 text-sm">
+              {t("quality.description")}
+            </p>
           </Card>
         </div>
 
@@ -45,12 +47,12 @@ const PersonalValues: React.FC = () => {
         <div className="relative group">
           <div className="absolute -inset-2 bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm rounded-2xl border border-gray-100/50 dark:border-neutral-800 p-6 text-center">
             <div className="text-4xl mb-4">🤝</div>
-            <h3 className="text-lg font-semibold text-slate-800 mb-3">
+            <h3 className="text-lg font-semibold text-slate-800 dark:text-white mb-3">
               {t("collaboration.title")}
             </h3>
-            <p className="text-slate-600 text-sm">
+            <p className="text-slate-600 dark:text-gray-300 text-sm">
               {t("collaboration.description")}
             </p>
           </Card>

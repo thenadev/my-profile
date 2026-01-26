@@ -12,9 +12,9 @@ const ContactSection: React.FC = () => {
   return (
     <section className="w-full">
       <div className="relative group">
-        <div className="absolute -inset-2 bg-gradient-to-r from-gray-400/20 to-blue-400/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+        <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-        <Card className="bg-white/90 backdrop-blur-sm border border-gray-100/50 shadow-2xl rounded-3xl p-8">
+        <Card className="bg-white/60 dark:bg-neutral-900/60 backdrop-blur-sm border border-gray-100/50 dark:border-neutral-800 shadow-sm hover:shadow-md rounded-3xl p-8">
           <h2 className="text-2xl font-semibold text-slate-800 mb-6 text-center">
             {t("title")}
           </h2>
@@ -40,7 +40,7 @@ const ContactSection: React.FC = () => {
               </div>
               <div className="flex items-center gap-3">
                 <FaMapPin className="w-5 h-5 text-purple-600" />
-                <span className="text-slate-600">
+                <span className="text-slate-600 dark:text-gray-300">
                   {siteConfig.city}, Deutschland
                 </span>
               </div>
@@ -63,7 +63,7 @@ const ContactSection: React.FC = () => {
                   href={siteConfig.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-800 hover:underline"
+                  className="text-gray-800 dark:text-gray-300 hover:underline"
                 >
                   {t("social.github")}
                 </a>
