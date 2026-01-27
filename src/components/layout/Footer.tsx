@@ -12,7 +12,7 @@ const SiteFooter = () => {
   const t = useTranslations("Footer");
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-turquoise-950 text-white">
       <div className="container mx-auto px-4 py-12">
         {/* Hauptbereich */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
@@ -108,7 +108,7 @@ const SiteFooter = () => {
         </div>
 
         {/* Social Media & Kontakt */}
-        <div className="border-t border-gray-700 pt-8 mb-8">
+        <div className="border-t border-turquoise-700/50 pt-8 mb-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6">
             {/* Kontakt */}
             <div className="flex items-center gap-4">
@@ -156,7 +156,7 @@ const SiteFooter = () => {
         </div>
 
         {/* Copyright */}
-        <div className="border-t border-gray-700 pt-6 text-center">
+        <div className="border-t border-turquoise-700/50 pt-6 text-center">
           <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Thomas Schwabauer.{" "}
             {t("allRightsReserved")}.

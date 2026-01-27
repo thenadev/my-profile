@@ -109,18 +109,18 @@ export default function UnternehmenswebsiteContactForm({
         className="w-full max-w-4xl space-y-8 scroll-mt-24"
       >
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Kostenlose Beratung anfragen
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Lassen Sie uns gemeinsam Ihre Online-Präsenz auf das nächste Level
             bringen. Unverbindlich und kostenlos.
           </p>
         </div>
-        <Card className="p-6 md:p-8">
+        <Card className="p-6 md:p-8 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 E-Mail *
               </label>
               <Input
@@ -137,7 +137,7 @@ export default function UnternehmenswebsiteContactForm({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Thema *
               </label>
               <Input
@@ -153,7 +153,7 @@ export default function UnternehmenswebsiteContactForm({
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
+              <label className="block text-sm font-medium text-white mb-2">
                 Ihre Nachricht *
               </label>
               <Textarea
@@ -179,13 +179,13 @@ export default function UnternehmenswebsiteContactForm({
               />
               <label
                 htmlFor="privacy"
-                className="text-sm text-gray-600 cursor-pointer"
+                className="text-sm text-gray-200 cursor-pointer"
               >
                 Ich stimme der{" "}
                 <a
                   href="/privacy"
                   target="_blank"
-                  className="text-blue-600 hover:underline"
+                  className="text-turquoise-500 hover:underline"
                 >
                   Datenschutzerklärung
                 </a>{" "}
@@ -201,13 +201,13 @@ export default function UnternehmenswebsiteContactForm({
             <Button
               type="submit"
               size="lg"
-              className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white"
+              className="w-full bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white"
               disabled={isSubmitting}
             >
               {isSubmitting ? "Wird gesendet..." : "Jetzt kostenlos anfragen"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
-            <p className="text-xs text-center text-gray-500">
+            <p className="text-xs text-center text-gray-400">
               * Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht
               an Dritte weitergegeben.
             </p>
@@ -221,7 +221,7 @@ export default function UnternehmenswebsiteContactForm({
           <AlertDialogHeader>
             <AlertDialogTitle>{dialogContent.title}</AlertDialogTitle>
           </AlertDialogHeader>
-          <p className="text-gray-600">{dialogContent.message}</p>
+          <p className="text-gray-200">{dialogContent.message}</p>
           <AlertDialogFooter>
             <Button onClick={() => setShowDialog(false)}>Schließen</Button>
           </AlertDialogFooter>

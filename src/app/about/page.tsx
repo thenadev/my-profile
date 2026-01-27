@@ -14,7 +14,7 @@ const AboutPage: React.FC = () => {
   const t = useTranslations("About");
 
   return (
-    <div className="min-h-screen max-w-7xl mx-auto py-20 flex flex-col items-center justify-center gap-12 px-4 md:px-8 text-slate-700 z-40 relative">
+    <div className="min-h-screen max-w-7xl mx-auto py-20 flex flex-col items-center justify-center gap-12 px-4 md:px-8 text-white z-40 relative bg-turquoise-800">
       <div className="w-full max-w-[1200px] flex flex-col items-center justify-start gap-12 px-4 md:px-8 mt-10">
         <AboutHero />
         <PersonalStory />

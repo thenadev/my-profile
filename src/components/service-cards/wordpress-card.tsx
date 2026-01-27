@@ -14,8 +14,8 @@ const WordPressElementorCard = () => {
             text: t("popularPlugins.yoast"),
         },
         {
-            iconBg: "bg-blue-100",
-            iconColor: "text-blue-600",
+            iconBg: "bg-turquoise-100",
+            iconColor: "text-turquoise-500",
             text: t("popularPlugins.woocommerce"),
         },
         {
@@ -37,8 +37,8 @@ const WordPressElementorCard = () => {
             text: t("keyBenefits.optimizedTemplates"),
         },
         {
-            iconBg: "bg-blue-100",
-            iconColor: "text-blue-600",
+            iconBg: "bg-turquoise-100",
+            iconColor: "text-turquoise-500",
             text: t("keyBenefits.betterSEO"),
         },
         {
@@ -52,23 +52,23 @@ const WordPressElementorCard = () => {
         <div className="flex flex-col items-center w-full gap-6 p-6 h-full">
             {/* Why Choose Me Section */}
             <div className="flex flex-col items-center gap-4 text-center">
-                <p className="text-gray-600">{t("description")}</p>
+                <p className="text-gray-200">{t("description")}</p>
             </div>
 
             {/* Popular Plugins Section */}
             <div className="flex flex-col gap-4 w-full px-6">
-                <h4 className="text-xl font-extrabold text-center text-blue-600 bg-gradient-to-br from-white to-gray-50 p-2 rounded-lg shadow-md">
+                <h4 className="text-xl font-extrabold text-center text-turquoise-400 bg-turquoise-700/50 border border-turquoise-600/30 p-2 rounded-lg">
                     {t("popularPluginsTitle")}
                 </h4>
                 <ul className="space-y-4">
                     {popularPlugins.map((plugin, index) => (
                         <li key={index} className="flex items-start gap-4">
                             <div
-                                className={`flex items-center justify-center w-8 h-8 rounded-full ${plugin.iconBg}`}
+                                className="flex items-center justify-center w-8 h-8 rounded-full bg-turquoise-700/50 border border-turquoise-600/30"
                             >
-                                <FaPlug className={`${plugin.iconColor} text-xl`} />
+                                <FaPlug className={`${plugin.iconColor.replace("600", "400").replace("500", "400")} text-xl`} />
                             </div>
-                            <span className="text-gray-800 text-md font-medium leading-relaxed">
+                            <span className="text-white text-md font-medium leading-relaxed">
                 {plugin.text}
               </span>
                         </li>
@@ -78,18 +78,18 @@ const WordPressElementorCard = () => {
 
             {/* Key Benefits Section */}
             <div className="flex flex-col gap-4 w-full px-6">
-                <h4 className="text-xl font-extrabold text-center text-blue-600 bg-gradient-to-br from-white to-gray-50 p-2 rounded-lg shadow-md">
+                <h4 className="text-xl font-extrabold text-center text-turquoise-400 bg-turquoise-700/50 border border-turquoise-600/30 p-2 rounded-lg">
                     {t("keyBenefitsTitle")}
                 </h4>
                 <ul className="space-y-4">
                     {keyBenefits.map((benefit, index) => (
                         <li key={index} className="flex items-start gap-4">
                             <div
-                                className={`flex items-center justify-center w-8 h-8 rounded-full ${benefit.iconBg}`}
+                                className="flex items-center justify-center w-8 h-8 rounded-full bg-turquoise-700/50 border border-turquoise-600/30"
                             >
-                                <FaCheckCircle className={`${benefit.iconColor} text-xl w-8 h-8`} />
+                                <FaCheckCircle className={`${benefit.iconColor.replace("600", "400").replace("500", "400")} text-xl w-8 h-8`} />
                             </div>
-                            <span className="text-gray-800 text-md font-medium leading-relaxed">
+                            <span className="text-white text-md font-medium leading-relaxed">
                 {benefit.text}
               </span>
                         </li>

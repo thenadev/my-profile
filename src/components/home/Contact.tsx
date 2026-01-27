@@ -23,7 +23,6 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaCopy } from "react-icons/fa6";
 import { z } from "zod";
-import ContactImg from "../../assets/me-contact.png";
 
 const HomeContact: React.FC = () => {
   const t = useTranslations("Contact"); // Use translations from "Contact" namespace
@@ -108,13 +107,13 @@ const HomeContact: React.FC = () => {
   return (
     <div
       id="contact"
-      className="min-h-screen max-w-7xl mx-auto py-20 flex flex-col items-center justify-center gap-8 px-4 md:px-8 text-slate-700 z-40 relative"
+      className="min-h-screen w-full py-20 flex flex-col items-center justify-center gap-8 px-4 md:px-8 text-foreground z-40 relative"
     >
       <div className="w-full max-w-5xl flex flex-col items-center justify-start gap-8 px-4 md:px-8 mt-10">
-        <Card className="w-full shadow-lg bg-white rounded-lg border border-gray-200 p-4 sm:p-6 flex flex-col md:flex-row overflow-hidden">
+        <Card className="w-full shadow-lg bg-turquoise-800/90 backdrop-blur-sm rounded-lg border border-turquoise-600/30 p-4 sm:p-6 flex flex-col md:flex-row overflow-hidden">
           <div className="flex flex-col w-full md:w-8/12 order-2 md:order-1">
             <CardHeader>
-              <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-center md:text-left">
+              <CardTitle className="text-2xl sm:text-3xl md:text-4xl font-bold text-center md:text-left text-white">
                 {t("title")}
               </CardTitle>
             </CardHeader>
@@ -127,7 +126,7 @@ const HomeContact: React.FC = () => {
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="email"
-                    className="font-semibold mb-1 text-sm sm:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base text-white"
                   >
                     {t("yourEmail")}
                   </label>
@@ -135,7 +134,7 @@ const HomeContact: React.FC = () => {
                     id="email"
                     type="email"
                     placeholder={t("emailPlaceholder")}
-                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-turquoise-600/30 bg-turquoise-700/30 text-white placeholder:text-gray-400"
                     {...register("email")}
                   />
                   {errors.email && (
@@ -149,7 +148,7 @@ const HomeContact: React.FC = () => {
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="topic"
-                    className="font-semibold mb-1 text-sm sm:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base text-white"
                   >
                     {t("topic")}
                   </label>
@@ -157,7 +156,7 @@ const HomeContact: React.FC = () => {
                     id="topic"
                     type="text"
                     placeholder={t("topicPlaceholder")}
-                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-turquoise-600/30 bg-turquoise-700/30 text-white placeholder:text-gray-400"
                     {...register("topic")}
                   />
                   {errors.topic && (
@@ -171,14 +170,14 @@ const HomeContact: React.FC = () => {
                 <div className="flex flex-col w-full">
                   <label
                     htmlFor="message"
-                    className="font-semibold mb-1 text-sm sm:text-base"
+                    className="font-semibold mb-1 text-sm sm:text-base text-white"
                   >
                     {t("message")}
                   </label>
                   <Textarea
                     id="message"
                     placeholder={t("messagePlaceholder")}
-                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-gray-300 text-black"
+                    className="p-2 sm:p-3 md:p-4 rounded-lg border border-turquoise-600/30 bg-turquoise-700/30 text-white placeholder:text-gray-400"
                     rows={4}
                     {...register("message")}
                   />
@@ -202,14 +201,14 @@ const HomeContact: React.FC = () => {
                   <div className="flex-1">
                     <label
                       htmlFor="privacyPolicy"
-                      className="text-sm sm:text-base text-gray-700 cursor-pointer"
+                      className="text-sm sm:text-base text-gray-200 cursor-pointer"
                     >
                       {t("privacyPolicyText")}{" "}
                       <a
                         href="/privacy"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:underline font-medium"
+                        className="text-turquoise-500 hover:underline font-medium"
                       >
                         {t("privacyPolicy")}
                       </a>{" "}
@@ -227,7 +226,7 @@ const HomeContact: React.FC = () => {
                 <div className="flex justify-center md:justify-start">
                   <Button
                     type="submit"
-                    className="w-full md:w-auto px-4 md:px-6 py-2 sm:py-3 text-base md:text-lg bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
+                    className="w-full md:w-auto px-4 md:px-6 py-2 sm:py-3 text-base md:text-lg bg-turquoise-500 hover:bg-turquoise-600 text-white font-bold rounded-lg shadow-lg transition-transform duration-300 transform hover:scale-105"
                   >
                     {t("sendMessage")}
                   </Button>
@@ -239,24 +238,24 @@ const HomeContact: React.FC = () => {
 
               {/* Direct Email Section with Copy Icon */}
               <div className="mt-6 text-left flex flex-col gap-2">
-                <p className="text-sm sm:text-base text-muted-foreground">
+                <p className="text-sm sm:text-base text-gray-200">
                   {t("directEmail")}
                 </p>
                 <div>
                   <a
                     href={`mailto:${siteConfig.contactEmail}`}
-                    className="text-blue-500 hover:underline"
+                    className="text-turquoise-500 hover:underline"
                   >
                     {siteConfig.contactEmail}
                   </a>
                   <button
                     onClick={handleCopyEmail}
-                    className="ml-2 text-gray-500 hover:text-blue-500 transition-colors"
+                    className="ml-2 text-gray-300 hover:text-turquoise-300 transition-colors"
                   >
                     <FaCopy />
                   </button>
                   {copied && (
-                    <span className="text-xs text-blue-500 ml-2">
+                    <span className="text-xs text-turquoise-500 ml-2">
                       {t("copied")}
                     </span>
                   )}
@@ -268,7 +267,7 @@ const HomeContact: React.FC = () => {
           {/* Image Section */}
           <div className="flex items-center justify-center w-full md:w-4/12 p-2 md:p-4 order-1 md:order-2 mb-4 md:mb-0">
             <Image
-              src={ContactImg}
+              src="/me_envelope.webp"
               alt={t("imageAlt")}
               className="h-40 sm:h-40 md:h-full w-auto object-contain pb-4 md:pb-0"
               width={200}
@@ -287,7 +286,7 @@ const HomeContact: React.FC = () => {
         <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
           <AlertDialogContent
             className={cn(
-              "bg-white rounded-lg p-4 md:p-6 shadow-lg w-64 md:w-80 border-none"
+              "bg-turquoise-800 rounded-lg p-4 md:p-6 shadow-lg w-64 md:w-80 border border-turquoise-600/30"
             )}
           >
             <AlertDialogHeader className="font-bold text-base md:text-lg mb-2 md:mb-4">
@@ -298,7 +297,7 @@ const HomeContact: React.FC = () => {
             </p>
             <AlertDialogFooter className="flex justify-between mt-4 gap-2">
               <Button
-                className="bg-blue-500 hover:bg-blue-600 text-white rounded-lg shadow-lg"
+                className="bg-turquoise-500 hover:bg-turquoise-600 text-white rounded-lg shadow-lg"
                 onClick={() => {
                   router.push("/");
                 }}
@@ -308,7 +307,7 @@ const HomeContact: React.FC = () => {
               <Button
                 onClick={() => setShowDialog(false)}
                 variant="secondary"
-                className="bg-gray-200 hover:bg-gray-300 transition-transform duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2"
+                className="bg-turquoise-700/50 hover:bg-turquoise-600/50 text-white transition-transform duration-300 transform hover:scale-105 px-3 md:px-4 py-1 md:py-2"
               >
                 {t("close")}
               </Button>

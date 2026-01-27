@@ -147,6 +147,26 @@
           },
           "bulletPoints": []
         },
+        "hypofy": {
+          "company": "Hypofy GmbH",
+          "role": "Fullstack Developer | Flutter & KI",
+          "duration": "2025 - Heute",
+          "location": "Remote / Deutschland",
+          "details": {
+            "intro": [
+              "Weiterentwicklung einer mobilen Kunden-App in Flutter für den Bereich Immobilienfinanzierung sowie Entwicklung der zugehörigen Webanwendung und eines CRM-Systems für Finanzierungsberater zur strukturierten Kundenbetreuung.",
+              "Verantwortung für Architektur, Implementierung und Betrieb der Gesamtplattform."
+            ],
+            "highlights": [
+              "Weiterentwicklung einer mobilen Kunden-App in Flutter für Immobilienfinanzierung sowie Webanwendung und CRM-System für Finanzierungsberater",
+              "Verantwortung für Architektur, Implementierung und Betrieb der Gesamtplattform",
+              "Konzeption und Umsetzung eines eigenständigen KI-Systems zur automatisierten Dokumentenverarbeitung mit Vision-LLMs und OCR zur Dokumentenkategorisierung und Informationsextraktion",
+              "Integration eines Chatbots in die App zur interaktiven Kundenkommunikation",
+              "Betrieb der Infrastruktur mittels Docker, Traefik und MongoDB, inklusive Aufbau stabiler Entwicklungs- und Produktionsumgebungen"
+            ]
+          },
+          "bulletPoints": []
+        },
         "amsel": {
           "company": "Amsel UG",
           "role": "CTO",

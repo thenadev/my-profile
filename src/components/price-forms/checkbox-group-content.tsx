@@ -27,7 +27,7 @@ export const CheckboxGroupContent = ({
         {options.map((option) => (
           <div
             key={option.id}
-            className="flex items-center space-x-3 p-4 border rounded-lg hover:bg-gray-50 transition-colors cursor-pointer"
+            className="flex items-center space-x-3 p-4 border border-turquoise-600/30 rounded-lg hover:bg-turquoise-700/30 transition-colors cursor-pointer"
             onClick={() => {
               const newChecked = !value.includes(option.id);
               if (newChecked) {
@@ -42,11 +42,11 @@ export const CheckboxGroupContent = ({
               <Label className="font-medium text-lg block" htmlFor={option.id}>
                 {option.title}
               </Label>
-              <span className="text-blue-600 font-bold block mt-1">
+              <span className="text-turquoise-400 font-bold block mt-1">
                 {option.price} €{option.monthly && " / Monat"}
               </span>
               {option.description && (
-                <span className="text-sm text-gray-500 mt-1">
+                <span className="text-sm text-gray-400 mt-1">
                   {option.description}
                 </span>
               )}

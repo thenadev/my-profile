@@ -22,7 +22,7 @@ const StartupBeratungSection: React.FC = () => {
   const router = useRouter();
 
   return (
-    <section className="w-full py-16 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section className="w-full py-16 bg-gradient-to-br from-turquoise-50 to-turquoise-50">
       <div className="max-w-6xl mx-auto px-4 md:px-8">
         {/* Header */}
         <div className="text-center space-y-4 mb-12">
@@ -40,9 +40,9 @@ const StartupBeratungSection: React.FC = () => {
 
         {/* Value Propositions */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-          <Card className="text-center p-6 border-2 border-blue-100 hover:border-blue-200 transition-colors bg-white">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Lightbulb className="h-6 w-6 text-blue-600" />
+          <Card className="text-center p-6 border-2 border-turquoise-100 hover:border-turquoise-200 transition-colors bg-turquoise-800/90 backdrop-blur-sm">
+            <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Lightbulb className="h-6 w-6 text-turquoise-500" />
             </div>
             <CardTitle className="text-lg mb-2">
               Strategische Beratung
@@ -53,9 +53,9 @@ const StartupBeratungSection: React.FC = () => {
             </CardDescription>
           </Card>
 
-          <Card className="text-center p-6 border-2 border-purple-100 hover:border-purple-200 transition-colors bg-white">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Rocket className="h-6 w-6 text-purple-600" />
+          <Card className="text-center p-6 border-2 border-turquoise-100 hover:border-turquoise-200 transition-colors bg-turquoise-800/90 backdrop-blur-sm">
+            <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Rocket className="h-6 w-6 text-turquoise-600" />
             </div>
             <CardTitle className="text-lg mb-2">MVP-Entwicklung</CardTitle>
             <CardDescription>
@@ -64,7 +64,7 @@ const StartupBeratungSection: React.FC = () => {
             </CardDescription>
           </Card>
 
-          <Card className="text-center p-6 border-2 border-green-100 hover:border-green-200 transition-colors bg-white">
+          <Card className="text-center p-6 border-2 border-green-100 hover:border-green-200 transition-colors bg-turquoise-800/90 backdrop-blur-sm">
             <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
               <TrendingUp className="h-6 w-6 text-green-600" />
             </div>
@@ -78,13 +78,13 @@ const StartupBeratungSection: React.FC = () => {
         {/* Service Packages */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
           {/* Beratung Package */}
-          <Card className="relative overflow-hidden border-2 hover:shadow-lg transition-shadow bg-white">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+          <Card className="relative overflow-hidden border-2 hover:shadow-lg transition-shadow bg-turquoise-800/90 backdrop-blur-sm">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-500 to-turquoise-600"></div>
             <CardHeader className="text-center pb-4">
               <CardTitle className="text-xl font-bold text-gray-900">
                 Startup-Beratung
               </CardTitle>
-              <div className="text-2xl font-bold text-blue-600">
+              <div className="text-2xl font-bold text-turquoise-500">
                 €150<span className="text-base text-gray-500">/Stunde</span>
               </div>
             </CardHeader>
@@ -106,7 +106,7 @@ const StartupBeratungSection: React.FC = () => {
                 </li>
               </ul>
               <Button
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full bg-turquoise-500 hover:bg-turquoise-600"
                 onClick={() => router.push("/startup-beratung")}
               >
                 Mehr erfahren
@@ -115,10 +115,10 @@ const StartupBeratungSection: React.FC = () => {
           </Card>
 
           {/* MVP Package */}
-          <Card className="relative overflow-hidden border-2 border-purple-200 hover:shadow-lg transition-shadow bg-white">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+          <Card className="relative overflow-hidden border-2 border-turquoise-200 hover:shadow-lg transition-shadow bg-turquoise-800/90 backdrop-blur-sm">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-600 to-turquoise-700"></div>
             <div className="absolute top-4 right-4">
-              <Badge className="bg-purple-600 text-white text-xs">
+              <Badge className="bg-turquoise-600 text-white text-xs">
                 Beliebt
               </Badge>
             </div>
@@ -126,7 +126,7 @@ const StartupBeratungSection: React.FC = () => {
               <CardTitle className="text-xl font-bold text-gray-900">
                 MVP-Entwicklung
               </CardTitle>
-              <div className="text-2xl font-bold text-purple-600">
+              <div className="text-2xl font-bold text-turquoise-600">
                 €2.500<span className="text-base text-gray-500">-5.000</span>
               </div>
             </CardHeader>
@@ -152,7 +152,7 @@ const StartupBeratungSection: React.FC = () => {
                 </li>
               </ul>
               <Button
-                className="w-full bg-purple-600 hover:bg-purple-700"
+                className="w-full bg-turquoise-600 hover:bg-turquoise-700"
                 onClick={() => router.push("/startup-beratung")}
               >
                 Mehr erfahren
@@ -161,7 +161,7 @@ const StartupBeratungSection: React.FC = () => {
           </Card>
 
           {/* Full Service Package */}
-          <Card className="relative overflow-hidden border-2 border-green-200 hover:shadow-lg transition-shadow bg-white">
+          <Card className="relative overflow-hidden border-2 border-green-200 hover:shadow-lg transition-shadow bg-turquoise-800/90 backdrop-blur-sm">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 to-green-600"></div>
             <CardHeader className="text-center pb-4">
               <CardTitle className="text-xl font-bold text-gray-900">
@@ -214,7 +214,7 @@ const StartupBeratungSection: React.FC = () => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
-              className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
+              className="bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white px-8 py-3"
               onClick={() => router.push("/startup-beratung")}
             >
               Startup-Beratung starten

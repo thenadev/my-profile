@@ -12,7 +12,7 @@ export const HomeProjects: React.FC = () => {
       id="projects"
     >
       <div className="w-5/6 md:w-3/4 pt-28">
-        <h2 className="text-4xl text-center font-bold">{t("title")}</h2>
+        <h2 className="text-4xl text-center font-bold text-foreground">{t("title")}</h2>
         <div className="flex flex-wrap">
           {projects.map((project) => (
             <ProjectItem

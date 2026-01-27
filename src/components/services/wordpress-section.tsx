@@ -19,7 +19,7 @@ import {
 
 const features = [
     {
-        icon: <FaPlug className="text-blue-600 text-xl" />,
+        icon: <FaPlug className="text-turquoise-500 text-xl" />,
         title: "Plugins Integration",
         description: "Nahtlose Integration leistungsstarker Plugins wie WooCommerce und Yoast SEO für bessere Funktionalität und SEO.",
     },
@@ -34,7 +34,7 @@ const features = [
         description: "Schnelle Ladegeschwindigkeit durch Code-Optimierung und Plugin-Anpassungen.",
     },
     {
-        icon: <SiWoo className="text-purple-600 text-xl" />,
+        icon: <SiWoo className="text-turquoise-600 text-xl" />,
         title: "E-Commerce Lösungen",
         description: "Professionelle Integration von WooCommerce für einen erfolgreichen Online-Shop.",
     },
@@ -42,7 +42,7 @@ const features = [
 
 const seoTechnologies = [
     {
-        icon: <SiYoast className="text-blue-600 text-xl" />,
+        icon: <SiYoast className="text-turquoise-500 text-xl" />,
         title: "Yoast SEO",
         description: "Optimierung für bessere Rankings in Suchmaschinen.",
     },
@@ -52,7 +52,7 @@ const seoTechnologies = [
         description: "Heatmaps und Benutzeraufzeichnung zur Verbesserung der Nutzererfahrung.",
     },
     {
-        icon: <SiMailchimp className="text-pink-600 text-xl" />,
+        icon: <SiMailchimp className="text-turquoise-600 text-xl" />,
         title: "Mailchimp",
         description: "E-Mail-Marketing Automatisierung für maximale Kundenbindung.",
     },
@@ -72,8 +72,8 @@ const WordPressSection: React.FC = () => {
                 {/* Header Card */}
                 <Card className="w-3/4 p-6">
                     <CardHeader className="flex items-center gap-4">
-                        <div className="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full">
-                            <FaWordpress className="text-blue-600 text-3xl" />
+                        <div className="w-16 h-16 flex items-center justify-center bg-turquoise-100 rounded-full">
+                            <FaWordpress className="text-turquoise-500 text-3xl" />
                         </div>
                     </CardHeader>
                     <CardContent>
@@ -87,7 +87,7 @@ const WordPressSection: React.FC = () => {
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                                 {features.map((feature, index) => (
                                     <div key={index} className="flex items-start gap-4">
-                                        <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full">
+                                        <div className="w-12 h-12 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                                             {feature.icon}
                                         </div>
                                         <div>
@@ -108,7 +108,7 @@ const WordPressSection: React.FC = () => {
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             {seoTechnologies.map((tech, index) => (
                                 <div key={index} className="flex items-start gap-4">
-                                    <div className="w-12 h-12 flex items-center justify-center bg-gray-100 rounded-full">
+                                    <div className="w-12 h-12 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                                         {tech.icon}
                                     </div>
                                     <div>
@@ -122,7 +122,7 @@ const WordPressSection: React.FC = () => {
                 </Card>
 
                 {/* Final Call-to-Action */}
-                <p className="text-lg md:text-xl w-3/4 text-center leading-relaxed mt-6 font-semibold bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-4 rounded-lg shadow-md">
+                <p className="text-lg md:text-xl w-3/4 text-center leading-relaxed mt-6 font-semibold bg-gradient-to-r from-turquoise-500 to-green-500 text-white px-6 py-4 rounded-lg shadow-md">
                     {t("wordpressDevelopment.description3")}
                 </p>
             </div>

@@ -35,10 +35,10 @@ export default function UnternehmenswebsiteSocialProof() {
       {/* Social Proof - Kundenlogos */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Vertrauen Sie auf unsere Expertise
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Wir haben bereits für namhafte Unternehmen erfolgreich Websites
             entwickelt
           </p>
@@ -47,7 +47,7 @@ export default function UnternehmenswebsiteSocialProof() {
           {clientLogos.map((client, index) => (
             <div
               key={index}
-              className="w-32 h-16 flex items-center justify-center rounded-lg border border-gray-200 hover:border-gray-300 transition-colors bg-white p-4 shadow-sm"
+              className="w-32 h-16 flex items-center justify-center rounded-lg border border-turquoise-600/30 hover:border-turquoise-500/50 transition-colors bg-turquoise-800/50 backdrop-blur-sm p-4 shadow-sm"
             >
               <Image
                 src={client.logo}
@@ -64,13 +64,13 @@ export default function UnternehmenswebsiteSocialProof() {
       {/* Testimonials Section */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Was unsere Kunden sagen
           </h2>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-6">
+            <Card key={index} className="p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
@@ -79,14 +79,14 @@ export default function UnternehmenswebsiteSocialProof() {
                   />
                 ))}
               </div>
-              <p className="text-gray-700 mb-4 italic">
+              <p className="text-gray-200 mb-4 italic">
                 "{testimonial.text}"
               </p>
               <div>
-                <p className="font-semibold text-gray-900">
+                <p className="font-semibold text-white">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-gray-600">{testimonial.company}</p>
+                <p className="text-sm text-gray-300">{testimonial.company}</p>
               </div>
             </Card>
           ))}

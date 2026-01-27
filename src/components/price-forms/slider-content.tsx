@@ -41,7 +41,7 @@ export const SliderContent = ({
           {max} {unitLabel}
         </span>
       </div>
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-400">
         Jede zusätzliche {unitLabel} kostet {pricePerUnit} €
       </p>
     </div>

@@ -54,7 +54,7 @@ const WorkExperienceCard: React.FC<{
     >
       <Card
         className={
-          "h-full overflow-hidden transition-all duration-300 bg-white/50 dark:bg-neutral-900/50 backdrop-blur border border-gray-100 dark:border-neutral-800 shadow-sm " +
+          "h-full overflow-hidden transition-all duration-300 bg-turquoise-800/90 backdrop-blur border border-turquoise-600/30 shadow-sm " +
           (expanded ? "md:shadow-md" : "hover:shadow-md")
         }
       >
@@ -63,7 +63,7 @@ const WorkExperienceCard: React.FC<{
           <div className="flex items-start justify-between mb-6">
             <div className="flex items-center gap-4">
               {work.image && (
-                <div className="w-16 h-16 rounded-xl overflow-hidden shadow bg-white/80 dark:bg-neutral-900/80 border border-gray-100 dark:border-neutral-800 p-2">
+                <div className="w-16 h-16 rounded-xl overflow-hidden shadow bg-turquoise-700/50 border border-turquoise-600/30 p-2">
                   <Image
                     src={work.image as StaticImageData}
                     alt={`${t(work.company)} logo`}
@@ -75,20 +75,20 @@ const WorkExperienceCard: React.FC<{
               )}
               <div>
                 <div className="flex items-center gap-2 flex-wrap">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white transition-colors">
+                  <h3 className="text-xl md:text-2xl font-bold text-white transition-colors">
                     {t(work.company)}
                   </h3>
                   {/* Link to company */}
                   {work.link && (
                     <Link href={work.link} target="_blank">
-                      <FaExternalLinkAlt className="opacity-60" />
+                      <FaExternalLinkAlt className="opacity-60 text-white" />
                     </Link>
                   )}
-                  <span className="inline-flex items-center px-2 py-0.5 rounded-full border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300 text-xs md:text-sm">
+                  <span className="inline-flex items-center px-2 py-0.5 rounded-full border border-turquoise-600/30 bg-turquoise-700/50 text-gray-200 text-xs md:text-sm">
                     {t(work.employmentType)}
                   </span>
                 </div>
-                <p className="text-lg text-gray-700 dark:text-gray-300 font-semibold">
+                <p className="text-lg text-gray-200 font-semibold">
                   {t(work.role)}
                 </p>
               </div>
@@ -96,24 +96,24 @@ const WorkExperienceCard: React.FC<{
           </div>
 
           {/* Duration & Location */}
-          <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-500 dark:text-gray-400">
+          <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-300">
             <div className="flex items-center gap-2">
-              <FaCalendarAlt className="text-gray-400 dark:text-gray-500" />
+              <FaCalendarAlt className="text-gray-400" />
               <span>{t(work.duration)}</span>
             </div>
             <div className="flex items-center gap-2">
-              <FaMapMarkerAlt className="text-gray-400 dark:text-gray-500" />
+              <FaMapMarkerAlt className="text-gray-400" />
               <span>{t("location")}</span>
             </div>
           </div>
 
           {/* Toggle Details */}
-          <div className="mt-5 flex items-center justify-start text-sm text-gray-700">
+          <div className="mt-5 flex items-center justify-start text-sm text-gray-200">
             <button
               type="button"
               onClick={() => setExpanded((v) => !v)}
               aria-expanded={expanded}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-md hover:bg-gray-50 transition-colors"
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-md hover:bg-turquoise-700/30 transition-colors"
             >
               {expanded ? t("hideDetails") : t("viewDetails")}{" "}
               {expanded ? (
@@ -133,14 +133,14 @@ const WorkExperienceCard: React.FC<{
                 animate={{ height: "auto", opacity: 1 }}
                 exit={{ height: 0, opacity: 0 }}
                 transition={{ duration: 0.3, ease: "easeOut" }}
-                className="overflow-hidden mt-4 border-t border-gray-100 pt-4"
+                className="overflow-hidden mt-4 border-t border-turquoise-600/30 pt-4"
               >
                 {introTexts.length > 0 && (
                   <div className="space-y-2 mb-4">
                     {introTexts.map((txt, i) => (
                       <p
                         key={`intro-${i}`}
-                        className="text-gray-700 leading-relaxed"
+                        className="text-gray-200 leading-relaxed"
                       >
                         {txt}
                       </p>
@@ -149,7 +149,7 @@ const WorkExperienceCard: React.FC<{
                 )}
                 {highlights.length > 0 && (
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-900 mb-3">
+                    <h4 className="text-sm font-semibold text-white mb-3">
                       {t("highlightsTitle", {
                         namespace: "Home.WorkExperience",
                       }) || "Highlights"}
@@ -163,8 +163,8 @@ const WorkExperienceCard: React.FC<{
                           transition={{ duration: 0.2, delay: 0.03 * i }}
                           className="flex items-start gap-3"
                         >
-                          <FaCheckCircle className="mt-0.5 text-blue-500 flex-shrink-0" />
-                          <p className="text-gray-800 leading-relaxed">{h}</p>
+                          <FaCheckCircle className="mt-0.5 text-turquoise-400 flex-shrink-0" />
+                          <p className="text-gray-200 leading-relaxed">{h}</p>
                         </motion.div>
                       ))}
                     </div>
@@ -176,12 +176,12 @@ const WorkExperienceCard: React.FC<{
 
           {/* Technologies (unter Details) */}
           {work.technologies?.length > 0 && (
-            <div className="mt-6 pt-4 border-t border-gray-100 dark:border-neutral-800">
+            <div className="mt-6 pt-4 border-t border-turquoise-600/30">
               <div className="flex flex-wrap gap-2">
                 {work.technologies.map((technology: string) => (
                   <span
                     key={`${work.slug}-${technology}`}
-                    className="text-xs inline-flex px-2.5 py-1 rounded-full border border-gray-200 dark:border-neutral-700 bg-white/70 dark:bg-neutral-900/60 text-gray-700 dark:text-gray-300"
+                    className="text-xs inline-flex px-2.5 py-1 rounded-full border border-turquoise-600/30 bg-turquoise-700/50 text-gray-200"
                   >
                     {technology}
                   </span>

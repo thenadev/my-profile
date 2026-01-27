@@ -82,8 +82,8 @@ const ServicesSection = () => {
   ];
 
   return (
-    <section className="w-full p-8" id="services">
-      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8">
+    <section className="w-full p-8 bg-turquoise-800" id="services">
+      <h2 className="text-3xl sm:text-4xl font-bold text-center mb-8 text-white">
         {t("title")}
       </h2>
 
@@ -92,11 +92,11 @@ const ServicesSection = () => {
         {services.map((service, index) => (
           <motion.div
             key={service.id}
-            className="overflow-hidden cursor-pointer bg-white shadow-lg rounded-2xl hover:scale-105 transition-transform flex flex-col h-full"
+            className="overflow-hidden cursor-pointer bg-turquoise-800/90 backdrop-blur-sm shadow-lg rounded-2xl hover:scale-105 transition-transform flex flex-col h-full border border-turquoise-600/30"
             whileHover={{ scale: 1.01 }}
           >
             {/* Header */}
-            <div className="bg-blue-500 opacity-90 text-white p-4">
+            <div className="bg-turquoise-500 opacity-90 text-white p-4">
               <h3 className="text-xl md:text-2xl font-bold text-center">
                 {service.title}
               </h3>
@@ -108,10 +108,10 @@ const ServicesSection = () => {
             </div>
 
             {/* Footer */}
-            <div className="bg-gray-100 p-4">
+            <div className="bg-turquoise-700/50 p-4">
               <div className="flex justify-center">
                 <button
-                  className="bg-blue-500 text-white font-bold py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primaryLight"
+                  className="bg-turquoise-500 text-white font-bold py-3 px-6 rounded-full shadow-md transition-transform transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primaryLight"
                   onClick={() => {
                     if (index !== 1) {
                       setSelectedService(service);
@@ -135,19 +135,19 @@ const ServicesSection = () => {
             initial={{ x: "100%", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: "100%", opacity: 0 }}
-            className="fixed inset-0 z-50 bg-gradient-to-r from-blue-50 to-blue-100 shadow-xl p-6 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-gradient-to-r from-turquoise-800/95 to-turquoise-900/95 shadow-xl p-6 overflow-y-auto backdrop-blur-md"
           >
             <button
-              className="text-primaryDark font-bold mb-4 hover:underline"
+              className="text-white font-bold mb-4 hover:text-turquoise-300 hover:underline"
               onClick={() => setSelectedService(null)}
             >
               {t("close")}
             </button>
             <div className="w-full text-center">
-              <h2 className="text-4xl font-extrabold text-blue-800 mb-2">
+              <h2 className="text-4xl font-extrabold text-white mb-2">
                 {selectedService.title}
               </h2>
-              <p className="text-lg text-gray-600 font-medium">
+              <p className="text-lg text-gray-200 font-medium">
                 {selectedService.description}
               </p>
             </div>

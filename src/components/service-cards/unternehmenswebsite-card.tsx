@@ -14,11 +14,11 @@ const UnternehmenswebsiteCard = () => {
 
   const benefits = [
     {
-      icon: <Monitor className="h-5 w-5 text-blue-600" />,
+      icon: <Monitor className="h-5 w-5 text-turquoise-500" />,
       text: "Moderne Webdesigns",
     },
     {
-      icon: <Smartphone className="h-5 w-5 text-purple-600" />,
+      icon: <Smartphone className="h-5 w-5 text-turquoise-600" />,
       text: "Responsive Design",
     },
     {
@@ -35,7 +35,7 @@ const UnternehmenswebsiteCard = () => {
     <div className="flex flex-col items-center w-full gap-6 p-6 h-full">
       {/* Why Choose Me Section */}
       <div className="flex flex-col items-center gap-4 text-center">
-        <p className="text-gray-600">
+        <p className="text-gray-200">
           Professionelle Unternehmenswebsites aus Wetzlar - Moderne, responsive
           und SEO-optimierte Webdesigns für Ihr Unternehmen
         </p>
@@ -43,16 +43,16 @@ const UnternehmenswebsiteCard = () => {
 
       {/* Benefits Section */}
       <div className="flex flex-col gap-4 w-full px-6">
-        <h4 className="text-xl font-extrabold text-center text-blue-600 bg-gradient-to-br from-white to-gray-50 p-2 rounded-lg shadow-md">
+        <h4 className="text-xl font-extrabold text-center text-turquoise-400 bg-turquoise-700/50 border border-turquoise-600/30 p-2 rounded-lg">
           Ihre Vorteile
         </h4>
         <ul className="space-y-4">
           {benefits.map((benefit, index) => (
             <li key={index} className="flex items-start gap-4">
-              <div className="flex items-center justify-center w-8 h-8 rounded-full shadow-md bg-gray-100">
+              <div className="flex items-center justify-center w-8 h-8 rounded-full shadow-md bg-turquoise-700/50 border border-turquoise-600/30">
                 {benefit.icon}
               </div>
-              <span className="text-gray-800 text-md font-medium leading-relaxed">
+              <span className="text-white text-md font-medium leading-relaxed">
                 {benefit.text}
               </span>
             </li>
@@ -62,25 +62,25 @@ const UnternehmenswebsiteCard = () => {
 
       {/* Packages Preview */}
       <div className="flex flex-col gap-4 w-full px-6">
-        <h4 className="text-xl font-extrabold text-center text-blue-600 bg-gradient-to-br from-white to-gray-50 p-2 rounded-lg shadow-md">
+        <h4 className="text-xl font-extrabold text-center text-turquoise-400 bg-turquoise-700/50 border border-turquoise-600/30 p-2 rounded-lg">
           Unsere Pakete
         </h4>
         <div className="space-y-3">
           <div className="flex items-center gap-3">
             <CheckCircle className="h-5 w-5 text-green-500" />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-200">
               Basic Website ab €1.200
             </span>
           </div>
           <div className="flex items-center gap-3">
             <CheckCircle className="h-5 w-5 text-green-500" />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-200">
               Professional Website ab €3.500
             </span>
           </div>
           <div className="flex items-center gap-3">
             <CheckCircle className="h-5 w-5 text-green-500" />
-            <span className="text-sm text-gray-600">
+            <span className="text-sm text-gray-200">
               E-Commerce Website ab €8.000
             </span>
           </div>

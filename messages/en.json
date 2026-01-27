@@ -146,6 +146,25 @@
             ]
           }
         },
+        "hypofy": {
+          "company": "Hypofy GmbH",
+          "role": "Fullstack Developer | Flutter & AI",
+          "duration": "2025 - Present",
+          "location": "Remote / Germany",
+          "details": {
+            "intro": [
+              "Further development of a mobile customer app in Flutter for real estate financing, plus development of the associated web application and a CRM system for financial advisors for structured client management.",
+              "Responsibility for architecture, implementation and operation of the overall platform."
+            ],
+            "highlights": [
+              "Further development of a mobile customer app in Flutter for real estate financing plus web application and CRM system for financial advisors",
+              "Responsibility for architecture, implementation and operation of the overall platform",
+              "Design and implementation of a standalone AI system for automated document processing using Vision-LLMs and OCR for document categorization and information extraction",
+              "Integration of a chatbot in the app for interactive customer communication",
+              "Infrastructure operation with Docker, Traefik and MongoDB, including setup of stable development and production environments"
+            ]
+          }
+        },
         "amsel": {
           "company": "Amsel UG",
           "role": "CTO",

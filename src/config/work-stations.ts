@@ -33,11 +33,31 @@ interface WorkStationConfig {
 
 const workStationConfigs: WorkStationConfig[] = [
   {
-    key: "freelancer",
+    key: "hypofy",
     image: FreelanceLogo,
     introCount: 2,
     highlightsCount: 5,
     employmentType: "fulltime",
+    side: "right",
+    technologies: [
+      "Flutter",
+      "Dart",
+      "Web-Technologien",
+      "MongoDB",
+      "Docker",
+      "Traefik",
+      "Vision-LLMs",
+      "OCR",
+      "Machine Learning",
+      "Chatbot-Integration",
+    ],
+  },
+  {
+    key: "freelancer",
+    image: FreelanceLogo,
+    introCount: 2,
+    highlightsCount: 5,
+    employmentType: "parttime",
     side: "left",
     technologies: [
       "Next.js",
@@ -136,11 +156,11 @@ const workStationConfigs: WorkStationConfig[] = [
 const generateDetailTexts = (
   stationKey: string,
   key: "intro" | "highlights",
-  count: number = 0
+  count: number = 0,
 ): string[] => {
   return Array.from(
     { length: Math.max(0, count) },
-    (_, index) => `workStations.${stationKey}.details.${key}.${index}`
+    (_, index) => `workStations.${stationKey}.details.${key}.${index}`,
   );
 };
 
@@ -160,12 +180,12 @@ export const workStations = (): WorkStation[] => {
       introTexts: generateDetailTexts(
         config.key,
         "intro",
-        config.introCount ?? 0
+        config.introCount ?? 0,
       ),
       highlights: generateDetailTexts(
         config.key,
         "highlights",
-        config.highlightsCount ?? 0
+        config.highlightsCount ?? 0,
       ),
       technologies: config.technologies,
       employmentType: `employment.${config.employmentType}`,

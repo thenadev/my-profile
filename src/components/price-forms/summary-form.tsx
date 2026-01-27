@@ -18,13 +18,13 @@ export const SummaryForm = ({
   return (
     <div className="space-y-4">
       <div className="text-center">
-        <div className="bg-gradient-to-r from-blue-50 to-blue-100 rounded-xl p-4 m-4">
+        <div className="bg-turquoise-800/90 backdrop-blur-sm rounded-xl p-4 m-4 border border-turquoise-600/30">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="text-center md:text-left">
-              <p className="text-gray-600 text-sm uppercase tracking-wider mb-2">
+              <p className="text-gray-300 text-sm uppercase tracking-wider mb-2">
                 Einmalige Kosten
               </p>
-              <p className="text-4xl font-bold text-blue-600 flex items-center justify-center md:justify-start">
+              <p className="text-4xl font-bold text-turquoise-400 flex items-center justify-center md:justify-start">
                 <span className="text-2xl mr-1">€</span>
                 {calculatePrice(
                   design,
@@ -35,11 +35,11 @@ export const SummaryForm = ({
               </p>
             </div>
 
-            <div className="text-center md:text-left border-t md:border-t-0 md:border-l border-blue-200 pt-6 md:pt-0 md:pl-8">
-              <p className="text-gray-600 text-sm uppercase tracking-wider mb-2">
+            <div className="text-center md:text-left border-t md:border-t-0 md:border-l border-turquoise-600/30 pt-6 md:pt-0 md:pl-8">
+              <p className="text-gray-300 text-sm uppercase tracking-wider mb-2">
                 Monatliche Kosten
               </p>
-              <p className="text-3xl font-bold text-blue-600 flex items-center justify-center md:justify-start">
+              <p className="text-3xl font-bold text-turquoise-400 flex items-center justify-center md:justify-start">
                 <span className="text-xl mr-1">€</span>
                 {calculateMonthlyPrice(additional).toLocaleString()}
                 <span className="text-lg ml-1">/Monat</span>
@@ -50,14 +50,14 @@ export const SummaryForm = ({
         {/* <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-medium">
           Jetzt unverbindlich Angebot anfordern
         </button> */}
-        <p className="text-gray-600 text-sm mt-2">
+        <p className="text-gray-300 text-sm mt-2">
           Alle Preise verstehen sich zzgl. MwSt.
         </p>
       </div>
-      <div className="bg-white rounded-xl shadow-sm p-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+      <div className="bg-turquoise-800/90 backdrop-blur-sm rounded-xl shadow-sm p-6 border border-turquoise-600/30">
+        <h3 className="text-2xl font-bold text-white mb-6 flex items-center">
           <svg
-            className="w-6 h-6 mr-2 text-blue-600"
+            className="w-6 h-6 mr-2 text-turquoise-400"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -73,10 +73,10 @@ export const SummaryForm = ({
         </h3>
 
         <div className="space-y-4">
-          <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="bg-turquoise-700/30 p-4 rounded-lg border border-turquoise-600/30">
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Design-Paket</span>
-              <span className="font-semibold text-blue-600">
+              <span className="text-gray-300">Design-Paket</span>
+              <span className="font-semibold text-turquoise-400">
                 {
                   websiteConfig.websitePackage[
                     design as keyof typeof websiteConfig.websitePackage
@@ -86,19 +86,19 @@ export const SummaryForm = ({
             </div>
           </div>
 
-          <div className="bg-gray-50 p-4 rounded-lg">
+          <div className="bg-turquoise-700/30 p-4 rounded-lg border border-turquoise-600/30">
             <div className="flex items-center justify-between">
-              <span className="text-gray-600">Anzahl Seiten</span>
-              <span className="font-semibold text-blue-600">{pages}</span>
+              <span className="text-gray-300">Anzahl Seiten</span>
+              <span className="font-semibold text-turquoise-400">{pages}</span>
             </div>
           </div>
 
           {features.length > 0 && (
-            <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="bg-turquoise-700/30 p-4 rounded-lg border border-turquoise-600/30">
               <div className="space-y-2">
-                <div className="text-gray-600">Funktionen</div>
+                <div className="text-gray-300">Funktionen</div>
                 {features.map((f) => (
-                  <div key={f} className="pl-4 font-semibold text-blue-600">
+                  <div key={f} className="pl-4 font-semibold text-turquoise-400">
                     •{" "}
                     {
                       websiteConfig.features[
@@ -112,11 +112,11 @@ export const SummaryForm = ({
           )}
 
           {additional.length > 0 && (
-            <div className="bg-gray-50 p-4 rounded-lg">
+            <div className="bg-turquoise-700/30 p-4 rounded-lg border border-turquoise-600/30">
               <div className="space-y-2">
-                <div className="text-gray-600">Zusätzliche Services</div>
+                <div className="text-gray-300">Zusätzliche Services</div>
                 {additional.map((a) => (
-                  <div key={a} className="pl-4 font-semibold text-blue-600">
+                  <div key={a} className="pl-4 font-semibold text-turquoise-400">
                     •{" "}
                     {
                       websiteConfig.additional[

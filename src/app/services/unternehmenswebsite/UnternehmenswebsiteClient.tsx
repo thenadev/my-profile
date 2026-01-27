@@ -24,11 +24,13 @@ import {
 } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
+import UnternehmenswebsiteHero from "@/components/services/unternehmenswebsite-hero";
 import UnternehmenswebsiteSocialProof from "@/components/services/unternehmenswebsite-social-proof";
 import UnternehmenswebsiteFAQ from "@/components/services/unternehmenswebsite-faq";
 import UnternehmenswebsitePortfolio from "@/components/services/unternehmenswebsite-portfolio";
 import UnternehmenswebsiteContactForm from "@/components/services/unternehmenswebsite-contact-form";
 import UnternehmenswebsiteFinalCTA from "@/components/services/unternehmenswebsite-final-cta";
+
 
 export default function UnternehmenswebsiteClient() {
   const router = useRouter();
@@ -40,7 +42,6 @@ export default function UnternehmenswebsiteClient() {
       service: "unternehmenswebsite",
     });
     if (ctaType === "contact_form") {
-      // Scroll to form
       setTimeout(() => {
         document
           .getElementById("contact-form-section")
@@ -50,106 +51,21 @@ export default function UnternehmenswebsiteClient() {
       router.push("/contact");
     }
   };
-
   return (
-    <div className="min-h-screen w-full py-24 md:py-28 flex flex-col items-center gap-8 md:gap-12 px-4 md:px-8">
+    <div className="min-h-screen w-full flex flex-col items-center gap-8 md:gap-12 bg-turquoise-800">
       {/* Hero Section */}
-      <div className="text-center space-y-6 max-w-4xl mx-auto">
-        <div className="space-y-4">
-          <Badge variant="secondary" className="text-sm font-medium">
-            🎨 Webdesign & Entwicklung
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-            Webdesign Wetzlar
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Professionelle Unternehmenswebsites aus Wetzlar - Moderne,
-            responsive und SEO-optimierte Webdesigns für Ihr Unternehmen
-          </p>
-        </div>
+      <UnternehmenswebsiteHero />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3"
-            onClick={() => handleCTAClick("contact_form")}
-          >
-            Kostenlose Beratung
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            onClick={() => {
-              sendGoogleEvent("price_calculator_click", {
-                location: "landing_page_hero",
-              });
-              router.push("/preisrechner");
-            }}
-          >
-            Preisrechner
-          </Button>
-        </div>
-
-        {/* Trust Badges */}
-        <div className="flex flex-wrap justify-center items-center gap-6 mt-4 text-sm text-gray-600">
-          <div className="flex items-center gap-2">
-            <CheckCircle className="h-5 w-5 text-green-500" />
-            <span>Kostenlose Erstberatung</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle className="h-5 w-5 text-green-500" />
-            <span>Unverbindliches Angebot</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <CheckCircle className="h-5 w-5 text-green-500" />
-            <span>5+ Jahre Erfahrung</span>
-          </div>
-        </div>
-      </div>
-
-      {/* Value Proposition */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
-        <Card className="text-center p-6 border-2 border-blue-100 hover:border-blue-200 transition-colors">
-          <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Monitor className="h-6 w-6 text-blue-600" />
-          </div>
-          <CardTitle className="text-lg mb-2">Moderne Webdesigns</CardTitle>
-          <CardDescription>
-            Zeitgemäße, benutzerfreundliche Websites mit modernen Technologien
-            und ansprechendem Design
-          </CardDescription>
-        </Card>
-
-        <Card className="text-center p-6 border-2 border-purple-100 hover:border-purple-200 transition-colors">
-          <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Smartphone className="h-6 w-6 text-purple-600" />
-          </div>
-          <CardTitle className="text-lg mb-2">Responsive Design</CardTitle>
-          <CardDescription>
-            Perfekt optimiert für alle Geräte - Desktop, Tablet und Smartphone
-          </CardDescription>
-        </Card>
-
-        <Card className="text-center p-6 border-2 border-green-100 hover:border-green-200 transition-colors">
-          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-            <TrendingUp className="h-6 w-6 text-green-600" />
-          </div>
-          <CardTitle className="text-lg mb-2">SEO-Optimiert</CardTitle>
-          <CardDescription>
-            Suchmaschinenoptimierung für bessere Sichtbarkeit und höhere
-            Rankings
-          </CardDescription>
-        </Card>
-      </div>
+      {/* Spacing für weitere Sections */}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center gap-8 md:gap-12">
 
       {/* Service Packages */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Unsere Webdesign-Pakete
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Flexible Webdesign-Lösungen, die sich an Ihre Bedürfnisse und Ihr
             Budget anpassen
           </p>
@@ -158,12 +74,12 @@ export default function UnternehmenswebsiteClient() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {/* Basic Package */}
           <Card className="relative overflow-hidden border-2 hover:shadow-lg transition-shadow">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-blue-500 to-blue-600"></div>
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-500 to-turquoise-600"></div>
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-gray-900">
+              <CardTitle className="text-2xl font-bold text-white">
                 Basic Website
               </CardTitle>
-              <div className="text-3xl font-bold text-blue-600">
+              <div className="text-3xl font-bold text-turquoise-500">
                 €1.200<span className="text-lg text-gray-500">-2.500</span>
               </div>
             </CardHeader>
@@ -171,35 +87,35 @@ export default function UnternehmenswebsiteClient() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Professionelle 5-8 Seiten Website
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Responsive Design für alle Geräte
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     SEO-Grundoptimierung
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">Kontaktformular</span>
+                  <span className="text-sm text-gray-200">Kontaktformular</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Google Analytics Integration
                   </span>
                 </li>
               </ul>
               <Button
-                className="w-full bg-blue-600 hover:bg-blue-700"
+                className="w-full bg-turquoise-500 hover:bg-turquoise-600"
                 onClick={() => {
                   sendGoogleEvent("package_click", {
                     package: "basic",
@@ -214,16 +130,16 @@ export default function UnternehmenswebsiteClient() {
           </Card>
 
           {/* Professional Package */}
-          <Card className="relative overflow-hidden border-2 border-purple-200 hover:shadow-lg transition-shadow">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-purple-500 to-purple-600"></div>
+          <Card className="relative overflow-hidden border-2 border-turquoise-200 hover:shadow-lg transition-shadow">
+            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-600 to-turquoise-700"></div>
             <div className="absolute top-4 right-4">
-              <Badge className="bg-purple-600 text-white">Beliebt</Badge>
+              <Badge className="bg-turquoise-600 text-white">Beliebt</Badge>
             </div>
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-gray-900">
+              <CardTitle className="text-2xl font-bold text-white">
                 Professional Website
               </CardTitle>
-              <div className="text-3xl font-bold text-purple-600">
+              <div className="text-3xl font-bold text-turquoise-600">
                 €3.500<span className="text-lg text-gray-500">-7.000</span>
               </div>
             </CardHeader>
@@ -231,43 +147,43 @@ export default function UnternehmenswebsiteClient() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Umfangreiche 10-15 Seiten Website
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Custom Design & Branding
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Erweiterte SEO-Optimierung
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Blog-System & CMS
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Newsletter-Integration
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     6 Monate Support & Wartung
                   </span>
                 </li>
               </ul>
               <Button
-                className="w-full bg-purple-600 hover:bg-purple-700"
+                className="w-full bg-turquoise-600 hover:bg-turquoise-700"
                 onClick={() => {
                   sendGoogleEvent("package_click", {
                     package: "professional",
@@ -285,7 +201,7 @@ export default function UnternehmenswebsiteClient() {
           <Card className="relative overflow-hidden border-2 border-green-200 hover:shadow-lg transition-shadow">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 to-green-600"></div>
             <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-gray-900">
+              <CardTitle className="text-2xl font-bold text-white">
                 E-Commerce Website
               </CardTitle>
               <div className="text-3xl font-bold text-green-600">
@@ -296,37 +212,37 @@ export default function UnternehmenswebsiteClient() {
               <ul className="space-y-3">
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Vollständiger Online-Shop
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Zahlungssystem-Integration
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Produktkatalog & Warenkorb
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Bestellmanagement
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     Kundenkonto & Bewertungen
                   </span>
                 </li>
                 <li className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-600">
+                  <span className="text-sm text-gray-200">
                     12 Monate Support & Wartung
                   </span>
                 </li>
@@ -351,15 +267,15 @@ export default function UnternehmenswebsiteClient() {
       {/* Why Choose Us */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Warum Webdesign aus Wetzlar?
           </h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <Card className="text-center p-6">
-            <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Target className="h-6 w-6 text-blue-600" />
+            <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Target className="h-6 w-6 text-turquoise-500" />
             </div>
             <CardTitle className="text-lg mb-2">Lokale Expertise</CardTitle>
             <CardDescription>
@@ -369,8 +285,8 @@ export default function UnternehmenswebsiteClient() {
           </Card>
 
           <Card className="text-center p-6">
-            <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Zap className="h-6 w-6 text-purple-600" />
+            <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center mx-auto mb-4">
+              <Zap className="h-6 w-6 text-turquoise-600" />
             </div>
             <CardTitle className="text-lg mb-2">Schnelle Umsetzung</CardTitle>
             <CardDescription>
@@ -404,7 +320,7 @@ export default function UnternehmenswebsiteClient() {
       {/* SEO Section */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Webdesign Wetzlar - Ihre Vorteile
           </h2>
         </div>
@@ -412,8 +328,8 @@ export default function UnternehmenswebsiteClient() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Lightbulb className="h-6 w-6 text-blue-600" />
+              <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <Lightbulb className="h-6 w-6 text-turquoise-500" />
               </div>
               <div>
                 <CardTitle className="text-xl mb-2">Lokale Präsenz</CardTitle>
@@ -429,8 +345,8 @@ export default function UnternehmenswebsiteClient() {
 
           <Card className="p-6">
             <div className="flex items-start gap-4">
-              <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                <Users className="h-6 w-6 text-purple-600" />
+              <div className="w-12 h-12 bg-turquoise-100 rounded-full flex items-center justify-center flex-shrink-0">
+                <Users className="h-6 w-6 text-turquoise-600" />
               </div>
               <div>
                 <CardTitle className="text-xl mb-2">
@@ -461,6 +377,7 @@ export default function UnternehmenswebsiteClient() {
 
       {/* Final CTA Section */}
       <UnternehmenswebsiteFinalCTA onContactClick={() => handleCTAClick("contact_form")} />
+      </div>
     </div>
   );
 }

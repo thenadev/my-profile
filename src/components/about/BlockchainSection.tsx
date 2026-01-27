@@ -15,13 +15,13 @@ const BlockchainSection: React.FC = () => {
         <div className="relative group">
           <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-md -z-10 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full bg-white/50 dark:bg-neutral-900/50 backdrop-blur border border-gray-100 dark:border-neutral-800 rounded-2xl shadow-sm hover:shadow-md overflow-hidden">
-            <CardHeader className="pb-6 border-b border-gray-100 dark:border-neutral-800">
+          <Card className="w-full bg-turquoise-800/50 backdrop-blur border border-turquoise-600/30 rounded-2xl shadow-sm hover:shadow-md overflow-hidden">
+            <CardHeader className="pb-6 border-b border-turquoise-600/30">
               <div className="space-y-2">
-                <CardTitle className="text-2xl font-semibold text-gray-900 dark:text-white">
+                <CardTitle className="text-2xl font-semibold text-white">
                   {t("dsid.title")}
                 </CardTitle>
-                <p className="text-base text-gray-600 dark:text-gray-300">
+                <p className="text-base text-gray-200">
                   {t("dsid.subtitle")}
                 </p>
                 <div className="pt-4 space-y-2">
@@ -31,7 +31,7 @@ const BlockchainSection: React.FC = () => {
                       {t("dsid.convention.title")}
                     </span>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
+                  <p className="text-gray-200 text-sm leading-relaxed">
                     {t("dsid.convention.description")}
                   </p>
                   <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
@@ -50,7 +50,7 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Briefcase className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-semibold text-white">
                         {t("dsid.activity.title")}
                       </h3>
                     </div>
@@ -74,7 +74,7 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Building2 className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-semibold text-white">
                         {t("dsid.responsibility.title")}
                       </h3>
                     </div>
@@ -98,7 +98,7 @@ const BlockchainSection: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
                       <Users className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-gray-900 dark:text-white">
+                      <h3 className="font-semibold text-white">
                         {t("dsid.learnings.title")}
                       </h3>
                     </div>
@@ -119,21 +119,21 @@ const BlockchainSection: React.FC = () => {
                   </div>
 
                   {/* Technologies */}
-                  <div className="pt-4 border-t border-gray-100 dark:border-neutral-800">
+                  <div className="pt-4 border-t border-turquoise-600/30">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
                         {t("dsid.technologies.0")}
                       </span>
-                      <span className="px-3 py-1 bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
                         {t("dsid.technologies.1")}
                       </span>
-                      <span className="px-3 py-1 bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
                         {t("dsid.technologies.2")}
                       </span>
-                      <span className="px-3 py-1 bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
                         {t("dsid.technologies.3")}
                       </span>
-                      <span className="px-3 py-1 bg-white/70 dark:bg-neutral-900/60 border border-gray-200 dark:border-neutral-700 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
                         {t("dsid.technologies.4")}
                       </span>
                     </div>

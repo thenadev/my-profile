@@ -33,10 +33,10 @@ const HomeWorkExperience: React.FC = () => {
           <Badge variant="secondary" className="mb-4">
             {t("badge")}
           </Badge>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-4">
             {t("title")}
           </h2>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             {t("description")}
           </p>
         </motion.div>
@@ -49,7 +49,7 @@ const HomeWorkExperience: React.FC = () => {
               initial={{ height: 0 }}
               animate={isInView ? { height: "100%" } : { height: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
-              className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 via-blue-400 to-blue-300 h-full hidden md:block"
+              className="absolute left-8 md:left-1/2 md:transform md:-translate-x-1/2 w-1 bg-gradient-to-b from-turquoise-500 via-turquoise-400 to-turquoise-300 h-full hidden md:block"
             />
 
             <div className="space-y-8 md:space-y-12">
@@ -68,8 +68,8 @@ const HomeWorkExperience: React.FC = () => {
                   } items-center md:items-stretch gap-6 md:gap-8`}
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-blue-500 rounded-full border-4 border-white shadow-lg z-10 hidden md:block">
-                    <div className="absolute inset-0 bg-blue-400 rounded-full animate-ping opacity-75"></div>
+                  <div className="absolute left-6 md:left-1/2 md:transform md:-translate-x-1/2 w-4 h-4 bg-turquoise-500 rounded-full border-4 border-background shadow-lg z-10 hidden md:block">
+                    <div className="absolute inset-0 bg-turquoise-400 rounded-full animate-ping opacity-75"></div>
                   </div>
 
                   {/* Content Card */}
@@ -84,7 +84,7 @@ const HomeWorkExperience: React.FC = () => {
                   {/* Visual Element - Desktop Only */}
                   <div className="hidden md:block w-1/2">
                     <div className="h-full flex items-center justify-center">
-                      <div className="w-64 h-64 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-full blur-3xl"></div>
+                      <div className="w-64 h-64 bg-gradient-to-br from-turquoise-500/20 to-turquoise-400/20 rounded-full blur-3xl"></div>
                     </div>
                   </div>
                 </motion.div>
@@ -100,16 +100,16 @@ const HomeWorkExperience: React.FC = () => {
           transition={{ duration: 0.5, delay: 1.2 }}
           className="text-center mt-16 md:mt-20"
         >
-          <div className="bg-white rounded-2xl p-8 md:p-12 shadow-xl border border-gray-100 max-w-4xl mx-auto">
-            <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+          <div className="rounded-2xl border border-border bg-muted/80 p-8 md:p-12 shadow-xl max-w-4xl mx-auto backdrop-blur-sm">
+            <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-4">
               {t("callToAction.title")}
             </h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
+            <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
               {t("callToAction.description")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button
-                className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold"
+                className="bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-xl hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold"
                 onClick={() => {
                   router.push("/contact");
                 }}
@@ -119,7 +119,7 @@ const HomeWorkExperience: React.FC = () => {
               </Button>
               <Button
                 variant="outline"
-                className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold"
+                className="border-2 border-turquoise-400 text-turquoise-300 hover:bg-turquoise-700/30 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 hover:rotate-[0.5deg] font-semibold"
                 onClick={() => {
                   router.push("/documents");
                 }}

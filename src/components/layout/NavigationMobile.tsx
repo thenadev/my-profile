@@ -79,8 +79,8 @@ export default function NavigationMobile() {
         <div
           className={`rounded-full transition-all duration-500 ease-in-out ${
             isScrolled
-              ? "bg-white/80 backdrop-blur-md shadow-lg border border-gray-200/40"
-              : "bg-gray-700/90 backdrop-blur-sm border border-gray-600/30"
+              ? "bg-turquoise-800/95 backdrop-blur-md shadow-lg border border-turquoise-600/30"
+              : "bg-turquoise-800/90 backdrop-blur-sm border border-turquoise-600/20"
           }`}
         >
           <div className="flex justify-between items-center h-16 px-6">
@@ -94,8 +94,8 @@ export default function NavigationMobile() {
                 <h1
                   className={`text-xl font-bold tracking-wide transition-colors duration-300 ${
                     isScrolled
-                      ? "text-gray-800 group-hover:text-gray-600"
-                      : "text-gray-100 group-hover:text-gray-200"
+                      ? "text-white group-hover:text-turquoise-300"
+                      : "text-white group-hover:text-turquoise-300"
                   }`}
                 >
                   Thomas Schwabauer
@@ -108,18 +108,18 @@ export default function NavigationMobile() {
               {/* Language Switcher */}
               <div
                 className={`flex items-center rounded-full px-2 py-1 transition-all duration-300 ${
-                  isScrolled ? "bg-gray-100/70" : "bg-gray-600/50"
+                  isScrolled ? "bg-turquoise-700/50" : "bg-turquoise-700/50"
                 }`}
               >
                 <button
                   onClick={() => handleLanguageChange("de")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-turquoise-300 focus:ring-opacity-50 ${
                     isScrolled
                       ? locale === "de"
-                        ? "text-white bg-blue-500/90 shadow-sm"
+                        ? "text-white bg-turquoise-500/90 shadow-sm"
                         : "text-gray-600 hover:text-gray-800 hover:bg-gray-200/60"
                       : locale === "de"
-                        ? "text-white bg-blue-500/30 shadow-sm"
+                        ? "text-white bg-turquoise-500/30 shadow-sm"
                         : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
                   aria-label="Sprache auf Deutsch wechseln"
@@ -137,13 +137,13 @@ export default function NavigationMobile() {
                 </span>
                 <button
                   onClick={() => handleLanguageChange("en")}
-                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                  className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-turquoise-300 focus:ring-opacity-50 ${
                     isScrolled
                       ? locale === "en"
-                        ? "text-white bg-blue-500/90 shadow-sm"
+                        ? "text-white bg-turquoise-500/90 shadow-sm"
                         : "text-gray-600 hover:text-gray-800 hover:bg-gray-200/60"
                       : locale === "en"
-                        ? "text-white bg-blue-500/30 shadow-sm"
+                        ? "text-white bg-turquoise-500/30 shadow-sm"
                         : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
                   aria-label="Switch to English"
@@ -156,10 +156,10 @@ export default function NavigationMobile() {
               {/* Mobile Navigation Button */}
               <button
                 onClick={() => setIsOpen(!isOpen)}
-                className={`transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 ${
+                className={`transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-turquoise-300 focus:ring-opacity-50 ${
                   isScrolled
-                    ? "text-gray-800 hover:text-gray-600"
-                    : "text-gray-100 hover:text-gray-200"
+                    ? "text-white hover:text-turquoise-300"
+                    : "text-white hover:text-turquoise-300"
                 }`}
                 aria-label="Toggle menu"
               >
@@ -212,7 +212,7 @@ export default function NavigationMobile() {
               damping: 25,
               duration: 0.3,
             }}
-            className="fixed inset-0 w-full bg-gradient-to-br from-zinc-900/95 via-zinc-800/90 to-zinc-900/95 backdrop-blur-xl shadow-2xl z-50 overflow-hidden"
+            className="fixed inset-0 w-full bg-gradient-to-br from-turquoise-900/95 via-turquoise-800/90 to-turquoise-900/95 backdrop-blur-xl shadow-2xl z-50 overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="h-full overflow-auto overflow-x-hidden">
@@ -272,13 +272,13 @@ export default function NavigationMobile() {
                                 onClick={() => toggleItem(item.title)}
                                 className={`flex items-center gap-4 text-lg font-medium w-full text-left h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
                                   isActive
-                                    ? "text-blue-300 bg-white/20 border-l-4 border-blue-300 shadow-lg font-semibold"
-                                    : "text-white hover:text-blue-200 hover:bg-white/10"
+                                    ? "text-turquoise-300 bg-white/20 border-l-4 border-turquoise-300 shadow-lg font-semibold"
+                                    : "text-white hover:text-turquoise-200 hover:bg-white/10"
                                 }`}
                               >
                                 <span
                                   className={`text-xl transition-all duration-200 ${
-                                    isActive ? "text-blue-300" : "text-white"
+                                    isActive ? "text-turquoise-300" : "text-white"
                                   }`}
                                 >
                                   {item.icon}
@@ -340,7 +340,7 @@ export default function NavigationMobile() {
                                         className="flex items-center gap-2 py-2 px-3 text-sm text-white/70 hover:text-white hover:translate-x-1 rounded-lg transition-all duration-200 active:scale-[0.98]"
                                         onClick={() => setIsOpen(false)}
                                       >
-                                        <span className="text-blue-300 text-xs">
+                                        <span className="text-turquoise-300 text-xs">
                                           •
                                         </span>
                                         {subItem.title}
@@ -355,14 +355,14 @@ export default function NavigationMobile() {
                               href={item.href}
                               className={`flex items-center gap-4 text-lg font-medium h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
                                 isActive
-                                  ? "text-blue-300 bg-white/20 border-l-4 border-blue-300 shadow-lg font-semibold"
-                                  : "text-white hover:text-blue-200 hover:bg-white/10"
+                                  ? "text-turquoise-300 bg-white/20 border-l-4 border-turquoise-300 shadow-lg font-semibold"
+                                  : "text-white hover:text-turquoise-200 hover:bg-white/10"
                               }`}
                               onClick={() => setIsOpen(false)}
                             >
                               <span
                                 className={`text-xl transition-all duration-200 ${
-                                  isActive ? "text-blue-300" : "text-white"
+                                  isActive ? "text-turquoise-300" : "text-white"
                                 }`}
                               >
                                 {item.icon}
@@ -384,7 +384,7 @@ export default function NavigationMobile() {
                 <div className="pt-6">
                   <Link
                     href="/contact"
-                    className={`flex items-center justify-center gap-4 w-full h-16 rounded-xl transition-all duration-200 font-semibold text-lg shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-blue-300 focus:ring-opacity-50 bg-gradient-to-r from-blue-600 to-blue-700 text-white hover:from-blue-700 hover:to-blue-800 shadow-blue-500/25 ring-2 ring-blue-500/20`}
+                    className={`flex items-center justify-center gap-4 w-full h-16 rounded-xl transition-all duration-200 font-semibold text-lg shadow-xl hover:scale-[1.02] active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-turquoise-300 focus:ring-opacity-50 bg-gradient-to-r from-turquoise-500 to-turquoise-600 text-white hover:from-turquoise-600 hover:to-turquoise-700 shadow-turquoise-500/25 ring-2 ring-turquoise-500/20`}
                     onClick={() => setIsOpen(false)}
                   >
                     <FaEnvelope className="text-xl" />

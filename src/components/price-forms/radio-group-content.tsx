@@ -29,7 +29,7 @@ export const RadioGroupContent = ({
       {options.map((option) => (
         <div
           key={option.id}
-          className="relative flex items-center p-4 rounded-lg border-2 border-gray-200 hover:border-blue-500 transition-colors cursor-pointer"
+          className="relative flex items-center p-4 rounded-lg border-2 border-turquoise-600/30 hover:border-turquoise-500 transition-colors cursor-pointer"
           onClick={() => {
             const radio = document.getElementById(
               option.id

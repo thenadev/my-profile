@@ -55,13 +55,13 @@ export default function UnternehmenswebsiteFAQ() {
         {faqs.map((faq, index) => (
           <Card key={index} className="overflow-hidden">
             <button
-              className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-50 transition-colors"
+              className="w-full p-6 text-left flex items-center justify-between hover:bg-turquoise-700/30 transition-colors"
               onClick={() =>
                 setOpenFaqIndex(openFaqIndex === index ? null : index)
               }
             >
               <div className="flex items-center gap-3">
-                <HelpCircle className="h-5 w-5 text-blue-600 flex-shrink-0" />
+                <HelpCircle className="h-5 w-5 text-turquoise-500 flex-shrink-0" />
                 <span className="font-semibold text-gray-900">
                   {faq.question}
                 </span>

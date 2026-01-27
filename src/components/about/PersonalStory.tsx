@@ -14,25 +14,25 @@ const PersonalStory: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-center">
         {/* Text Content - 60% */}
         <div className="lg:col-span-3 space-y-6 max-w-prose">
-          <h2 className="text-3xl font-bold tracking-tight text-slate-800">
+          <h2 className="text-3xl font-bold tracking-tight text-white">
             {t("title")}
           </h2>
           <div className="space-y-6">
-            <p className="text-xl font-medium text-slate-700 leading-relaxed">
+            <p className="text-xl font-medium text-gray-200 leading-relaxed">
               {t("intro")}
             </p>
-            <p className="text-slate-600 leading-relaxed">{t("story1")}</p>
-            <p className="text-slate-600 leading-relaxed">{t("story2")}</p>
-            <p className="text-slate-600 leading-relaxed">{t("story3")}</p>
+            <p className="text-gray-200 leading-relaxed">{t("story1")}</p>
+            <p className="text-gray-200 leading-relaxed">{t("story2")}</p>
+            <p className="text-gray-200 leading-relaxed">{t("story3")}</p>
           </div>
         </div>
 
         {/* Image - 40% */}
         <div className="lg:col-span-2">
           <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-blue-400/20 to-purple-400/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/20 to-turquoise-500/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-            <Card className="w-full shadow-xl bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 overflow-hidden hover:scale-[1.02] transition-all duration-300">
+            <Card className="w-full shadow-xl bg-turquoise-800/90 backdrop-blur-sm rounded-2xl border border-turquoise-600/30 overflow-hidden hover:scale-[1.02] transition-all duration-300">
               <Image
                 src="/about/dsid_me.jpg"
                 alt={t("imageAlt")}
@@ -45,12 +45,12 @@ const PersonalStory: React.FC = () => {
               />
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Code className="w-5 h-5 text-blue-600" />
-                  <h4 className="font-semibold text-slate-800">
+                  <Code className="w-5 h-5 text-turquoise-400" />
+                  <h4 className="font-semibold text-white">
                     {t("imageTitle")}
                   </h4>
                 </div>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-gray-200">
                   {t("imageDescription")}
                 </p>
               </CardContent>
@@ -62,52 +62,52 @@ const PersonalStory: React.FC = () => {
       {/* SECTION 2: Arbeitsweise & Werte (Full Width Cards) */}
       <div className="space-y-8">
         <div className="text-center">
-          <h3 className="text-2xl font-bold tracking-tight text-slate-800 mb-4">
+          <h3 className="text-2xl font-bold tracking-tight text-white mb-4">
             {t("workStyle.title")}
           </h3>
-          <p className="text-slate-600 max-w-2xl mx-auto">
+          <p className="text-gray-200 max-w-2xl mx-auto">
             {t("workStyle.subtitle")}
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="bg-gradient-to-br from-blue-50 to-blue-100 border-blue-200 hover:scale-[1.02] transition-all duration-300">
+          <Card className="bg-turquoise-800/50 border-turquoise-600/30 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
             <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-turquoise-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Target className="w-6 h-6 text-white" />
               </div>
-              <h4 className="text-blue-600 font-semibold mb-2">
+              <h4 className="text-turquoise-300 font-semibold mb-2">
                 {t("workStyle.strategic.title")}
               </h4>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-gray-200">
                 {t("workStyle.strategic.description")}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-purple-50 to-purple-100 border-purple-200 hover:scale-[1.02] transition-all duration-300">
+          <Card className="bg-turquoise-800/50 border-turquoise-600/30 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
             <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-turquoise-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Brain className="w-6 h-6 text-white" />
               </div>
-              <h4 className="text-purple-600 font-semibold mb-2">
+              <h4 className="text-turquoise-300 font-semibold mb-2">
                 {t("workStyle.creative.title")}
               </h4>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-gray-200">
                 {t("workStyle.creative.description")}
               </p>
             </CardContent>
           </Card>
 
-          <Card className="bg-gradient-to-br from-green-50 to-green-100 border-green-200 hover:scale-[1.02] transition-all duration-300">
+          <Card className="bg-turquoise-800/50 border-turquoise-600/30 hover:scale-[1.02] transition-all duration-300 backdrop-blur-sm">
             <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+              <div className="w-12 h-12 bg-turquoise-500 rounded-xl flex items-center justify-center mx-auto mb-4">
                 <Zap className="w-6 h-6 text-white" />
               </div>
-              <h4 className="text-green-600 font-semibold mb-2">
+              <h4 className="text-turquoise-300 font-semibold mb-2">
                 {t("workStyle.pragmatic.title")}
               </h4>
-              <p className="text-sm text-slate-600">
+              <p className="text-sm text-gray-200">
                 {t("workStyle.pragmatic.description")}
               </p>
             </CardContent>
@@ -115,10 +115,10 @@ const PersonalStory: React.FC = () => {
         </div>
 
         <div className="max-w-prose mx-auto text-center space-y-4">
-          <h4 className="text-xl font-semibold text-blue-600">
+          <h4 className="text-xl font-semibold text-turquoise-300">
             {t("startupWork.title")}
           </h4>
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-gray-200 leading-relaxed">
             {t("startupWork.description")}
           </p>
         </div>
@@ -128,23 +128,23 @@ const PersonalStory: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 lg:gap-12 items-start">
         {/* Text Content - 60% */}
         <div className="lg:col-span-3 space-y-6 max-w-prose">
-          <h3 className="text-2xl font-bold tracking-tight text-slate-800">
+          <h3 className="text-2xl font-bold tracking-tight text-white">
             {t("background.title")}
           </h3>
 
-          <div className="bg-gradient-to-r from-slate-50 to-blue-50 rounded-2xl p-6 border border-slate-200">
+          <div className="bg-turquoise-800/50 rounded-2xl p-6 border border-turquoise-600/30 backdrop-blur-sm">
             <div className="flex items-start gap-3 mb-4">
-              <Users className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-              <blockquote className="text-slate-700 italic">
+              <Users className="w-5 h-5 text-turquoise-400 mt-1 flex-shrink-0" />
+              <blockquote className="text-gray-200 italic">
                 {t("background.quote")}
               </blockquote>
             </div>
-            <p className="text-slate-600 leading-relaxed">
+            <p className="text-gray-200 leading-relaxed">
               {t("background.quoteDescription")}
             </p>
           </div>
 
-          <p className="text-slate-600 leading-relaxed">
+          <p className="text-gray-200 leading-relaxed">
             {t("background.bodybuilding")}
           </p>
         </div>
@@ -152,9 +152,9 @@ const PersonalStory: React.FC = () => {
         {/* Image - 40% */}
         <div className="lg:col-span-2">
           <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-orange-400/20 to-red-400/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/20 to-turquoise-500/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-            <Card className="w-full shadow-lg bg-white/90 backdrop-blur-sm rounded-2xl border border-gray-100/50 overflow-hidden hover:scale-[1.02] transition-all duration-300 p-0">
+            <Card className="w-full shadow-lg bg-turquoise-800/90 backdrop-blur-sm rounded-2xl border border-turquoise-600/30 overflow-hidden hover:scale-[1.02] transition-all duration-300 p-0">
               <Image
                 src="/about/gnbf_placing.jpg"
                 alt={t("bodybuildingImageAlt")}
@@ -167,12 +167,12 @@ const PersonalStory: React.FC = () => {
               />
               <CardContent className="p-6">
                 <div className="flex items-center gap-3 mb-2">
-                  <Trophy className="w-5 h-5 text-orange-600" />
-                  <h4 className="font-semibold text-slate-800">
+                  <Trophy className="w-5 h-5 text-turquoise-400" />
+                  <h4 className="font-semibold text-white">
                     {t("bodybuildingTitle")}
                   </h4>
                 </div>
-                <p className="text-sm text-slate-600">
+                <p className="text-sm text-gray-200">
                   {t("bodybuildingDescription")}
                 </p>
               </CardContent>

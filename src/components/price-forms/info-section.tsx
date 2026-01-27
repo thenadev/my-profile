@@ -21,10 +21,10 @@ export const InfoSection = ({
 }: InfoSectionProps) => {
   return (
     <Card
-      className={`border-2 border-blue-100 bg-blue-50 h-fit sticky top-24 ${className}`}
+      className={`border-2 border-turquoise-600/30 bg-turquoise-800/90 backdrop-blur-sm h-fit sticky top-24 ${className}`}
     >
       <CardHeader>
-        <CardTitle className="text-xl font-bold text-blue-600 flex items-center gap-2">
+        <CardTitle className="text-xl font-bold text-turquoise-400 flex items-center gap-2">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -35,7 +35,7 @@ export const InfoSection = ({
             strokeWidth="2"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="text-blue-600"
+            className="text-turquoise-400"
           >
             <circle cx="12" cy="12" r="10"></circle>
             <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -48,8 +48,8 @@ export const InfoSection = ({
         <div className="space-y-4">
           {content.map((item) => (
             <div key={item.title}>
-              <h4 className="font-semibold text-blue-600">{item.title}</h4>
-              <p className="text-gray-600">{item.description}</p>
+              <h4 className="font-semibold text-turquoise-400">{item.title}</h4>
+              <p className="text-gray-200">{item.description}</p>
             </div>
           ))}
         </div>

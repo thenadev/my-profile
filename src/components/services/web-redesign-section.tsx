@@ -61,21 +61,21 @@ const WebRedesignSection: React.FC = () => {
       <div className="moving-gradient-overlay" />
 
       <div
-        className="min-h-screen w-full flex flex-col items-center justify-start gap-12 pt-8 text-slate-700"
+        className="min-h-screen w-full flex flex-col items-center justify-start gap-12 pt-8 text-gray-200"
         id="services"
       >
-        <Card className="w-3/4 p-6">
+        <Card className="w-3/4 p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
           <CardHeader className="flex items-center gap-4">
-            <div className="w-16 h-16 flex items-center justify-center bg-blue-100 rounded-full">
-              <FaSitemap className="text-blue-600 text-3xl" />
+            <div className="w-16 h-16 flex items-center justify-center bg-turquoise-700/50 rounded-full">
+              <FaSitemap className="text-turquoise-400 text-3xl" />
             </div>
           </CardHeader>
           <CardContent>
-            <CardDescription className="text-md">
+            <CardDescription className="text-md text-gray-200">
               {t("websiteRedesign.description")}
             </CardDescription>
             <div className="mt-4">
-              <h4 className="text-md font-semibold mb-2 text-gray-800">
+              <h4 className="text-md font-semibold mb-2 text-white">
                 {t("websiteRedesign.technologiesTitle")}
               </h4>
               <div className="flex flex-col md:flex-row justify-between gap-8 mt-4">
@@ -83,57 +83,57 @@ const WebRedesignSection: React.FC = () => {
                 <div className="w-full md:w-1/2">
                   <ul className="space-y-4">
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-green-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiAngular
-                          className="text-green-600 text-xl"
+                          className="text-green-400 text-xl"
                           title="Angular"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.angular")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-blue-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiReact
-                          className="text-blue-600 text-xl"
+                          className="text-turquoise-400 text-xl"
                           title="React.js"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.react")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-purple-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiNextdotjs
-                          className="text-purple-600 text-xl"
+                          className="text-turquoise-400 text-xl"
                           title="Next.js"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.next")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-yellow-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiNestjs
-                          className="text-yellow-600 text-xl"
+                          className="text-yellow-400 text-xl"
                           title="Nest.js"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.nest")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-red-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <FaCode
-                          className="text-red-600 text-xl"
+                          className="text-red-400 text-xl"
                           title="TypeScript"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.typescript")}
                       </span>
                     </li>
@@ -141,52 +141,52 @@ const WebRedesignSection: React.FC = () => {
                 </div>
 
                 {/* Separator */}
-                <div className="hidden md:block w-px bg-gray-300"></div>
+                <div className="hidden md:block w-px bg-turquoise-600/30"></div>
 
                 {/* Right Column: Additional Technologies */}
                 <div className="w-full md:w-1/2">
                   <ul className="space-y-4">
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-indigo-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiGoogleanalytics
-                          className="text-indigo-600 text-xl"
+                          className="text-indigo-400 text-xl"
                           title="Google Analytics"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.google")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-orange-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiHotjar
-                          className="text-orange-600 text-xl"
+                          className="text-orange-400 text-xl"
                           title="Hotjar"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.hotjar")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-cyan-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiSemrush
-                          className="text-cyan-600 text-xl"
+                          className="text-cyan-400 text-xl"
                           title="SEMrush"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.semrush")}
                       </span>
                     </li>
                     <li className="flex items-center gap-4">
-                      <div className="w-8 h-8 flex items-center justify-center bg-pink-100 rounded-full">
+                      <div className="w-8 h-8 flex items-center justify-center bg-turquoise-700/50 rounded-full">
                         <SiMailchimp
-                          className="text-pink-600 text-xl"
+                          className="text-turquoise-400 text-xl"
                           title="Mailchimp"
                         />
                       </div>
-                      <span className="text-gray-700 text-md">
+                      <span className="text-gray-200 text-md">
                         {t("websiteRedesign.technologies.mailchimp")}
                       </span>
                     </li>
@@ -198,13 +198,13 @@ const WebRedesignSection: React.FC = () => {
         </Card>
 
         {/* Abschließender Satz */}
-        <p className="text-lg md:text-xl w-3/4 text-center leading-relaxed mt-6 font-semibold bg-gradient-to-r from-blue-500 to-green-500 text-white px-6 py-4 rounded-lg shadow-md">
+        <p className="text-lg md:text-xl w-3/4 text-center leading-relaxed mt-6 font-semibold bg-gradient-to-r from-turquoise-500 to-green-500 text-white px-6 py-4 rounded-lg shadow-md">
           {t("websiteRedesign.description3")}
         </p>
 
         {/* Überschrift */}
         <div className="w-full max-w-4xl text-center">
-          <h4 className="text-xl font-bold text-blue-500 bg-gradient-to-r from-blue-50 to-gray-50 p-4 rounded-lg shadow">
+          <h4 className="text-xl font-bold text-turquoise-500 bg-gradient-to-r from-turquoise-50 to-gray-50 p-4 rounded-lg shadow">
             {t("websiteRedesign.conclusion")}
           </h4>
         </div>

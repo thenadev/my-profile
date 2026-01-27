@@ -1,12 +1,13 @@
 "use client";
 
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { projects } from "@/config/projects";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
-import Image from "next/image";
-import { useState, useEffect } from "react";
 import { ExternalLink, RefreshCw } from "lucide-react";
+import { useTranslations } from "next-intl";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 interface WebsitePreviewProps {
   url: string;
@@ -14,21 +15,25 @@ interface WebsitePreviewProps {
   projectId: number;
 }
 
-function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) {
+function WebsitePreview({
+  url,
+  fallbackImage,
+  projectId,
+}: WebsitePreviewProps) {
   const [iframeError, setIframeError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showFallback, setShowFallback] = useState(false);
-  
+
   // Prüfe, ob URL gültig ist
   const isValidUrl = url && url.startsWith("http");
 
   // URL-Parameter hinzufügen, um Cookie Consents zu deaktivieren
   const getEmbedUrl = (originalUrl: string): string => {
     if (!originalUrl) return "";
-    
+
     try {
       const urlObj = new URL(originalUrl);
-      
+
       // Gängige Cookie Consent Libraries deaktivieren
       // Cookiebot
       urlObj.searchParams.set("cookiebot", "disable");
@@ -42,7 +47,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
       urlObj.searchParams.set("preview", "true");
       // Cookie Consent Library
       urlObj.searchParams.set("cookieconsent", "disable");
-      
+
       return urlObj.toString();
     } catch (error) {
       // Falls URL-Parsing fehlschlägt, füge Parameter manuell hinzu
@@ -80,7 +85,9 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
     const timeout = setTimeout(() => {
       if (isLoading) {
         // Prüfe, ob iframe tatsächlich geladen wurde (manchmal kommt onLoad nicht)
-        const iframes = document.querySelectorAll(`iframe[title*="Website Preview ${projectId}"]`) as NodeListOf<HTMLIFrameElement>;
+        const iframes = document.querySelectorAll(
+          `iframe[title*="Website Preview ${projectId}"]`,
+        ) as NodeListOf<HTMLIFrameElement>;
         let hasContent = false;
         iframes.forEach((iframe) => {
           try {
@@ -95,7 +102,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
             hasContent = true;
           }
         });
-        
+
         // Nur auf Fallback umschalten wenn wirklich kein Content da ist UND same-origin
         // Bei cross-origin iframes zeigen wir sie weiter an, auch wenn onLoad nicht kam
         if (!hasContent) {
@@ -123,7 +130,9 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
     const timer = setTimeout(() => {
       try {
         // Versuche mit iframe zu kommunizieren
-        const iframes = document.querySelectorAll(`iframe[title*="Website Preview ${projectId}"]`) as NodeListOf<HTMLIFrameElement>;
+        const iframes = document.querySelectorAll(
+          `iframe[title*="Website Preview ${projectId}"]`,
+        ) as NodeListOf<HTMLIFrameElement>;
         iframes.forEach((iframe) => {
           if (iframe?.contentWindow) {
             try {
@@ -133,7 +142,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
                   type: "DISABLE_COOKIE_CONSENT",
                   source: "portfolio-preview",
                 },
-                "*"
+                "*",
               );
             } catch (error) {
               // Cross-origin iframes blockieren PostMessage ohne explizite Erlaubnis
@@ -152,7 +161,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   // Früher Return NACH allen Hooks
   if (iframeError || showFallback) {
     return (
-      <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
+      <div className="relative bg-turquoise-800/50 flex items-center justify-center rounded-t-lg overflow-hidden group">
         {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
@@ -164,7 +173,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
             <Button
               size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -185,7 +194,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
 
   if (!isValidUrl) {
     return (
-      <div className="relative bg-gray-100 flex items-center justify-center rounded-t-lg overflow-hidden group">
+      <div className="relative bg-turquoise-800/50 flex items-center justify-center rounded-t-lg overflow-hidden group">
         {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
@@ -197,7 +206,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
             <Button
               size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -216,14 +225,14 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
   }
 
   return (
-    <div className="relative bg-gray-100 rounded-t-lg overflow-hidden group">
+    <div className="relative bg-turquoise-800/50 rounded-t-lg overflow-hidden group">
       {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
       <div className="relative w-full aspect-[9/14] max-h-[600px]">
         {isLoading && (
-          <div className="absolute inset-0 bg-gray-200 flex items-center justify-center z-10">
+          <div className="absolute inset-0 bg-turquoise-700/50 flex items-center justify-center z-10">
             <div className="flex flex-col items-center gap-2">
-              <RefreshCw className="h-6 w-6 text-gray-400 animate-spin" />
-              <p className="text-sm text-gray-500">Lädt Website...</p>
+              <RefreshCw className="h-6 w-6 text-gray-300 animate-spin" />
+              <p className="text-sm text-gray-300">Lädt Website...</p>
             </div>
           </div>
         )}
@@ -246,7 +255,7 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
           <div className="pointer-events-auto">
             <Button
               size="sm"
-              className="bg-white/90 hover:bg-white text-gray-900 shadow-lg"
+              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -267,6 +276,8 @@ function WebsitePreview({ url, fallbackImage, projectId }: WebsitePreviewProps) 
 }
 
 export default function UnternehmenswebsitePortfolio() {
+  const t = useTranslations("Projects");
+
   return (
     <>
       {/* CSS um Cookie Consent Modals zu verbergen, die über iframes erscheinen könnten */}
@@ -289,7 +300,7 @@ export default function UnternehmenswebsitePortfolio() {
           /* Diese werden normalerweise nicht außerhalb des iframes erscheinen,
              aber falls doch, werden sie hier versteckt */
         }
-        
+
         /* Stelle sicher, dass iframes nicht von externen Overlays überlagert werden */
         iframe[title*="Website Preview"] {
           position: relative;
@@ -298,56 +309,70 @@ export default function UnternehmenswebsitePortfolio() {
       `}</style>
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+          <h2 className="text-3xl md:text-4xl font-bold text-white">
             Unsere Projekte
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
             Sehen Sie sich einige unserer erfolgreich umgesetzten
             Webdesign-Projekte an - Live und aktuell
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {projects.filter(p => p.livePreviewLink && (
-            p.livePreviewLink.includes("tricon-gmbh.de") ||
-            p.livePreviewLink.includes("amsel-store.de") ||
-            p.livePreviewLink.includes("physio-andre.de") ||
-            p.livePreviewLink.includes("solarwerk.info")
-          )).map((project) => (
-            <Card
-              key={project.id}
-              className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-gray-200 hover:border-blue-300"
-            >
-              <WebsitePreview
-                url={project.livePreviewLink || ""}
-                fallbackImage={project.image}
-                projectId={project.id}
-              />
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <p className="text-sm text-gray-600">
-                    Live Website-Vorschau
-                  </p>
-                  <Button
-                    variant="ghost"
-                    size="sm"
-                    className="text-blue-600 hover:text-blue-700"
-                    onClick={() => {
-                      sendGoogleEvent("portfolio_click", {
-                        project_id: project.id,
-                        type: "card_link",
-                      });
-                      if (project.livePreviewLink) {
-                        window.open(project.livePreviewLink, "_blank", "noopener,noreferrer");
-                      }
-                    }}
-                  >
-                    <ExternalLink className="h-4 w-4 mr-1" />
-                    Öffnen
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+          {projects
+            .filter(
+              (p) =>
+                p.livePreviewLink &&
+                (p.livePreviewLink.includes("tricon-gmbh.de") ||
+                  p.livePreviewLink.includes("amsel-store.de") ||
+                  p.livePreviewLink.includes("physio-andre.de") ||
+                  p.livePreviewLink.includes("solarwerk.info")),
+            )
+            .map((project) => (
+              <Card
+                key={project.id}
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-turquoise-600/30 hover:border-turquoise-400/50 bg-turquoise-800/90 backdrop-blur-sm"
+              >
+                <WebsitePreview
+                  url={project.livePreviewLink || ""}
+                  fallbackImage={project.image}
+                  projectId={project.id}
+                />
+                <CardContent className="p-4 space-y-3">
+                  {/* Beschreibung */}
+                  {project.descriptionKey && (
+                    <p className="text-sm text-gray-200 line-clamp-2">
+                      {t(project.descriptionKey)}
+                    </p>
+                  )}
+                  <div className="flex items-center justify-between">
+                    <p className="text-xs text-gray-400">
+                      Live Website-Vorschau
+                    </p>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="text-turquoise-500 hover:text-turquoise-600"
+                      onClick={() => {
+                        sendGoogleEvent("portfolio_click", {
+                          project_id: project.id,
+                          type: "card_link",
+                        });
+                        if (project.livePreviewLink) {
+                          window.open(
+                            project.livePreviewLink,
+                            "_blank",
+                            "noopener,noreferrer",
+                          );
+                        }
+                      }}
+                    >
+                      <ExternalLink className="h-4 w-4 mr-1" />
+                      Öffnen
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
         </div>
       </div>
     </>

@@ -271,7 +271,7 @@ export const CheckoutForm = forwardRef<
             <DialogFooter>
               <Button
                 onClick={() => router.push("/")}
-                className="bg-blue-600 hover:bg-blue-700"
+                className="bg-turquoise-600 hover:bg-turquoise-500"
               >
                 Zurück zur Startseite
               </Button>

@@ -61,7 +61,7 @@ const AppDevelopmentSection: React.FC = () => {
                 <div className="flex flex-col gap-6 w-full px-6 items-center">
                     {/* Überschrift */}
                     <div className="w-full max-w-4xl text-center">
-                        <h4 className="text-xl font-bold text-blue-500 bg-gradient-to-r from-blue-50 to-gray-50 p-4 rounded-lg shadow">
+                        <h4 className="text-xl font-bold text-turquoise-500 bg-gradient-to-r from-turquoise-50 to-gray-50 p-4 rounded-lg shadow">
                             {t("examples")}
                         </h4>
                     </div>

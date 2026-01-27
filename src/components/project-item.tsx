@@ -36,7 +36,7 @@ const ProjectItem: React.FC<ProjectProps> = ({
   return (
     <div className="w-full md:w-1/2 lg:w-1/3 p-4">
       {/* Card Component with Consistent Height */}
-      <Card className="h-full flex flex-col shadow-lg group">
+      <Card className="h-full flex flex-col shadow-lg group bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
         {/* Image Section with Overlay for Icons */}
         <div className="relative h-48 flex-shrink-0">
           <Image
@@ -46,16 +46,16 @@ const ProjectItem: React.FC<ProjectProps> = ({
           />
           <div
             className="absolute inset-0 flex justify-center items-center gap-2 opacity-0 group-hover:opacity-100
-            rounded-t-lg bg-black bg-opacity-60 transition-opacity duration-300"
+            rounded-t-lg bg-black/60 transition-opacity duration-300"
           >
             {githubLink && (
               <a
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-white hover:bg-gray-200 transition-transform duration-300 transform hover:scale-110"
+                className="p-2 rounded-full bg-turquoise-700/80 hover:bg-turquoise-600/90 transition-transform duration-300 transform hover:scale-110"
               >
-                <FaGithub className="text-gray-800" />
+                <FaGithub className="text-white" />
               </a>
             )}
             {livePreviewLink && (
@@ -63,9 +63,9 @@ const ProjectItem: React.FC<ProjectProps> = ({
                 href={livePreviewLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition-transform duration-300 transform hover:scale-110"
+                className="p-2 rounded-full bg-turquoise-700/80 hover:bg-turquoise-600/90 transition-transform duration-300 transform hover:scale-110"
               >
-                <FaGlobe className="text-gray-800" />
+                <FaGlobe className="text-white" />
               </a>
             )}
           </div>
@@ -74,16 +74,16 @@ const ProjectItem: React.FC<ProjectProps> = ({
         {/* Card Content */}
         <CardContent className="flex flex-col justify-between flex-grow p-4">
           <CardHeader>
-            <CardTitle className="text-sm font-semibold">
+            <CardTitle className="text-sm font-semibold text-white">
               {t(descriptionKey)}
             </CardTitle>{" "}
             {/* Localized description */}
           </CardHeader>
           <div>
-            <CardDescription className="text-xs text-gray-500">
+            <CardDescription className="text-xs text-gray-400">
               {t("technologies_used")}:
             </CardDescription>
-            <p className="text-sm text-gray-700">{t(technologiesKey)}</p>{" "}
+            <p className="text-sm text-gray-200">{t(technologiesKey)}</p>{" "}
             {/* Localized technologies */}
           </div>
         </CardContent>
