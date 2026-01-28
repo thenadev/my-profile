@@ -161,7 +161,7 @@ function WebsitePreview({
   // Früher Return NACH allen Hooks
   if (iframeError || showFallback) {
     return (
-      <div className="relative bg-turquoise-800/50 flex items-center justify-center rounded-t-lg overflow-hidden group">
+      <div className="relative bg-card flex items-center justify-center rounded-t-lg overflow-hidden group">
         {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
@@ -173,7 +173,7 @@ function WebsitePreview({
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
             <Button
               size="sm"
-              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -194,7 +194,7 @@ function WebsitePreview({
 
   if (!isValidUrl) {
     return (
-      <div className="relative bg-turquoise-800/50 flex items-center justify-center rounded-t-lg overflow-hidden group">
+      <div className="relative bg-card flex items-center justify-center rounded-t-lg overflow-hidden group">
         {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
@@ -206,7 +206,7 @@ function WebsitePreview({
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent flex items-end justify-center p-4">
             <Button
               size="sm"
-              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -225,14 +225,14 @@ function WebsitePreview({
   }
 
   return (
-    <div className="relative bg-turquoise-800/50 rounded-t-lg overflow-hidden group">
+      <div className="relative bg-card rounded-t-lg overflow-hidden group">
       {/* Mobile: Kompakteres Seitenverhältnis - Immer angezeigt */}
       <div className="relative w-full aspect-[9/14] max-h-[600px]">
         {isLoading && (
-          <div className="absolute inset-0 bg-turquoise-700/50 flex items-center justify-center z-10">
+            <div className="absolute inset-0 bg-muted/80 flex items-center justify-center z-10">
             <div className="flex flex-col items-center gap-2">
-              <RefreshCw className="h-6 w-6 text-gray-300 animate-spin" />
-              <p className="text-sm text-gray-300">Lädt Website...</p>
+              <RefreshCw className="h-6 w-6 text-muted-foreground animate-spin" />
+              <p className="text-sm text-muted-foreground">Lädt Website...</p>
             </div>
           </div>
         )}
@@ -255,7 +255,7 @@ function WebsitePreview({
           <div className="pointer-events-auto">
             <Button
               size="sm"
-              className="bg-turquoise-700/80 hover:bg-turquoise-600/90 text-white shadow-lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 sendGoogleEvent("portfolio_click", {
@@ -309,10 +309,10 @@ export default function UnternehmenswebsitePortfolio() {
       `}</style>
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground">
             Unsere Projekte
           </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Sehen Sie sich einige unserer erfolgreich umgesetzten
             Webdesign-Projekte an - Live und aktuell
           </p>
@@ -330,7 +330,7 @@ export default function UnternehmenswebsitePortfolio() {
             .map((project) => (
               <Card
                 key={project.id}
-                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-turquoise-600/30 hover:border-turquoise-400/50 bg-turquoise-800/90 backdrop-blur-sm"
+                className="overflow-hidden hover:shadow-xl transition-all duration-300 border-2 border-border hover:border-primary/50 bg-card backdrop-blur-sm"
               >
                 <WebsitePreview
                   url={project.livePreviewLink || ""}
@@ -340,18 +340,18 @@ export default function UnternehmenswebsitePortfolio() {
                 <CardContent className="p-4 space-y-3">
                   {/* Beschreibung */}
                   {project.descriptionKey && (
-                    <p className="text-sm text-gray-200 line-clamp-2">
+                    <p className="text-sm text-muted-foreground line-clamp-2">
                       {t(project.descriptionKey)}
                     </p>
                   )}
                   <div className="flex items-center justify-between">
-                    <p className="text-xs text-gray-400">
+                    <p className="text-xs text-muted-foreground">
                       Live Website-Vorschau
                     </p>
                     <Button
                       variant="ghost"
                       size="sm"
-                      className="text-turquoise-500 hover:text-turquoise-600"
+                      className="text-primary hover:text-primary/80"
                       onClick={() => {
                         sendGoogleEvent("portfolio_click", {
                           project_id: project.id,

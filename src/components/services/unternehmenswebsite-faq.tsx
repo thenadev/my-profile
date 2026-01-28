@@ -44,37 +44,37 @@ export default function UnternehmenswebsiteFAQ() {
   return (
     <div className="w-full max-w-4xl space-y-8">
       <div className="text-center space-y-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+        <h2 className="text-3xl md:text-4xl font-bold text-foreground">
           Häufig gestellte Fragen
         </h2>
-        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+        <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Antworten auf die wichtigsten Fragen rund um Ihr Webdesign-Projekt
         </p>
       </div>
       <div className="space-y-4">
         {faqs.map((faq, index) => (
-          <Card key={index} className="overflow-hidden">
+          <Card key={index} className="overflow-hidden bg-card border-border">
             <button
-              className="w-full p-6 text-left flex items-center justify-between hover:bg-turquoise-700/30 transition-colors"
+              className="w-full p-6 text-left flex items-center justify-between hover:bg-muted/50 transition-colors"
               onClick={() =>
                 setOpenFaqIndex(openFaqIndex === index ? null : index)
               }
             >
               <div className="flex items-center gap-3">
-                <HelpCircle className="h-5 w-5 text-turquoise-500 flex-shrink-0" />
-                <span className="font-semibold text-gray-900">
+                <HelpCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                <span className="font-semibold text-foreground">
                   {faq.question}
                 </span>
               </div>
               {openFaqIndex === index ? (
-                <ChevronUp className="h-5 w-5 text-gray-500" />
+                <ChevronUp className="h-5 w-5 text-muted-foreground" />
               ) : (
-                <ChevronDown className="h-5 w-5 text-gray-500" />
+                <ChevronDown className="h-5 w-5 text-muted-foreground" />
               )}
             </button>
             {openFaqIndex === index && (
               <div className="px-6 pb-6 pt-0">
-                <p className="text-gray-600 leading-relaxed">{faq.answer}</p>
+                <p className="text-muted-foreground leading-relaxed">{faq.answer}</p>
               </div>
             )}
           </Card>
