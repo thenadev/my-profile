@@ -1,0 +1,95 @@
+"use client";
+
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
+import {
+  ArrowRight,
+  Euro,
+  HelpCircle,
+  LayoutTemplate,
+  Mail,
+} from "lucide-react";
+
+const QUICK_NAV_ITEMS = [
+  {
+    id: "preise",
+    label: "Preise & Pakete",
+    description: "Überblick über Webdesign-Pakete und Investition",
+    icon: Euro,
+  },
+  {
+    id: "portfolio",
+    label: "Beispiel-Websites",
+    description: "Referenzprojekte von Kunden ansehen",
+    icon: LayoutTemplate,
+  },
+  {
+    id: "faq",
+    label: "Häufige Fragen",
+    description: "Antworten zu Dauer, Kosten und Ablauf",
+    icon: HelpCircle,
+  },
+  {
+    id: "contact-form-section",
+    label: "Jetzt anfragen",
+    description: "Kostenlose Erstberatung vereinbaren",
+    icon: Mail,
+  },
+] as const;
+
+function scrollToSection(sectionId: string) {
+  const el = document.getElementById(sectionId);
+  if (el) {
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+}
+
+export default function UnternehmenswebsiteQuickNav() {
+  const handleClick = (sectionId: string, label: string) => {
+    sendGoogleEvent("quick_nav_click", {
+      section: sectionId,
+      label,
+      service: "unternehmenswebsite",
+    });
+    scrollToSection(sectionId);
+  };
+
+  return (
+    <section
+      className="w-full bg-muted/30 border-y border-border"
+      aria-label="Schnellnavigation"
+    >
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">
+        <h2 className="text-center text-base md:text-lg font-semibold text-foreground mb-4 md:mb-5">
+          Was möchten Sie tun?
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
+          {QUICK_NAV_ITEMS.map((item) => {
+            const Icon = item.icon;
+            return (
+              <button
+                key={item.id}
+                type="button"
+                onClick={() => handleClick(item.id, item.label)}
+                className="group flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-xl bg-background border border-border hover:border-[var(--hero-portrait-bg-mid)] hover:shadow-md active:scale-[0.99] transition-all text-left focus:outline-none focus:ring-2 focus:ring-[var(--hero-portrait-bg-mid)] focus:ring-offset-2 min-h-[72px] md:min-h-0"
+                aria-label={`Zu ${item.label} springen`}
+              >
+                <span className="flex-shrink-0 w-10 h-10 md:w-12 md:h-12 rounded-lg bg-[var(--hero-portrait-bg-bright)]/15 flex items-center justify-center text-[var(--hero-portrait-bg-mid)] group-hover:bg-[var(--hero-portrait-bg-bright)]/25 transition-colors">
+                  <Icon className="w-5 h-5 md:w-6 md:h-6" />
+                </span>
+                <span className="flex-1 min-w-0">
+                  <span className="block font-semibold text-foreground text-sm md:text-base group-hover:text-[var(--hero-portrait-bg-mid)] transition-colors">
+                    {item.label}
+                  </span>
+                  <span className="block text-xs md:text-sm text-muted-foreground mt-0.5 line-clamp-2">
+                    {item.description}
+                  </span>
+                </span>
+                <ArrowRight className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 text-muted-foreground group-hover:text-[var(--hero-portrait-bg-mid)] group-hover:translate-x-0.5 transition-all" />
+              </button>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+}

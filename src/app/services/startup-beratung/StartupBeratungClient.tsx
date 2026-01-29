@@ -9,6 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { getYearsOfExperience } from "@/config/stats";
 import {
   ArrowRight,
   CheckCircle,
@@ -71,7 +72,9 @@ export default function StartupBeratungClient() {
           <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
             <Lightbulb className="h-6 w-6 text-turquoise-400" />
           </div>
-          <CardTitle className="text-lg mb-2 text-white">Ideen umsetzen lassen</CardTitle>
+          <CardTitle className="text-lg mb-2 text-white">
+            Ideen umsetzen lassen
+          </CardTitle>
           <CardDescription className="text-gray-200">
             Von der App-Idee zur Umsetzung - professionelle Entwicklung ohne
             technische Vorkenntnisse
@@ -82,7 +85,9 @@ export default function StartupBeratungClient() {
           <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
             <Rocket className="h-6 w-6 text-turquoise-400" />
           </div>
-          <CardTitle className="text-lg mb-2 text-white">MVP entwickeln</CardTitle>
+          <CardTitle className="text-lg mb-2 text-white">
+            MVP entwickeln
+          </CardTitle>
           <CardDescription className="text-gray-200">
             Schnelle Umsetzung Ihres Minimum Viable Product in 4-8 Wochen
           </CardDescription>
@@ -305,7 +310,8 @@ export default function StartupBeratungClient() {
             </div>
             <CardTitle className="text-lg mb-2 text-white">Erfahrung</CardTitle>
             <CardDescription className="text-gray-200">
-              Über 5 Jahre Erfahrung in der Startup-Beratung und MVP-Entwicklung
+              Über {getYearsOfExperience()} Jahre Erfahrung in der
+              Startup-Beratung und MVP-Entwicklung
             </CardDescription>
           </Card>
 
@@ -333,7 +339,9 @@ export default function StartupBeratungClient() {
             <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
               <Globe className="h-6 w-6 text-turquoise-400" />
             </div>
-            <CardTitle className="text-lg mb-2 text-white">Skalierbar</CardTitle>
+            <CardTitle className="text-lg mb-2 text-white">
+              Skalierbar
+            </CardTitle>
             <CardDescription className="text-gray-200">
               Architektur, die mit Ihrem Startup wächst und skaliert
             </CardDescription>

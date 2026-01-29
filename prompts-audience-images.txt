@@ -1,0 +1,81 @@
+================================================================================
+NANO BANANA PRO – Zielgruppen-Bilder (EINHEITLICH)
+================================================================================
+WICHTIG: Den STIL-PREFIX bei JEDEM Prompt UNVERÄNDERT am Anfang einfügen!
+Seitenverhältnis: 4:3 | Format: PNG/JPG | Negative: text, words, watermark
+================================================================================
+
+--- STIL-PREFIX (bei JEDEM Bild identisch verwenden) ---
+
+Flat design icon illustration, 2D vector style, centered composition, single main subject in frame center, solid gradient background from dark teal (#0f2528) to darker teal (#0b878e), primary accent color bright teal (#1ab5bd), clean minimal lines, no shadows or soft gradients on objects, geometric shapes, professional web design service imagery, isometric or flat top-down view, no photorealistic elements, no people faces, no text or letters, consistent line weight 2px, white or light teal highlights only, dark mode aesthetic, modern SaaS style
+
+--- 1. UNTERNEHMEN OHNE WEBSITE ---
+
+[STIL-PREFIX] + 
+
+Main subject: Empty computer monitor screen with question mark symbol inside, small globe icon beside it, mouse cursor arrow pointing at screen. All elements as simple geometric line icons. Symbolizes missing online presence. Monitor rectangle, globe circle, question mark shape. Arrangement: monitor left-center, globe top-right, cursor bottom. Maximum 3 elements total.
+
+--- 2. VALTETE WEBSITE ---
+
+[STIL-PREFIX] +
+
+Main subject: Two monitors side by side. Left: old broken monitor with X or crack lines, gray muted colors. Right: new modern monitor with small sparkle or checkmark, bright teal accent. Arrow between them pointing right. Transformation concept. Same monitor shape for both, different states. Arrangement: left old, arrow center, right new. Maximum 4 elements total.
+
+--- 3. FREIBERUFLER & SOLO-SELBSTSTÄNDIGE ---
+
+[STIL-PREFIX] +
+
+Main subject: Laptop icon (rectangle with screen), briefcase icon (rectangle with handle), small star or checkmark. Arrangement: laptop as main element center, briefcase beside it, star as accent. All as flat geometric icons, no person. Symbolizes freelancer professional tools. Maximum 3 elements total. Same icon style as other images.
+
+--- 4. HANDWERKSBETRIEBE ---
+
+[STIL-PREFIX] +
+
+Main subject: Hammer icon, wrench icon, screwdriver icon. Arranged in triangle or row. Optional: simple toolbox rectangle as base. All tools as flat line icons, same stroke weight. No workshop scene, only the tool symbols. Arrangement: centered, tools overlapping slightly or neatly arranged. Maximum 4 elements total. Same geometric style as other images.
+
+--- 5. LOKALE DIENSTLEISTER ---
+
+[STIL-PREFIX] +
+
+Main subject: Simple building icon (rectangle with roof), medical cross symbol, location pin icon. Arrangement: building as main center element, cross or pin as accent. All as flat geometric icons. Symbolizes local service providers: doctors, lawyers, physiotherapists. Same line icon style. Maximum 3 elements total. No text, no people.
+
+--- 6. GASTRONOMIE & HOTELS ---
+
+[STIL-PREFIX] +
+
+Main subject: Plate or bowl icon (circle/ellipse), fork and knife icons crossed, wine glass icon. Arrangement: plate center, cutlery crossed on plate, glass beside. All as flat line icons. Restaurant and hotel symbolism. Same geometric style. Maximum 4 elements total. Minimal, no food details, no tablecloth texture.
+
+--- 7. NEUGRÜNDER & JUNGE UNTERNEHMEN ---
+
+[STIL-PREFIX] +
+
+Main subject: Rocket icon (simple triangle body with fins), upward arrow, small star sparks. Arrangement: rocket as main center element pointing up, arrow or stars as accent. Growth and startup symbolism. Same flat geometric icon style. Maximum 4 elements total. No graph lines, keep minimal like other icons.
+
+================================================================================
+ANLEITUNG FÜR MAXIMALE EINHEITLICHKEIT
+================================================================================
+
+1. STIL-PREFIX kopieren und als ERSTES in jeden Prompt einfügen
+2. Dann den spezifischen "Main subject" Teil anhängen
+3. Bei allen Bildern: Gleiche Farben, gleicher Stil, gleiche Komposition
+4. Elemente-Anzahl begrenzen (3-4 pro Bild)
+5. Keine Fotos, keine realistischen Elemente, nur flache Icons
+6. Hintergrund immer: Dunkelblau-Türkis Verlauf (#0f2528 zu #0b878e)
+7. Akzentfarbe immer: Hell-Türkis (#1ab5bd)
+
+Negative Prompt (bei allen):
+text, words, letters, watermark, signature, photorealistic, 3D render, shadows, complex background, busy, cluttered, people faces, realistic skin, photography
+
+================================================================================
+VOLLSTÄNDIGE PROMPT-BEISPIELE (zum Kopieren)
+================================================================================
+
+--- Beispiel 1 (Unternehmen ohne Website) - KOMPLETT ---
+
+Flat design icon illustration, 2D vector style, centered composition, single main subject in frame center, solid gradient background from dark teal (#0f2528) to darker teal (#0b878e), primary accent color bright teal (#1ab5bd), clean minimal lines, no shadows or soft gradients on objects, geometric shapes, professional web design service imagery, isometric or flat top-down view, no photorealistic elements, no people faces, no text or letters, consistent line weight 2px, white or light teal highlights only, dark mode aesthetic, modern SaaS style. Main subject: Empty computer monitor screen with question mark symbol inside, small globe icon beside it, mouse cursor arrow pointing at screen. All elements as simple geometric line icons. Symbolizes missing online presence. Monitor rectangle, globe circle, question mark shape. Arrangement: monitor left-center, globe top-right, cursor bottom. Maximum 3 elements total.
+
+--- Beispiel 2 (Handwerksbetriebe) - KOMPLETT ---
+
+Flat design icon illustration, 2D vector style, centered composition, single main subject in frame center, solid gradient background from dark teal (#0f2528) to darker teal (#0b878e), primary accent color bright teal (#1ab5bd), clean minimal lines, no shadows or soft gradients on objects, geometric shapes, professional web design service imagery, isometric or flat top-down view, no photorealistic elements, no people faces, no text or letters, consistent line weight 2px, white or light teal highlights only, dark mode aesthetic, modern SaaS style. Main subject: Hammer icon, wrench icon, screwdriver icon. Arranged in triangle or row. Optional: simple toolbox rectangle as base. All tools as flat line icons, same stroke weight. No workshop scene, only the tool symbols. Arrangement: centered, tools overlapping slightly or neatly arranged. Maximum 4 elements total. Same geometric style as other images.
+
+================================================================================

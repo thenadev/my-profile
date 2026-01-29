@@ -47,11 +47,26 @@ body {
 
   /* Punktmuster: kleine Gitter (2x2 Dots pro Kachel) wie Zielbild */
   .hero-dot-pattern {
-    background-image:
-      radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-      radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-      radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.14) 1px, transparent 1px),
-      radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+    background-image: radial-gradient(
+        circle at 25% 25%,
+        rgba(255, 255, 255, 0.14) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 75% 25%,
+        rgba(255, 255, 255, 0.14) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 25% 75%,
+        rgba(255, 255, 255, 0.14) 1px,
+        transparent 1px
+      ),
+      radial-gradient(
+        circle at 75% 75%,
+        rgba(255, 255, 255, 0.14) 1px,
+        transparent 1px
+      );
     background-size: 12px 12px;
   }
 }
@@ -508,6 +523,26 @@ html {
   background-color: #00b0b0; /* Türkisblau */
   border-radius: 50%;
   transform: translateX(-50%);
+}
+
+/* Nahtlose Logo-Scroll-Animation: translateX -50% = eine Hälfte (duplizierte Logos) */
+@keyframes logo-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-scroll-animation {
+  animation: logo-scroll 40s linear infinite;
+  will-change: transform;
+}
+
+.logo-scroll-animation-reverse {
+  animation: logo-scroll 40s linear infinite reverse;
+  will-change: transform;
 }
 
 #cc-main {

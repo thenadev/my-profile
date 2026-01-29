@@ -1,0 +1,21 @@
+Erstelle ein Hintergrundbild im Stil einer modernen Website/UI-Illustration: weiche Farb-Blobs, aber klar als gestaltete Formen, nicht fotorealistisch und nicht abstrakte Kunst.
+
+Farben (exakt):
+- Hell-Türkis: #1ab5bd – großer Blob
+- Mittel-Teal: #0b878e – für Verläufe im Türkis-Blob
+- Dunkel Navy: #0f2528 – kleinerer Blob
+
+Layout:
+- Großer Blob in #1ab5bd zentral/rechts, mit weichen Kanten und sanftem Verlauf zu #0b878e an den Rändern.
+- Kleinerer Blob in #0f2528 unten links, leicht unter/neben dem großen.
+- Beide Formen: rundlich, weich abgerundet, aber klar begrenzt – wie bei einem Flat-Design- oder UI-Mockup, nicht wie natürliche Wolken oder Ölflecken.
+- Hintergrund: einfarbig dunkel (#0f2528 oder ähnlich) oder transparent.
+
+Stil-Vorgaben (wichtig):
+- Flat Design / Gradient Illustration / UI-Background – erkennbar „gemacht“, nicht zufällig.
+- Weiche Kanten, aber keine fotorealistische Tiefe oder Naturtextur.
+- Kein Chaos, keine abstrakte Malerei; klare, lesbare Formen.
+- Keine Person, kein Text, keine Icons. Nur die zwei Blob-Formen.
+- Hochauflösung, quadratisch oder 16:9, für Web-Hintergrund.
+
+Negative Hinweise für die KI: nicht hyperrealistisch, nicht ölig/fluid-simulation, nicht abstrakt-expressionistisch, nicht 3D-rendered mit Schatten/Tiefe.

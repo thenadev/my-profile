@@ -50,7 +50,7 @@
       "name": "Thomas Schwabauer",
       "role": "Fullstack Developer & UI/UX Designer",
       "location": "📍 Deutschland, Wetzlar • 🌐 Remote verfügbar",
-      "bio": "Mit über 5 Jahren Erfahrung in der Webentwicklung helfe ich Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine Leidenschaft liegt in der Entwicklung performanter, benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.",
+      "bio": "Mit über {years} Jahren Erfahrung in der Webentwicklung helfe ich Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine Leidenschaft liegt in der Entwicklung performanter, benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.",
       "skillsTitle": "Kernkompetenzen",
       "skills": {
         "reactNextjs": "React & Next.js",

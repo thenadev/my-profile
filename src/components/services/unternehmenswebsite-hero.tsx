@@ -2,6 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { DotPattern } from "@/components/ui/dot-pattern";
+import {
+  getYearsOfExperienceDisplay,
+  PROJECT_COUNT_STATS,
+  SATISFACTION_PERCENT,
+} from "@/config/stats";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Star, User } from "lucide-react";
@@ -51,9 +56,70 @@ function useCountUp(
   return { count, ref };
 }
 
+// Hero-Headlines rotierend (Option 1, B, I)
+const HERO_TEXTS = [
+  {
+    headline: "Du brauchst eine neue Website?",
+    subheadline:
+      "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt.",
+  },
+  {
+    headline: "Keine Ahnung von Technik?",
+    subheadline:
+      "Kein Problem. Ich übernehme – du erzählst, was du brauchst, ich setze deine Website um.",
+  },
+  {
+    headline: "Kleines Unternehmen – trotzdem professionell online?",
+    subheadline:
+      "Ja. Ich passe die Website an dich an – kein Standard-Paket, sondern genau das, was du brauchst. Ich übernehme Technik und Umsetzung.",
+  },
+] as const;
+
 export default function UnternehmenswebsiteHero() {
   const router = useRouter();
   const heroRef = useRef<HTMLElement>(null);
+
+  // Typing-Animation: rotiert durch HERO_TEXTS
+  const [optionIndex, setOptionIndex] = useState(0);
+  const [headlineLen, setHeadlineLen] = useState(0);
+  const [subheadlineLen, setSubheadlineLen] = useState(0);
+  const [phase, setPhase] = useState<"headline" | "subheadline" | "pause">(
+    "headline",
+  );
+
+  useEffect(() => {
+    const current = HERO_TEXTS[optionIndex];
+    if (!current) return;
+
+    if (phase === "headline") {
+      if (headlineLen >= current.headline.length) {
+        setPhase("subheadline");
+        setSubheadlineLen(0);
+        return;
+      }
+      const t = setTimeout(() => setHeadlineLen((l) => l + 1), 28);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === "subheadline") {
+      if (subheadlineLen >= current.subheadline.length) {
+        setPhase("pause");
+        return;
+      }
+      const t = setTimeout(() => setSubheadlineLen((l) => l + 1), 14);
+      return () => clearTimeout(t);
+    }
+
+    if (phase === "pause") {
+      const t = setTimeout(() => {
+        setOptionIndex((i) => (i + 1) % HERO_TEXTS.length);
+        setHeadlineLen(0);
+        setSubheadlineLen(0);
+        setPhase("headline");
+      }, 4000);
+      return () => clearTimeout(t);
+    }
+  }, [optionIndex, headlineLen, subheadlineLen, phase]);
   const { scrollYProgress } = useScroll({
     target: heroRef,
     offset: ["start start", "end start"],
@@ -65,9 +131,9 @@ export default function UnternehmenswebsiteHero() {
   const imageScale = useTransform(scrollYProgress, [0, 0.7], [1, 0.96]);
 
   // Number counters (startOnMount: true, da Hero oben – Animation ohne Scroll)
-  const projectsCount = useCountUp(50, 2000, 0, true);
+  const projectsCount = useCountUp(PROJECT_COUNT_STATS, 2000, 0, true);
   const weeksCount = useCountUp(4, 1500, 0, true);
-  const satisfactionCount = useCountUp(100, 2000, 0, true);
+  const satisfactionCount = useCountUp(SATISFACTION_PERCENT, 2000, 0, true);
 
   // Scroll progress
   const heroOpacity = useTransform(scrollYProgress, [0, 0.3], [1, 0.8]);
@@ -133,11 +199,11 @@ export default function UnternehmenswebsiteHero() {
         <div className="absolute inset-0 bg-gradient-to-br from-[var(--hero-portrait-bg-mid)]/30 via-[var(--hero-portrait-bg-dark)]/20 to-[var(--hero-portrait-bg-dark)]/30"></div>
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 py-16 md:py-24">
+      {/* Content – auf Mobile mehr Padding oben wegen Navbar */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8 pt-28 pb-16 md:py-32">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="text-center lg:text-left space-y-5 md:space-y-6">
+          {/* Left Column – Mobile: CTA nach Headline; Desktop: unverändert */}
+          <div className="text-center lg:text-left space-y-3 md:space-y-5 lg:space-y-6 flex flex-col">
             {/* Badge */}
             <motion.div
               ref={badgeRef}
@@ -145,15 +211,17 @@ export default function UnternehmenswebsiteHero() {
               animate={badgeInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               whileHover={{ scale: 1.05 }}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-semibold border border-border shadow-sm cursor-default backdrop-blur-sm"
+              className="order-3 md:order-1 inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-muted text-foreground text-xs md:text-sm font-semibold border border-border shadow-sm cursor-default backdrop-blur-sm"
             >
               <span>📍</span>
               <span>Ihr lokaler Webdesigner aus Wetzlar</span>
-              <span className="text-primary">•</span>
-              <span className="text-xs">Gießen • Frankfurt • Mittelhessen</span>
+              <span className="text-primary hidden sm:inline">•</span>
+              <span className="text-[10px] md:text-xs">
+                Gießen • Frankfurt • Mittelhessen
+              </span>
             </motion.div>
 
-            {/* Headline */}
+            {/* Headline – Typing-Animation, feste Höhe (rem) damit Textgröße das Layout nicht bricht */}
             <motion.h1
               ref={headlineRef}
               initial={{ opacity: 0, y: 40 }}
@@ -163,37 +231,58 @@ export default function UnternehmenswebsiteHero() {
                 delay: 0.1,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-foreground leading-tight tracking-tight"
+              className="order-2 text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-foreground leading-tight tracking-tight h-[13rem] sm:h-[14rem] md:h-[15rem] lg:h-[16rem] flex flex-col justify-center"
             >
-              <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={headlineInView ? { opacity: 1, x: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.3,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="text-foreground block"
-              >
-                Ihre Website bringt keine Kunden?
-              </motion.span>
-              <motion.span
-                initial={{ opacity: 0, x: -30 }}
-                animate={headlineInView ? { opacity: 1, x: 0 } : {}}
-                transition={{
-                  duration: 0.6,
-                  delay: 0.5,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)] bg-clip-text text-transparent block mt-2"
-              >
-                Wir erstellen Websites, die konvertieren
-              </motion.span>
+              <span className="block min-h-[3.5rem] sm:min-h-[4rem] md:min-h-[4.5rem] lg:min-h-[5rem]">
+                <motion.span
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={headlineInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.3,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="text-foreground block"
+                >
+                  {HERO_TEXTS[optionIndex].headline.slice(0, headlineLen)}
+                  {phase === "headline" && (
+                    <span
+                      className="inline-block w-0.5 h-[0.9em] align-middle bg-foreground ml-0.5 animate-pulse"
+                      aria-hidden
+                    />
+                  )}
+                </motion.span>
+              </span>
+              <span className="block mt-2 min-h-[5.5rem] sm:min-h-[6rem] md:min-h-[6.5rem] lg:min-h-[7rem] leading-snug text-[clamp(0.8125rem,1.2vw+0.5rem,1.125rem)] md:text-[clamp(0.875rem,1.5vw+0.5rem,1.25rem)]">
+                <motion.span
+                  initial={{ opacity: 0, x: -30 }}
+                  animate={headlineInView ? { opacity: 1, x: 0 } : {}}
+                  transition={{
+                    duration: 0.6,
+                    delay: 0.5,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  className="bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)] bg-clip-text text-transparent block"
+                >
+                  {phase !== "headline" &&
+                    HERO_TEXTS[optionIndex].subheadline.slice(
+                      0,
+                      subheadlineLen,
+                    )}
+                  {phase === "subheadline" && (
+                    <span
+                      className="inline-block w-0.5 h-[0.9em] align-middle bg-[var(--hero-portrait-bg-mid)] ml-0.5 animate-pulse"
+                      aria-hidden
+                    />
+                  )}
+                </motion.span>
+              </span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subtitle – Mobile: unter CTA */}
             <motion.div
               ref={subtitleRef}
+              className="order-4 md:order-3"
               initial={{ opacity: 0, y: 25 }}
               animate={subtitleInView ? { opacity: 1, y: 0 } : {}}
               transition={{
@@ -209,9 +298,10 @@ export default function UnternehmenswebsiteHero() {
               </p>
             </motion.div>
 
-            {/* CTAs */}
+            {/* CTAs – Mobile: direkt unter Headline (order-3) */}
             <motion.div
               ref={ctaRef}
+              className="order-1 md:order-4 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-0 md:pt-2"
               initial={{ opacity: 0, y: 25, scale: 0.95 }}
               animate={ctaInView ? { opacity: 1, y: 0, scale: 1 } : {}}
               transition={{
@@ -219,7 +309,6 @@ export default function UnternehmenswebsiteHero() {
                 delay: 0.3,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center pt-2"
             >
               <motion.div
                 whileHover={{ scale: 1.08, y: -2 }}
@@ -268,15 +357,15 @@ export default function UnternehmenswebsiteHero() {
             {/* Trust Badges */}
             <motion.div
               ref={trustBadgesRef}
+              className="order-5 flex flex-wrap justify-center lg:justify-start items-center gap-2 md:gap-4 pt-2 md:pt-3"
               initial={{ opacity: 0, y: 20 }}
               animate={trustBadgesInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
-              className="flex flex-wrap justify-center lg:justify-start items-center gap-3 md:gap-4 pt-3"
             >
               {[
                 "Kostenlose Erstberatung vor Ort",
                 "Unverbindliches Angebot",
-                "5+ Jahre Erfahrung in Wetzlar",
+                `${getYearsOfExperienceDisplay()} Jahre Erfahrung in Wetzlar`,
               ].map((badge, index) => (
                 <motion.div
                   key={badge}
@@ -542,7 +631,7 @@ export default function UnternehmenswebsiteHero() {
                         Webdesigner
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        5+ Jahre
+                        {getYearsOfExperienceDisplay()} Jahre
                       </p>
                     </div>
                   </div>

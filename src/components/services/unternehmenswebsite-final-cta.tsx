@@ -1,7 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Clock, Award, Shield, Zap } from "lucide-react";
+import {
+  getYearsOfExperienceDisplay,
+  SATISFACTION_PERCENT,
+} from "@/config/stats";
+import { ArrowRight, Award, Clock, Shield, Zap } from "lucide-react";
 
 interface UnternehmenswebsiteFinalCTAProps {
   onContactClick: () => void;
@@ -10,7 +14,6 @@ interface UnternehmenswebsiteFinalCTAProps {
 export default function UnternehmenswebsiteFinalCTA({
   onContactClick,
 }: UnternehmenswebsiteFinalCTAProps) {
-
   return (
     <div className="w-full max-w-4xl text-center space-y-6 bg-card backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-border">
       <div className="flex items-center justify-center gap-2 mb-4">
@@ -39,11 +42,11 @@ export default function UnternehmenswebsiteFinalCTA({
       <div className="flex flex-wrap justify-center items-center gap-6 mt-6 text-sm text-muted-foreground">
         <div className="flex items-center gap-2">
           <Award className="h-4 w-4 text-primary" />
-          <span>5+ Jahre Erfahrung</span>
+          <span>{getYearsOfExperienceDisplay()} Jahre Erfahrung</span>
         </div>
         <div className="flex items-center gap-2">
           <Shield className="h-4 w-4 text-primary" />
-          <span>100% Zufriedenheitsgarantie</span>
+          <span>{SATISFACTION_PERCENT}% Zufriedenheitsgarantie</span>
         </div>
         <div className="flex items-center gap-2">
           <Zap className="h-4 w-4 text-primary" />

@@ -2,6 +2,7 @@ import { StaticImageData } from "next/image";
 import FreelanceLogo from "../assets/logo-owl-simple.png";
 import AlcedisLogo from "../assets/work/alcedis_logo.webp";
 import AmselLogo from "../assets/work/amsel_logo.png";
+import HypofyLogo from "../assets/work/hypofy_logo.png";
 import ValtechLogo from "../assets/work/valtech_logo.jpeg";
 
 export interface WorkStation {
@@ -34,7 +35,8 @@ interface WorkStationConfig {
 const workStationConfigs: WorkStationConfig[] = [
   {
     key: "hypofy",
-    image: FreelanceLogo,
+    link: "https://hypofy.de/",
+    image: HypofyLogo,
     introCount: 2,
     highlightsCount: 5,
     employmentType: "fulltime",

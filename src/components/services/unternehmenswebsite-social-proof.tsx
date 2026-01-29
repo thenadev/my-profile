@@ -1,17 +1,9 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { ClientLogoScroll } from "@/components/ui/client-logo-scroll";
+import { clientLogos } from "@/config/client-logos";
 import { Star } from "lucide-react";
-import Image from "next/image";
-
-// Kundenlogos
-const clientLogos = [
-  { name: "Porsche", logo: "/customer/porsche.png" },
-  { name: "Audi", logo: "/customer/audi.png" },
-  { name: "Valtech Mobility", logo: "/customer/valtech-mobility.png" },
-  { name: "Tricon", logo: "/customer/tricon.svg" },
-  { name: "Alcedis", logo: "/customer/alcedis.png" },
-];
 
 // Testimonials
 const testimonials = [
@@ -32,7 +24,7 @@ const testimonials = [
 export default function UnternehmenswebsiteSocialProof() {
   return (
     <>
-      {/* Social Proof - Kundenlogos */}
+      {/* Social Proof - Kundenlogos: Mobile = horizontaler Auto-Scroll */}
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
@@ -43,22 +35,9 @@ export default function UnternehmenswebsiteSocialProof() {
             entwickelt
           </p>
         </div>
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center justify-items-center">
-          {clientLogos.map((client, index) => (
-            <div
-              key={index}
-              className="w-32 h-16 flex items-center justify-center rounded-lg border border-border hover:border-primary/50 transition-colors bg-card/80 backdrop-blur-sm p-4 shadow-sm"
-            >
-              <Image
-                src={client.logo}
-                alt={`${client.name} Logo`}
-                width={96}
-                height={40}
-                className="max-w-24 max-h-10 object-contain filter grayscale hover:grayscale-0 transition-all"
-              />
-            </div>
-          ))}
-        </div>
+
+        {/* Einheitliche ClientLogoScroll-Komponente (wie Startseite) */}
+        <ClientLogoScroll logos={clientLogos.slice(0, 8)} variant="default" />
       </div>
 
       {/* Testimonials Section */}
@@ -70,7 +49,10 @@ export default function UnternehmenswebsiteSocialProof() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="p-6 bg-card border-border backdrop-blur-sm">
+            <Card
+              key={index}
+              className="p-6 bg-card border-border backdrop-blur-sm"
+            >
               <div className="flex items-center gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <Star
@@ -86,7 +68,9 @@ export default function UnternehmenswebsiteSocialProof() {
                 <p className="font-semibold text-foreground">
                   {testimonial.name}
                 </p>
-                <p className="text-sm text-muted-foreground">{testimonial.company}</p>
+                <p className="text-sm text-muted-foreground">
+                  {testimonial.company}
+                </p>
               </div>
             </Card>
           ))}

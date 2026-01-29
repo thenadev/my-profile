@@ -2,36 +2,24 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
+import { ClientLogoScroll } from "@/components/ui/client-logo-scroll";
+import {
+  getYearsOfExperience,
+  getYearsOfExperienceDisplay,
+  PROJECT_COUNT_STATS,
+  SATISFIED_CUSTOMERS_COUNT,
+} from "@/config/stats";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useRef } from "react";
-import {
-  FaBolt,
-  FaCode,
-  FaPalette,
-  FaRocket,
-  FaUsers,
-} from "react-icons/fa";
+import { FaBolt, FaCode, FaPalette, FaRocket, FaUsers } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
-// ClientsSection Komponente
+// ClientsSection – nutzt einheitliche ClientLogoScroll-Komponente
 function ClientsSection() {
   const t = useTranslations("Home.About.clients");
-
-  const clients = [
-    { name: "Porsche", logo: "/customer/porsche.png" },
-    { name: "Audi", logo: "/customer/audi.png" },
-    { name: "Valtech Mobility Gmbh", logo: "/customer/valtech-mobility.png" },
-    { name: "Tricon GmbH", logo: "/customer/tricon.svg" },
-    { name: "Digitalsocial.ID", logo: "/customer/solanaid.webp" },
-    { name: "Edona Design Gmbh", logo: "/customer/goldeneringe.svg" },
-    { name: "Alcedis GmbH", logo: "/customer/alcedis.png" },
-  ];
-
-  // Doppelte das Array für einen nahtlosen Loop
-  const duplicatedClients = [...clients, ...clients];
 
   return (
     <section className="py-12 px-4">
@@ -42,41 +30,8 @@ function ClientsSection() {
           <p className="text-sm text-muted-foreground">{t("subtitle")}</p>
         </div>
 
-        {/* Scrolling Logos */}
-        <div className="relative overflow-hidden">
-          <div className="absolute left-0 top-0 bottom-0 w-16 bg-gradient-to-r from-background to-transparent z-10"></div>
-          <div className="absolute right-0 top-0 bottom-0 w-16 bg-gradient-to-l from-background to-transparent z-10"></div>
-
-          <motion.div
-            className="flex gap-8 items-center"
-            animate={{
-              x: [0, -50 * clients.length],
-            }}
-            transition={{
-              duration: 30,
-              repeat: Infinity,
-              ease: "linear",
-            }}
-            style={{
-              width: `${100 * duplicatedClients.length}px`,
-            }}
-          >
-            {duplicatedClients.map((client, index) => (
-              <div
-                key={`${client.name}-${index}`}
-                className="flex-shrink-0 w-32 h-16 flex items-center justify-center rounded-lg border border-border bg-card hover:border-primary/50 transition-colors group shadow-sm backdrop-blur-sm"
-              >
-                <Image
-                  src={client.logo}
-                  alt={`${client.name} Logo`}
-                  width={96}
-                  height={40}
-                  className="max-w-24 max-h-10 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 drop-shadow-md drop-shadow-black"
-                />
-              </div>
-            ))}
-          </motion.div>
-        </div>
+        {/* Scrolling Logos – einheitliche Komponente wie Unternehmenswebsite */}
+        <ClientLogoScroll variant="compact" />
 
         {/* Trust Indicators */}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mt-8 text-sm text-muted-foreground">
@@ -138,7 +93,11 @@ const HomeAbout: React.FC = () => {
   ];
 
   return (
-    <div className="pt-28 w-full min-h-screen p-5 bg-background" id="about" ref={sectionRef}>
+    <div
+      className="pt-28 w-full min-h-screen p-5 bg-background"
+      id="about"
+      ref={sectionRef}
+    >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -158,7 +117,9 @@ const HomeAbout: React.FC = () => {
           <h2 className="text-3xl md:text-4xl mb-4 font-bold text-foreground">
             {t("title")}
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">{t("description")}</p>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            {t("description")}
+          </p>
         </motion.div>
 
         <motion.div
@@ -190,7 +151,9 @@ const HomeAbout: React.FC = () => {
             </div>
 
             <div>
-              <p className="text-muted-foreground leading-relaxed">{t("bio")}</p>
+              <p className="text-muted-foreground leading-relaxed">
+                {t("bio", { years: getYearsOfExperience() })}
+              </p>
             </div>
 
             {/* Skills */}
@@ -273,9 +236,15 @@ const HomeAbout: React.FC = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-6 p-8 bg-card rounded-xl border border-border shadow-sm mb-12"
         >
           {[
-            { value: "20+", label: t("stats.projects") },
-            { value: "5+", label: t("stats.yearsExperience") },
-            { value: "10+", label: t("stats.satisfiedCustomers") },
+            { value: `${PROJECT_COUNT_STATS}+`, label: t("stats.projects") },
+            {
+              value: getYearsOfExperienceDisplay(),
+              label: t("stats.yearsExperience"),
+            },
+            {
+              value: `${SATISFIED_CUSTOMERS_COUNT}+`,
+              label: t("stats.satisfiedCustomers"),
+            },
             { value: "24/7", label: t("stats.support") },
           ].map((stat, index) => (
             <motion.div
