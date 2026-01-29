@@ -262,7 +262,9 @@
     "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration."
   },
   "Contact": {
+    "badge": "Kontakt",
     "title": "Kontakt",
+    "heroIntro": "Ich freue mich, von Ihnen zu hören! Ob Projektanfrage, Kooperation oder einfach nur ein nettes Hallo – schreiben Sie mir. Ich antworte in der Regel innerhalb von 24 Stunden.",
     "yourEmail": "Ihre E-Mail",
     "emailPlaceholder": "beispiel@domain.com",
     "topic": "Thema",
@@ -270,8 +272,23 @@
     "message": "Nachricht",
     "messagePlaceholder": "Schreiben Sie Ihre Nachricht hier...",
     "sendMessage": "Nachricht senden",
+    "submitButton": "Nachricht jetzt absenden",
+    "directContact": "Direktkontakt",
     "directEmail": "Oder senden Sie mir direkt eine E-Mail an:",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "location": "Standort",
     "copied": "Kopiert!",
+    "copyEmail": "E-Mail kopieren",
+    "copyPhone": "Telefonnummer kopieren",
+    "findMe": "Hier findest du mich",
+    "locationCity": "Wetzlar, Deutschland",
+    "locationDescription": "Perfekt für lokale Zusammenarbeit",
+    "moreContactOptions": "Weitere Kontaktmöglichkeiten",
+    "whatsappSubtitle": "Schneller Chat",
+    "linkedinSubtitle": "Professionell",
+    "githubSubtitle": "Code & Projekte",
+    "speechBubble": "Ich freue mich auf deine Nachricht! 💬",
     "imageAlt": "Illustratives Bild",
     "successTitle": "Danke, dass Sie mich kontaktiert haben! 😁",
     "successMessage": "Ich werde mich sehr bald bei Ihnen melden.",
@@ -519,8 +536,13 @@
   },
   "About": {
     "Hero": {
+      "badge": "Profil",
       "title": "Über mich",
-      "description": "Entdecke die Person hinter dem Code - meine Leidenschaft für Technologie, meine Reise als Entwickler und was mich antreibt."
+      "description": "Entdecke die Person hinter dem Code - meine Leidenschaft für Technologie, meine Reise als Entwickler und was mich antreibt.",
+      "cta": {
+        "discussProject": "Projekt besprechen",
+        "viewResume": "Lebenslauf ansehen"
+      }
     },
     "PersonalStory": {
       "title": "Die Person hinter dem Code",
@@ -559,7 +581,12 @@
       },
       "bodybuildingImageAlt": "Thomas Schwabauer - GNBF Bodybuilding Wettkampf 2018, 2. Platz",
       "bodybuildingTitle": "GNBF 2018 - 2. Platz",
-      "bodybuildingDescription": "Natural Bodybuilding - Deutsche Meisterschaft"
+      "bodybuildingDescription": "Natural Bodybuilding - Deutsche Meisterschaft",
+      "cta": {
+        "title": "Lass uns persönlich sprechen",
+        "description": "Du hast ein Projekt im Kopf? Ich helfe dir, es umzusetzen – von der Idee bis zur Umsetzung.",
+        "button": "Kostenlose Erstberatung"
+      }
     },
     "PersonalValues": {
       "title": "Was mich antreibt",
@@ -612,6 +639,11 @@
           "Apple Integration",
           "QR-Code Login"
         ]
+      },
+      "cta": {
+        "title": "Du suchst diese Expertise?",
+        "description": "Mit Erfahrung aus Automotive und Enterprise-Projekten bringe ich Struktur und Qualität in dein Vorhaben.",
+        "button": "Projekt besprechen"
       }
     },
     "BlockchainSection": {
@@ -661,7 +693,17 @@
       }
     },
     "ContactSection": {
-      "title": "Lass Sie uns zusammenarbeiten",
+      "title": "Lass uns zusammenarbeiten",
+      "description": "Ob Web-App, Mobile-App oder Beratung – ich freue mich auf deine Nachricht. Kostenlose Erstberatung inklusive.",
+      "cta": {
+        "button": "Jetzt Kontakt aufnehmen",
+        "trustBadges": {
+          "experience": "Jahre Erfahrung",
+          "satisfaction": "Zufriedenheit",
+          "response": "Schnelle Antwort",
+          "free": "Unverbindlich"
+        }
+      },
       "contact": {
         "email": "E-Mail",
         "phone": "Telefon",
@@ -747,6 +789,9 @@
     "description": "Die gesuchte Seite existiert nicht oder wurde verschoben. Kein Problem – hier sind ein paar schnelle Wege zurück.",
     "goHome": "Zur Startseite",
     "contact": "Kontakt aufnehmen",
+    "popularPages": "Beliebte Seiten",
+    "webdesign": "Webdesign",
+    "aboutMe": "Über mich",
     "imageAlt": "Portrait von Thomas Schwabauer für 404-Seite"
   }
 }

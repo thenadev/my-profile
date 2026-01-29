@@ -8,21 +8,21 @@ const PersonalValues: React.FC = () => {
 
   return (
     <section className="w-full space-y-8">
-      <h2 className="text-3xl font-bold text-white text-center mb-12">
+      <h2 className="text-3xl font-bold text-foreground text-center mb-12">
         {t("title")}
       </h2>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {/* Innovation */}
         <div className="relative group">
-          <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/20 to-turquoise-500/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+          <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-turquoise-800/60 backdrop-blur-sm rounded-2xl border border-turquoise-600/30 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md hover:border-primary/40 transition-all bg-card backdrop-blur-sm rounded-2xl border border-border p-6 text-center">
             <div className="text-4xl mb-4">🚀</div>
-            <h3 className="text-lg font-semibold text-white mb-3">
+            <h3 className="text-lg font-semibold text-foreground mb-3">
               {t("innovation.title")}
             </h3>
-            <p className="text-gray-200 text-sm">
+            <p className="text-muted-foreground text-sm">
               {t("innovation.description")}
             </p>
           </Card>
@@ -30,14 +30,14 @@ const PersonalValues: React.FC = () => {
 
         {/* Quality */}
         <div className="relative group">
-          <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-500/20 to-turquoise-400/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+          <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-turquoise-800/60 backdrop-blur-sm rounded-2xl border border-turquoise-600/30 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md hover:border-primary/40 transition-all bg-card backdrop-blur-sm rounded-2xl border border-border p-6 text-center">
             <div className="text-4xl mb-4">✨</div>
-            <h3 className="text-lg font-semibold text-white mb-3">
+            <h3 className="text-lg font-semibold text-foreground mb-3">
               {t("quality.title")}
             </h3>
-            <p className="text-gray-200 text-sm">
+            <p className="text-muted-foreground text-sm">
               {t("quality.description")}
             </p>
           </Card>
@@ -45,14 +45,14 @@ const PersonalValues: React.FC = () => {
 
         {/* Collaboration */}
         <div className="relative group">
-          <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/20 to-turquoise-500/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+          <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-2xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full shadow-sm hover:shadow-md transition-all bg-turquoise-800/60 backdrop-blur-sm rounded-2xl border border-turquoise-600/30 p-6 text-center">
+          <Card className="w-full shadow-sm hover:shadow-md hover:border-primary/40 transition-all bg-card backdrop-blur-sm rounded-2xl border border-border p-6 text-center">
             <div className="text-4xl mb-4">🤝</div>
-            <h3 className="text-lg font-semibold text-white mb-3">
+            <h3 className="text-lg font-semibold text-foreground mb-3">
               {t("collaboration.title")}
             </h3>
-            <p className="text-gray-200 text-sm">
+            <p className="text-muted-foreground text-sm">
               {t("collaboration.description")}
             </p>
           </Card>

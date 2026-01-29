@@ -7,11 +7,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Input } from "@/components/ui/input";
-import { Separator } from "@/components/ui/separator";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,6 @@ import { useForm } from "react-hook-form";
 import { FaCopy, FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa6";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 import { z } from "zod";
-import ContactImg from "../../assets/me-contact.png";
 
 const ContactSection: React.FC = () => {
   const t = useTranslations("Contact");
@@ -115,18 +114,19 @@ const ContactSection: React.FC = () => {
   return (
     <div
       id="contact"
-      className="min-h-screen max-w-7xl mx-auto py-20 flex flex-col items-center justify-center gap-12 px-4 md:px-8 text-gray-200 z-40 relative bg-turquoise-800"
+      className="min-h-screen max-w-7xl mx-auto py-20 flex flex-col items-center justify-center gap-12 px-4 md:px-8 text-foreground z-40 relative bg-background"
     >
       <div className="w-full max-w-[1200px] flex flex-col items-center justify-start gap-12 px-4 md:px-8 mt-10">
         {/* ===== HERO SECTION ===== */}
         <section className="text-center mb-16">
-          <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold bg-gradient-to-r from-turquoise-500 via-turquoise-600 to-turquoise-700 bg-clip-text text-transparent mb-6 animate-fadeIn">
-            🤝 {t("title")}
+          <Badge variant="secondary" className="mb-4">
+            {t("badge")}
+          </Badge>
+          <h1 className="text-4xl md:text-6xl xl:text-7xl font-extrabold bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)] bg-clip-text text-transparent mb-6 animate-fadeIn">
+            {t("title")}
           </h1>
-          <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-200">
-            Ich freue mich, von Ihnen zu hören! Ob Projektanfrage, Kooperation
-            oder einfach nur ein nettes Hallo – schreiben Sie mir. Ich antworte
-            in der Regel innerhalb von 24 Stunden.
+          <p className="text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-fadeIn delay-200">
+            {t("heroIntro")}
           </p>
         </section>
 
@@ -136,13 +136,12 @@ const ContactSection: React.FC = () => {
           <div className="space-y-8">
             {/* Contact Form Card */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/30 to-turquoise-400/30 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
-              <div className="absolute -inset-4 bg-gradient-to-r from-turquoise-500/20 to-turquoise-500/20 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all duration-300" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-              <Card className="w-full shadow-2xl bg-turquoise-800/90 backdrop-blur-sm rounded-3xl border border-turquoise-600/30 p-8 overflow-hidden relative">
+              <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-8 overflow-hidden relative hover:border-primary/40 hover:shadow-xl transition-all duration-300">
                 <CardHeader className="pb-6">
-                  <CardTitle className="text-3xl font-bold text-white flex items-center gap-3">
-                    📨 {t("sendMessage")}
+                  <CardTitle className="text-3xl font-bold text-foreground flex items-center gap-3">
+                    {t("sendMessage")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -153,16 +152,16 @@ const ContactSection: React.FC = () => {
                         id="email"
                         type="email"
                         className={cn(
-                          "peer h-16 px-4 pt-8 pb-2 text-base border-2 border-turquoise-600/30 rounded-xl focus:border-turquoise-500 focus:ring-4 focus:ring-turquoise-500/20 transition-all duration-300 bg-turquoise-700/30 text-white placeholder:text-gray-400 backdrop-blur-sm shadow-sm hover:shadow-md",
+                          "peer h-16 px-4 pt-8 pb-2 text-base border-2 border-border rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 bg-muted/50 text-foreground placeholder:text-muted-foreground backdrop-blur-sm shadow-sm hover:shadow-md",
                           errors.email &&
-                            "border-red-400 focus:border-red-500 focus:ring-red-500/20"
+                            "border-destructive focus:border-destructive focus:ring-destructive/20",
                         )}
                         placeholder=" "
                         {...register("email")}
                       />
                       <label
                         htmlFor="email"
-                        className="absolute left-4 top-3 text-sm font-medium text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-turquoise-400 transition-all duration-300"
+                        className="absolute left-4 top-3 text-sm font-medium text-muted-foreground peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-primary transition-all duration-300"
                       >
                         {t("yourEmail")}
                       </label>
@@ -180,16 +179,16 @@ const ContactSection: React.FC = () => {
                         id="topic"
                         type="text"
                         className={cn(
-                          "peer h-16 px-4 pt-8 pb-2 text-base border-2 border-turquoise-600/30 rounded-xl focus:border-turquoise-500 focus:ring-4 focus:ring-turquoise-500/20 transition-all duration-300 bg-turquoise-700/30 text-white placeholder:text-gray-400 backdrop-blur-sm shadow-sm hover:shadow-md",
+                          "peer h-16 px-4 pt-8 pb-2 text-base border-2 border-border rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 bg-muted/50 text-foreground placeholder:text-muted-foreground backdrop-blur-sm shadow-sm hover:shadow-md",
                           errors.topic &&
-                            "border-red-400 focus:border-red-500 focus:ring-red-500/20"
+                            "border-destructive focus:border-destructive focus:ring-destructive/20",
                         )}
                         placeholder=" "
                         {...register("topic")}
                       />
                       <label
                         htmlFor="topic"
-                        className="absolute left-4 top-3 text-sm font-medium text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-turquoise-400 transition-all duration-300"
+                        className="absolute left-4 top-3 text-sm font-medium text-muted-foreground peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-primary transition-all duration-300"
                       >
                         {t("topic")}
                       </label>
@@ -206,16 +205,16 @@ const ContactSection: React.FC = () => {
                       <Textarea
                         id="message"
                         className={cn(
-                          "peer h-40 px-4 pt-8 pb-2 text-base border-2 border-turquoise-600/30 rounded-xl focus:border-turquoise-500 focus:ring-4 focus:ring-turquoise-500/20 transition-all duration-300 bg-turquoise-700/30 text-white placeholder:text-gray-400 backdrop-blur-sm shadow-sm hover:shadow-md resize-none",
+                          "peer h-40 px-4 pt-8 pb-2 text-base border-2 border-border rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all duration-300 bg-muted/50 text-foreground placeholder:text-muted-foreground backdrop-blur-sm shadow-sm hover:shadow-md resize-none",
                           errors.message &&
-                            "border-red-400 focus:border-red-500 focus:ring-red-500/20"
+                            "border-destructive focus:border-destructive focus:ring-destructive/20",
                         )}
                         placeholder=" "
                         {...register("message")}
                       />
                       <label
                         htmlFor="message"
-                        className="absolute left-4 top-3 text-sm font-medium text-gray-400 peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-turquoise-400 transition-all duration-300"
+                        className="absolute left-4 top-3 text-sm font-medium text-muted-foreground peer-placeholder-shown:text-base peer-placeholder-shown:top-4 peer-focus:top-3 peer-focus:text-sm peer-focus:text-primary transition-all duration-300"
                       >
                         {t("message")}
                       </label>
@@ -240,14 +239,14 @@ const ContactSection: React.FC = () => {
                       <div className="flex-1">
                         <label
                           htmlFor="privacyPolicy"
-                          className="text-sm text-gray-200 cursor-pointer"
+                          className="text-sm text-muted-foreground cursor-pointer"
                         >
                           {t("privacyPolicyText")}{" "}
                           <a
                             href="/privacy"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="text-turquoise-500 hover:underline font-medium"
+                            className="text-primary hover:underline font-medium"
                           >
                             {t("privacyPolicy")}
                           </a>{" "}
@@ -266,17 +265,17 @@ const ContactSection: React.FC = () => {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full h-16 text-lg font-semibold bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1 hover:rotate-[0.5deg] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                      className="w-full h-16 text-lg font-semibold bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
                     >
                       {isSubmitting ? (
                         <div className="flex items-center gap-3">
-                          <div className="w-6 h-6 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                          <div className="w-6 h-6 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
                           {t("sending")}
                         </div>
                       ) : (
                         <div className="flex items-center gap-3">
                           <MdEmail className="w-6 h-6" />
-                          Nachricht jetzt absenden
+                          {t("submitButton")}
                         </div>
                       )}
                     </Button>
@@ -287,24 +286,26 @@ const ContactSection: React.FC = () => {
 
             {/* Direct Contact Card */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-green-400/20 to-blue-400/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-              <Card className="w-full shadow-xl bg-turquoise-800/90 backdrop-blur-sm rounded-3xl border border-turquoise-600/30 p-6">
+              <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-6 hover:border-primary/40 hover:shadow-xl transition-all duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-semibold text-white flex items-center gap-2">
-                    📫 Direktkontakt
+                  <CardTitle className="text-xl font-semibold text-foreground flex items-center gap-2">
+                    {t("directContact")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
                   <div className="space-y-4">
                     {/* Email */}
-                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-turquoise-700/30 transition-all duration-200 hover:scale-[1.02]">
-                      <MdEmail className="w-6 h-6 text-turquoise-400 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-muted/50 transition-all duration-200 hover:scale-[1.02]">
+                      <MdEmail className="w-6 h-6 text-primary flex-shrink-0" />
                       <div className="flex-1">
-                        <div className="font-medium text-white">E-Mail</div>
+                        <div className="font-medium text-foreground">
+                          {t("email")}
+                        </div>
                         <a
                           href={`mailto:${siteConfig.contactEmail}`}
-                          className="text-turquoise-500 hover:underline"
+                          className="text-primary hover:underline"
                         >
                           {siteConfig.contactEmail}
                         </a>
@@ -313,28 +314,28 @@ const ContactSection: React.FC = () => {
                         onClick={() =>
                           handleCopy(siteConfig.contactEmail, "email")
                         }
-                        className="p-2 text-gray-400 hover:text-turquoise-400 hover:bg-turquoise-700/30 rounded-lg transition-colors"
-                        title="E-Mail kopieren"
+                        className="p-2 text-muted-foreground hover:text-primary hover:bg-muted/50 rounded-lg transition-colors"
+                        title={t("copyEmail")}
                       >
                         <FaCopy className="w-4 h-4" />
                       </button>
                       {copied.email && (
-                        <span className="text-xs text-turquoise-500 font-medium">
-                          Kopiert!
+                        <span className="text-xs text-primary font-medium">
+                          {t("copied")}
                         </span>
                       )}
                     </div>
 
                     {/* Phone */}
-                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-turquoise-700/30 transition-all duration-200 hover:scale-[1.02]">
-                      <MdPhone className="w-6 h-6 text-green-400 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-muted/50 transition-all duration-200 hover:scale-[1.02]">
+                      <MdPhone className="w-6 h-6 text-primary flex-shrink-0" />
                       <div className="flex-1">
-                        <div className="font-medium text-white">
-                          Telefon
+                        <div className="font-medium text-foreground">
+                          {t("phone")}
                         </div>
                         <a
                           href={`tel:${siteConfig.contactPhone}`}
-                          className="text-green-400 hover:underline"
+                          className="text-primary hover:underline"
                         >
                           {siteConfig.contactPhoneDisplay}
                         </a>
@@ -343,32 +344,32 @@ const ContactSection: React.FC = () => {
                         onClick={() =>
                           handleCopy(siteConfig.contactPhone, "phone")
                         }
-                        className="p-2 text-gray-400 hover:text-green-400 hover:bg-turquoise-700/30 rounded-lg transition-colors"
-                        title="Telefonnummer kopieren"
+                        className="p-2 text-muted-foreground hover:text-primary hover:bg-muted/50 rounded-lg transition-colors"
+                        title={t("copyPhone")}
                       >
                         <FaCopy className="w-4 h-4" />
                       </button>
                       {copied.phone && (
-                        <span className="text-xs text-green-600 font-medium">
-                          Kopiert!
+                        <span className="text-xs text-primary font-medium">
+                          {t("copied")}
                         </span>
                       )}
                     </div>
 
                     {/* Location */}
-                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-turquoise-700/30 transition-all duration-200 hover:scale-[1.02]">
-                      <MdLocationOn className="w-6 h-6 text-turquoise-400 flex-shrink-0" />
+                    <div className="flex items-center gap-3 p-4 rounded-xl hover:bg-muted/50 transition-all duration-200 hover:scale-[1.02]">
+                      <MdLocationOn className="w-6 h-6 text-primary flex-shrink-0" />
                       <div className="flex-1">
-                        <div className="font-medium text-white">
-                          Standort
+                        <div className="font-medium text-foreground">
+                          {t("location")}
                         </div>
                         <a
                           href="https://maps.google.com/?q=Wetzlar,Deutschland"
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-turquoise-400 hover:underline"
+                          className="text-primary hover:underline"
                         >
-                          Wetzlar, Deutschland
+                          {t("locationCity")}
                         </a>
                       </div>
                     </div>
@@ -382,23 +383,21 @@ const ContactSection: React.FC = () => {
           <div className="space-y-8">
             {/* Avatar Card */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-turquoise-400/30 to-turquoise-400/30 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
-              <div className="absolute -inset-4 bg-gradient-to-r from-turquoise-500/20 to-turquoise-500/20 rounded-3xl blur-xl -z-10 group-hover:blur-2xl transition-all duration-300" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-              <Card className="w-full shadow-2xl bg-turquoise-800/90 backdrop-blur-sm rounded-3xl border border-turquoise-600/30 p-12 relative">
+              <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-12 relative hover:border-primary/40 hover:shadow-xl transition-all duration-300">
                 <div className="relative">
-                  {/* Enhanced Speech Bubble */}
+                  {/* Speech Bubble */}
                   <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-20">
-                    <div className="bg-turquoise-800/95 backdrop-blur-sm rounded-3xl px-8 py-4 shadow-2xl border border-turquoise-600/30 relative">
-                      <p className="text-base font-medium text-white whitespace-nowrap">
-                        Ich freue mich auf deine Nachricht! 💬
+                    <div className="bg-card backdrop-blur-sm rounded-3xl px-8 py-4 shadow-xl border border-border relative">
+                      <p className="text-base font-medium text-foreground whitespace-nowrap">
+                        {t("speechBubble")}
                       </p>
-                      {/* Speech bubble tail - verbessert */}
-                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-turquoise-800/95"></div>
+                      <div className="absolute top-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-8 border-r-8 border-t-8 border-transparent border-t-card"></div>
                     </div>
                   </div>
 
-                  {/* Main Image - größer */}
+                  {/* Main Image */}
                   <div className="relative z-10 flex justify-center">
                     <Image
                       src="/me_envelope.webp"
@@ -412,22 +411,22 @@ const ContactSection: React.FC = () => {
                     />
                   </div>
 
-                  {/* Floating Elements - angepasst für größere Card */}
-                  <div className="absolute -top-6 -right-6 w-12 h-12 bg-green-500 rounded-full animate-bounce opacity-80" />
-                  <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-turquoise-500 rounded-full animate-pulse opacity-60" />
+                  {/* Floating Elements */}
+                  <div className="absolute -top-6 -right-6 w-12 h-12 bg-primary/60 rounded-full animate-bounce opacity-80" />
+                  <div className="absolute -bottom-4 -left-4 w-10 h-10 bg-primary/60 rounded-full animate-pulse opacity-60" />
                 </div>
               </Card>
             </div>
 
             {/* Google Maps Card */}
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-purple-400/20 to-blue-400/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+              <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-              <Card className="w-full shadow-2xl bg-turquoise-800/90 backdrop-blur-sm rounded-3xl border border-turquoise-600/30 p-6 overflow-hidden">
+              <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-6 overflow-hidden hover:border-primary/40 hover:shadow-xl transition-all duration-300">
                 <CardHeader className="pb-4">
-                  <CardTitle className="text-xl font-semibold text-white flex items-center gap-2">
-                    <MdLocationOn className="w-6 h-6 text-turquoise-400" />
-                    📍 Hier findest du mich
+                  <CardTitle className="text-xl font-semibold text-foreground flex items-center gap-2">
+                    <MdLocationOn className="w-6 h-6 text-primary" />
+                    {t("findMe")}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
@@ -442,13 +441,12 @@ const ContactSection: React.FC = () => {
                       loading="lazy"
                       referrerPolicy="no-referrer-when-downgrade"
                     />
-                    {/* Enhanced Overlay */}
-                    <div className="absolute bottom-6 left-6 bg-turquoise-800/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-turquoise-600/30">
-                      <p className="text-sm font-semibold text-white">
-                        🏢 Wetzlar, Deutschland
+                    <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border">
+                      <p className="text-sm font-semibold text-foreground">
+                        {t("locationCity")}
                       </p>
-                      <p className="text-xs text-gray-300">
-                        Perfekt für lokale Zusammenarbeit
+                      <p className="text-xs text-muted-foreground">
+                        {t("locationDescription")}
                       </p>
                     </div>
                   </div>
@@ -461,25 +459,27 @@ const ContactSection: React.FC = () => {
         {/* ===== SOCIAL MEDIA SECTION ===== */}
         <section className="w-full max-w-4xl">
           <div className="relative group">
-            <div className="absolute -inset-2 bg-gradient-to-r from-gray-400/20 to-blue-400/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
+            <div className="absolute -inset-2 bg-gradient-to-r from-primary/20 to-primary/20 rounded-3xl blur-md -z-20 group-hover:blur-lg transition-all duration-300" />
 
-            <Card className="bg-turquoise-800/90 backdrop-blur-sm border border-turquoise-600/30 shadow-2xl rounded-3xl p-8">
-              <h3 className="text-2xl font-semibold text-white mb-8 text-center">
-                Weitere Kontaktmöglichkeiten
+            <Card className="bg-card backdrop-blur-sm border border-border shadow-xl rounded-3xl p-8 hover:border-primary/40 hover:shadow-xl transition-all duration-300">
+              <h3 className="text-2xl font-semibold text-foreground mb-8 text-center">
+                {t("moreContactOptions")}
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <a
                   href="https://wa.me/4917656120050"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-6 rounded-2xl bg-turquoise-800/50 hover:bg-turquoise-700/50 border border-turquoise-600/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                  className="flex items-center gap-4 p-6 rounded-2xl bg-muted/30 hover:bg-muted/50 border border-border transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/40 group"
                 >
-                  <FaWhatsapp className="w-8 h-8 text-green-400 group-hover:scale-110 transition-transform" />
+                  <FaWhatsapp className="w-8 h-8 text-[#25D366] group-hover:scale-110 transition-transform" />
                   <div>
-                    <div className="font-semibold text-white text-lg">
+                    <div className="font-semibold text-foreground text-lg">
                       WhatsApp
                     </div>
-                    <div className="text-sm text-gray-300">Schneller Chat</div>
+                    <div className="text-sm text-muted-foreground">
+                      {t("whatsappSubtitle")}
+                    </div>
                   </div>
                 </a>
 
@@ -487,14 +487,16 @@ const ContactSection: React.FC = () => {
                   href={siteConfig.links.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-6 rounded-2xl bg-turquoise-800/50 hover:bg-turquoise-700/50 border border-turquoise-600/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                  className="flex items-center gap-4 p-6 rounded-2xl bg-muted/30 hover:bg-muted/50 border border-border transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/40 group"
                 >
-                  <FaLinkedin className="w-8 h-8 text-turquoise-400 group-hover:scale-110 transition-transform" />
+                  <FaLinkedin className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
                   <div>
-                    <div className="font-semibold text-white text-lg">
+                    <div className="font-semibold text-foreground text-lg">
                       LinkedIn
                     </div>
-                    <div className="text-sm text-gray-300">Professionell</div>
+                    <div className="text-sm text-muted-foreground">
+                      {t("linkedinSubtitle")}
+                    </div>
                   </div>
                 </a>
 
@@ -502,14 +504,16 @@ const ContactSection: React.FC = () => {
                   href={siteConfig.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-4 p-6 rounded-2xl bg-turquoise-800/50 hover:bg-turquoise-700/50 border border-turquoise-600/30 transition-all duration-300 hover:scale-105 hover:shadow-lg group"
+                  className="flex items-center gap-4 p-6 rounded-2xl bg-muted/30 hover:bg-muted/50 border border-border transition-all duration-300 hover:scale-105 hover:shadow-lg hover:border-primary/40 group"
                 >
-                  <FaGithub className="w-8 h-8 text-gray-200 group-hover:scale-110 transition-transform" />
+                  <FaGithub className="w-8 h-8 text-foreground group-hover:scale-110 transition-transform" />
                   <div>
-                    <div className="font-semibold text-white text-lg">
+                    <div className="font-semibold text-foreground text-lg">
                       GitHub
                     </div>
-                    <div className="text-sm text-gray-300">Code & Projekte</div>
+                    <div className="text-sm text-muted-foreground">
+                      {t("githubSubtitle")}
+                    </div>
                   </div>
                 </a>
               </div>
@@ -518,15 +522,15 @@ const ContactSection: React.FC = () => {
         </section>
       </div>
 
-      {/* ===== ENHANCED ALERT DIALOG ===== */}
+      {/* ===== ALERT DIALOG ===== */}
       {showDialog && (
         <AlertDialog open={showDialog} onOpenChange={setShowDialog}>
-          <AlertDialogContent className="bg-turquoise-800 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-turquoise-600/30 max-w-md mx-4">
+          <AlertDialogContent className="bg-card backdrop-blur-sm rounded-3xl p-8 shadow-xl border border-border max-w-md mx-4">
             <AlertDialogHeader className="text-center mb-6">
-              <div className="w-20 h-20 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-6">
-                <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+              <div className="w-20 h-20 bg-muted rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-10 h-10 bg-primary rounded-full flex items-center justify-center">
                   <svg
-                    className="w-6 h-6 text-white"
+                    className="w-6 h-6 text-primary-foreground"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -540,16 +544,16 @@ const ContactSection: React.FC = () => {
                   </svg>
                 </div>
               </div>
-              <AlertDialogTitle className="text-2xl font-bold text-white">
+              <AlertDialogTitle className="text-2xl font-bold text-foreground">
                 {dialogContent.title}
               </AlertDialogTitle>
             </AlertDialogHeader>
-            <p className="text-center mb-8 text-gray-200 leading-relaxed text-lg">
+            <p className="text-center mb-8 text-muted-foreground leading-relaxed text-lg">
               {dialogContent.message}
             </p>
             <AlertDialogFooter className="flex gap-4">
               <Button
-                className="flex-1 bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white rounded-xl font-semibold h-12"
+                className="flex-1 bg-primary hover:bg-primary/90 text-primary-foreground rounded-xl font-semibold h-12"
                 onClick={() => {
                   router.push("/");
                 }}
@@ -559,7 +563,7 @@ const ContactSection: React.FC = () => {
               <Button
                 onClick={() => setShowDialog(false)}
                 variant="secondary"
-                className="flex-1 bg-turquoise-700/50 hover:bg-turquoise-700/70 text-white border border-turquoise-600/30 rounded-xl font-semibold h-12"
+                className="flex-1 bg-muted hover:bg-muted/80 text-foreground border border-border rounded-xl font-semibold h-12"
               >
                 {t("close")}
               </Button>

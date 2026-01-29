@@ -1,7 +1,7 @@
 "use client";
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Briefcase, Building2, Globe, Users, Zap } from "lucide-react";
+import { Briefcase, Building2, Globe, Users } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
@@ -13,29 +13,29 @@ const BlockchainSection: React.FC = () => {
       <div className="max-w-6xl mx-auto">
         {/* Digitalsocial.ID Case Study Card */}
         <div className="relative group">
-          <div className="absolute -inset-1 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl blur-md -z-10 group-hover:blur-lg transition-all duration-300" />
+          <div className="absolute -inset-1 bg-gradient-to-r from-primary/10 to-primary/10 rounded-2xl blur-md -z-10 group-hover:blur-lg transition-all duration-300" />
 
-          <Card className="w-full bg-turquoise-800/50 backdrop-blur border border-turquoise-600/30 rounded-2xl shadow-sm hover:shadow-md overflow-hidden">
-            <CardHeader className="pb-6 border-b border-turquoise-600/30">
+          <Card className="w-full bg-card backdrop-blur border border-border rounded-2xl shadow-sm hover:shadow-md hover:border-primary/40 overflow-hidden transition-all">
+            <CardHeader className="pb-6 border-b border-border">
               <div className="space-y-2">
-                <CardTitle className="text-2xl font-semibold text-white">
+                <CardTitle className="text-2xl font-semibold text-foreground">
                   {t("dsid.title")}
                 </CardTitle>
-                <p className="text-base text-gray-200">
+                <p className="text-base text-muted-foreground">
                   {t("dsid.subtitle")}
                 </p>
                 <div className="pt-4 space-y-2">
-                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                    <Globe className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                    <span className="font-medium text-gray-700 dark:text-gray-300">
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <Globe className="w-4 h-4 text-muted-foreground" />
+                    <span className="font-medium text-foreground">
                       {t("dsid.convention.title")}
                     </span>
                   </div>
-                  <p className="text-gray-200 text-sm leading-relaxed">
+                  <p className="text-muted-foreground text-sm leading-relaxed">
                     {t("dsid.convention.description")}
                   </p>
-                  <div className="flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400">
-                    <span className="w-2 h-2 bg-emerald-500 rounded-full"></span>
+                  <div className="flex items-center gap-2 text-sm text-muted-foreground">
+                    <span className="w-2 h-2 bg-primary rounded-full"></span>
                     {t("dsid.convention.location")}
                   </div>
                 </div>
@@ -49,22 +49,22 @@ const BlockchainSection: React.FC = () => {
                   {/* Tätigkeit */}
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <Briefcase className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-white">
+                      <Briefcase className="w-4 h-4 text-muted-foreground" />
+                      <h3 className="font-semibold text-foreground">
                         {t("dsid.activity.title")}
                       </h3>
                     </div>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                    <ul className="space-y-2 text-muted-foreground text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.activity.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.activity.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-blue-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.activity.items.2")}</span>
                       </li>
                     </ul>
@@ -73,22 +73,22 @@ const BlockchainSection: React.FC = () => {
                   {/* Verantwortung */}
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <Building2 className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-white">
+                      <Building2 className="w-4 h-4 text-muted-foreground" />
+                      <h3 className="font-semibold text-foreground">
                         {t("dsid.responsibility.title")}
                       </h3>
                     </div>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                    <ul className="space-y-2 text-muted-foreground text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.responsibility.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.responsibility.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-purple-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.responsibility.items.2")}</span>
                       </li>
                     </ul>
@@ -97,43 +97,43 @@ const BlockchainSection: React.FC = () => {
                   {/* Learnings */}
                   <div className="space-y-3">
                     <div className="flex items-center gap-2">
-                      <Users className="w-4 h-4 text-gray-500 dark:text-gray-400" />
-                      <h3 className="font-semibold text-white">
+                      <Users className="w-4 h-4 text-muted-foreground" />
+                      <h3 className="font-semibold text-foreground">
                         {t("dsid.learnings.title")}
                       </h3>
                     </div>
-                    <ul className="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                    <ul className="space-y-2 text-muted-foreground text-sm">
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.learnings.items.0")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.learnings.items.1")}</span>
                       </li>
                       <li className="flex items-start gap-2">
-                        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full mt-2 flex-shrink-0"></span>
+                        <span className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></span>
                         <span>{t("dsid.learnings.items.2")}</span>
                       </li>
                     </ul>
                   </div>
 
                   {/* Technologies */}
-                  <div className="pt-4 border-t border-turquoise-600/30">
+                  <div className="pt-4 border-t border-border">
                     <div className="flex flex-wrap gap-2">
-                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-muted border border-border text-muted-foreground rounded-full text-xs font-medium">
                         {t("dsid.technologies.0")}
                       </span>
-                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-muted border border-border text-muted-foreground rounded-full text-xs font-medium">
                         {t("dsid.technologies.1")}
                       </span>
-                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-muted border border-border text-muted-foreground rounded-full text-xs font-medium">
                         {t("dsid.technologies.2")}
                       </span>
-                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-muted border border-border text-muted-foreground rounded-full text-xs font-medium">
                         {t("dsid.technologies.3")}
                       </span>
-                      <span className="px-3 py-1 bg-turquoise-700/50 border border-turquoise-600/30 text-gray-200 rounded-full text-xs font-medium">
+                      <span className="px-3 py-1 bg-muted border border-border text-muted-foreground rounded-full text-xs font-medium">
                         {t("dsid.technologies.4")}
                       </span>
                     </div>

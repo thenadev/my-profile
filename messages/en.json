@@ -257,8 +257,13 @@
   },
   "About": {
     "Hero": {
+      "badge": "Profile",
       "title": "About me",
-      "description": "Discover the person behind the code - my passion for technology, my journey as a developer and what drives me."
+      "description": "Discover the person behind the code - my passion for technology, my journey as a developer and what drives me.",
+      "cta": {
+        "discussProject": "Discuss project",
+        "viewResume": "View resume"
+      }
     },
     "PersonalStory": {
       "title": "The person behind the code",
@@ -297,7 +302,12 @@
       },
       "bodybuildingImageAlt": "Thomas Schwabauer - GNBF Bodybuilding Competition 2018, 2nd Place",
       "bodybuildingTitle": "GNBF 2018 - 2nd Place",
-      "bodybuildingDescription": "Natural Bodybuilding - German Championship"
+      "bodybuildingDescription": "Natural Bodybuilding - German Championship",
+      "cta": {
+        "title": "Let's talk personally",
+        "description": "You have a project in mind? I'll help you bring it to life – from idea to implementation.",
+        "button": "Free initial consultation"
+      }
     },
     "PersonalValues": {
       "title": "What drives me",
@@ -350,6 +360,11 @@
           "Apple Integration",
           "QR-Code Login"
         ]
+      },
+      "cta": {
+        "title": "Looking for this expertise?",
+        "description": "With experience from automotive and enterprise projects, I bring structure and quality to your project.",
+        "button": "Discuss project"
       }
     },
     "BlockchainSection": {
@@ -400,6 +415,16 @@
     },
     "ContactSection": {
       "title": "Let's work together",
+      "description": "Whether web app, mobile app or consulting – I look forward to hearing from you. Free initial consultation included.",
+      "cta": {
+        "button": "Get in touch now",
+        "trustBadges": {
+          "experience": "Years of experience",
+          "satisfaction": "Satisfaction",
+          "response": "Quick response",
+          "free": "No obligation"
+        }
+      },
       "contact": {
         "email": "Email",
         "phone": "Phone",
@@ -412,7 +437,9 @@
     }
   },
   "Contact": {
+    "badge": "Contact",
     "title": "Contact",
+    "heroIntro": "I'm looking forward to hearing from you! Whether it's a project inquiry, collaboration or just a friendly hello – drop me a line. I usually respond within 24 hours.",
     "yourEmail": "Your Email",
     "emailPlaceholder": "example@domain.com",
     "topic": "Topic",
@@ -420,8 +447,23 @@
     "message": "Message",
     "messagePlaceholder": "Write your message here...",
     "sendMessage": "Send Message",
+    "submitButton": "Send message now",
+    "directContact": "Direct Contact",
     "directEmail": "Or email me directly at:",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
     "copied": "Copied!",
+    "copyEmail": "Copy email",
+    "copyPhone": "Copy phone number",
+    "findMe": "Find me here",
+    "locationCity": "Wetzlar, Germany",
+    "locationDescription": "Perfect for local collaboration",
+    "moreContactOptions": "More ways to get in touch",
+    "whatsappSubtitle": "Quick chat",
+    "linkedinSubtitle": "Professional",
+    "githubSubtitle": "Code & Projects",
+    "speechBubble": "Looking forward to your message! 💬",
     "imageAlt": "Illustrative Image",
     "successTitle": "Thanks for contacting me! 😁",
     "successMessage": "I will reach out to you very soon.",
@@ -741,6 +783,9 @@
     "description": "The page you’re looking for doesn’t exist or has moved. No worries – here are a few quick ways back.",
     "goHome": "Go to homepage",
     "contact": "Get in touch",
+    "popularPages": "Popular pages",
+    "webdesign": "Web design",
+    "aboutMe": "About me",
     "imageAlt": "Portrait of Thomas Schwabauer for 404 page"
   }
 }

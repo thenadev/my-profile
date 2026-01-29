@@ -1,6 +1,8 @@
 "use client";
 
+import { Badge } from "@/components/ui/badge";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
+import { motion, useInView } from "framer-motion";
 import {
   ArrowRight,
   Euro,
@@ -8,6 +10,7 @@ import {
   LayoutTemplate,
   Mail,
 } from "lucide-react";
+import { useRef } from "react";
 
 const QUICK_NAV_ITEMS = [
   {
@@ -43,7 +46,17 @@ function scrollToSection(sectionId: string) {
   }
 }
 
+const ANIMATION = {
+  ease: [0.16, 1, 0.3, 1] as const,
+  duration: 0.5,
+};
+
 export default function UnternehmenswebsiteQuickNav() {
+  const sectionRef = useRef(null);
+  const headerRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: "-50px" });
+  const headerInView = useInView(headerRef, { once: true, margin: "-50px" });
+
   const handleClick = (sectionId: string, label: string) => {
     sendGoogleEvent("quick_nav_click", {
       section: sectionId,
@@ -54,22 +67,50 @@ export default function UnternehmenswebsiteQuickNav() {
   };
 
   return (
-    <section
-      className="w-full bg-muted/30 border-y border-border"
+    <motion.section
+      ref={sectionRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+      className="w-full border-y border-border bg-gradient-to-b from-primary/10 via-primary/5 to-transparent"
       aria-label="Schnellnavigation"
     >
-      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-6 md:py-8">
-        <h2 className="text-center text-base md:text-lg font-semibold text-foreground mb-4 md:mb-5">
-          Was möchten Sie tun?
-        </h2>
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-10">
+        <motion.div
+          ref={headerRef}
+          className="text-center mb-6 md:mb-8"
+          initial={{ opacity: 0, y: 20 }}
+          animate={headerInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+        >
+          <Badge variant="secondary" className="mb-3 text-xs font-medium">
+            Schnellnavigation
+          </Badge>
+          <h2 className="text-xl md:text-2xl font-bold text-foreground mb-2">
+            Was möchten Sie tun?
+          </h2>
+          <p className="text-sm md:text-base text-muted-foreground max-w-xl mx-auto">
+            Springen Sie direkt zu den Informationen, die Sie brauchen – ohne
+            lange zu scrollen.
+          </p>
+        </motion.div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4">
-          {QUICK_NAV_ITEMS.map((item) => {
+          {QUICK_NAV_ITEMS.map((item, index) => {
             const Icon = item.icon;
             return (
-              <button
+              <motion.button
                 key={item.id}
                 type="button"
                 onClick={() => handleClick(item.id, item.label)}
+                initial={{ opacity: 0, y: 24 }}
+                animate={isInView ? { opacity: 1, y: 0 } : {}}
+                transition={{
+                  duration: ANIMATION.duration,
+                  delay: 0.1 + index * 0.08,
+                  ease: ANIMATION.ease,
+                }}
+                whileHover={{ y: -2, transition: { duration: 0.2 } }}
+                whileTap={{ scale: 0.98 }}
                 className="group flex items-center gap-3 md:gap-4 p-4 md:p-5 rounded-xl bg-background border border-border hover:border-[var(--hero-portrait-bg-mid)] hover:shadow-md active:scale-[0.99] transition-all text-left focus:outline-none focus:ring-2 focus:ring-[var(--hero-portrait-bg-mid)] focus:ring-offset-2 min-h-[72px] md:min-h-0"
                 aria-label={`Zu ${item.label} springen`}
               >
@@ -85,11 +126,11 @@ export default function UnternehmenswebsiteQuickNav() {
                   </span>
                 </span>
                 <ArrowRight className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0 text-muted-foreground group-hover:text-[var(--hero-portrait-bg-mid)] group-hover:translate-x-0.5 transition-all" />
-              </button>
+              </motion.button>
             );
           })}
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }
