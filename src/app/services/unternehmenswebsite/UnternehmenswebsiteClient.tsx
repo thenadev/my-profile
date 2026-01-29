@@ -22,12 +22,14 @@ import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
 import {
   CheckCircle,
+  CircleCheck,
   Clock,
-  Globe,
-  Lightbulb,
-  Shield,
+  ImageIcon,
+  Layout,
+  MessageCircle,
+  RefreshCw,
+  Sparkles,
   Target,
-  Users,
   Zap,
 } from "lucide-react";
 import Image from "next/image";
@@ -45,12 +47,18 @@ const PACKAGE_IMAGE = {
   sizes: "(max-width: 768px) 100vw, 33vw",
 } as const;
 
+/** Relaunch-Karte ist hervorgehoben und größer als die anderen */
+const RELAUNCH_SCALE = 1.06;
+/** Erste Website und Online-Shop – gleich groß, etwas kleiner als Relaunch */
+const STANDARD_CARDS_SCALE = 0.94;
+
 export default function UnternehmenswebsiteClient() {
   const router = useRouter();
   const zielgruppeRef = useRef(null);
   const paketeRef = useRef(null);
   const warumRef = useRef(null);
   const seoRef = useRef(null);
+  const faqRef = useRef(null);
   const zielgruppeInView = useInView(zielgruppeRef, {
     once: true,
     margin: "-80px",
@@ -58,6 +66,7 @@ export default function UnternehmenswebsiteClient() {
   const paketeInView = useInView(paketeRef, { once: true, margin: "-80px" });
   const warumInView = useInView(warumRef, { once: true, margin: "-80px" });
   const seoInView = useInView(seoRef, { once: true, margin: "-80px" });
+  const faqInView = useInView(faqRef, { once: true, margin: "-80px" });
 
   const handleCTAClick = (ctaType: string) => {
     sendGoogleEvent("cta_click", {
@@ -113,10 +122,11 @@ export default function UnternehmenswebsiteClient() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {TARGET_AUDIENCES.map((audience, index) => (
               <motion.div
                 key={index}
+                className="flex min-h-[360px]"
                 initial={{ opacity: 0, y: 32 }}
                 animate={zielgruppeInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
@@ -125,12 +135,9 @@ export default function UnternehmenswebsiteClient() {
                   ease: ANIMATION.ease,
                 }}
               >
-                <Card
-                  key={index}
-                  className="overflow-hidden bg-card border border-border/80 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group flex flex-col"
-                >
-                  {/* Bildbereich – volle Breite, großzügig */}
-                  <div className="relative aspect-[4/3] min-h-[240px] sm:min-h-[280px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-transparent to-muted/20">
+                <Card className="overflow-hidden bg-card border border-border/80 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group flex flex-col w-full min-h-full">
+                  {/* Bildbereich – feste Größe für einheitliche Cards */}
+                  <div className="relative h-[200px] sm:h-[220px] flex-shrink-0 flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-transparent to-muted/20">
                     <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10">
                       <Image
                         src={audience.image}
@@ -138,17 +145,16 @@ export default function UnternehmenswebsiteClient() {
                         width={480}
                         height={480}
                         sizes="(max-width: 640px) 100vw, 50vw"
-                        className="max-h-[200px] sm:max-h-[260px] md:max-h-[300px] w-auto object-contain drop-shadow-[0_4px_24px_rgba(26,181,189,0.2)] group-hover:scale-105 group-hover:drop-shadow-[0_8px_40px_rgba(26,181,189,0.3)] transition-all duration-300"
+                        className="max-h-[160px] sm:max-h-[180px] w-auto object-contain drop-shadow-[0_4px_24px_rgba(26,181,189,0.2)] group-hover:scale-105 group-hover:drop-shadow-[0_8px_40px_rgba(26,181,189,0.3)] transition-all duration-300"
                       />
                     </div>
-                    {/* Dezenter Rahmen für Tiefe */}
                     <div className="absolute inset-0 rounded-t-lg ring-1 ring-inset ring-white/5 pointer-events-none" />
                   </div>
-                  <CardContent className="p-6 flex flex-col flex-1">
+                  <CardContent className="p-6 flex flex-col flex-1 min-h-0">
                     <h3 className="font-semibold text-foreground text-lg leading-tight">
                       {audience.title}
                     </h3>
-                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">
+                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1 line-clamp-4">
                       {audience.description}
                     </p>
                   </CardContent>
@@ -182,26 +188,68 @@ export default function UnternehmenswebsiteClient() {
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end">
             {WEBSITE_PACKAGES.map((pkg, index) => (
               <motion.div
                 key={pkg.id}
-                initial={{ opacity: 0, y: 32 }}
-                animate={paketeInView ? { opacity: 1, y: 0 } : {}}
+                role="button"
+                tabIndex={0}
+                className="cursor-pointer group"
+                initial={{ opacity: 0, y: 32, scale: STANDARD_CARDS_SCALE }}
+                animate={
+                  paketeInView
+                    ? {
+                        opacity: 1,
+                        y: 0,
+                        scale:
+                          pkg.id === "relaunch"
+                            ? RELAUNCH_SCALE
+                            : STANDARD_CARDS_SCALE,
+                      }
+                    : {}
+                }
+                onClick={() => {
+                  sendGoogleEvent("package_click", {
+                    package: pkg.id,
+                    location: "landing_page",
+                  });
+                  handleCTAClick("contact_form");
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    sendGoogleEvent("package_click", {
+                      package: pkg.id,
+                      location: "landing_page",
+                    });
+                    handleCTAClick("contact_form");
+                  }
+                }}
                 transition={{
                   duration: ANIMATION.duration,
                   delay: 0.1 + index * 0.1,
                   ease: ANIMATION.ease,
                 }}
-                whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                whileHover={{
+                  y: -12,
+                  scale:
+                    pkg.id === "relaunch"
+                      ? RELAUNCH_SCALE * 1.03
+                      : STANDARD_CARDS_SCALE * 1.03,
+                  transition: {
+                    duration: 0.3,
+                    ease: [0.16, 1, 0.3, 1],
+                  },
+                }}
+                whileTap={{ scale: 0.98 }}
               >
                 <Card
                   key={pkg.id}
-                  className={`relative overflow-visible border-2 bg-card hover:shadow-xl transition-all duration-300 flex flex-col ${
+                  className={`relative overflow-visible border-2 bg-card flex flex-col min-h-[520px] transition-all duration-300 group/card ${
                     pkg.badge === "beliebt"
-                      ? "border-primary/50 shadow-lg scale-[1.02] md:scale-105"
+                      ? "border-primary/50 shadow-lg"
                       : "border-border hover:border-primary/30"
-                  }`}
+                  } group-hover:border-primary/60 group-hover:shadow-2xl group-hover:shadow-primary/25 group-hover:ring-2 group-hover:ring-primary/30`}
                 >
                   {/* Farbbalken oben */}
                   <div
@@ -214,7 +262,7 @@ export default function UnternehmenswebsiteClient() {
                     }`}
                   />
                   {pkg.badge && (
-                    <div className="absolute -top-2 -right-2 z-50 overflow-visible">
+                    <div className="absolute top-3 right-3 z-10">
                       <Badge
                         className={
                           pkg.badge === "beliebt"
@@ -315,16 +363,7 @@ export default function UnternehmenswebsiteClient() {
                         </li>
                       ))}
                     </ul>
-                    <Button
-                      className="w-full mt-auto bg-primary hover:bg-primary/90 text-primary-foreground"
-                      onClick={() => {
-                        sendGoogleEvent("package_click", {
-                          package: pkg.id,
-                          location: "landing_page",
-                        });
-                        handleCTAClick("contact_form");
-                      }}
-                    >
+                    <Button className="w-full mt-auto bg-primary hover:bg-primary/90 text-primary-foreground pointer-events-none">
                       {pkg.ctaText}
                     </Button>
                   </CardContent>
@@ -351,35 +390,60 @@ export default function UnternehmenswebsiteClient() {
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Warum Webdesign aus Wetzlar?
             </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Nahbar, unkompliziert und mit Fokus auf Ihr Ergebnis – so arbeite
+              ich mit Ihnen.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={warumInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: 0.05,
+              ease: ANIMATION.ease,
+            }}
+            className="relative w-full max-w-2xl mx-auto aspect-[16/10] rounded-xl overflow-hidden border border-border"
+          >
+            <Image
+              src="/me_local.jpeg"
+              alt="Thomas Schwabauer – Webdesigner aus Wetzlar"
+              width={672}
+              height={420}
+              className="object-cover w-full h-full"
+              sizes="(max-width: 768px) 100vw, 672px"
+            />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
             {[
+              {
+                icon: Sparkles,
+                title: "Wenig Aufwand – maximales Ergebnis",
+                desc: "Sie liefern Stichpunkte, Logo und Bilder – ich übernehme Konzept, Design und Umsetzung. Hochwertiger Output ohne Projektchaos.",
+              },
               {
                 icon: Target,
                 title: "Lokale Expertise",
-                desc: `Webdesign-Experte aus Wetzlar mit über ${getYearsOfExperience()} Jahren Erfahrung in der Region`,
+                desc: `Aus Wetzlar, für Wetzlar – Sie haben einen Ansprechpartner, keinen anonymen Dienstleister. Über ${getYearsOfExperience()} Jahre Erfahrung in der Region.`,
               },
               {
                 icon: Zap,
                 title: "Schnelle Umsetzung",
-                desc: "Professionelle Websites in 2-4 Wochen - schnell zur Online-Präsenz",
+                desc: "In 2–4 Wochen live – ohne dass Sie sich wochenlang kümmern müssen. Sie geben Feedback, den Rest erledige ich.",
               },
               {
-                icon: Shield,
-                title: "Sicher & Zuverlässig",
-                desc: "Moderne Sicherheitsstandards und zuverlässige Hosting-Lösungen",
-              },
-              {
-                icon: Globe,
-                title: "SEO-Optimiert",
-                desc: "Suchmaschinenoptimierung für bessere Sichtbarkeit in Wetzlar und Umgebung",
+                icon: RefreshCw,
+                title: "Überarbeitung, bis es passt",
+                desc: "Ich feile so lange am Ergebnis, bis es zu 100 % zu Ihnen passt. Kein Abnahme-Druck – Qualität, die überzeugt.",
               },
             ].map((item, index) => {
               const Icon = item.icon;
               return (
                 <motion.div
                   key={item.title}
+                  className="flex h-full"
                   initial={{ opacity: 0, y: 24 }}
                   animate={warumInView ? { opacity: 1, y: 0 } : {}}
                   transition={{
@@ -393,14 +457,14 @@ export default function UnternehmenswebsiteClient() {
                     transition: { duration: 0.2 },
                   }}
                 >
-                  <Card className="text-center p-6 bg-card border-border">
-                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Card className="flex flex-col flex-1 w-full text-center p-6 bg-card border-border">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <CardTitle className="text-lg mb-2 text-foreground">
                       {item.title}
                     </CardTitle>
-                    <CardDescription className="text-muted-foreground">
+                    <CardDescription className="text-muted-foreground flex-1 min-h-0">
                       {item.desc}
                     </CardDescription>
                   </Card>
@@ -410,10 +474,11 @@ export default function UnternehmenswebsiteClient() {
           </div>
         </motion.div>
 
-        {/* SEO Section */}
+        {/* So arbeiten wir zusammen */}
         <motion.div
           ref={seoRef}
-          className="w-full max-w-6xl space-y-8"
+          id="so-arbeiten-wir"
+          className="w-full max-w-6xl space-y-8 scroll-mt-20"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.3 }}
@@ -424,70 +489,92 @@ export default function UnternehmenswebsiteClient() {
             animate={seoInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
           >
+            <Badge variant="secondary" className="text-sm">
+              Ihr Weg zur Website
+            </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Webdesign Wetzlar - Ihre Vorteile
+              So arbeiten wir zusammen
             </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Kein langes Briefing, keine endlosen Abstimmungen – ein klares
+              Vorgehen mit direktem Draht zu Ihnen.
+            </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <motion.div
-              initial={{ opacity: 0, x: -24 }}
-              animate={seoInView ? { opacity: 1, x: 0 } : {}}
-              transition={{
-                duration: ANIMATION.duration,
-                delay: 0.15,
-                ease: ANIMATION.ease,
-              }}
-              whileHover={{ x: 4, transition: { duration: 0.2 } }}
-            >
-              <Card className="p-6 bg-card border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Lightbulb className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
+          {/* Bild-Platzhalter: z.B. Gespräch/Meeting oder Ergebnis – Bild in /public/services/unternehmenswebsite/ z.B. so-arbeiten-wir.jpg */}
+          {/* <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            animate={seoInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: 0.05,
+              ease: ANIMATION.ease,
+            }}
+            className="relative w-full max-w-2xl mx-auto aspect-[16/10] rounded-xl overflow-hidden bg-muted/50 border border-dashed border-border flex items-center justify-center"
+          >
+            <div className="flex items-center justify-center gap-2 text-muted-foreground">
+              <ImageIcon className="w-8 h-8" />
+              <span className="text-sm font-medium">
+                Bild einfügen (z.B. Gespräch / Ergebnis)
+              </span>
+            </div>
+          </motion.div> */}
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {[
+              {
+                icon: MessageCircle,
+                step: "1",
+                title: "Kurzes Gespräch",
+                desc: "Sie sagen mir, was Sie brauchen – ich stelle die richtigen Fragen. Kein Formular-Marathon, ein lockeres Kennenlernen.",
+              },
+              {
+                icon: Layout,
+                step: "2",
+                title: "Ich konzipiere & gestalte",
+                desc: "Sie liefern Logo, Texte oder Stichpunkte – ich übernehme Konzept, Design und Umsetzung. Sie müssen kaum eingreifen.",
+              },
+              {
+                icon: CircleCheck,
+                step: "3",
+                title: "Feinschliff gemeinsam",
+                desc: "Sie geben Feedback, ich überarbeite – so lange, bis alles zu 100 % passt. Dann geht Ihre Website live.",
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={seoInView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: ANIMATION.duration,
+                    delay: 0.1 + index * 0.1,
+                    ease: ANIMATION.ease,
+                  }}
+                  whileHover={{
+                    y: -4,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="flex h-full"
+                >
+                  <Card className="relative h-full w-full p-6 bg-card border-border text-center flex flex-col items-center">
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0">
+                      {item.step}
+                    </div>
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0 mt-2">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
                     <CardTitle className="text-xl mb-2 text-foreground">
-                      Lokale Präsenz
+                      {item.title}
                     </CardTitle>
-                    <CardDescription className="text-base text-muted-foreground">
-                      Als Webdesigner aus Wetzlar verstehe ich die lokale
-                      Wirtschaft und kann Ihre Website optimal auf die Region
-                      Mittelhessen ausrichten. Von Wetzlar über Gießen bis nach
-                      Frankfurt - ich kenne die lokalen Märkte und Zielgruppen.
+                    <CardDescription className="text-base text-muted-foreground flex-1 min-h-0">
+                      {item.desc}
                     </CardDescription>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 24 }}
-              animate={seoInView ? { opacity: 1, x: 0 } : {}}
-              transition={{
-                duration: ANIMATION.duration,
-                delay: 0.25,
-                ease: ANIMATION.ease,
-              }}
-              whileHover={{ x: -4, transition: { duration: 0.2 } }}
-            >
-              <Card className="p-6 bg-card border-border">
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Users className="h-6 w-6 text-primary" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-xl mb-2 text-foreground">
-                      Persönlicher Service
-                    </CardTitle>
-                    <CardDescription className="text-base text-muted-foreground">
-                      Direkter Kontakt ohne Zwischenhändler. Persönliche
-                      Beratung, regelmäßige Updates und ein direkter
-                      Ansprechpartner für alle Fragen rund um Ihr
-                      Webdesign-Projekt in Wetzlar.
-                    </CardDescription>
-                  </div>
-                </div>
-              </Card>
-            </motion.div>
+                  </Card>
+                </motion.div>
+              );
+            })}
           </div>
         </motion.div>
 
@@ -499,13 +586,29 @@ export default function UnternehmenswebsiteClient() {
           <UnternehmenswebsitePortfolio />
         </div>
 
-        {/* FAQ Section */}
-        <div id="faq" className="w-full scroll-mt-20">
-          <UnternehmenswebsiteFAQ />
-        </div>
-
         {/* Kontaktformular Section */}
         <UnternehmenswebsiteContactForm />
+
+        {/* FAQ Section – unter Contact */}
+        <motion.div
+          ref={faqRef}
+          id="faq"
+          className="w-full scroll-mt-20"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={faqInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              ease: ANIMATION.ease,
+            }}
+          >
+            <UnternehmenswebsiteFAQ />
+          </motion.div>
+        </motion.div>
 
         {/* Final CTA Section */}
         <UnternehmenswebsiteFinalCTA
