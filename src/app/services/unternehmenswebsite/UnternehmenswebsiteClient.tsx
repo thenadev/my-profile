@@ -64,7 +64,7 @@ export default function UnternehmenswebsiteClient() {
         {/* Zielgruppe – Für wen? */}
         <div
           id="zielgruppen"
-          className="w-full max-w-6xl space-y-10 scroll-mt-20"
+          className="w-full max-w-7xl space-y-10 scroll-mt-20"
         >
           <div className="text-center space-y-4">
             <Badge variant="secondary" className="text-sm">
@@ -80,28 +80,32 @@ export default function UnternehmenswebsiteClient() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {TARGET_AUDIENCES.map((audience, index) => (
               <Card
                 key={index}
-                className="overflow-hidden bg-card border border-border/80 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 transition-all duration-300 group flex flex-col"
+                className="overflow-hidden bg-card border border-border/80 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group flex flex-col"
               >
-                <div className="relative aspect-[4/3] min-h-[180px] sm:min-h-[220px] flex items-center justify-center p-4 sm:p-6 bg-gradient-to-b from-primary/10 via-muted/30 to-card overflow-hidden">
-                  <div className="relative flex items-center justify-center w-full h-full">
+                {/* Bildbereich – volle Breite, großzügig */}
+                <div className="relative aspect-[4/3] min-h-[240px] sm:min-h-[280px] flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-transparent to-muted/20">
+                  <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10">
                     <Image
                       src={audience.image}
                       alt={audience.title}
-                      width={280}
-                      height={280}
-                      className="h-[140px] sm:h-[180px] md:h-[200px] w-auto object-contain text-primary opacity-95 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+                      width={480}
+                      height={480}
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                      className="max-h-[200px] sm:max-h-[260px] md:max-h-[300px] w-auto object-contain drop-shadow-[0_4px_24px_rgba(26,181,189,0.2)] group-hover:scale-105 group-hover:drop-shadow-[0_8px_40px_rgba(26,181,189,0.3)] transition-all duration-300"
                     />
                   </div>
+                  {/* Dezenter Rahmen für Tiefe */}
+                  <div className="absolute inset-0 rounded-t-lg ring-1 ring-inset ring-white/5 pointer-events-none" />
                 </div>
-                <CardContent className="p-5 flex flex-col flex-1">
-                  <h3 className="font-semibold text-foreground text-base leading-tight">
+                <CardContent className="p-6 flex flex-col flex-1">
+                  <h3 className="font-semibold text-foreground text-lg leading-tight">
                     {audience.title}
                   </h3>
-                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed flex-1">
+                  <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1">
                     {audience.description}
                   </p>
                 </CardContent>

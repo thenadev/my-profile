@@ -1,0 +1,150 @@
+================================================================================
+ZIELGRUPPEN-SEKTION – Design-Optionen (statt einfaches Grid)
+================================================================================
+7 Zielgruppen-Bilder mit Titel und Beschreibung – alternative Layouts
+================================================================================
+
+--- OPTION 1: Bento Box / Masonry (unterschiedliche Karten-Größen) ---
+
+Konzept: Unregelmäßiges Grid – einige Karten größer (2x2), andere kleiner (1x1).
+         Z.B. erste 2 Karten groß, Rest in 2er-Reihen.
+
+Layout:
+  [  GROSS  ] [  GROSS  ]
+  [ mittel ] [ mittel ] [ mittel ]
+  [ mittel ] [ mittel ] [ mittel ]
+
+Vorteile: Dynamisch, modern, Bilder unterschiedlich prominent
+Nachteile: Uneinheitlich, kann unruhig wirken
+Stil: Apple-Website, moderne SaaS-Landingpages
+
+
+--- OPTION 2: Carousel / Slider (horizontal durchblätterbar) ---
+
+Konzept: Horizontale Leiste, 1–2 Karten sichtbar, Pfeile/Dots zum Navigieren.
+         Optional: Auto-Play, Swipe auf Mobile.
+
+Layout:
+  < [ Karte 1 ] [ Karte 2 ] ... >
+       ● ○ ○ ○ ○ ○ ○
+
+Vorteile: Fokus auf wenige Karten, spart Platz, interaktiv
+Nachteile: Nicht alle sofort sichtbar, UX-Aufwand
+Stil: Testimonial-Slider, Produkt-Karussells
+
+
+--- OPTION 3: Tabs (eine Zielgruppe pro Tab) ---
+
+Konzept: Tabs oben (Unternehmen ohne Website | Veraltete Website | …).
+         Klick wechselt Inhalt: großes Bild + Titel + Beschreibung.
+
+Layout:
+  [ Tab1 ] [ Tab2 ] [ Tab3 ] [ Tab4 ] ...
+  ┌─────────────────────────────────────┐
+  │         GROSSES BILD                 │
+  │         Titel                       │
+  │         Beschreibung                │
+  └─────────────────────────────────────┘
+
+Vorteile: Sehr großer Bild-Fokus, übersichtlich
+Nachteile: Nur eine Zielgruppe gleichzeitig sichtbar
+Stil: Feature-Tabs, Produkt-Details
+
+
+--- OPTION 4: Alternating / Zigzag (abwechselnd links/rechts) ---
+
+Konzept: Karten abwechselnd – Bild links, Text rechts | Bild rechts, Text links.
+         Volle Breite pro Karte, großes Bild.
+
+Layout:
+  [  BILD  ] |  Titel + Text
+  Titel + Text | [  BILD  ]
+  [  BILD  ] |  Titel + Text
+  ...
+
+Vorteile: Klare Leseführung, Bilder sehr groß, ruhig
+Nachteile: Längere Seite, viel Scrollen
+Stil: About-Sections, Feature-Listen
+
+
+--- OPTION 5: Sticky Sidebar (Liste links, Inhalt rechts) ---
+
+Konzept: Links feste Liste der 7 Zielgruppen (Namen). Rechts großes Bild + Text.
+         Klick auf Namen wechselt Inhalt rechts. Liste bleibt beim Scrollen sichtbar.
+
+Layout:
+  ┌──────────┬─────────────────────────┐
+  │ • Ohne   │                         │
+  │   Website│    GROSSES BILD         │
+  │ • Veralt.│                         │
+  │ • Freiber│    Titel                │
+  │ • Handw. │    Beschreibung         │
+  │ • Lokal  │                         │
+  │ • Gastr. │                         │
+  │ • Neugr. │                         │
+  └──────────┴─────────────────────────┘
+
+Vorteile: Sehr großer Bildbereich, klare Navigation
+Nachteile: Komplexer, braucht mehr Platz
+Stil: Dokumentation, Kategorie-Seiten
+
+
+--- OPTION 6: Full-Width Carousel (ein Bild pro View) ---
+
+Konzept: Eine Karte pro „Slide“, fast volle Breite. Großes Bild, darunter Titel + Text.
+         Pfeile links/rechts, Dots unten. Ähnlich Hero-Slider.
+
+Layout:
+  <     [  SEHR GROSSES BILD  ]     >
+           Titel
+           Beschreibung
+              ● ○ ○ ○ ○ ○ ○
+
+Vorteile: Maximale Bildwirkung, fokussiert
+Nachteile: Nur 1 von 7 sichtbar, mehr Klicks
+Stil: Portfolio, Galerie, Hero-Rotation
+
+
+--- OPTION 7: Accordion (aufklappbar) ---
+
+Konzept: 7 Zeilen – nur Titel sichtbar. Klick öffnet: Bild + Beschreibung.
+         Nur eine Zeile gleichzeitig offen (oder mehrere).
+
+Layout:
+  ▼ Unternehmen ohne Website
+    [ Bild ]  Beschreibung...
+  ▶ Veraltete Website
+  ▶ Freiberufler & Solo-Selbstständige
+  ▶ ...
+
+Vorteile: Kompakt, wenig Scrollen, interaktiv
+Nachteile: Bilder erst nach Klick sichtbar
+Stil: FAQ, Produkt-Specs
+
+
+--- OPTION 8: Showcase (großes Bild + Thumbnails) ---
+
+Konzept: Oben ein großes Bild (aktiv ausgewählt). Darunter 7 kleine Thumbnails.
+         Klick auf Thumbnail wechselt großes Bild + Text.
+
+Layout:
+  ┌─────────────────────────────────────┐
+  │         AKTIVES GROSSES BILD        │
+  │         Titel + Beschreibung        │
+  └─────────────────────────────────────┘
+  [img1] [img2] [img3] [img4] [img5] [img6] [img7]
+
+Vorteile: Galerie-Feeling, Bilder im Fokus
+Nachteile: Ähnlich Tabs, nur 1 aktiv
+Stil: Produktbilder, Portfolio-Galerie
+
+
+================================================================================
+EMPFEHLUNG NACH EINSATZZWECK
+================================================================================
+- Maximale Bildwirkung:     Option 6 (Full-Width Carousel) oder Option 4 (Zigzag)
+- Übersicht + Interaktion:  Option 2 (Carousel) oder Option 3 (Tabs)
+- Modern & dynamisch:      Option 1 (Bento Box)
+- Kompakt:                  Option 7 (Accordion)
+- Klare Navigation:         Option 5 (Sticky Sidebar) oder Option 8 (Showcase)
+================================================================================
