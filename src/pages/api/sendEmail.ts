@@ -5,10 +5,10 @@ import nodemailer from "nodemailer";
 // API Handler Function
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   if (req.method === "POST") {
-    const { email, topic, message } = req.body;
+    const { email, topic, message, packageId, phone } = req.body;
 
     // Set up Nodemailer transport using STRATO SMTP
     const transporter = nodemailer.createTransport({
@@ -21,6 +21,28 @@ export default async function handler(
       },
     });
 
+    const packageLabel =
+      packageId === "starter"
+        ? "Erste Website"
+        : packageId === "relaunch"
+          ? "Website Relaunch"
+          : packageId === "shop"
+            ? "Online-Shop"
+            : packageId === "other"
+              ? "Noch unklar / Beratung"
+              : packageId || "-";
+    const phoneLine = phone ? `Telefon: ${phone}\n` : "";
+    const bodyText =
+      "Thema: " +
+      topic +
+      "\nVon: " +
+      email +
+      "\n" +
+      phoneLine +
+      (packageId ? "Paket: " + packageLabel + "\n" : "") +
+      "\n" +
+      message;
+
     try {
       // Sending the email
       await transporter.sendMail({
@@ -28,7 +50,7 @@ export default async function handler(
         to: process.env.EMAIL_SENDER_ADDR,
         replyTo: email,
         subject: `Contact Form Submission: ${topic}`,
-        text: "Thema: " + topic + "\nVon: " + email + "\n\n" + message,
+        text: bodyText,
       });
 
       res.status(200).json({ message: "Email sent successfully" });

@@ -34,12 +34,21 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 const ANIMATION = {
   ease: [0.16, 1, 0.3, 1] as const,
   duration: 0.5,
 };
+/** Verzögerung zwischen Elementen beim Einblenden (nach und nach sichtbar) */
+const STAGGER = {
+  header: 0,
+  start: 0.2,
+  item: 0.12,
+} as const;
+
+/** Viewport für Karten: Animation triggert, wenn die Karte selbst sichtbar wird */
+const CARD_VIEWPORT = { once: true, margin: "-60px 0px -60px 0px" } as const;
 
 /** Bildgröße für Package-Karten – Icons sind 800×800 (quadratisch) */
 const PACKAGE_IMAGE = {
@@ -59,6 +68,9 @@ export default function UnternehmenswebsiteClient() {
   const warumRef = useRef(null);
   const seoRef = useRef(null);
   const faqRef = useRef(null);
+  const [selectedPackageId, setSelectedPackageId] = useState<string | null>(
+    null,
+  );
   const zielgruppeInView = useInView(zielgruppeRef, {
     once: true,
     margin: "-80px",
@@ -68,11 +80,13 @@ export default function UnternehmenswebsiteClient() {
   const seoInView = useInView(seoRef, { once: true, margin: "-80px" });
   const faqInView = useInView(faqRef, { once: true, margin: "-80px" });
 
-  const handleCTAClick = (ctaType: string) => {
+  const handleCTAClick = (ctaType: string, packageId?: string) => {
+    if (packageId) setSelectedPackageId(packageId);
     sendGoogleEvent("cta_click", {
       cta_type: ctaType,
       location: "landing_page",
       service: "unternehmenswebsite",
+      ...(packageId && { package: packageId }),
     });
     if (ctaType === "contact_form") {
       setTimeout(() => {
@@ -99,15 +113,16 @@ export default function UnternehmenswebsiteClient() {
           ref={zielgruppeRef}
           id="zielgruppen"
           className="w-full max-w-7xl space-y-10 scroll-mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
         >
           <motion.div
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 24 }}
             animate={zielgruppeInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
             <Badge variant="secondary" className="text-sm">
               Für wen?
@@ -128,10 +143,11 @@ export default function UnternehmenswebsiteClient() {
                 key={index}
                 className="flex min-h-[360px]"
                 initial={{ opacity: 0, y: 32 }}
-                animate={zielgruppeInView ? { opacity: 1, y: 0 } : {}}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={CARD_VIEWPORT}
                 transition={{
                   duration: ANIMATION.duration,
-                  delay: 0.1 + index * 0.08,
+                  delay: index * STAGGER.item,
                   ease: ANIMATION.ease,
                 }}
               >
@@ -169,15 +185,16 @@ export default function UnternehmenswebsiteClient() {
           ref={paketeRef}
           id="preise"
           className="w-full max-w-6xl space-y-8 scroll-mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
         >
           <motion.div
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 24 }}
             animate={paketeInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Webdesign-Pakete für Ihr Unternehmen
@@ -196,24 +213,21 @@ export default function UnternehmenswebsiteClient() {
                 tabIndex={0}
                 className="cursor-pointer group"
                 initial={{ opacity: 0, y: 32, scale: STANDARD_CARDS_SCALE }}
-                animate={
-                  paketeInView
-                    ? {
-                        opacity: 1,
-                        y: 0,
-                        scale:
-                          pkg.id === "relaunch"
-                            ? RELAUNCH_SCALE
-                            : STANDARD_CARDS_SCALE,
-                      }
-                    : {}
-                }
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale:
+                    pkg.id === "relaunch"
+                      ? RELAUNCH_SCALE
+                      : STANDARD_CARDS_SCALE,
+                }}
+                viewport={CARD_VIEWPORT}
                 onClick={() => {
                   sendGoogleEvent("package_click", {
                     package: pkg.id,
                     location: "landing_page",
                   });
-                  handleCTAClick("contact_form");
+                  handleCTAClick("contact_form", pkg.id);
                 }}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" || e.key === " ") {
@@ -222,12 +236,12 @@ export default function UnternehmenswebsiteClient() {
                       package: pkg.id,
                       location: "landing_page",
                     });
-                    handleCTAClick("contact_form");
+                    handleCTAClick("contact_form", pkg.id);
                   }
                 }}
                 transition={{
                   duration: ANIMATION.duration,
-                  delay: 0.1 + index * 0.1,
+                  delay: index * STAGGER.item,
                   ease: ANIMATION.ease,
                 }}
                 whileHover={{
@@ -374,18 +388,16 @@ export default function UnternehmenswebsiteClient() {
         </motion.div>
 
         {/* Why Choose Us */}
-        <motion.div
-          ref={warumRef}
-          className="w-full max-w-6xl space-y-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
+        <motion.div ref={warumRef} className="w-full max-w-6xl space-y-8">
           <motion.div
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 24 }}
             animate={warumInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
               Warum Webdesign aus Wetzlar?
@@ -398,10 +410,11 @@ export default function UnternehmenswebsiteClient() {
 
           <motion.div
             initial={{ opacity: 0, y: 16 }}
-            animate={warumInView ? { opacity: 1, y: 0 } : {}}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={CARD_VIEWPORT}
             transition={{
               duration: ANIMATION.duration,
-              delay: 0.05,
+              delay: 0,
               ease: ANIMATION.ease,
             }}
             className="relative w-full max-w-2xl mx-auto aspect-[16/10] rounded-xl overflow-hidden border border-border"
@@ -445,10 +458,11 @@ export default function UnternehmenswebsiteClient() {
                   key={item.title}
                   className="flex h-full"
                   initial={{ opacity: 0, y: 24 }}
-                  animate={warumInView ? { opacity: 1, y: 0 } : {}}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={CARD_VIEWPORT}
                   transition={{
                     duration: ANIMATION.duration,
-                    delay: 0.1 + index * 0.08,
+                    delay: index * STAGGER.item,
                     ease: ANIMATION.ease,
                   }}
                   whileHover={{
@@ -479,15 +493,16 @@ export default function UnternehmenswebsiteClient() {
           ref={seoRef}
           id="so-arbeiten-wir"
           className="w-full max-w-6xl space-y-8 scroll-mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
         >
           <motion.div
             className="text-center space-y-4"
             initial={{ opacity: 0, y: 24 }}
             animate={seoInView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
             <Badge variant="secondary" className="text-sm">
               Ihr Weg zur Website
@@ -500,25 +515,6 @@ export default function UnternehmenswebsiteClient() {
               Vorgehen mit direktem Draht zu Ihnen.
             </p>
           </motion.div>
-
-          {/* Bild-Platzhalter: z.B. Gespräch/Meeting oder Ergebnis – Bild in /public/services/unternehmenswebsite/ z.B. so-arbeiten-wir.jpg */}
-          {/* <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={seoInView ? { opacity: 1, y: 0 } : {}}
-            transition={{
-              duration: ANIMATION.duration,
-              delay: 0.05,
-              ease: ANIMATION.ease,
-            }}
-            className="relative w-full max-w-2xl mx-auto aspect-[16/10] rounded-xl overflow-hidden bg-muted/50 border border-dashed border-border flex items-center justify-center"
-          >
-            <div className="flex items-center justify-center gap-2 text-muted-foreground">
-              <ImageIcon className="w-8 h-8" />
-              <span className="text-sm font-medium">
-                Bild einfügen (z.B. Gespräch / Ergebnis)
-              </span>
-            </div>
-          </motion.div> */}
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
             {[
@@ -546,10 +542,11 @@ export default function UnternehmenswebsiteClient() {
                 <motion.div
                   key={item.title}
                   initial={{ opacity: 0, y: 24 }}
-                  animate={seoInView ? { opacity: 1, y: 0 } : {}}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={CARD_VIEWPORT}
                   transition={{
                     duration: ANIMATION.duration,
-                    delay: 0.1 + index * 0.1,
+                    delay: index * STAGGER.item,
                     ease: ANIMATION.ease,
                   }}
                   whileHover={{
@@ -579,30 +576,62 @@ export default function UnternehmenswebsiteClient() {
         </motion.div>
 
         {/* Social Proof Section */}
-        <UnternehmenswebsiteSocialProof />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={CARD_VIEWPORT}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: 0,
+            ease: ANIMATION.ease,
+          }}
+          className="w-full"
+        >
+          <UnternehmenswebsiteSocialProof />
+        </motion.div>
 
         {/* Portfolio Section */}
-        <div id="portfolio" className="w-full scroll-mt-20">
+        <motion.div
+          id="portfolio"
+          className="w-full scroll-mt-20"
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={CARD_VIEWPORT}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: STAGGER.item,
+            ease: ANIMATION.ease,
+          }}
+        >
           <UnternehmenswebsitePortfolio />
-        </div>
+        </motion.div>
 
         {/* Kontaktformular Section */}
-        <UnternehmenswebsiteContactForm />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={CARD_VIEWPORT}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: 0,
+            ease: ANIMATION.ease,
+          }}
+          className="w-full"
+        >
+          <UnternehmenswebsiteContactForm
+            selectedPackageId={selectedPackageId}
+            onPackageAcknowledged={() => setSelectedPackageId(null)}
+          />
+        </motion.div>
 
         {/* FAQ Section – unter Contact */}
-        <motion.div
-          ref={faqRef}
-          id="faq"
-          className="w-full scroll-mt-20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.3 }}
-        >
+        <motion.div ref={faqRef} id="faq" className="w-full scroll-mt-20">
           <motion.div
             initial={{ opacity: 0, y: 24 }}
             animate={faqInView ? { opacity: 1, y: 0 } : {}}
             transition={{
               duration: ANIMATION.duration,
+              delay: STAGGER.header,
               ease: ANIMATION.ease,
             }}
           >
@@ -611,9 +640,21 @@ export default function UnternehmenswebsiteClient() {
         </motion.div>
 
         {/* Final CTA Section */}
-        <UnternehmenswebsiteFinalCTA
-          onContactClick={() => handleCTAClick("contact_form")}
-        />
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={CARD_VIEWPORT}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: 0,
+            ease: ANIMATION.ease,
+          }}
+          className="w-full flex justify-center pb-16 md:pb-24"
+        >
+          <UnternehmenswebsiteFinalCTA
+            onContactClick={() => handleCTAClick("contact_form")}
+          />
+        </motion.div>
       </div>
     </div>
   );

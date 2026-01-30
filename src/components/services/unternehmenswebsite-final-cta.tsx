@@ -15,7 +15,7 @@ export default function UnternehmenswebsiteFinalCTA({
   onContactClick,
 }: UnternehmenswebsiteFinalCTAProps) {
   return (
-    <div className="w-full max-w-4xl text-center space-y-6 bg-card backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-border">
+    <div className="w-full max-w-4xl mx-auto text-center space-y-6 bg-card backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-border">
       <div className="flex items-center justify-center gap-2 mb-4">
         <Clock className="h-5 w-5 text-primary" />
         <span className="text-sm font-semibold text-primary">

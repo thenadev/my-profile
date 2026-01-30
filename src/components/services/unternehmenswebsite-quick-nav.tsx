@@ -26,16 +26,16 @@ const QUICK_NAV_ITEMS = [
     icon: LayoutTemplate,
   },
   {
-    id: "faq",
-    label: "Häufige Fragen",
-    description: "Antworten zu Dauer, Kosten und Ablauf",
-    icon: HelpCircle,
-  },
-  {
     id: "contact-form-section",
     label: "Jetzt anfragen",
     description: "Kostenlose Erstberatung vereinbaren",
     icon: Mail,
+  },
+  {
+    id: "faq",
+    label: "Häufige Fragen",
+    description: "Antworten zu Dauer, Kosten und Ablauf",
+    icon: HelpCircle,
   },
 ] as const;
 
@@ -50,6 +50,7 @@ const ANIMATION = {
   ease: [0.16, 1, 0.3, 1] as const,
   duration: 0.5,
 };
+const STAGGER = { header: 0, start: 0.2, item: 0.12 } as const;
 
 export default function UnternehmenswebsiteQuickNav() {
   const sectionRef = useRef(null);
@@ -81,7 +82,11 @@ export default function UnternehmenswebsiteQuickNav() {
           className="text-center mb-6 md:mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={headerInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: STAGGER.header,
+            ease: ANIMATION.ease,
+          }}
         >
           <Badge variant="secondary" className="mb-3 text-xs font-medium">
             Schnellnavigation
@@ -106,7 +111,7 @@ export default function UnternehmenswebsiteQuickNav() {
                 animate={isInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: ANIMATION.duration,
-                  delay: 0.1 + index * 0.08,
+                  delay: STAGGER.start + index * STAGGER.item,
                   ease: ANIMATION.ease,
                 }}
                 whileHover={{ y: -2, transition: { duration: 0.2 } }}
