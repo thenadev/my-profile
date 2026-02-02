@@ -1,6 +1,7 @@
 // RootLayout.tsx - Server Component (No "use client")
 import CookieConsent from "@/components/CookieConsent";
 import GoogleConsentScript from "@/components/GoogleConsentScript";
+import PageViewTracker from "@/components/PageViewTracker";
 import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
 import { NextIntlClientProvider } from "next-intl";
@@ -115,6 +116,7 @@ export default async function RootLayout({
         <NextIntlClientProvider messages={messages}>
           <NavigationWrapper />
           <CookieConsent />
+          <PageViewTracker />
           {children}
           <div className="moving-gradient-overlay" />
           <SiteFooter />
