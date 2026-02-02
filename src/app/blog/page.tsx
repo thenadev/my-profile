@@ -43,7 +43,12 @@ const BlogPage: NextPage = () => {
   return (
     <div className="bg-background min-h-screen">
       <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl sm:text-5xl font-bold mb-10 text-center text-foreground">Blog</h1>
+        <header className="text-center mb-12">
+          <h1 className="text-4xl sm:text-5xl font-bold mb-4 text-foreground">Blog</h1>
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Artikel zu Webentwicklung, React, Flutter, Angular und Mobile Apps. Insights und Erfahrungen von Thomas Schwabauer – Fullstack Developer aus Wetzlar.
+          </p>
+        </header>
 
         {loading && (
           <div className="text-center py-10">
