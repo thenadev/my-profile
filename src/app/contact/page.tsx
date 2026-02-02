@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { siteConfig } from "@/config/site";
 import { cn } from "@/lib/utils";
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
@@ -81,6 +82,7 @@ const ContactSection: React.FC = () => {
       });
 
       if (response.ok) {
+        sendGoogleEvent("SUBMIT_LEAD_FORM", { form_location: "contact_page" });
         setDialogContent({
           title: t("successTitle"),
           message: t("successMessage"),

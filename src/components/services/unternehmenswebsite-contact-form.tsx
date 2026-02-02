@@ -126,6 +126,11 @@ export default function UnternehmenswebsiteContactForm({
       });
 
       if (response.ok) {
+        sendGoogleEvent("SUBMIT_LEAD_FORM", {
+          form_location: "landing_page",
+          service: "unternehmenswebsite",
+          ...(data.packageId ? { package: data.packageId } : {}),
+        });
         sendGoogleEvent("contact_form_success", {
           form_location: "landing_page",
           service: "unternehmenswebsite",

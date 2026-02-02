@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { forwardRef, useImperativeHandle, useState } from "react";
@@ -108,6 +109,10 @@ export const CheckoutForm = forwardRef<
             throw new Error("Fehler beim Senden der Anfrage");
           }
 
+          sendGoogleEvent("SUBMIT_LEAD_FORM", {
+            form_location: "checkout",
+            service: "unternehmenswebsite",
+          });
           onSubmit(formData);
           setShowSuccessDialog(true);
         } catch (error) {
