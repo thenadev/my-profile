@@ -1,5 +1,6 @@
 // RootLayout.tsx - Server Component (No "use client")
 import CookieConsent from "@/components/CookieConsent";
+import GoogleConsentScript from "@/components/GoogleConsentScript";
 import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
 import { NextIntlClientProvider } from "next-intl";
@@ -108,6 +109,7 @@ export default async function RootLayout({
             __html: JSON.stringify([PersonSchema, WebsiteSchema]),
           }}
         />
+        <GoogleConsentScript />
       </head>
       <body className="overflow-x-hidden">
         <NextIntlClientProvider messages={messages}>

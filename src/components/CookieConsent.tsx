@@ -9,6 +9,7 @@ declare global {
   interface Window {
     GA_INITIALIZED?: boolean;
     META_PIXEL_INITIALIZED?: boolean;
+    gtag?: (...args: unknown[]) => void;
   }
 }
 
@@ -259,6 +260,9 @@ export default function CookieConsent() {
           logConsent();
         },
       });
+
+      // Consent-Status synchronisieren (z. B. bei Rückkehr mit gespeicherter Einwilligung)
+      logConsent();
     }
 
     function logConsent() {
@@ -271,17 +275,33 @@ export default function CookieConsent() {
         const TRACKING_ID = "G-63C2KDFQHT";
         const META_PIXEL_ID = "557324587373445";
 
-        // Initialisiere Google Analytics nur, wenn Statistik-Cookies akzeptiert wurden
+        // Google Consent Mode v2: Einwilligung an gtag übermitteln
+        const statistikAccepted =
+          CookieConsent.acceptedCategory &&
+          CookieConsent.acceptedCategory("statistik");
+        const marketingAccepted =
+          CookieConsent.acceptedCategory &&
+          CookieConsent.acceptedCategory("marketing");
+
+        if (typeof window !== "undefined" && window.gtag) {
+          window.gtag("consent", "update", {
+            ad_storage: marketingAccepted ? "granted" : "denied",
+            ad_user_data: marketingAccepted ? "granted" : "denied",
+            ad_personalization: marketingAccepted ? "granted" : "denied",
+            analytics_storage: statistikAccepted ? "granted" : "denied",
+          });
+        }
+
+        // ReactGA für Event-Tracking (gtag/GA4 läuft bereits mit Consent Mode)
         if (
           typeof window !== "undefined" &&
-          CookieConsent.acceptedCategory &&
-          CookieConsent.acceptedCategory("statistik")
+          process.env.NODE_ENV === "production" &&
+          !window.GA_INITIALIZED
         ) {
-          if (process.env.NODE_ENV === "production" && !window.GA_INITIALIZED) {
-            ReactGA.initialize(TRACKING_ID);
-            window.GA_INITIALIZED = true;
-          }
-        } else {
+          ReactGA.initialize(TRACKING_ID);
+          window.GA_INITIALIZED = true;
+        }
+        if (!statistikAccepted) {
           window.GA_INITIALIZED = false;
           ReactGA.reset();
         }
