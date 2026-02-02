@@ -30,9 +30,17 @@ export default function CookieConsent() {
       // Dynamisch importieren um Typen-Konflikte zu vermeiden
       const CookieConsent = await import("vanilla-cookieconsent");
 
+      // hideFromBots bei Tag-Debug/Preview deaktivieren, damit das Banner angezeigt wird
+      const isDebugMode =
+        typeof window !== "undefined" &&
+        /[?&](gtm_debug|gtm_preview|debug)=/i.test(
+          window.location.search
+        );
+      const hideFromBots = !isDebugMode;
+
       CookieConsent.run({
         mode: "opt-in",
-        hideFromBots: true,
+        hideFromBots,
         guiOptions: {
           consentModal: {
             layout: "box",
