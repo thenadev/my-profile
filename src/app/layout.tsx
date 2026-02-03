@@ -1,6 +1,8 @@
 // RootLayout.tsx - Server Component (No "use client")
+import { GTM_ID } from "@/config/analytics";
 import CookieConsent from "@/components/CookieConsent";
 import GoogleConsentScript from "@/components/GoogleConsentScript";
+import GoogleTagManager from "@/components/GoogleTagManager";
 import PageViewTracker from "@/components/PageViewTracker";
 import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
@@ -9,7 +11,10 @@ import { getLocale, getMessages } from "next-intl/server";
 import { ReactNode } from "react";
 import "./globals.css";
 
+const SITE_URL = "https://www.thomas-schwabauer.de";
+
 export const metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Thomas Schwabauer - Fullstack Developer aus Wetzlar",
     template: "%s | Thomas Schwabauer - Fullstack Developer Wetzlar",
@@ -110,9 +115,25 @@ export default async function RootLayout({
             __html: JSON.stringify([PersonSchema, WebsiteSchema]),
           }}
         />
+        {process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION && (
+          <meta
+            name="google-site-verification"
+            content={process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION}
+          />
+        )}
         <GoogleConsentScript />
+        <GoogleTagManager />
       </head>
       <body className="overflow-x-hidden">
+        {/* Google Tag Manager (noscript) */}
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          />
+        </noscript>
         <NextIntlClientProvider messages={messages}>
           <NavigationWrapper />
           <CookieConsent />
