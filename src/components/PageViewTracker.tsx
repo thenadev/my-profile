@@ -1,9 +1,8 @@
 "use client";
 
+import { GA_MEASUREMENT_ID } from "@/config/analytics";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
-
-const GA_MEASUREMENT_ID = "G-63C2KDFQHT";
 
 /**
  * Sendet page_view an GA4 bei Client-Side-Navigation.

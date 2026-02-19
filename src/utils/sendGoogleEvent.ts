@@ -14,7 +14,6 @@ export const sendGoogleEvent = (
       action: eventName,
       ...params,
     });
-    console.log("Sending Google event:", eventName, params);
   } catch (error) {
     console.error("Error sending Google event:", error);
   }

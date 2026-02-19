@@ -50,9 +50,9 @@ const STAGGER = {
 /** Viewport für Karten: Animation triggert, wenn die Karte selbst sichtbar wird */
 const CARD_VIEWPORT = { once: true, margin: "-60px 0px -60px 0px" } as const;
 
-/** Bildgröße für Package-Karten – Icons sind 800×800 (quadratisch) */
+/** Bildgröße für Package-Karten – große Icons (einheitlich mit Startup/App) */
 const PACKAGE_IMAGE = {
-  size: 180,
+  size: 220,
   sizes: "(max-width: 768px) 100vw, 33vw",
 } as const;
 

@@ -44,6 +44,10 @@ export const menuItems: MenuItem[] = [
         href: "/services/startup-beratung",
       },
       {
+        title: "App-Entwicklung",
+        href: "/services/app-entwicklung",
+      },
+      {
         title: "Unternehmenswebsite",
         href: "/services/unternehmenswebsite",
       },

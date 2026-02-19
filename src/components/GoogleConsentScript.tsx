@@ -4,7 +4,7 @@
  *
  * Reihenfolge ist kritisch: consent default VOR config/event.
  */
-const GA_MEASUREMENT_ID = "G-63C2KDFQHT";
+import { GA_MEASUREMENT_ID } from "@/config/analytics";
 
 export default function GoogleConsentScript() {
   return (

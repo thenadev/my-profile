@@ -1,0 +1,195 @@
+# Plan: Überarbeitung Contact Page Design
+
+## Ausgangslage
+
+Die Contact Page nutzt noch das **alte Farbschema** mit hart codierten Turquoise-Klassen:
+- `bg-turquoise-800` als Haupt-Hintergrund
+- `bg-turquoise-800/90`, `border-turquoise-600/30` für Cards
+- `text-gray-200`, `text-white` statt semantischer Tokens
+- Inkonsistente Akzentfarben: `green-400`, `purple-400`, `blue-400` in verschiedenen Cards
+
+Die restliche Website (About, Services, Unternehmenswebsite) nutzt das **neue Design-System**:
+- `bg-background` (dunkles Teal: hsl(186 50% 6%))
+- Semantische Tokens: `text-foreground`, `text-muted-foreground`, `bg-card`, `border-border`
+- `primary` für Akzente statt turquoise-spezifischer Klassen
+- Hero-Gradient: `from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)]`
+
+---
+
+## Überarbeitungsplan
+
+### 1. Hintergrund & Layout-Basis
+
+**Aktuell:**
+```tsx
+className="... bg-turquoise-800 text-gray-200"
+```
+
+**Neu:**
+- Haupt-Container: `bg-background` (wie About/Services)
+- Optional: dezentes Dot-Pattern oder Gradient-Overlay wie auf anderen Seiten
+- Text: `text-foreground` und `text-muted-foreground` für Beschreibungstexte
+
+---
+
+### 2. Hero-Section
+
+**Aktuell:**
+- Emoji im Titel (🤝)
+- Gradient: `from-turquoise-500 via-turquoise-600 to-turquoise-700`
+- Hardcodierter deutscher Text statt Übersetzungen
+
+**Neu:**
+- Badge oberhalb des Titels (wie AboutHero): z.B. "Kontakt" / "Contact"
+- Titel-Gradient: `from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)]`
+- Emoji optional entfernen oder durch Icon ersetzen
+- Intro-Text in Übersetzungen auslagern (messages/de.json, en.json)
+
+---
+
+### 3. Cards (Form, Direktkontakt, Avatar, Maps, Social Media)
+
+**Aktuell:**
+- `bg-turquoise-800/90 backdrop-blur-sm border border-turquoise-600/30`
+- Glow-Effekte: `from-turquoise-400/30`, `from-green-400/20`, `from-purple-400/20` (inkonsistent)
+
+**Neu:**
+- `bg-card border border-border backdrop-blur-sm`
+- Hover: `hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10`
+- Glow: einheitlich `from-primary/20 to-primary/20` (wie PersonalStory)
+- Schatten: `shadow-xl` statt `shadow-2xl` für subtilere Optik
+
+---
+
+### 4. Formular-Elemente
+
+**Aktuell:**
+- Inputs: `bg-turquoise-700/30 border-turquoise-600/30 focus:border-turquoise-500 focus:ring-turquoise-500/20`
+- Labels: `text-gray-400`, `peer-focus:text-turquoise-400`
+
+**Neu:**
+- Inputs: `bg-input/50` oder `bg-muted/50 border-border focus:border-primary focus:ring-primary/20`
+- Labels: `text-muted-foreground peer-focus:text-primary`
+- Fehler: `border-destructive focus:ring-destructive/20` beibehalten
+
+---
+
+### 5. Buttons & CTAs
+
+**Aktuell:**
+- Submit: `bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700`
+- Alert-Dialog Buttons: turquoise-Gradient
+
+**Neu:**
+- Submit: `bg-primary hover:bg-primary/90` oder `bg-primary text-primary-foreground`
+- Sekundäre Buttons: `bg-secondary` oder `variant="secondary"`
+
+---
+
+### 6. Direktkontakt & Social Media
+
+**Aktuell:**
+- E-Mail: `text-turquoise-500`
+- Telefon: `text-green-400` (abweichend!)
+- Icons: `text-turquoise-400`, `text-green-400`
+
+**Neu:**
+- Einheitlich `text-primary` für Links und Akzente
+- Icons: `text-primary` (WhatsApp kann grün bleiben als Markenfarbe)
+- Hover: `hover:text-primary/80` oder `hover:underline`
+
+---
+
+### 7. Alert-Dialog (Erfolg/Fehler)
+
+**Aktuell:**
+- `bg-turquoise-800 border-turquoise-600/30`
+- Grüner Checkmark-Bereich
+
+**Neu:**
+- `bg-card border border-border`
+- Checkmark: `bg-primary` statt `bg-green-500` (oder Erfolg weiterhin grün als semantische Farbe)
+
+---
+
+### 8. Avatar-Card & Floating Elements
+
+**Aktuell:**
+- `bg-green-500` und `bg-turquoise-500` für schwebende Kreise
+- Speech-Bubble: `bg-turquoise-800/95 border-turquoise-600/30`
+
+**Neu:**
+- Kreise: `bg-primary/60` oder dezenter
+- Speech-Bubble: `bg-card border border-border`
+
+---
+
+### 9. Google Maps Card
+
+**Aktuell:**
+- `from-purple-400/20 to-blue-400/20` Glow
+- Overlay: `bg-turquoise-800/95 border-turquoise-600/30`
+
+**Neu:**
+- Glow: `from-primary/20 to-primary/20`
+- Overlay: `bg-card/95 border border-border`
+
+---
+
+### 10. Fehlende Übersetzungen
+
+**Hardcodierte Texte in Übersetzungen auslagern:**
+- "Ich freue mich, von Ihnen zu hören! Ob Projektanfrage..."
+- "Direktkontakt"
+- "Nachricht jetzt absenden"
+- "Hier findest du mich"
+- "Weitere Kontaktmöglichkeiten"
+- "Schneller Chat", "Professionell", "Code & Projekte"
+- "Kopiert!"
+- "Wetzlar, Deutschland" (Standort)
+- "Perfekt für lokale Zusammenarbeit"
+
+→ Neue Keys in `Contact` Namespace (de.json, en.json) anlegen.
+
+---
+
+### 11. Optional: Dot-Pattern oder Gradient
+
+Falls die Contact Page visuell mehr Tiefe braucht:
+- Dezentes `hero-dot-pattern` als Hintergrund (wie Hero)
+- Oder `moving-gradient-overlay` (bereits in globals.css) – prüfen ob nicht zu dominant
+
+---
+
+### 12. Konsistenz mit About-ContactSection
+
+Die About-Seite hat eine schlanke `ContactSection` mit `bg-turquoise-800/60`. 
+→ Entweder diese ebenfalls auf `bg-card` umstellen ODER die Contact Page als „vollwertige“ Seite bewusst reicher gestalten. Empfehlung: Beide auf `bg-card` + semantische Tokens.
+
+---
+
+## Zusammenfassung der Änderungen
+
+| Bereich           | Alt                    | Neu                          |
+|-------------------|------------------------|------------------------------|
+| Haupt-Hintergrund | bg-turquoise-800       | bg-background                |
+| Cards             | bg-turquoise-800/90     | bg-card border-border        |
+| Text              | text-gray-200/white    | text-foreground, text-muted-foreground |
+| Akzente/Links     | text-turquoise-500     | text-primary                 |
+| Form-Inputs       | turquoise-Borders      | border-border, focus:primary |
+| Buttons           | turquoise-Gradient     | bg-primary                   |
+| Glow-Effekte      | gemischt (grün/lila)   | from-primary/20              |
+| Emojis            | 🤝 📨 📫 📍            | Optional entfernen/Badge     |
+
+---
+
+## Reihenfolge der Umsetzung
+
+1. Hintergrund + Hero-Section (Badge, Gradient, Übersetzungen)
+2. Alle Cards auf bg-card + border-border umstellen
+3. Formular-Inputs und Buttons
+4. Direktkontakt, Social Media, Maps
+5. Alert-Dialog
+6. Avatar-Card + Floating Elements
+7. Fehlende Übersetzungen ergänzen
+8. Visuell prüfen und ggf. Dot-Pattern/Gradient hinzufügen

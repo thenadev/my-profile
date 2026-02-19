@@ -1,5 +1,10 @@
 "use client";
 
+import StartupBeratungFAQ from "@/components/services/startup-beratung-faq";
+import StartupBeratungFinalCTA from "@/components/services/startup-beratung-final-cta";
+import StartupBeratungHero from "@/components/services/startup-beratung-hero";
+import StartupBeratungQuickNav from "@/components/services/startup-beratung-quick-nav";
+import StartupBeratungTerminForm from "@/components/services/startup-beratung-termin-form";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -9,429 +14,586 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { getYearsOfExperience } from "@/config/stats";
 import {
-  ArrowRight,
+  STARTUP_PACKAGES,
+  STARTUP_TARGET_AUDIENCES,
+} from "@/config/startup-packages";
+import type { StartupProductId } from "@/config/startup-packages";
+import { getYearsOfExperience } from "@/config/stats";
+import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
+import { motion, useInView } from "framer-motion";
+import type { LucideIcon } from "lucide-react";
+import {
   CheckCircle,
-  Globe,
+  Clock,
+  FileText,
   Lightbulb,
+  MessageCircle,
   Rocket,
-  Shield,
   Target,
-  TrendingUp,
-  Users,
+  Wrench,
   Zap,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { useRef, useState } from "react";
+
+const ANIMATION = {
+  ease: [0.16, 1, 0.3, 1] as const,
+  duration: 0.5,
+};
+const STAGGER = {
+  header: 0,
+  start: 0.2,
+  item: 0.12,
+} as const;
+const CARD_VIEWPORT = { once: true, margin: "-60px 0px -60px 0px" } as const;
+
+const BERATUNG_SCALE = 1.06;
+const STANDARD_CARDS_SCALE = 0.94;
+
+/** Bildgröße für Package-Karten – wie Unternehmenswebsite (große Icons, einheitlich) */
+const PACKAGE_IMAGE = {
+  size: 220,
+  sizes: "(max-width: 768px) 100vw, 33vw",
+} as const;
+
+/** Icon-Namen aus Config auf Lucide-Komponenten */
+const PACKAGE_ICONS: Record<string, LucideIcon> = {
+  Lightbulb,
+  Rocket,
+  Wrench,
+};
 
 export default function StartupBeratungClient() {
-  const router = useRouter();
+  const zielgruppeRef = useRef(null);
+  const paketeRef = useRef(null);
+  const warumRef = useRef(null);
+  const ablaufRef = useRef(null);
+  const faqRef = useRef(null);
+  const [selectedProductId, setSelectedProductId] =
+    useState<StartupProductId | null>(null);
+
+  const zielgruppeInView = useInView(zielgruppeRef, {
+    once: true,
+    margin: "-80px",
+  });
+  const paketeInView = useInView(paketeRef, { once: true, margin: "-80px" });
+  const warumInView = useInView(warumRef, { once: true, margin: "-80px" });
+  const ablaufInView = useInView(ablaufRef, { once: true, margin: "-80px" });
+  const faqInView = useInView(faqRef, { once: true, margin: "-80px" });
+
+  const handleCTAClick = (ctaType: string, productId?: StartupProductId) => {
+    if (productId) setSelectedProductId(productId);
+    sendGoogleEvent("cta_click", {
+      cta_type: ctaType,
+      location: "landing_page",
+      service: "startup_beratung",
+      ...(productId && { package: productId }),
+    });
+    const formId = "termin-formular";
+    setTimeout(() => {
+      document
+        .getElementById(formId)
+        ?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }, 100);
+  };
 
   return (
-    <div className="min-h-screen w-full py-24 md:py-28 flex flex-col items-center gap-8 md:gap-12 px-4 md:px-8 bg-turquoise-800">
-      {/* Hero Section */}
-      <div className="text-center space-y-6 max-w-4xl mx-auto">
-        <div className="space-y-4">
-          <Badge variant="secondary" className="text-sm font-medium">
-            🚀 App & Website Entwicklung
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold bg-gradient-to-r from-turquoise-400 to-turquoise-600 bg-clip-text text-transparent">
-            App entwickeln lassen & Ideen umsetzen
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-            Sie haben eine App-Idee oder Website-Idee? Ich helfe Ihnen dabei,
-            Ihre Idee ohne Programmierkenntnisse umzusetzen - von der ersten
-            Idee bis zum fertigen MVP.
-          </p>
-        </div>
+    <div className="min-h-screen w-full flex flex-col items-center gap-8 md:gap-12 bg-background">
+      <StartupBeratungHero onTerminClick={() => handleCTAClick("termin_form")} />
+      <StartupBeratungQuickNav />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white px-8 py-3"
-            onClick={() => router.push("/contact")}
+      <div className="w-full max-w-7xl mx-auto px-4 md:px-8 flex flex-col items-center gap-8 md:gap-12">
+        {/* Für wen? */}
+        <motion.div
+          ref={zielgruppeRef}
+          id="zielgruppen"
+          className="w-full max-w-7xl space-y-10 scroll-mt-20"
+        >
+          <motion.div
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 24 }}
+            animate={zielgruppeInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
-            Kostenlose Beratung
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-turquoise-600/50 text-white hover:bg-turquoise-700/30"
-            onClick={() => router.push("/preisrechner")}
-          >
-            Preisrechner
-          </Button>
-        </div>
-      </div>
+            <Badge variant="secondary" className="text-sm">
+              Für wen?
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Für Gründer und Unternehmen mit Ideen
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Ob erste Idee, MVP-Planung oder Erweiterung bestehender Software –
+              ich unterstütze Sie mit technischer Beratung und Umsetzung.
+            </p>
+          </motion.div>
 
-      {/* Value Proposition */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl w-full">
-        <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-colors">
-          <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Lightbulb className="h-6 w-6 text-turquoise-400" />
-          </div>
-          <CardTitle className="text-lg mb-2 text-white">
-            Ideen umsetzen lassen
-          </CardTitle>
-          <CardDescription className="text-gray-200">
-            Von der App-Idee zur Umsetzung - professionelle Entwicklung ohne
-            technische Vorkenntnisse
-          </CardDescription>
-        </Card>
-
-        <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-colors">
-          <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <Rocket className="h-6 w-6 text-turquoise-400" />
-          </div>
-          <CardTitle className="text-lg mb-2 text-white">
-            MVP entwickeln
-          </CardTitle>
-          <CardDescription className="text-gray-200">
-            Schnelle Umsetzung Ihres Minimum Viable Product in 4-8 Wochen
-          </CardDescription>
-        </Card>
-
-        <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-colors">
-          <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-            <TrendingUp className="h-6 w-6 text-turquoise-400" />
-          </div>
-          <CardTitle className="text-lg mb-2 text-white">
-            Website erstellen lassen
-          </CardTitle>
-          <CardDescription className="text-gray-200">
-            Professionelle Websites und Web-Apps mit modernen Technologien
-          </CardDescription>
-        </Card>
-      </div>
-
-      {/* Service Packages */}
-      <div className="w-full max-w-6xl space-y-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Unsere Service-Pakete
-          </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Flexible Beratungspakete, die sich an Ihre Bedürfnisse und Ihr
-            Budget anpassen
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {/* Beratung Package */}
-          <Card className="relative overflow-hidden bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-shadow">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-500 to-turquoise-600"></div>
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-white">
-                Startup-Beratung
-              </CardTitle>
-              <div className="text-3xl font-bold text-turquoise-400">
-                €150<span className="text-lg text-gray-400">/Stunde</span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Strategische Beratung und Business Model Canvas
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Marktanalyse und Wettbewerbsanalyse
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Technologie-Stack Empfehlungen
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    MVP-Planung und Roadmap
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Investoren-Pitch Vorbereitung
-                  </span>
-                </li>
-              </ul>
-              <Button
-                className="w-full bg-turquoise-600 hover:bg-turquoise-500"
-                onClick={() => router.push("/contact")}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+            {STARTUP_TARGET_AUDIENCES.map((audience, index) => (
+              <motion.div
+                key={audience.title}
+                className="flex min-h-[360px]"
+                initial={{ opacity: 0, y: 32 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={CARD_VIEWPORT}
+                transition={{
+                  duration: ANIMATION.duration,
+                  delay: index * STAGGER.item,
+                  ease: ANIMATION.ease,
+                }}
               >
-                Beratung buchen
-              </Button>
-            </CardContent>
-          </Card>
+                <Card className="overflow-hidden bg-card border border-border/80 hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 group flex flex-col w-full min-h-full">
+                  <div className="relative h-[200px] sm:h-[220px] flex-shrink-0 flex items-center justify-center overflow-hidden bg-gradient-to-b from-primary/5 via-transparent to-muted/20">
+                    <div className="absolute inset-0 flex items-center justify-center p-6 sm:p-10">
+                      <Image
+                        src={audience.image}
+                        alt={audience.title}
+                        width={480}
+                        height={480}
+                        sizes="(max-width: 640px) 100vw, 50vw"
+                        className="max-h-[160px] sm:max-h-[180px] w-auto object-contain drop-shadow-[0_4px_24px_rgba(26,181,189,0.2)] group-hover:scale-105 transition-all duration-300"
+                      />
+                    </div>
+                  </div>
+                  <CardContent className="p-6 flex flex-col flex-1 min-h-0">
+                    <h3 className="font-semibold text-foreground text-lg leading-tight">
+                      {audience.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-3 leading-relaxed flex-1 line-clamp-4">
+                      {audience.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-          {/* MVP Package */}
-          <Card className="relative overflow-hidden bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-shadow">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-500 to-turquoise-600"></div>
-            <div className="absolute top-4 right-4">
-              <Badge className="bg-turquoise-600 text-white">Beliebt</Badge>
-            </div>
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-white">
-                MVP-Entwicklung
-              </CardTitle>
-              <div className="text-3xl font-bold text-turquoise-400">
-                €2.500<span className="text-lg text-gray-400">-5.000</span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Komplette MVP-Entwicklung
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Moderne Web-Technologien (React/Next.js)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Responsive Design & Mobile-First
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    User Authentication & Database
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Deployment & Hosting Setup
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    3 Monate Support & Wartung
-                  </span>
-                </li>
-              </ul>
-              <Button
-                className="w-full bg-turquoise-600 hover:bg-turquoise-500"
-                onClick={() => router.push("/contact")}
-              >
-                MVP starten
-              </Button>
-            </CardContent>
-          </Card>
-
-          {/* Full Service Package */}
-          <Card className="relative overflow-hidden bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30 hover:border-turquoise-500/50 transition-shadow">
-            <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-turquoise-500 to-turquoise-600"></div>
-            <CardHeader className="text-center pb-4">
-              <CardTitle className="text-2xl font-bold text-white">
-                Full-Service Startup
-              </CardTitle>
-              <div className="text-3xl font-bold text-turquoise-400">
-                €8.000<span className="text-lg text-gray-400">+</span>
-              </div>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Komplette Startup-Beratung
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Professionelle Website/Web-App
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Mobile App (iOS/Android)
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    SEO & Marketing Setup
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    Analytics & Tracking
-                  </span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                  <span className="text-sm text-gray-200">
-                    6 Monate Support & Skalierung
-                  </span>
-                </li>
-              </ul>
-              <Button
-                className="w-full bg-turquoise-600 hover:bg-turquoise-500"
-                onClick={() => router.push("/contact")}
-              >
-                Full-Service starten
-              </Button>
-            </CardContent>
-          </Card>
-        </div>
-      </div>
-
-      {/* Why Choose Us */}
-      <div className="w-full max-w-6xl space-y-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Warum Startups uns vertrauen
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Target className="h-6 w-6 text-turquoise-400" />
-            </div>
-            <CardTitle className="text-lg mb-2 text-white">Erfahrung</CardTitle>
-            <CardDescription className="text-gray-200">
-              Über {getYearsOfExperience()} Jahre Erfahrung in der
-              Startup-Beratung und MVP-Entwicklung
-            </CardDescription>
-          </Card>
-
-          <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Zap className="h-6 w-6 text-turquoise-400" />
-            </div>
-            <CardTitle className="text-lg mb-2 text-white">Schnell</CardTitle>
-            <CardDescription className="text-gray-200">
-              MVP in 4-8 Wochen statt Monaten - schnell zur Marktreife
-            </CardDescription>
-          </Card>
-
-          <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Shield className="h-6 w-6 text-turquoise-400" />
-            </div>
-            <CardTitle className="text-lg mb-2 text-white">Sicher</CardTitle>
-            <CardDescription className="text-gray-200">
-              Moderne Sicherheitsstandards und Datenschutz von Anfang an
-            </CardDescription>
-          </Card>
-
-          <Card className="text-center p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <div className="w-12 h-12 bg-turquoise-700/50 rounded-full flex items-center justify-center mx-auto mb-4">
-              <Globe className="h-6 w-6 text-turquoise-400" />
-            </div>
-            <CardTitle className="text-lg mb-2 text-white">
-              Skalierbar
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Architektur, die mit Ihrem Startup wächst und skaliert
-            </CardDescription>
-          </Card>
-        </div>
-      </div>
-
-      {/* FAQ Section */}
-      <div className="w-full max-w-4xl space-y-8">
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold text-white">
-            Häufig gestellte Fragen
-          </h2>
-          <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-            Antworten auf die wichtigsten Fragen zur App- und
-            Website-Entwicklung
-          </p>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <Card className="p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <CardTitle className="text-lg mb-3 text-white">
-              Wie kann ich meine App-Idee umsetzen?
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Ich helfe Ihnen dabei, Ihre App-Idee Schritt für Schritt
-              umzusetzen - von der ersten Idee bis zum fertigen MVP. Ohne
-              technische Vorkenntnisse.
-            </CardDescription>
-          </Card>
-
-          <Card className="p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <CardTitle className="text-lg mb-3 text-white">
-              Was kostet es, eine App entwickeln zu lassen?
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Die Kosten hängen von der Komplexität ab. Ein MVP kostet zwischen
-              €2.500-5.000. Lassen Sie sich kostenlos beraten!
-            </CardDescription>
-          </Card>
-
-          <Card className="p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <CardTitle className="text-lg mb-3 text-white">
-              Wie lange dauert die Entwicklung eines MVP?
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Ein MVP kann in 4-8 Wochen entwickelt werden. Schneller als die
-              meisten Agenturen - damit Sie schnell zur Marktreife kommen.
-            </CardDescription>
-          </Card>
-
-          <Card className="p-6 bg-turquoise-800/90 backdrop-blur-sm border-turquoise-600/30">
-            <CardTitle className="text-lg mb-3 text-white">
-              Brauche ich Programmierkenntnisse?
-            </CardTitle>
-            <CardDescription className="text-gray-200">
-              Nein! Ich übernehme die komplette technische Umsetzung. Sie
-              konzentrieren sich auf Ihr Business, ich auf die Entwicklung.
-            </CardDescription>
-          </Card>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="w-full max-w-4xl text-center space-y-6 bg-turquoise-800/90 backdrop-blur-sm rounded-2xl p-8 md:p-12 border border-turquoise-600/30">
-        <h2 className="text-3xl md:text-4xl font-bold text-white">
-          Bereit, Ihre Idee umzusetzen?
-        </h2>
-        <p className="text-lg text-gray-200 max-w-2xl mx-auto">
-          Lassen Sie uns gemeinsam Ihre App-Idee oder Website-Idee zum Leben
-          erwecken. Kostenlose Erstberatung inklusive.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white px-8 py-3"
-            onClick={() => router.push("/contact")}
+        {/* Preise & Pakete */}
+        <motion.div
+          ref={paketeRef}
+          id="preise"
+          className="w-full max-w-6xl space-y-8 scroll-mt-20"
+        >
+          <motion.div
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 24 }}
+            animate={paketeInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
-            Jetzt beraten lassen
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
-          <Button
-            variant="outline"
-            size="lg"
-            className="border-turquoise-600/50 text-white hover:bg-turquoise-700/30"
-            onClick={() => router.push("/preisrechner")}
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Beratung, MVP und Feature-Erweiterung
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Klarer Einstieg: 1h Beratung (80€) inkl. schriftlichem
+              Umsetzungsplan. Danach MVP oder Features für bestehende Produkte.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-end">
+            {STARTUP_PACKAGES.map((pkg, index) => (
+              <motion.div
+                key={pkg.id}
+                role="button"
+                tabIndex={0}
+                className="cursor-pointer group"
+                initial={{ opacity: 0, y: 32, scale: STANDARD_CARDS_SCALE }}
+                whileInView={{
+                  opacity: 1,
+                  y: 0,
+                  scale:
+                    pkg.id === "beratung" ? BERATUNG_SCALE : STANDARD_CARDS_SCALE,
+                }}
+                viewport={CARD_VIEWPORT}
+                onClick={() => {
+                  sendGoogleEvent("package_click", {
+                    package: pkg.id,
+                    location: "landing_page",
+                    service: "startup_beratung",
+                  });
+                  handleCTAClick("contact_form", pkg.id);
+                }}
+                onKeyDown={(e) => {
+                  if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    sendGoogleEvent("package_click", {
+                      package: pkg.id,
+                      location: "landing_page",
+                      service: "startup_beratung",
+                    });
+                    handleCTAClick("contact_form", pkg.id);
+                  }
+                }}
+                transition={{
+                  duration: ANIMATION.duration,
+                  delay: index * STAGGER.item,
+                  ease: ANIMATION.ease,
+                }}
+                whileHover={{
+                  y: -12,
+                  scale:
+                    pkg.id === "beratung"
+                      ? BERATUNG_SCALE * 1.03
+                      : STANDARD_CARDS_SCALE * 1.03,
+                  transition: {
+                    duration: 0.3,
+                    ease: [0.16, 1, 0.3, 1],
+                  },
+                }}
+                whileTap={{ scale: 0.98 }}
+              >
+                <Card
+                  className={`relative overflow-visible border-2 bg-card flex flex-col min-h-[520px] transition-all duration-300 ${
+                    pkg.badge === "beliebt"
+                      ? "border-primary/50 shadow-lg"
+                      : "border-border hover:border-primary/30"
+                  } group-hover:border-primary/60 group-hover:shadow-2xl group-hover:shadow-primary/25 group-hover:ring-2 group-hover:ring-primary/30`}
+                >
+                  <div
+                    className={`absolute top-0 left-0 right-0 h-1.5 ${
+                      index === 0
+                        ? "bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] to-[var(--hero-portrait-bg-mid)]"
+                        : index === 1
+                          ? "bg-gradient-to-r from-[var(--hero-portrait-bg-mid)] to-turquoise-600"
+                          : "bg-gradient-to-r from-turquoise-600 to-turquoise-700"
+                    }`}
+                  />
+                  {pkg.badge && (
+                    <div className="absolute top-3 right-3 z-10">
+                      <Badge
+                        className={
+                          pkg.badge === "beliebt"
+                            ? "bg-primary text-primary-foreground"
+                            : pkg.badge === "spare"
+                              ? "bg-green-600 text-white"
+                              : "bg-primary/20 text-primary"
+                        }
+                      >
+                        {pkg.badge === "beliebt"
+                          ? "Am beliebtesten"
+                          : pkg.badge === "spare"
+                            ? "Günstigster Einstieg"
+                            : "Neu"}
+                      </Badge>
+                    </div>
+                  )}
+                  {pkg.image ? (
+                    <div className="flex items-center justify-center bg-muted/30">
+                      <Image
+                        src={pkg.image}
+                        alt={pkg.title}
+                        width={PACKAGE_IMAGE.size}
+                        height={PACKAGE_IMAGE.size}
+                        sizes={`${PACKAGE_IMAGE.size}px`}
+                        className="object-contain drop-shadow-[0_2px_12px_rgba(26,181,189,0.15)]"
+                      />
+                    </div>
+                  ) : pkg.icon && PACKAGE_ICONS[pkg.icon] ? (
+                    <div className="flex min-h-[220px] items-center justify-center bg-muted/30">
+                      <div className="flex h-[220px] w-[220px] items-center justify-center rounded-2xl bg-primary/10 text-primary shadow-[0_2px_12px_rgba(26,181,189,0.15)]">
+                        {(() => {
+                          const IconComponent = PACKAGE_ICONS[pkg.icon!];
+                          return <IconComponent className="h-28 w-28" />;
+                        })()}
+                      </div>
+                    </div>
+                  ) : null}
+                  <CardHeader className="text-center pb-3 pt-6">
+                    <CardTitle className="text-xl font-bold text-foreground">
+                      {pkg.title}
+                    </CardTitle>
+                    <p className="text-sm text-muted-foreground">
+                      {pkg.subtitle}
+                    </p>
+                    <div className="flex items-center justify-center gap-2 pt-2">
+                      {pkg.priceFrom > 0 ? (
+                        <>
+                          <div className="text-2xl font-bold text-primary">
+                            €{pkg.priceFrom.toLocaleString("de-DE")}
+                            {pkg.priceTo
+                              ? `–${pkg.priceTo.toLocaleString("de-DE")}`
+                              : pkg.priceUnit ?? ""}
+                          </div>
+                          {pkg.priceNote && (
+                            <span className="text-sm text-muted-foreground">
+                              {pkg.priceNote}
+                            </span>
+                          )}
+                        </>
+                      ) : (
+                        <div className="text-2xl font-bold text-primary">
+                          Individuell
+                        </div>
+                      )}
+                    </div>
+                    {pkg.deliveryWeeks && (
+                      <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-1">
+                        <Clock className="h-3.5 w-3.5" />
+                        <span>Lieferzeit: {pkg.deliveryWeeks}</span>
+                      </div>
+                    )}
+                  </CardHeader>
+                  <CardContent className="space-y-4 flex-1 flex flex-col pt-0">
+                    <div className="rounded-lg bg-muted/50 p-3">
+                      <p className="text-xs font-semibold text-foreground mb-2">
+                        Ideal für:
+                      </p>
+                      <ul className="space-y-1">
+                        {pkg.idealFor.map((item, i) => (
+                          <li
+                            key={i}
+                            className="text-xs text-muted-foreground flex items-center gap-2"
+                          >
+                            <CheckCircle className="h-3.5 w-3.5 text-primary flex-shrink-0" />
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <ul className="space-y-2.5 flex-1">
+                      {pkg.features.map((feature, i) => (
+                        <li
+                          key={i}
+                          className="flex items-start gap-2.5 text-sm"
+                        >
+                          <CheckCircle
+                            className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
+                              feature.highlight
+                                ? "text-primary"
+                                : "text-muted-foreground"
+                            }`}
+                          />
+                          <span
+                            className={
+                              feature.highlight
+                                ? "text-foreground font-medium"
+                                : "text-muted-foreground"
+                            }
+                          >
+                            {feature.text}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                    <Button className="w-full mt-auto bg-primary hover:bg-primary/90 text-primary-foreground pointer-events-none">
+                      {pkg.ctaText}
+                    </Button>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Ablauf */}
+        <motion.div
+          ref={ablaufRef}
+          id="ablauf"
+          className="w-full max-w-6xl space-y-8 scroll-mt-20"
+        >
+          <motion.div
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 24 }}
+            animate={ablaufInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
           >
-            Preisrechner nutzen
-          </Button>
-        </div>
+            <Badge variant="secondary" className="text-sm">
+              So läuft die Beratung
+            </Badge>
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              So arbeiten wir zusammen
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Idee angeben, Termin buchen – ich bereite mich vor. Dann 1h
+              Gespräch und ein schriftlicher Plan inkl. Kostenschätzung.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+            {[
+              {
+                icon: Lightbulb,
+                step: "1",
+                title: "Idee angeben & Termin buchen",
+                desc: "Sie beschreiben Ihre Idee im Formular – ich lese mich ein und bereite mich auf das Gespräch vor. So nutzen wir die Stunde optimal.",
+              },
+              {
+                icon: MessageCircle,
+                step: "2",
+                title: "1h Gespräch",
+                desc: "Wir sprechen eine Stunde über die technische Umsetzung Ihrer Idee: Was ist sinnvoll, was ist machbar, welche Schritte kommen zuerst.",
+              },
+              {
+                icon: FileText,
+                step: "3",
+                title: "Schriftlicher Plan",
+                desc: "Nach dem Gespräch erhalten Sie einen Umsetzungsplan inkl. Kostenschätzung. Der nächste Schritt kann dann die MVP-Entwicklung sein.",
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={CARD_VIEWPORT}
+                  transition={{
+                    duration: ANIMATION.duration,
+                    delay: index * STAGGER.item,
+                    ease: ANIMATION.ease,
+                  }}
+                  whileHover={{
+                    y: -4,
+                    transition: { duration: 0.2 },
+                  }}
+                  className="flex h-full"
+                >
+                  <Card className="relative h-full w-full p-6 bg-card border-border text-center flex flex-col items-center">
+                    <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0">
+                      {item.step}
+                    </div>
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0 mt-2">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-xl mb-2 text-foreground">
+                      {item.title}
+                    </CardTitle>
+                    <CardDescription className="text-base text-muted-foreground flex-1 min-h-0">
+                      {item.desc}
+                    </CardDescription>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* Warum Startup-Beratung? */}
+        <motion.div ref={warumRef} className="w-full max-w-6xl space-y-8">
+          <motion.div
+            className="text-center space-y-4"
+            initial={{ opacity: 0, y: 24 }}
+            animate={warumInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
+          >
+            <h2 className="text-3xl md:text-4xl font-bold text-foreground">
+              Warum Startup-Beratung bei mir?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Ich bereite mich auf Ihre Idee vor und konzentriere die Stunde auf
+              Technik und Umsetzung – kein generisches Gespräch.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {[
+              {
+                icon: Lightbulb,
+                title: "Vorbereitung auf Ihre Idee",
+                desc: "Sie geben die Idee vorab an – ich lese mich ein. In der Stunde geht es direkt in die Tiefe.",
+              },
+              {
+                icon: Target,
+                title: "Fokus auf Technik & Umsetzung",
+                desc: "Eine Stunde nur für Ihre Idee: Was ist technisch nötig, welche Reihenfolge, was kostet es.",
+              },
+              {
+                icon: FileText,
+                title: "Schriftlicher Plan",
+                desc: "Nach dem Gespräch erhalten Sie einen Umsetzungsplan mit Kostenschätzung als Entscheidungsgrundlage.",
+              },
+              {
+                icon: Zap,
+                title: "Klare Kostenschätzung",
+                desc: `Über ${getYearsOfExperience()} Jahre Erfahrung in der Umsetzung – realistische Schätzungen, keine leeren Versprechen.`,
+              },
+            ].map((item, index) => {
+              const Icon = item.icon;
+              return (
+                <motion.div
+                  key={item.title}
+                  className="flex h-full"
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={CARD_VIEWPORT}
+                  transition={{
+                    duration: ANIMATION.duration,
+                    delay: index * STAGGER.item,
+                    ease: ANIMATION.ease,
+                  }}
+                  whileHover={{
+                    y: -4,
+                    scale: 1.02,
+                    transition: { duration: 0.2 },
+                  }}
+                >
+                  <Card className="flex flex-col flex-1 w-full text-center p-6 bg-card border-border">
+                    <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0">
+                      <Icon className="h-6 w-6 text-primary" />
+                    </div>
+                    <CardTitle className="text-lg mb-2 text-foreground">
+                      {item.title}
+                    </CardTitle>
+                    <CardDescription className="text-muted-foreground flex-1 min-h-0">
+                      {item.desc}
+                    </CardDescription>
+                  </Card>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        <StartupBeratungTerminForm
+          selectedProductId={selectedProductId}
+          onProductAcknowledged={() => setSelectedProductId(null)}
+        />
+
+        <motion.div ref={faqRef} id="faq" className="w-full scroll-mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={faqInView ? { opacity: 1, y: 0 } : {}}
+            transition={{
+              duration: ANIMATION.duration,
+              delay: STAGGER.header,
+              ease: ANIMATION.ease,
+            }}
+          >
+            <StartupBeratungFAQ />
+          </motion.div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={CARD_VIEWPORT}
+          transition={{
+            duration: ANIMATION.duration,
+            delay: 0,
+            ease: ANIMATION.ease,
+          }}
+          className="w-full flex justify-center pb-16 md:pb-24"
+        >
+          <StartupBeratungFinalCTA
+            onTerminClick={() => handleCTAClick("contact_form")}
+          />
+        </motion.div>
       </div>
     </div>
   );

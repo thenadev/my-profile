@@ -1,5 +1,6 @@
 "use client";
 
+import { GA_MEASUREMENT_ID } from "@/config/analytics";
 import { useEffect } from "react";
 import ReactGA from "react-ga4";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
@@ -274,7 +275,7 @@ export default function CookieConsent() {
         const preferences = CookieConsent.getUserPreferences();
         console.log(cookie, preferences);
 
-        const TRACKING_ID = "G-63C2KDFQHT";
+        const TRACKING_ID = GA_MEASUREMENT_ID;
         const META_PIXEL_ID = "557324587373445";
 
         // Google Consent Mode v2: Einwilligung an gtag übermitteln

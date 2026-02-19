@@ -1,10 +1,33 @@
 import { NextRequest } from "next/server";
+import fs from "fs";
+import path from "path";
 
 interface SitemapPage {
   url: string;
   lastmod: string;
   changefreq: string;
   priority: string;
+}
+
+async function getBlogPosts(): Promise<SitemapPage[]> {
+  try {
+    const dataPath = path.join(process.cwd(), "src", "data", "blog.json");
+    if (!fs.existsSync(dataPath)) return [];
+    const content = fs.readFileSync(dataPath, "utf-8");
+    if (!content.trim()) return [];
+    const posts = JSON.parse(content);
+    if (!Array.isArray(posts)) return [];
+    return posts.map((post: { slug: string; date?: string }) => ({
+      url: `/blog/${post.slug}`,
+      lastmod: post.date
+        ? new Date(post.date).toISOString().split("T")[0]
+        : new Date().toISOString().split("T")[0],
+      changefreq: "monthly",
+      priority: "0.6",
+    }));
+  } catch {
+    return [];
+  }
 }
 
 export async function GET(request: NextRequest) {
@@ -26,7 +49,19 @@ export async function GET(request: NextRequest) {
       priority: "0.8",
     },
     {
+      url: "/services",
+      lastmod: currentDate,
+      changefreq: "weekly",
+      priority: "0.9",
+    },
+    {
       url: "/services/startup-beratung",
+      lastmod: currentDate,
+      changefreq: "weekly",
+      priority: "0.9",
+    },
+    {
+      url: "/services/app-entwicklung",
       lastmod: currentDate,
       changefreq: "weekly",
       priority: "0.9",
@@ -69,17 +104,8 @@ export async function GET(request: NextRequest) {
     },
   ];
 
-  // Dynamische Blog-Posts (falls vorhanden)
-  const blogPosts: SitemapPage[] = [
-    // Hier können dynamisch Blog-Posts aus der Datenbank hinzugefügt werden
-    // Beispiel:
-    // {
-    //   url: '/blog/mein-erster-blog-post',
-    //   lastmod: '2024-01-15',
-    //   changefreq: 'monthly',
-    //   priority: '0.6',
-    // },
-  ];
+  // Dynamische Blog-Posts aus blog.json
+  const blogPosts = await getBlogPosts();
 
   // Alle Seiten kombinieren
   const allPages = [...staticPages, ...blogPosts];

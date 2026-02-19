@@ -33,8 +33,9 @@ const StartupBeratungSection: React.FC = () => {
             Startup-Beratung für Gründer
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Von der Idee zum erfolgreichen MVP - Professionelle Beratung und
-            Umsetzung für Startups und Gründer
+            Idee angeben, Termin buchen (80€/h) – 1h Gespräch, danach
+            schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP und
+            Feature-Erweiterung im Anschluss.
           </p>
         </div>
 
@@ -85,7 +86,7 @@ const StartupBeratungSection: React.FC = () => {
                 Startup-Beratung
               </CardTitle>
               <div className="text-2xl font-bold text-turquoise-500">
-                €150<span className="text-base text-gray-500">/Stunde</span>
+                €80<span className="text-base text-gray-500">/Stunde</span>
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -107,9 +108,9 @@ const StartupBeratungSection: React.FC = () => {
               </ul>
               <Button
                 className="w-full bg-turquoise-500 hover:bg-turquoise-600"
-                onClick={() => router.push("/startup-beratung")}
+                onClick={() => router.push("/services/startup-beratung")}
               >
-                Mehr erfahren
+                Termin buchen
               </Button>
             </CardContent>
           </Card>
@@ -153,22 +154,22 @@ const StartupBeratungSection: React.FC = () => {
               </ul>
               <Button
                 className="w-full bg-turquoise-600 hover:bg-turquoise-700"
-                onClick={() => router.push("/startup-beratung")}
+                onClick={() => router.push("/services/startup-beratung")}
               >
-                Mehr erfahren
+                MVP anfragen
               </Button>
             </CardContent>
           </Card>
 
-          {/* Full Service Package */}
+          {/* Feature-Erweiterung */}
           <Card className="relative overflow-hidden border-2 border-green-200 hover:shadow-lg transition-shadow bg-turquoise-800/90 backdrop-blur-sm">
             <div className="absolute top-0 left-0 right-0 h-2 bg-gradient-to-r from-green-500 to-green-600"></div>
             <CardHeader className="text-center pb-4">
               <CardTitle className="text-xl font-bold text-gray-900">
-                Full-Service Startup
+                Feature-Erweiterung
               </CardTitle>
               <div className="text-2xl font-bold text-green-600">
-                €8.000<span className="text-base text-gray-500">+</span>
+                Individuell
               </div>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -176,27 +177,27 @@ const StartupBeratungSection: React.FC = () => {
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-600">
-                    Komplette Startup-Beratung
+                    Erweiterung bestehender Software
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-600">
-                    Website + Mobile App
+                    Neue Features & Wartung
                   </span>
                 </li>
                 <li className="flex items-start gap-2">
                   <CheckCircle className="h-4 w-4 text-green-500 mt-0.5 flex-shrink-0" />
                   <span className="text-sm text-gray-600">
-                    6 Monate Support
+                    Individuelles Angebot
                   </span>
                 </li>
               </ul>
               <Button
                 className="w-full bg-green-600 hover:bg-green-700"
-                onClick={() => router.push("/startup-beratung")}
+                onClick={() => router.push("/services/startup-beratung")}
               >
-                Mehr erfahren
+                Features anfragen
               </Button>
             </CardContent>
           </Card>
@@ -205,27 +206,20 @@ const StartupBeratungSection: React.FC = () => {
         {/* CTA */}
         <div className="text-center space-y-6">
           <h3 className="text-2xl font-bold text-gray-900">
-            Bereit, Ihr Startup zu starten?
+            Bereit, Ihre Idee in einen Plan zu gießen?
           </h3>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Lassen Sie uns gemeinsam Ihre Idee zum Leben erwecken. Kostenlose
-            Erstberatung inklusive.
+            Termin buchen (80€/h), Idee angeben – nach dem Gespräch erhalten
+            Sie einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Button
               size="lg"
               className="bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700 text-white px-8 py-3"
-              onClick={() => router.push("/startup-beratung")}
+              onClick={() => router.push("/services/startup-beratung")}
             >
-              Startup-Beratung starten
+              Termin buchen (80€/h)
               <ArrowRight className="ml-2 h-4 w-4" />
-            </Button>
-            <Button
-              variant="outline"
-              size="lg"
-              onClick={() => router.push("/contact")}
-            >
-              Kostenlose Beratung
             </Button>
           </div>
         </div>

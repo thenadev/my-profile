@@ -148,7 +148,19 @@ export default async function handler(
             ? "Online-Shop"
             : packageId === "other"
               ? "Noch unklar / Beratung"
-              : packageId || "-";
+              : packageId === "beratung"
+                ? "Startup-Beratung (80€/h)"
+                : packageId === "mvp"
+                  ? "MVP-Entwicklung"
+                  : packageId === "feature"
+                    ? "Feature-Erweiterung"
+                    : packageId === "app_beratung"
+                      ? "App-Entwicklung: Beratungsgespräch"
+                      : packageId === "app_mvp"
+                        ? "App-Entwicklung: MVP"
+                        : packageId === "app_feature_bug"
+                          ? "App-Entwicklung: Feature-/Bug-Entwicklung"
+                          : packageId || "-";
     const phoneLine = phone ? `Telefon: ${phone}\n` : "";
     const bodyText =
       "Thema: " +

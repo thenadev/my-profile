@@ -1,0 +1,130 @@
+# Plan: Überarbeitung der Not-Found (404) Seite
+
+## Ausgangslage
+
+Die aktuelle not-found.tsx nutzt **hart codierte turquoise-*** Farben (turquoise-800, turquoise-500, turquoise-600), während die restliche Website auf das **Design-System mit CSS-Variablen** umgestellt wurde:
+
+- **Hintergrund**: `--background` (186 50% 6%) – sehr dunkles Blau-Grün
+- **Text**: `--foreground`, `--muted-foreground`
+- **Akzente**: `--primary`, `--accent` (Türkis-Töne)
+- **Borders**: `--border`
+- **Hero-Gradient**: `--hero-portrait-bg-bright`, `--hero-portrait-bg-mid`, `--hero-portrait-bg-dark`
+
+Die not-found Page wirkt dadurch **inkonsistent** – helles Türkis (turquoise-800) statt des dunklen, einheitlichen Erscheinungsbilds.
+
+---
+
+## Überarbeitungsplan
+
+### 1. Hintergrund & Layout-Struktur
+
+**Aktuell:** `bg-turquoise-800` (mittleres Türkis, flach)
+
+**Neu:**
+- `bg-background` – konsistent mit About-, Contact- und anderen Seiten
+- `relative z-10` – sicherstellen, dass Inhalt über dem globalen `moving-gradient-overlay` liegt
+- Optional: Türkise Seitenleisten links/rechts wie auf der Home-Seite (`w-6 sm:w-12 lg:w-24 bg-turquoise-800`) für visuelle Kohärenz
+
+### 2. Headline & Typografie
+
+**Aktuell:**
+- Gradient: `from-turquoise-500 via-turquoise-600 to-turquoise-500` auf turquoise-800 Hintergrund
+- Geringer Kontrast, wirkt „verschluckt“
+
+**Neu:**
+- Gradient wie AboutHero: `from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)]` mit `bg-clip-text text-transparent`
+- Oder: `text-foreground` für klare Lesbarkeit
+- Überschrift: `text-foreground` oder Gradient auf dunklem Hintergrund
+
+### 3. Beschreibungstext & Labels
+
+**Aktuell:** `text-gray-200`, `text-gray-400`
+
+**Neu:**
+- Beschreibung: `text-muted-foreground`
+- „Beliebte Seiten“-Label: `text-muted-foreground` mit `uppercase tracking-wider`
+
+### 4. Primary CTA (Zur Startseite)
+
+**Aktuell:** `bg-gradient-to-r from-turquoise-500 to-turquoise-600 hover:from-turquoise-600 hover:to-turquoise-700`
+
+**Neu:**
+- `bg-primary text-primary-foreground hover:bg-primary/90`
+- Oder: Button-Komponente mit `variant="default"` nutzen (nutzt bereits primary)
+
+### 5. Secondary CTA (Kontakt)
+
+**Aktuell:** `bg-turquoise-800/90 border-2 border-turquoise-600/30 hover:border-turquoise-400`
+
+**Neu:**
+- `variant="outline"` der Button-Komponente: `border-border bg-transparent hover:bg-accent/10 hover:border-accent`
+- Oder: `bg-muted border border-border hover:bg-muted/80`
+
+### 6. Beliebte Seiten – Link-Kacheln
+
+**Aktuell:** `border-turquoise-600/30 hover:bg-turquoise-700/30 hover:border-turquoise-400/50`
+
+**Neu:**
+- `border border-border bg-muted/50 hover:bg-accent/10 hover:border-accent`
+- Text: `text-foreground` mit `hover:text-primary`
+
+### 7. Trennlinie
+
+**Aktuell:** `border-t border-turquoise-600/30`
+
+**Neu:** `border-t border-border`
+
+### 8. Bild-Container & Dekoration
+
+**Aktuell:**
+- Glow: `from-turquoise-500/30`, `bg-turquoise-500/20`
+- Border: `border-turquoise-600/50`
+
+**Neu:**
+- Glow: `from-primary/20`, `via-primary/10` – nutzt primary aus Design-System
+- Border: `border-4 border-primary/30` oder `border-border`
+- Dekorative Blobs: `bg-primary/20` statt `bg-turquoise-500/20`
+
+### 9. Internationalisierung (i18n)
+
+**Aktuell:** Hardcoded deutsche Texte:
+- „Seite nicht gefunden“
+- „Die gesuchte Seite existiert nicht...“
+- „Beliebte Seiten“
+- „Webdesign“, „Über mich“
+
+**Neu:**
+- Alle Texte über `t("key")` aus den messages (de.json, en.json)
+- Prüfen, ob alle Keys in NotFound vorhanden sind; ggf. `popularPages`, `webdesign`, `aboutMe` ergänzen
+
+### 10. Optional: Reduzierte Komplexität
+
+- Prüfen, ob die zweispaltige Layout-Struktur (Content + Bild) auf allen Breakpoints sinnvoll ist
+- Mobile: evtl. kompakteres Layout, Bild kleiner oder unter dem Text
+
+---
+
+## Zusammenfassung der Änderungen
+
+| Bereich           | Von                          | Nach                                  |
+|-------------------|------------------------------|----------------------------------------|
+| Hintergrund       | bg-turquoise-800             | bg-background (+ optional Seitenleisten) |
+| Headline          | turquoise-Gradient           | hero-portrait-bg Gradient / text-foreground |
+| Beschreibung      | text-gray-200                | text-muted-foreground                 |
+| Primary Button    | turquoise-500/600            | bg-primary / Button variant="default" |
+| Secondary Button  | turquoise-800 border         | variant="outline" / border-border      |
+| Link-Kacheln      | turquoise-Borders            | border-border, hover:accent            |
+| Bild-Glow/Border  | turquoise-500/600            | primary/20, border-primary/30          |
+| i18n              | Hardcoded DE                 | t() für alle sichtbaren Texte          |
+
+---
+
+## Reihenfolge der Implementierung
+
+1. Hintergrund & z-index anpassen
+2. Textfarben (Headline, Beschreibung, Labels) auf Design-System umstellen
+3. Buttons/Links auf primary, outline, border umstellen
+4. Bild-Container Glow & Border anpassen
+5. i18n: fehlende Keys ergänzen, hardcoded Texte ersetzen
+6. Optional: Seitenleisten wie Home-Seite
+7. Visueller Check auf verschiedenen Breakpoints

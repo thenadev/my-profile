@@ -7,11 +7,5 @@ Disallow: /api/
 Disallow: /.next/
 Disallow: /node_modules/
 
-# Crawl-Delay für bessere Server-Performance
-Crawl-delay: 10
-
 # Sitemap Location
 Sitemap: https://www.thomas-schwabauer.de/sitemap.xml
-
-# Host
-Host: https://www.thomas-schwabauer.de
