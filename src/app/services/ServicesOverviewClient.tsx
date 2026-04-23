@@ -22,7 +22,7 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { useRef } from "react";
-import { FaMobileAlt, FaRocket, FaGlobe } from "react-icons/fa";
+import { FaMobileAlt, FaRocket, FaGlobe, FaBug } from "react-icons/fa";
 
 const ANIMATION = { ease: [0.16, 1, 0.3, 1] as const, duration: 0.5 };
 
@@ -56,6 +56,16 @@ const SERVICES = [
     icon: FaGlobe,
     badge: "Webdesign Wetzlar",
     features: ["Basic ab 1.200€", "Professional ab 3.500€", "E-Commerce ab 8.000€"],
+  },
+  {
+    id: "bug-fixing-ai-integration",
+    href: "/services/bug-fixing-ai-integration",
+    title: "Bug-Fixing & AI-Integration",
+    description:
+      "Fehleranalyse, KI-Integration und Service-Optimierung – nachhaltige Lösungen für moderne Softwareentwicklung.",
+    icon: FaBug,
+    badge: "KI & Optimierung",
+    features: ["Bug-Fixing ab 80€/h", "KI-Integration ab 2.500€", "Performance-Optimierung"],
   },
 ];
 
@@ -123,7 +133,7 @@ export default function ServicesOverviewClient() {
 
         <div
           ref={cardsRef}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 items-stretch"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 items-stretch"
         >
           {SERVICES.map((service, index) => {
             const Icon = service.icon;
