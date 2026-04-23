@@ -51,6 +51,10 @@ export const menuItems: MenuItem[] = [
         title: "Unternehmenswebsite",
         href: "/services/unternehmenswebsite",
       },
+      {
+        title: "Bug-Fixing & AI-Integration",
+        href: "/services/bug-fixing-ai-integration",
+      },
     ],
   },
   {
