@@ -69,8 +69,13 @@ jobs:
           '
 
       - name: Smoke-Test
+        # Geduldig: beim allerersten Deploy braucht die Let's-Encrypt-
+        # Ausstellung länger als der Container-Start (curl exit 60).
         run: |
-          sleep 10
-          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 https://www.thomas-schwabauer.de/)
-          echo "https://www.thomas-schwabauer.de/ → $code"
-          test "$code" = "200"
+          for i in $(seq 1 18); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 15 https://www.thomas-schwabauer.de/ || echo "curl-err")
+            echo "Versuch $i: https://www.thomas-schwabauer.de/ → $code"
+            [ "$code" = "200" ] && exit 0
+            sleep 10
+          done
+          exit 1
