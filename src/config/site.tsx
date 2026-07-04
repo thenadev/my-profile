@@ -1,7 +1,7 @@
 export const siteConfig = {
   authorName: "Thomas Schwabauer",
   companyName: "Thena Dev",
-  streetAddress: "Bergstr. 37",
+  streetAddress: "Kirschenwäldchen 8D",
   city: "Wetzlar",
   zipCode: "35578",
   contactPhone: "+4917656120050",

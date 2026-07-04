@@ -333,7 +333,11 @@
       "topicRequired": "Thema ist erforderlich",
       "messageMin": "Die Nachricht muss mindestens 5 Zeichen lang sein",
       "privacyPolicyRequired": "Sie müssen der Datenschutzerklärung zustimmen"
-    }
+    },
+    "mapTitle": "Karte: Standort in Wetzlar",
+    "mapConsentNotice": "Beim Laden der Karte werden Daten an Google übertragen und Cookies gesetzt. Mit Klick auf „Karte laden“ stimmen Sie dem zu.",
+    "mapConsentButton": "Karte laden",
+    "mapOpenExternal": "Stattdessen in Google Maps öffnen"
   },
   "Documents": {
     "title": "Dokumente / Zertifikate",

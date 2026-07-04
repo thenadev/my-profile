@@ -7,6 +7,7 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import ConsentMap from "@/components/contact/consent-map";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -432,26 +433,7 @@ const ContactSection: React.FC = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="p-0">
-                  <div className="relative">
-                    <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20447.123456789!2d8.5!3d50.55!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47bc4c123456789%3A0xabcdef123456789!2sWetzlar%2C%20Deutschland!5e0!3m2!1sde!2sde!4v1234567890123"
-                      width="100%"
-                      height="320"
-                      className="rounded-2xl border-0 shadow-lg"
-                      style={{ border: 0 }}
-                      allowFullScreen
-                      loading="lazy"
-                      referrerPolicy="no-referrer-when-downgrade"
-                    />
-                    <div className="absolute bottom-6 left-6 bg-card/95 backdrop-blur-sm rounded-xl px-4 py-3 shadow-xl border border-border">
-                      <p className="text-sm font-semibold text-foreground">
-                        {t("locationCity")}
-                      </p>
-                      <p className="text-xs text-muted-foreground">
-                        {t("locationDescription")}
-                      </p>
-                    </div>
-                  </div>
+                  <ConsentMap />
                 </CardContent>
               </Card>
             </div>

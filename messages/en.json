@@ -508,7 +508,11 @@
       "topicRequired": "Topic is required",
       "messageMin": "Message must be at least 5 characters long",
       "privacyPolicyRequired": "You must agree to the privacy policy"
-    }
+    },
+    "mapTitle": "Map: location in Wetzlar",
+    "mapConsentNotice": "Loading the map transfers data to Google and sets cookies. By clicking “Load map” you agree to this.",
+    "mapConsentButton": "Load map",
+    "mapOpenExternal": "Open in Google Maps instead"
   },
   "Documents": {
     "title": "Documents / Certificates",
