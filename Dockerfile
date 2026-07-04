@@ -26,9 +26,6 @@ ENV HOSTNAME=0.0.0.0
 COPY --from=build /app/.next/standalone ./
 COPY --from=build /app/.next/static ./.next/static
 COPY --from=build /app/public ./public
-# Blog-Daten-Baseline; im Betrieb liegt ein Volume über /app/src/data,
-# damit über die Admin-API angelegte Posts Redeploys überleben.
-COPY --from=build --chown=node:node /app/src/data ./src/data
 
 USER node
 EXPOSE 3000

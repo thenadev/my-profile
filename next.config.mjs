@@ -8,6 +8,15 @@ const nextConfig = {
   // Start im Container via `node server.js`. `npm run start` lokal
   // funktioniert weiterhin für Dev-Checks.
   output: "standalone",
+  images: {
+    // Frei lizenzierte Remote-Bilder für Blogposts (next/image proxied sie,
+    // daher kein CSP-img-src-Problem). Lokale Bilder unter /public/blog
+    // funktionieren ohne Eintrag.
+    remotePatterns: [
+      { protocol: "https", hostname: "images.unsplash.com" },
+      { protocol: "https", hostname: "images.pexels.com" },
+    ],
+  },
   async headers() {
     return [
       {

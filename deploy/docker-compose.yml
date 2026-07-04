@@ -4,8 +4,9 @@
 # (Single Source of Truth ist diese Datei im Repo).
 #
 # Erwartet auf dem Server:
-#   /opt/docker/my-profile/.env   (EMAIL_SENDER_ADDR, EMAIL_SENDER_PW, BLOG_ADMIN_SECRET)
-#   /opt/docker/my-profile/data/  (blog.json, Eigentümer uid 1000 = node-User im Container)
+#   /opt/docker/my-profile/.env   (EMAIL_SENDER_ADDR, EMAIL_SENDER_PW)
+# Blog-Inhalte sind jetzt Markdown im Repo (src/content/blog) und werden
+# beim Build ins Image gebacken — kein Daten-Volume mehr nötig.
 
 services:
   my-profile:
@@ -16,8 +17,6 @@ services:
     networks:
       - physiqueforge-network
     restart: unless-stopped
-    volumes:
-      - ./data:/app/src/data
     labels:
       - "traefik.enable=true"
       # HTTPS-Router (beide Hosts → LE-Zertifikat mit beiden SANs)

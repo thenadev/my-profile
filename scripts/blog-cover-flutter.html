@@ -1,0 +1,63 @@
+<!--
+  Blog-Cover „Flutter vs. React Native 2025" – 1200×675 (16:9).
+  Rendern mit headless Chrome:
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless=new --screenshot=public/blog/flutter-vs-react-native-2025/cover.png \
+    --window-size=1200,675 --hide-scrollbars \
+    file://ABSOLUTER_PFAD/scripts/blog-cover-flutter.html
+  Keine externen Ressourcen (Systemfonts), damit der Screenshot deterministisch ist.
+-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 675px; }
+      body {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: radial-gradient(120% 140% at 15% 10%, #0b878e 0%, #0f2528 60%, #06181a 100%);
+        color: #eafaff;
+        position: relative;
+        overflow: hidden;
+      }
+      .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55; }
+      .b1 { width: 520px; height: 520px; background: #1ab5bd; top: -140px; right: -120px; }
+      .b2 { width: 420px; height: 420px; background: #2fd6de; bottom: -160px; left: -100px; opacity: 0.4; }
+      .dots {
+        position: absolute; inset: 0;
+        background-image: radial-gradient(rgba(255,255,255,0.10) 2px, transparent 2px);
+        background-size: 34px 34px; opacity: 0.5;
+      }
+      .content { position: relative; padding: 70px 80px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7fe3e8; }
+      h1 { font-size: 76px; font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; max-width: 900px; }
+      h1 .vs { color: #2fd6de; }
+      .row { display: flex; align-items: center; gap: 20px; }
+      .pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); padding: 12px 22px; border-radius: 999px; font-size: 26px; font-weight: 700; }
+      .footer { display: flex; align-items: center; justify-content: space-between; }
+      .brand { font-size: 26px; font-weight: 700; }
+      .brand span { color: #7fe3e8; }
+      .year { font-size: 26px; font-weight: 700; color: #9fc9cc; }
+    </style>
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="dots"></div>
+    <div class="content">
+      <div class="eyebrow">App-Entwicklung · Vergleich</div>
+      <div>
+        <h1>Flutter <span class="vs">vs.</span> React Native</h1>
+        <div class="row" style="margin-top: 34px">
+          <div class="pill">📱 Eine Codebasis</div>
+          <div class="pill">iOS &amp; Android</div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="brand">thomas-schwabauer<span>.de</span></div>
+        <div class="year">2025</div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,10 +1,21 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
+import rehypeHighlight from "rehype-highlight";
+import "highlight.js/styles/github-dark.css";
 import { Link } from "@/i18n/navigation";
 import { routing, type Locale } from "@/i18n/routing";
-import { getAllPosts, getPostBySlug, excerpt } from "@/lib/blog";
-import { buildMetadata, localizedUrl } from "@/lib/seo";
+import {
+  getAllPosts,
+  getPostBySlug,
+  excerpt,
+  readingMinutes,
+} from "@/lib/blog";
+import { buildMetadata, localizedUrl, SITE_URL } from "@/lib/seo";
 import { buildArticleSchema, jsonLd } from "@/lib/schema";
 
 interface BlogPostPageParams {
@@ -12,10 +23,12 @@ interface BlogPostPageParams {
   slug: string;
 }
 
+// Nur zur Build-Zeit bekannte Slugs rendern; unbekannte → 404 (kein
+// Runtime-Dateizugriff, da src/content nicht ins Runner-Image kopiert wird).
+export const dynamicParams = false;
+
 export function generateStaticParams(): { locale: Locale; slug: string }[] {
   const posts = getAllPosts();
-  // Kartesisches Produkt aus allen Slugs × allen Locales.
-  // Slug ROH lassen — er kann Klammern enthalten (z.B. "...(2025-comparison)").
   return routing.locales.flatMap((locale) =>
     posts.map((post) => ({ locale, slug: post.slug }))
   );
@@ -27,18 +40,15 @@ export function generateMetadata({
   params: BlogPostPageParams;
 }): Metadata {
   const post = getPostBySlug(slug);
-  if (!post) {
-    return {};
-  }
+  if (!post) return {};
   return buildMetadata({
     locale,
-    // In URLs muss der Slug URL-encodiert sein (Klammern etc.).
     path: `/blog/${encodeURIComponent(slug)}`,
     title: post.title,
     description: excerpt(post),
     ogType: "article",
-    // Blog-Artikel nur auf Deutsch: Canonical immer auf die DE-URL,
-    // kein de/en-hreflang (verhindert Duplicate Content).
+    ...(post.cover ? { ogImage: post.cover } : {}),
+    // Blog nur auf Deutsch: Canonical immer auf DE, kein de/en-hreflang.
     canonicalLocale: "de",
   });
 }
@@ -51,9 +61,7 @@ export default function BlogPostPage({
   unstable_setRequestLocale(locale);
 
   const post = getPostBySlug(slug);
-  if (!post) {
-    notFound();
-  }
+  if (!post) notFound();
 
   const canonicalUrl = localizedUrl(locale, `/blog/${encodeURIComponent(slug)}`);
   const articleSchema = buildArticleSchema({
@@ -62,6 +70,7 @@ export default function BlogPostPage({
     url: canonicalUrl,
     datePublished: post.date,
     author: post.author,
+    image: post.cover ? `${SITE_URL}${post.cover}` : undefined,
   });
 
   return (
@@ -70,8 +79,8 @@ export default function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd(articleSchema)}
       />
-      <div className="max-w-4xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
-        <nav className="mb-10">
+      <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+        <nav className="mb-8">
           <Link
             href="/blog"
             className="inline-flex items-center text-primary hover:text-primary/80 font-medium hover:underline transition-colors"
@@ -88,25 +97,82 @@ export default function BlogPostPage({
                 clipRule="evenodd"
               />
             </svg>
-            Back to Blog
+            Zurück zum Blog
           </Link>
         </nav>
 
-        <article className="bg-card text-card-foreground rounded-lg shadow-xl p-6 sm:p-8 lg:p-10 border border-border">
+        <article>
           <header className="mb-8">
+            {post.tags.length > 0 && (
+              <div className="flex flex-wrap gap-2 mb-4">
+                {post.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="inline-flex items-center rounded-full bg-primary/10 text-primary px-3 py-1 text-xs font-medium"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            )}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 text-foreground leading-tight">
               {post.title}
             </h1>
-            <div className="text-base text-muted-foreground">
-              <span>By {post.author}</span> |{" "}
-              <span>Published on {new Date(post.date).toLocaleDateString()}</span>
+            <div className="text-sm text-muted-foreground">
+              <span>{post.author}</span>
+              {post.date && (
+                <>
+                  {" · "}
+                  <time dateTime={post.date}>
+                    {new Date(post.date).toLocaleDateString("de-DE", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    })}
+                  </time>
+                </>
+              )}
+              {" · "}
+              <span>{readingMinutes(post)} Min. Lesezeit</span>
             </div>
           </header>
 
-          <div className="prose prose-lg max-w-none text-foreground/90 leading-relaxed">
-            {post.content.split("\n").map((paragraph, index) => (
-              <p key={index}>{paragraph}</p>
-            ))}
+          {post.cover && (
+            <div className="relative w-full aspect-[16/9] mb-8 overflow-hidden rounded-2xl border border-border">
+              <Image
+                src={post.cover}
+                alt={post.coverAlt ?? post.title}
+                fill
+                priority
+                sizes="(max-width: 768px) 100vw, 768px"
+                className="object-cover"
+              />
+            </div>
+          )}
+
+          {post.tldr.length > 0 && (
+            <aside className="mb-10 rounded-2xl border border-primary/30 bg-primary/5 p-5 md:p-6">
+              <p className="text-sm font-bold uppercase tracking-wide text-primary mb-3">
+                TL;DR
+              </p>
+              <ul className="space-y-2">
+                {post.tldr.map((point, i) => (
+                  <li key={i} className="flex items-start gap-2 text-foreground/90">
+                    <span className="mt-2 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </aside>
+          )}
+
+          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-a:text-primary prose-img:rounded-xl">
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeSlug, rehypeHighlight]}
+            >
+              {post.content}
+            </ReactMarkdown>
           </div>
         </article>
       </div>

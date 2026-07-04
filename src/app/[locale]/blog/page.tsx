@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "@/i18n/navigation";
 import { type Locale } from "@/i18n/routing";
-import { getAllPosts } from "@/lib/blog";
+import { getAllPosts, excerpt } from "@/lib/blog";
 import { buildMetadata, localizedUrl } from "@/lib/seo";
 import { jsonLd } from "@/lib/schema";
 
@@ -66,38 +67,58 @@ export default function BlogPage({
         {posts.length === 0 ? (
           <div className="text-center py-10">
             <p className="text-xl text-muted-foreground">
-              No blog posts yet. Check back soon!
+              Noch keine Beiträge – bald geht es los!
             </p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {posts.map((post) => (
               <article
-                key={post.id}
-                className="bg-card text-card-foreground p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 border border-border flex flex-col justify-between"
+                key={post.slug}
+                className="bg-card text-card-foreground rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300 border border-border overflow-hidden flex flex-col"
               >
-                <div>
-                  <h2 className="text-2xl font-semibold mb-3">
-                    <Link
-                      href={`/blog/${post.slug}`}
-                      className="text-primary hover:text-primary/80 hover:underline transition-colors"
-                    >
+                <Link href={`/blog/${post.slug}`} className="group flex flex-col h-full">
+                  {post.cover && (
+                    <div className="relative aspect-[16/9] overflow-hidden">
+                      <Image
+                        src={post.cover}
+                        alt={post.coverAlt ?? post.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                    </div>
+                  )}
+                  <div className="p-6 flex flex-col flex-1">
+                    {post.tags.length > 0 && (
+                      <div className="flex flex-wrap gap-1.5 mb-3">
+                        {post.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="inline-flex items-center rounded-full bg-primary/10 text-primary px-2.5 py-0.5 text-xs font-medium"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                    <h2 className="text-xl font-semibold mb-2 text-foreground group-hover:text-primary transition-colors">
                       {post.title}
-                    </Link>
-                  </h2>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    By {post.author} on{" "}
-                    {new Date(post.date).toLocaleDateString()}
-                  </p>
-                </div>
-                <div className="mt-auto">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="text-primary font-medium hover:text-primary/80 hover:underline transition-colors"
-                  >
-                    Read more &rarr;
-                  </Link>
-                </div>
+                    </h2>
+                    <p className="text-sm text-muted-foreground mb-4 line-clamp-3">
+                      {excerpt(post)}
+                    </p>
+                    <div className="mt-auto flex items-center justify-between text-xs text-muted-foreground">
+                      <span>
+                        {post.date &&
+                          new Date(post.date).toLocaleDateString("de-DE")}
+                      </span>
+                      <span className="text-primary font-medium group-hover:underline">
+                        Weiterlesen →
+                      </span>
+                    </div>
+                  </div>
+                </Link>
               </article>
             ))}
           </div>
