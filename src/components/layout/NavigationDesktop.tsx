@@ -1,22 +1,21 @@
 "use client";
 
 import { menuItems } from "@/config/menuItems";
-import Cookies from "js-cookie";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
 export default function NavigationDesktop() {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [locale, setLocale] = useState<string>("en");
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
   const [dropdownTimeout, setDropdownTimeout] = useState<NodeJS.Timeout | null>(
     null
   );
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,18 +23,12 @@ export default function NavigationDesktop() {
       setIsScrolled(scrollPosition > 0);
     };
 
-    // Get the initial locale from the cookie
-    const savedLocale = Cookies.get("NEXT_LOCALE") || "en";
-    setLocale(savedLocale);
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleLanguageChange = (lang: string) => {
-    setLocale(lang);
-    Cookies.set("NEXT_LOCALE", lang, { path: "/" });
-    router.refresh();
+  const handleLanguageChange = (lang: "de" | "en") => {
+    router.replace(pathname, { locale: lang });
   };
 
   const isActiveLink = (href: string) => {
@@ -83,9 +76,9 @@ export default function NavigationDesktop() {
                 className="flex items-center group transition-all duration-200"
                 aria-label="Zur Startseite"
               >
-                <h1 className="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-turquoise-300 transition-colors duration-300">
+                <span className="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-turquoise-300 transition-colors duration-300">
                   Thomas Schwabauer
-                </h1>
+                </span>
               </Link>
             </div>
 

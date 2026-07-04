@@ -10,7 +10,7 @@ import {
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { ArrowRight, Award, MessageCircle, Shield, Zap } from "lucide-react";
 import { useTranslations } from "next-intl";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FaGithub, FaLinkedin, FaMapPin } from "react-icons/fa";
 import { MdEmail, MdPhone } from "react-icons/md";
 

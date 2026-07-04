@@ -16,7 +16,7 @@ import {
   Rocket,
   TrendingUp,
 } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 
 const StartupBeratungSection: React.FC = () => {
   const router = useRouter();

@@ -6,7 +6,7 @@ import WorkExperienceCard from "@/components/work/WorkExperienceCard";
 import { WorkStation, workStations } from "@/config/work-stations";
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import React, { useRef } from "react";
 import { FaRocket } from "react-icons/fa";
 

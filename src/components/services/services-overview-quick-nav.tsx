@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
 import { ArrowRight, LayoutGrid, Mail, User } from "lucide-react";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 
 const QUICK_NAV_ITEMS = [

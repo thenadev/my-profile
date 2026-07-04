@@ -1,48 +1,10 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { appEntwicklungFaqs as APP_FAQS } from "@/data/service-faqs";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { useState } from "react";
-
-const APP_FAQS = [
-  {
-    id: "was-ist-flutter",
-    question: "Was ist Flutter?",
-    answer:
-      "Flutter ist ein Framework von Google zur Entwicklung von Apps für mehrere Plattformen aus einer Codebasis. Sie schreiben den Code einmal, und die App läuft auf Android und iOS – oft mit nahezu nativem Look und guter Performance. Ideal für MVPs und mittelgroße Apps.",
-  },
-  {
-    id: "warum-android-ios",
-    question: "Warum Android und iOS aus einer Codebasis?",
-    answer:
-      "Mit Flutter entwickeln Sie nur einmal – die gleiche App erscheint auf Android und iOS. Das spart Zeit und Kosten im Vergleich zu zwei getrennten Projekten (z. B. Kotlin/Swift). Für viele Produkte reicht eine einheitliche Codebasis völlig aus.",
-  },
-  {
-    id: "ablauf-beratung",
-    question: "Wie läuft das Beratungsgespräch ab?",
-    answer:
-      "Sie geben im Formular Ihr Anliegen oder Ihre App-Idee an – ich bereite mich vor. Im Termin (1 Stunde, Videocall oder Telefon) besprechen wir die technische Umsetzung: Flutter, Machbarkeit, Aufwand. Optional erhalten Sie danach einen kurzen schriftlichen Plan oder eine Kostenschätzung.",
-  },
-  {
-    id: "kosten-beratung-mvp",
-    question: "Was kostet die Beratung bzw. ein MVP?",
-    answer:
-      "Die Beratung kostet 80€ pro Stunde. Ein App-MVP mit Flutter für Android und iOS liegt typischerweise im Bereich von etwa 3.500 € bis 8.000 € – abhängig von Umfang und Anforderungen. Nach dem Beratungsgespräch können wir das konkret durchgehen.",
-  },
-  {
-    id: "dauer-mvp",
-    question: "Wie lange dauert die Entwicklung eines App-MVPs?",
-    answer:
-      "Ein typisches App-MVP mit Flutter benötigt etwa 6–12 Wochen – abhängig von Funktionsumfang, Design und Backend. Im Beratungsgespräch können wir einen groben Zeitplan abstimmen.",
-  },
-  {
-    id: "feature-bug",
-    question: "Feature- und Bug-Entwicklung für bestehende Apps?",
-    answer:
-      "Wenn Sie bereits eine App haben (Flutter oder auch native), können wir gezielt neue Features umsetzen oder Bugs beheben. Ich analysiere Ihr Projekt und mache ein individuelles Angebot. Auch Wartung und kleine Erweiterungen sind möglich.",
-  },
-];
 
 export default function AppEntwicklungFAQ() {
   const [openId, setOpenId] = useState<string | null>(null);

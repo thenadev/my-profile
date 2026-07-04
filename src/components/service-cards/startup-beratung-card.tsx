@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { FaChartLine, FaLightbulb, FaRocket } from "react-icons/fa";
 
 const StartupBeratungCard = () => {

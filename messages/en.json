@@ -30,7 +30,7 @@
     "Hero": {
       "introText": "Hi, I'm",
       "title": "Thomas Schwabauer",
-      "subtitle": "Freelance Fullstack Developer",
+      "subtitle": "Freelance Fullstack Developer & Web Design from Wetzlar",
       "description": "I build performant web and mobile applications with modern technologies.",
       "technologiesTitle": "Technologies",
       "projectStartButton": "Start Project",
@@ -787,5 +787,51 @@
     "webdesign": "Web design",
     "aboutMe": "About me",
     "imageAlt": "Portrait of Thomas Schwabauer for 404 page"
+  },
+  "Meta": {
+    "home": {
+      "title": "Thomas Schwabauer - Fullstack Developer from Wetzlar",
+      "description": "Senior fullstack developer & freelancer from Wetzlar, Germany. React.js | Flutter | Angular | Java | Specialized in web & mobile development."
+    },
+    "about": {
+      "title": "About Me - Background & Expertise",
+      "description": "Senior fullstack developer experienced in React, Flutter and Angular. My background, projects and way of working."
+    },
+    "services": {
+      "title": "Web Design, Apps & Startup Consulting",
+      "description": "Web design, app development and technical startup consulting from Wetzlar, Germany - personal, transparent and fixed-price. Find the right service package."
+    },
+    "servicesUnternehmenswebsite": {
+      "title": "Web Design Wetzlar - Business Websites",
+      "description": "Have a website built in Wetzlar: modern, SEO-optimised business website at a fixed price - design, development & hosting. Book your free consultation now!"
+    },
+    "servicesAppEntwicklung": {
+      "title": "Flutter App Development - iOS & Android",
+      "description": "App development with Flutter, from Wetzlar, Germany: native iOS and Android apps from one codebase - from MVP to launch. Get in touch for a free quote!"
+    },
+    "servicesStartupBeratung": {
+      "title": "Startup Consulting - MVP Development",
+      "description": "Technical startup consulting for founders: MVP development, tech stack decisions and a clear roadmap - hands-on and transparent. Book your session today!"
+    },
+    "contact": {
+      "title": "Contact - Start Your Project",
+      "description": "Have a project in mind? Contact me for web development, app development or startup consulting - reply within 24 hours."
+    },
+    "blog": {
+      "title": "Blog - Web Development, Apps & Tech",
+      "description": "Articles on web development, mobile apps, Flutter, React and software architecture - from the practice of a fullstack developer."
+    },
+    "documents": {
+      "title": "Documents & Downloads",
+      "description": "CV, references and certificates of Thomas Schwabauer, fullstack developer from Wetzlar, Germany - available for download as PDF, compact and clearly arranged."
+    },
+    "imprint": {
+      "title": "Imprint",
+      "description": "Imprint and provider identification of Thomas Schwabauer, fullstack developer from Wetzlar, Germany - including contact details, VAT ID and legal notices."
+    },
+    "privacy": {
+      "title": "Privacy Policy",
+      "description": "Privacy policy of thomas-schwabauer.de: information on the processing of personal data, cookies, Google Analytics and your rights as a user of this website."
+    }
   }
 }

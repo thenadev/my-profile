@@ -19,7 +19,7 @@ import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useTranslations } from "next-intl"; // Import useTranslations hook
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { FaCopy } from "react-icons/fa6";

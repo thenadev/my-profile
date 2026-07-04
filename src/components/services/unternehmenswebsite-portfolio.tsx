@@ -58,6 +58,19 @@ function WebsitePreview({
 
   const embedUrl = getEmbedUrl(url);
 
+  // Projektspezifischer Alt-Text aus der Domain (Projektname + Leistung),
+  // statt generischem "Projekt Vorschau".
+  const projectDomain = (() => {
+    try {
+      return new URL(url).hostname.replace(/^www\./, "");
+    } catch {
+      return "";
+    }
+  })();
+  const fallbackAlt = projectDomain
+    ? `${projectDomain} – Unternehmenswebsite von Thomas Schwabauer`
+    : "Unternehmenswebsite von Thomas Schwabauer";
+
   const handleIframeLoad = () => {
     setIsLoading(false);
     setIframeError(false);
@@ -166,7 +179,7 @@ function WebsitePreview({
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
             src={fallbackImage}
-            alt="Projekt Vorschau"
+            alt={fallbackAlt}
             fill
             className="object-cover"
           />
@@ -199,7 +212,7 @@ function WebsitePreview({
         <div className="relative w-full aspect-[9/14] max-h-[600px]">
           <Image
             src={fallbackImage}
-            alt="Projekt Vorschau"
+            alt={fallbackAlt}
             fill
             className="object-cover"
           />
@@ -310,7 +323,7 @@ export default function UnternehmenswebsitePortfolio() {
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Unsere Projekte
+            Unsere Webdesign-Projekte
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             Sehen Sie sich einige unserer erfolgreich umgesetzten

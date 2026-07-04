@@ -144,7 +144,7 @@ export default function StartupBeratungHero({
               }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              Startup-Idee? In 1 Stunde zum Umsetzungsplan.
+              Startup-Beratung: in 1 Stunde zum Umsetzungsplan
             </motion.h1>
 
             <motion.p

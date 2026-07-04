@@ -23,7 +23,7 @@ export default function UnternehmenswebsiteFinalCTA({
         </span>
       </div>
       <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-        Bereit für Ihre neue Website?
+        Bereit für Ihre neue Unternehmenswebsite?
       </h2>
       <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
         Lassen Sie uns gemeinsam Ihre Online-Präsenz in Wetzlar auf das nächste

@@ -4,7 +4,7 @@ import { WorkStation } from "@/config/work-stations";
 import { AnimatePresence, motion } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import React, { useMemo, useState } from "react";
 import {
   FaCalendarAlt,

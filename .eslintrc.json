@@ -1,5 +1,18 @@
 {
   "extends": ["next/core-web-vitals", "next/typescript"],
+  "rules": {
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "next/link",
+            "message": "Für interne Links { Link } aus @/i18n/navigation verwenden, damit das Locale-Präfix erhalten bleibt."
+          }
+        ]
+      }
+    ]
+  },
   "overrides": [
     {
       "files": ["components/ui/**/*"],

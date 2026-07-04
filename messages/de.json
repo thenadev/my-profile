@@ -30,7 +30,7 @@
     "Hero": {
       "introText": "Hi, ich bin",
       "title": "Thomas Schwabauer",
-      "subtitle": "Freelance Fullstack Entwickler",
+      "subtitle": "Freelance Fullstack-Entwickler & Webdesign aus Wetzlar",
       "description": "Ich baue performante Web- und Mobile-Anwendungen mit modernen Technologien.",
       "technologiesTitle": "Technologien",
       "projectStartButton": "Projekt starten",
@@ -793,5 +793,51 @@
     "webdesign": "Webdesign",
     "aboutMe": "Über mich",
     "imageAlt": "Portrait von Thomas Schwabauer für 404-Seite"
+  },
+  "Meta": {
+    "home": {
+      "title": "Thomas Schwabauer - Fullstack Developer aus Wetzlar",
+      "description": "Senior Fullstack Developer & Freelancer aus Wetzlar (Hessen). React.js | Flutter | Angular | Java | Spezialisiert auf Web- & Mobile-Entwicklung."
+    },
+    "about": {
+      "title": "Über mich - Werdegang & Expertise",
+      "description": "Senior Fullstack Developer mit Erfahrung in React, Flutter und Angular. Mein Werdegang, meine Projekte und meine Arbeitsweise."
+    },
+    "services": {
+      "title": "Webdesign, Apps & Startup-Beratung",
+      "description": "Webdesign, App-Entwicklung und technische Startup-Beratung aus Wetzlar - persönlich, transparent und zum Festpreis. Finden Sie das passende Leistungspaket."
+    },
+    "servicesUnternehmenswebsite": {
+      "title": "Webdesign Wetzlar - Unternehmenswebsite",
+      "description": "Website erstellen lassen in Wetzlar: moderne, SEO-optimierte Unternehmenswebsite zum Festpreis - Design, Entwicklung & Hosting. Jetzt kostenlos beraten lassen!"
+    },
+    "servicesAppEntwicklung": {
+      "title": "App-Entwicklung Wetzlar - Flutter Apps",
+      "description": "App-Entwicklung mit Flutter aus Wetzlar: native Apps für iOS und Android aus einer Codebasis - vom MVP bis zur fertigen App. Jetzt unverbindlich anfragen!"
+    },
+    "servicesStartupBeratung": {
+      "title": "MVP entwickeln lassen - Startup-Beratung",
+      "description": "MVP entwickeln lassen & technische Startup-Beratung für Gründer: Tech-Stack, Machbarkeit und Umsetzungsplan - transparent für 80 €/Stunde. Termin sichern!"
+    },
+    "contact": {
+      "title": "Kontakt - Projektanfrage stellen",
+      "description": "Projekt im Kopf? Kontaktieren Sie mich für Webentwicklung, App-Entwicklung oder Startup-Beratung - Antwort innerhalb von 24 Stunden."
+    },
+    "blog": {
+      "title": "Blog - Webentwicklung, Apps & Tech",
+      "description": "Artikel über Webentwicklung, Mobile Apps, Flutter, React und Software-Architektur - aus der Praxis eines Fullstack-Entwicklers."
+    },
+    "documents": {
+      "title": "Dokumente & Downloads",
+      "description": "Lebenslauf, Zeugnisse und Zertifikate von Thomas Schwabauer, Fullstack Developer aus Wetzlar, zum Download - kompakt, übersichtlich und als PDF verfügbar."
+    },
+    "imprint": {
+      "title": "Impressum",
+      "description": "Impressum und Anbieterkennzeichnung von Thomas Schwabauer, Fullstack Developer aus Wetzlar - mit Kontaktdaten, Umsatzsteuer-ID und rechtlichen Hinweisen."
+    },
+    "privacy": {
+      "title": "Datenschutzerklärung",
+      "description": "Datenschutzerklärung von thomas-schwabauer.de: Informationen zur Verarbeitung personenbezogener Daten, zu Cookies, Google Analytics und Ihren Nutzerrechten."
+    }
   }
 }

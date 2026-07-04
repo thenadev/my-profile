@@ -12,7 +12,7 @@ import {
 import { motion, useInView } from "framer-motion";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import React, { useRef } from "react";
 import { FaBolt, FaCode, FaPalette, FaRocket, FaUsers } from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";

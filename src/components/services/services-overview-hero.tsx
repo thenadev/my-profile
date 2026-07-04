@@ -10,7 +10,7 @@ import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Layers, User } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 
 function useCountUp(
@@ -135,7 +135,7 @@ export default function ServicesOverviewHero() {
               }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              Was ich für Sie tun kann
+              Webdesign, App-Entwicklung & Startup-Beratung
             </motion.h1>
 
             <motion.p

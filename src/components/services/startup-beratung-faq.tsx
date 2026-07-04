@@ -1,48 +1,10 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
+import { startupBeratungFaqs as STARTUP_FAQS } from "@/data/service-faqs";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
 import { useState } from "react";
-
-const STARTUP_FAQS = [
-  {
-    id: "ablauf-beratung",
-    question: "Was passiert beim Beratungstermin?",
-    answer:
-      "Sie haben im Formular Ihre Idee beschrieben – ich lese mich ein und bereite mich vor. Im Termin (1 Stunde, Videocall oder Telefon) besprechen wir die technische Umsetzung: Was ist sinnvoll, was ist machbar, welche Schritte kommen zuerst. Danach erhalten Sie von mir einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.",
-  },
-  {
-    id: "kosten",
-    question: "Was kostet die Beratung?",
-    answer:
-      "Die Startup-Beratung kostet 80€ pro Stunde. Sie buchen eine Stunde: Sie geben Ihre Idee vorab an, wir führen das Gespräch, und Sie bekommen anschließend einen schriftlichen Umsetzungsplan inkl. Kostenschätzung. Es gibt keine versteckten Kosten.",
-  },
-  {
-    id: "umsetzungsplan",
-    question: "Was ist im Umsetzungsplan enthalten?",
-    answer:
-      "Der schriftliche Umsetzungsplan fasst zusammen, was wir besprochen haben: technische Schritte, sinnvolle Reihenfolge, Aufwand und eine Kostenschätzung für die Umsetzung (z. B. MVP-Entwicklung). So haben Sie eine klare Entscheidungsgrundlage für den nächsten Schritt.",
-  },
-  {
-    id: "nach-beratung",
-    question: "Wie geht es nach der Beratung weiter (MVP)?",
-    answer:
-      "Nach dem Beratungstermin können Sie entscheiden, ob Sie die Umsetzung in Auftrag geben möchten. Der nächste logische Schritt ist oft die MVP-Entwicklung: Ich setze Ihr Minimum Viable Product in 4–8 Wochen um. Das Angebot dazu erhalten Sie auf Basis des Umsetzungsplans.",
-  },
-  {
-    id: "programmierkenntnisse",
-    question: "Brauche ich Programmierkenntnisse?",
-    answer:
-      "Nein. Sie beschreiben Ihre Idee, wir besprechen die Umsetzung – ich übernehme die technische Seite. Sie müssen nichts programmieren. Der Umsetzungsplan ist so formuliert, dass Sie verstehen, was geplant ist und was es kostet.",
-  },
-  {
-    id: "dauer-termin",
-    question: "Wie schnell bekomme ich einen Termin?",
-    answer:
-      "Nach Ihrer Anfrage melde ich mich in der Regel innerhalb von 24 Stunden und schlage Ihnen Termine vor. Die Beratung kann per Videocall oder Telefon stattfinden – auch kurzfristig, je nach Verfügbarkeit.",
-  },
-];
 
 export default function StartupBeratungFAQ() {
   const [openId, setOpenId] = useState<string | null>(null);

@@ -144,7 +144,7 @@ export default function AppEntwicklungHero({
               }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              App-Idee? Flutter-Apps für Android & iOS.
+              App-Entwicklung mit Flutter für Android & iOS
             </motion.h1>
 
             <motion.p

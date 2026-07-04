@@ -11,7 +11,7 @@ import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Star, User } from "lucide-react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter } from "@/i18n/navigation";
 import { useEffect, useRef, useState } from "react";
 
 // Number Counter Hook (startOnMount: true = Animation startet beim Laden, ohne Scroll – z. B. für Hero oben)
@@ -59,7 +59,7 @@ function useCountUp(
 // Hero-Headlines rotierend (Option 1, B, I)
 const HERO_TEXTS = [
   {
-    headline: "Du brauchst eine neue Website?",
+    headline: "Webdesign aus Wetzlar für dein Unternehmen",
     subheadline:
       "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt.",
   },
@@ -79,9 +79,13 @@ export default function UnternehmenswebsiteHero() {
   const router = useRouter();
   const heroRef = useRef<HTMLElement>(null);
 
-  // Typing-Animation: rotiert durch HERO_TEXTS
+  // Typing-Animation: rotiert durch HERO_TEXTS.
+  // headlineLen startet auf voller Länge der ersten Headline, damit die
+  // H1 bereits serverseitig (SSR) echten Text enthält (SEO) und beim
+  // Hydrieren kein Mismatch entsteht. Die Typing-Animation läuft danach
+  // für Subheadline und alle folgenden Rotationen normal weiter.
   const [optionIndex, setOptionIndex] = useState(0);
-  const [headlineLen, setHeadlineLen] = useState(0);
+  const [headlineLen, setHeadlineLen] = useState(HERO_TEXTS[0].headline.length);
   const [subheadlineLen, setSubheadlineLen] = useState(0);
   const [phase, setPhase] = useState<"headline" | "subheadline" | "pause">(
     "headline",

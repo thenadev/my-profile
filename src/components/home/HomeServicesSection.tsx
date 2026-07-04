@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useInView } from "framer-motion";
-import Link from "next/link";
+import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import { FaMobileAlt, FaRocket, FaGlobe } from "react-icons/fa";
 import { ChevronRight } from "lucide-react";

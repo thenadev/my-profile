@@ -2,23 +2,22 @@
 
 import MyAvatar from "@/assets/me-laptop.png";
 import { menuItems } from "@/config/menuItems";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { AnimatePresence, motion } from "framer-motion";
-import Cookies from "js-cookie";
 import Image from "next/image";
-import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
 export default function NavigationMobile() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [locale, setLocale] = useState<string>("en");
   const [expandedItems, setExpandedItems] = useState<Record<string, boolean>>(
     {},
   );
   const router = useRouter();
   const pathname = usePathname();
+  const locale = useLocale();
 
   const toggleItem = (title: string) => {
     setExpandedItems((prev) => ({
@@ -41,10 +40,6 @@ export default function NavigationMobile() {
       setIsScrolled(scrollPosition > 0);
     };
 
-    // Get the initial locale from the cookie
-    const savedLocale = Cookies.get("NEXT_LOCALE") || "en";
-    setLocale(savedLocale);
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -63,10 +58,8 @@ export default function NavigationMobile() {
     };
   }, [isOpen]);
 
-  const handleLanguageChange = (lang: string) => {
-    setLocale(lang);
-    Cookies.set("NEXT_LOCALE", lang, { path: "/" });
-    router.refresh();
+  const handleLanguageChange = (lang: "de" | "en") => {
+    router.replace(pathname, { locale: lang });
   };
 
   return (
@@ -91,7 +84,7 @@ export default function NavigationMobile() {
                 className="flex items-center group transition-all duration-200 hover:scale-105"
                 aria-label="Zur Startseite"
               >
-                <h1
+                <span
                   className={`text-base sm:text-lg md:text-xl font-bold tracking-wide transition-colors duration-300 truncate ${
                     isScrolled
                       ? "text-white group-hover:text-turquoise-300"
@@ -99,7 +92,7 @@ export default function NavigationMobile() {
                   }`}
                 >
                   Thomas Schwabauer
-                </h1>
+                </span>
               </Link>
             </div>
 
