@@ -1,0 +1,45 @@
+# Produktions-Deployment thomas-schwabauer.de
+# Liegt als Kopie unter /opt/docker/my-profile/docker-compose.yml auf dem
+# Server und wird bei jedem Deploy aus dem Repo dorthin synchronisiert
+# (Single Source of Truth ist diese Datei im Repo).
+#
+# Erwartet auf dem Server:
+#   /opt/docker/my-profile/.env   (EMAIL_SENDER_ADDR, EMAIL_SENDER_PW, BLOG_ADMIN_SECRET)
+#   /opt/docker/my-profile/data/  (blog.json, Eigentümer uid 1000 = node-User im Container)
+
+services:
+  my-profile:
+    image: ghcr.io/thenadev/my-profile:latest
+    container_name: my-profile
+    env_file:
+      - .env
+    networks:
+      - physiqueforge-network
+    restart: unless-stopped
+    volumes:
+      - ./data:/app/src/data
+    labels:
+      - "traefik.enable=true"
+      # HTTPS-Router (beide Hosts → LE-Zertifikat mit beiden SANs)
+      - "traefik.http.routers.myprofile.rule=Host(`www.thomas-schwabauer.de`) || Host(`thomas-schwabauer.de`)"
+      - "traefik.http.routers.myprofile.entrypoints=websecure"
+      - "traefik.http.routers.myprofile.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.myprofile.middlewares=myprofile-www"
+      - "traefik.http.routers.myprofile.service=myprofile"
+      # HTTP-Router: apex+www → in EINEM Redirect auf https://www
+      - "traefik.http.routers.myprofile-http.rule=Host(`www.thomas-schwabauer.de`) || Host(`thomas-schwabauer.de`)"
+      - "traefik.http.routers.myprofile-http.entrypoints=web"
+      - "traefik.http.routers.myprofile-http.middlewares=myprofile-www,myprofile-https"
+      - "traefik.http.routers.myprofile-http.service=myprofile"
+      # Middlewares: non-www → www (greift für http UND https auf apex),
+      # danach Schema-Redirect für http://www
+      - "traefik.http.middlewares.myprofile-www.redirectregex.regex=^https?://thomas-schwabauer\\.de/(.*)"
+      - "traefik.http.middlewares.myprofile-www.redirectregex.replacement=https://www.thomas-schwabauer.de/$${1}"
+      - "traefik.http.middlewares.myprofile-www.redirectregex.permanent=true"
+      - "traefik.http.middlewares.myprofile-https.redirectscheme.scheme=https"
+      - "traefik.http.middlewares.myprofile-https.redirectscheme.permanent=true"
+      - "traefik.http.services.myprofile.loadbalancer.server.port=3000"
+
+networks:
+  physiqueforge-network:
+    external: true

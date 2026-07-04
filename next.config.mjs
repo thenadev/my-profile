@@ -4,6 +4,10 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Docker-Deployment: minimaler Server-Output (deploy/docker-compose.yml),
+  // Start im Container via `node server.js`. `npm run start` lokal
+  // funktioniert weiterhin für Dev-Checks.
+  output: "standalone",
   async headers() {
     return [
       {

@@ -1,0 +1,76 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-production
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/thenadev/my-profile
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          platforms: linux/amd64
+          tags: |
+            ${{ env.IMAGE }}:latest
+            ${{ env.IMAGE }}:${{ github.sha }}
+          build-args: |
+            NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=${{ vars.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: SSH einrichten
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DEPLOY_SSH_KEY }}" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -H 217.154.0.186 >> ~/.ssh/known_hosts
+
+      - name: Compose-Datei synchronisieren
+        run: scp deploy/docker-compose.yml root@217.154.0.186:/opt/docker/my-profile/docker-compose.yml
+
+      - name: Deploy
+        run: |
+          ssh root@217.154.0.186 '
+            set -e
+            cd /opt/docker/my-profile
+            docker compose pull
+            docker compose up -d
+            docker image prune -f
+          '
+
+      - name: Smoke-Test
+        run: |
+          sleep 10
+          code=$(curl -s -o /dev/null -w "%{http_code}" --max-time 20 https://www.thomas-schwabauer.de/)
+          echo "https://www.thomas-schwabauer.de/ → $code"
+          test "$code" = "200"
