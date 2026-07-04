@@ -79,7 +79,7 @@ export default function BlogPostPage({
         type="application/ld+json"
         dangerouslySetInnerHTML={jsonLd(articleSchema)}
       />
-      <div className="max-w-3xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mx-auto pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <nav className="mb-8">
           <Link
             href="/blog"
@@ -166,7 +166,7 @@ export default function BlogPostPage({
             </aside>
           )}
 
-          <div className="prose prose-lg dark:prose-invert max-w-none prose-headings:scroll-mt-24 prose-a:text-primary prose-img:rounded-xl">
+          <div className="prose prose-lg prose-invert max-w-none prose-headings:scroll-mt-24 prose-headings:text-foreground prose-p:text-foreground/90 prose-li:text-foreground/90 prose-strong:text-foreground prose-a:text-primary prose-a:font-medium prose-code:text-foreground prose-th:text-foreground prose-td:text-foreground/90 prose-img:rounded-xl">
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSlug, rehypeHighlight]}

@@ -4,6 +4,7 @@ import {
   FaEnvelope,
   FaFileAlt,
   FaHome,
+  FaNewspaper,
   FaRocket,
   FaTools,
   FaUser,
@@ -54,6 +55,12 @@ export const menuItems: MenuItem[] = [
         href: "/services/unternehmenswebsite",
       },
     ],
+  },
+  {
+    titleKey: "blog",
+    href: "/blog",
+    icon: <FaNewspaper />,
+    subItems: [],
   },
   {
     titleKey: "documents",
