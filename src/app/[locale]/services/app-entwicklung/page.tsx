@@ -8,7 +8,7 @@ import {
   buildServiceSchema,
   jsonLd,
 } from "@/lib/schema";
-import { appEntwicklungFaqs } from "@/data/service-faqs";
+import { getAppEntwicklungFaqs } from "@/data/service-faqs";
 import AppEntwicklungClient from "./AppEntwicklungClient";
 
 const PATH = "/services/app-entwicklung";
@@ -34,6 +34,7 @@ export default async function AppEntwicklungPage({
 }) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const nav = await getTranslations({ locale, namespace: "Navbar" });
 
   const url = localizedUrl(locale, PATH);
   const serviceSchema = buildServiceSchema({
@@ -42,11 +43,11 @@ export default async function AppEntwicklungPage({
     url,
   });
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Startseite", url: localizedUrl(locale, "/") },
-    { name: "Leistungen", url: localizedUrl(locale, "/services") },
-    { name: "App-Entwicklung", url },
+    { name: nav("home"), url: localizedUrl(locale, "/") },
+    { name: nav("services"), url: localizedUrl(locale, "/services") },
+    { name: nav("appEntwicklung"), url },
   ]);
-  const faqSchema = buildFaqSchema(appEntwicklungFaqs);
+  const faqSchema = buildFaqSchema(getAppEntwicklungFaqs(locale));
 
   return (
     <>

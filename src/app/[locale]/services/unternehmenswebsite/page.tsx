@@ -8,7 +8,7 @@ import {
   buildServiceSchema,
   jsonLd,
 } from "@/lib/schema";
-import { unternehmenswebsiteFaqs } from "@/data/service-faqs";
+import { getUnternehmenswebsiteFaqs } from "@/data/service-faqs";
 import UnternehmenswebsiteClient from "./UnternehmenswebsiteClient";
 
 const PATH = "/services/unternehmenswebsite";
@@ -34,6 +34,7 @@ export default async function UnternehmenswebsitePage({
 }) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const nav = await getTranslations({ locale, namespace: "Navbar" });
 
   const url = localizedUrl(locale, PATH);
   const serviceSchema = buildServiceSchema({
@@ -42,11 +43,11 @@ export default async function UnternehmenswebsitePage({
     url,
   });
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Startseite", url: localizedUrl(locale, "/") },
-    { name: "Leistungen", url: localizedUrl(locale, "/services") },
-    { name: "Unternehmenswebsite", url },
+    { name: nav("home"), url: localizedUrl(locale, "/") },
+    { name: nav("services"), url: localizedUrl(locale, "/services") },
+    { name: nav("unternehmenswebsite"), url },
   ]);
-  const faqSchema = buildFaqSchema(unternehmenswebsiteFaqs);
+  const faqSchema = buildFaqSchema(getUnternehmenswebsiteFaqs(locale));
 
   return (
     <>

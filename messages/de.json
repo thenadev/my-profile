@@ -7,7 +7,14 @@
     "work": "Berufserfahrung",
     "projects": "Projekte",
     "documents": "Dokumente",
-    "contact": "Kontakt"
+    "contact": "Kontakt",
+    "contactCta": "Kontakt aufnehmen",
+    "close": "Menü schließen",
+    "startupBeratung": "Startup-Beratung",
+    "appEntwicklung": "App-Entwicklung",
+    "unternehmenswebsite": "Unternehmenswebsite",
+    "switchToGerman": "Sprache auf Deutsch wechseln",
+    "switchToEnglish": "Auf Englisch wechseln"
   },
   "Footer": {
     "privacy": "Datenschutzerklärung",
@@ -259,7 +266,28 @@
     "orb_7": "Android ist das weltweit führende mobile Betriebssystem, entwickelt von Google.",
     "orb_8": "Flutter ermöglicht die Erstellung nativ kompilierter Anwendungen für Mobilgeräte, Web und Desktop.",
     "orb_9": "Java ist eine vielseitige, hochrangige Programmiersprache, die häufig für plattformübergreifende Entwicklung verwendet wird.",
-    "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration."
+    "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration.",
+    "ServicesTeaser": {
+      "eyebrow": "Services",
+      "heading": "Was ich für Sie tun kann",
+      "subheading": "Beratung, MVP-Entwicklung und Umsetzung – von der Idee bis zur fertigen App oder Website.",
+      "more": "Mehr erfahren",
+      "viewAll": "Alle Services anzeigen",
+      "items": {
+        "startupBeratung": {
+          "title": "Startup-Beratung",
+          "description": "Termin buchen (80€/h), Idee angeben – 1h Gespräch, danach schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP & Feature-Erweiterung."
+        },
+        "appEntwicklung": {
+          "title": "App-Entwicklung",
+          "description": "Flutter-Apps für Android & iOS. Beratung, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps."
+        },
+        "unternehmenswebsite": {
+          "title": "Unternehmenswebsite",
+          "description": "Professionelle Websites aus Wetzlar – modern, responsive und SEO-optimiert. Von Basic bis E-Commerce."
+        }
+      }
+    }
   },
   "Contact": {
     "badge": "Kontakt",
@@ -838,6 +866,726 @@
     "privacy": {
       "title": "Datenschutzerklärung",
       "description": "Datenschutzerklärung von thomas-schwabauer.de: Informationen zur Verarbeitung personenbezogener Daten, zu Cookies, Google Analytics und Ihren Nutzerrechten."
+    }
+  },
+  "ServicesOverview": {
+    "hero": {
+      "badge": "Services",
+      "headline": "Webdesign, App-Entwicklung & Startup-Beratung",
+      "subheadline": "Von der Startup-Idee über Apps bis zur Unternehmenswebsite – Beratung, MVP-Entwicklung und Erweiterung aus einer Hand.",
+      "ctaPrimary": "Zu den Angeboten",
+      "ctaSecondary": "Kontakt",
+      "badges": [
+        "Startup-Beratung 80€/h",
+        "Flutter-Apps für Android & iOS",
+        "Webdesign Wetzlar"
+      ],
+      "cards": {
+        "services": {
+          "value": "3 Services",
+          "label": "Beratung · Apps · Web"
+        },
+        "projects": "Projekte",
+        "experience": {
+          "value": "{years} Jahre",
+          "label": "Erfahrung"
+        }
+      },
+      "benefitsTitle": "Was Sie bei mir finden:",
+      "benefits": [
+        {
+          "title": "Startup-Beratung",
+          "desc": "Umsetzungsplan inkl. Kostenschätzung"
+        },
+        {
+          "title": "App-Entwicklung",
+          "desc": "Flutter für Android & iOS"
+        },
+        {
+          "title": "Unternehmenswebsite",
+          "desc": "Webdesign aus Wetzlar"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Schnellnavigation",
+      "heading": "Wohin möchten Sie?",
+      "subheading": "Springen Sie zu den Angeboten oder zu Über mich und Kontakt.",
+      "jumpTo": "Zu {label} springen",
+      "goTo": "Zu {label}",
+      "items": {
+        "offers": {
+          "label": "Angebote",
+          "description": "Alle Services im Überblick"
+        },
+        "about": {
+          "label": "Über mich",
+          "description": "Mehr zu meiner Person und Erfahrung"
+        },
+        "contact": {
+          "label": "Kontakt",
+          "description": "Kontakt aufnehmen"
+        }
+      }
+    },
+    "grid": {
+      "badge": "Angebote",
+      "heading": "Meine Services",
+      "subheading": "Von der Startup-Idee über Apps bis zur Unternehmenswebsite – Beratung, MVP-Entwicklung und Erweiterung aus einer Hand."
+    },
+    "more": "Mehr erfahren",
+    "cards": {
+      "startupBeratung": {
+        "title": "Startup-Beratung",
+        "badge": "Beratung & Umsetzung",
+        "description": "Idee angeben, Termin buchen (80€/h) – 1h Gespräch, danach schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP und Feature-Erweiterung im Anschluss.",
+        "features": [
+          "80€/h Beratung",
+          "Umsetzungsplan + Kostenschätzung",
+          "MVP ab 2.500€"
+        ]
+      },
+      "appEntwicklung": {
+        "title": "App-Entwicklung",
+        "badge": "Flutter · Android & iOS",
+        "description": "Flutter-Apps für Android & iOS aus einer Codebasis. Beratungsgespräch, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps.",
+        "features": [
+          "Beratung 80€/h",
+          "MVP mit Flutter",
+          "Features & Bugs"
+        ]
+      },
+      "unternehmenswebsite": {
+        "title": "Unternehmenswebsite",
+        "badge": "Webdesign Wetzlar",
+        "description": "Professionelle Unternehmenswebsites aus Wetzlar – moderne, responsive und SEO-optimierte Webdesigns für Ihr Unternehmen.",
+        "features": [
+          "Basic ab 1.200€",
+          "Professional ab 3.500€",
+          "E-Commerce ab 8.000€"
+        ]
+      }
+    },
+    "why": {
+      "badge": "Warum ich?",
+      "heading": "Eine Anlaufstelle für Beratung, Apps und Web",
+      "subheading": "Persönlich, vor Ort und mit Fokus auf Ihre Ziele.",
+      "items": {
+        "consulting": {
+          "title": "Beratung vor Umsetzung",
+          "desc": "Idee besprechen, Plan erhalten – dann entscheiden Sie."
+        },
+        "oneStop": {
+          "title": "Eine Anlaufstelle",
+          "desc": "Idee, App und Website – aus einer Hand."
+        },
+        "local": {
+          "title": "Lokaler Ansprechpartner",
+          "desc": "Aus Wetzlar, für Mittelhessen und darüber hinaus."
+        },
+        "personal": {
+          "title": "Persönliche Kommunikation",
+          "desc": "Direkter Draht ohne Agentur-Filter."
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Noch Fragen?",
+      "subheading": "Gerne per Kontakt melden – ich antworte zeitnah.",
+      "button": "Kontakt aufnehmen"
+    }
+  },
+  "AppEntwicklung": {
+    "hero": {
+      "badge": {
+        "label": "App-Entwicklung",
+        "tag": "Flutter · Android & iOS"
+      },
+      "headline": "App-Entwicklung mit Flutter für Android & iOS",
+      "subheadline": "Beratungsgespräch, MVP-Umsetzung oder Feature-/Bug-Entwicklung – eine Codebasis für beide Plattformen.",
+      "ctaPrimary": "Beratungstermin buchen (80€/h)",
+      "ctaSecondary": "So läuft’s",
+      "badges": {
+        "codebase": "Flutter – eine Codebasis",
+        "platforms": "Android & iOS",
+        "experience": "{years} Jahre Erfahrung"
+      },
+      "cards": {
+        "projects": "Projekte",
+        "satisfaction": "Zufriedenheit",
+        "role": {
+          "value": "App-Entwicklung",
+          "label": "{years} Jahre"
+        }
+      },
+      "benefitsTitle": "Was Sie von mir bekommen:",
+      "benefits": [
+        {
+          "title": "Beratungsgespräch",
+          "desc": "Idee klären, Technik (Flutter)"
+        },
+        {
+          "title": "MVP-Umsetzung",
+          "desc": "Android & iOS aus einer Codebasis"
+        },
+        {
+          "title": "Feature & Bug",
+          "desc": "Erweiterung und Wartung"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Schnellnavigation",
+      "heading": "Was möchten Sie tun?",
+      "subheading": "Springen Sie zu Preisen, Ablauf, Terminbuchung oder FAQ.",
+      "jumpTo": "Zu {label} springen",
+      "items": {
+        "prices": {
+          "label": "Preise & Pakete",
+          "description": "Beratung 80€/h, MVP, Feature/Bug"
+        },
+        "process": {
+          "label": "Ablauf",
+          "description": "So läuft’s in 3 Schritten"
+        },
+        "booking": {
+          "label": "Termin buchen",
+          "description": "Anliegen angeben und Beratungstermin vereinbaren"
+        },
+        "faq": {
+          "label": "Häufige Fragen",
+          "description": "Flutter, Ablauf, Kosten, MVP"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "Für wen?",
+        "heading": "Für Gründer und Unternehmen mit App-Bedarf",
+        "subheading": "Ob App-Idee, MVP mit Flutter oder Erweiterung einer bestehenden App – ich entwickle für Android und iOS aus einer Codebasis."
+      },
+      "packages": {
+        "heading": "Beratung, MVP und Feature/Bug-Entwicklung",
+        "subheading": "Einstieg: Beratungsgespräch (80€/h). Danach MVP mit Flutter für Android & iOS oder gezielte Feature-/Bug-Entwicklung.",
+        "badges": {
+          "popular": "Am beliebtesten",
+          "cheapest": "Günstigster Einstieg",
+          "new": "Neu"
+        },
+        "individual": "Individuell",
+        "delivery": "Lieferzeit: {weeks}",
+        "idealFor": "Ideal für:"
+      },
+      "process": {
+        "badge": "So läuft’s",
+        "heading": "So arbeiten wir zusammen",
+        "subheading": "Idee/Anliegen angeben, Termin buchen – ich bereite mich vor. Dann Beratungsgespräch; optional MVP oder Feature-/Bug-Entwicklung.",
+        "steps": [
+          {
+            "title": "Idee/Anliegen angeben & Termin buchen",
+            "desc": "Sie beschreiben im Formular, was Sie brauchen – ich lese mich ein. So nutzen wir das Gespräch optimal."
+          },
+          {
+            "title": "Beratungsgespräch",
+            "desc": "Wir sprechen über die technische Umsetzung: Flutter, Android & iOS, Machbarkeit und nächste Schritte."
+          },
+          {
+            "title": "Optional: MVP oder Feature/Bug",
+            "desc": "Nach dem Gespräch können wir direkt mit der MVP-Umsetzung starten oder gezielt Features und Bugs angehen."
+          }
+        ]
+      },
+      "why": {
+        "heading": "Warum App-Entwicklung mit Flutter?",
+        "subheading": "Eine Codebasis für Android und iOS – schneller und kostengünstiger als zwei getrennte Apps. Ich berate und setze um.",
+        "items": [
+          {
+            "title": "Eine Codebasis – zwei Plattformen",
+            "desc": "Flutter: eine Codebasis für Android und iOS. Weniger Aufwand, einheitliches Verhalten und Design."
+          },
+          {
+            "title": "Beratung mit Vorbereitung",
+            "desc": "Sie geben Ihr Anliegen vorab an – ich bereite mich vor. Das Gespräch geht in die Tiefe."
+          },
+          {
+            "title": "MVP oder gezielte Erweiterung",
+            "desc": "Entweder komplettes App-MVP oder gezielte Feature- und Bug-Entwicklung für bestehende Apps."
+          },
+          {
+            "title": "Erfahrung in Flutter",
+            "desc": "{years} Jahre Erfahrung in der Umsetzung – realistische Schätzungen und saubere Architektur."
+          }
+        ]
+      }
+    },
+    "form": {
+      "badge": "Termin buchen",
+      "heading": "Anliegen angeben & Termin vereinbaren",
+      "subheading": "Beschreiben Sie Ihre App-Idee oder Ihr Anliegen – ich bereite mich vor. Beratungstermin 80€/h. Danach optional MVP oder Feature-/Bug-Entwicklung.",
+      "cardTitle": "Termin anfragen",
+      "cardNote": "Alle Felder mit * sind Pflicht. Ihre Angaben werden vertraulich behandelt.",
+      "fields": {
+        "name": "Name *",
+        "email": "E-Mail *",
+        "phone": "Telefon *",
+        "product": "Wofür möchten Sie anfragen? *",
+        "productPlaceholder": "Bitte wählen..."
+      },
+      "options": {
+        "app_beratung": "Beratungsgespräch (80€/h) – Termin buchen",
+        "app_mvp": "MVP-Umsetzung anfragen",
+        "app_feature_bug": "Feature- & Bug-Entwicklung anfragen"
+      },
+      "idea": {
+        "label": "Ihre Idee / Ihr Anliegen",
+        "placeholder": "Beschreiben Sie kurz Ihre App-Idee, Ihr Projekt oder was Sie brauchen. So kann ich mich auf das Gespräch vorbereiten."
+      },
+      "privacy": {
+        "before": "Ich stimme der",
+        "link": "Datenschutzerklärung",
+        "after": "zu. *"
+      },
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet...",
+      "errors": {
+        "name": "Bitte Name angeben",
+        "email": "Ungültige E-Mail-Adresse",
+        "phone": "Bitte Telefonnummer angeben",
+        "product": "Bitte wählen Sie eine Option",
+        "idea": "Bitte beschreiben Sie Ihre Idee oder Ihr Anliegen (mind. 10 Zeichen)",
+        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
+      },
+      "dialog": {
+        "successTitle": "Anfrage gesendet",
+        "successMessage": "Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.",
+        "errorTitle": "Fehler",
+        "errorMessage": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
+        "close": "Schließen"
+      }
+    },
+    "finalCta": {
+      "heading": "Bereit für Ihre App mit Flutter?",
+      "subheading": "Beratungstermin buchen (80€/h), Anliegen angeben – danach optional MVP oder Feature-/Bug-Entwicklung für Android & iOS.",
+      "button": "Beratungstermin buchen (80€/h)",
+      "trust": {
+        "platforms": "Flutter – Android & iOS",
+        "experience": "{years} Jahre Erfahrung",
+        "satisfaction": "{percent}% Zufriedenheit",
+        "fast": "Schnelle Terminvergabe"
+      }
+    },
+    "faq": {
+      "heading": "Häufig gestellte Fragen",
+      "subheading": "Antworten zu Flutter, Ablauf, Kosten und MVP."
+    }
+  },
+  "StartupBeratung": {
+    "hero": {
+      "badge": {
+        "label": "Startup-Beratung",
+        "tag": "80€/h"
+      },
+      "headline": "Startup-Beratung: in 1 Stunde zum Umsetzungsplan",
+      "subheadline": "Sie geben Ihre Idee vorab an – ich bereite mich vor. 1h Gespräch zur technischen Umsetzung, danach ein schriftlicher Umsetzungsplan inkl. Kostenschätzung.",
+      "ctaPrimary": "Termin buchen (80€/h)",
+      "ctaSecondary": "So läuft die Beratung",
+      "badges": {
+        "price": "80€/h – 1 Stunde",
+        "plan": "Schriftlicher Plan inkl. Kostenschätzung",
+        "experience": "{years} Jahre Erfahrung"
+      },
+      "cards": {
+        "projects": "Projekte",
+        "satisfaction": "Zufriedenheit",
+        "role": {
+          "value": "Startup-Beratung",
+          "label": "{years} Jahre"
+        }
+      },
+      "benefitsTitle": "Was Sie von mir bekommen:",
+      "benefits": [
+        {
+          "title": "Idee angeben",
+          "desc": "Im Formular – ich bereite mich vor"
+        },
+        {
+          "title": "1h Gespräch",
+          "desc": "Videocall oder Telefon"
+        },
+        {
+          "title": "Umsetzungsplan",
+          "desc": "Schriftlich inkl. Kostenschätzung"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Schnellnavigation",
+      "heading": "Was möchten Sie tun?",
+      "subheading": "Springen Sie direkt zu Preisen, Ablauf, Terminbuchung oder FAQ.",
+      "jumpTo": "Zu {label} springen",
+      "items": {
+        "prices": {
+          "label": "Preise & Pakete",
+          "description": "Beratung 80€/h, MVP, Feature-Erweiterung"
+        },
+        "process": {
+          "label": "Ablauf",
+          "description": "So läuft die Beratung in 3 Schritten"
+        },
+        "booking": {
+          "label": "Termin buchen",
+          "description": "Idee angeben und Termin (80€/h) vereinbaren"
+        },
+        "faq": {
+          "label": "Häufige Fragen",
+          "description": "Antworten zu Ablauf, Kosten und Umsetzungsplan"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "Für wen?",
+        "heading": "Für Gründer und Unternehmen mit Ideen",
+        "subheading": "Ob erste Idee, MVP-Planung oder Erweiterung bestehender Software – ich unterstütze Sie mit technischer Beratung und Umsetzung."
+      },
+      "packages": {
+        "heading": "Beratung, MVP und Feature-Erweiterung",
+        "subheading": "Klarer Einstieg: 1h Beratung (80€) inkl. schriftlichem Umsetzungsplan. Danach MVP oder Features für bestehende Produkte.",
+        "badges": {
+          "popular": "Am beliebtesten",
+          "cheapest": "Günstigster Einstieg",
+          "new": "Neu"
+        },
+        "individual": "Individuell",
+        "delivery": "Lieferzeit: {weeks}",
+        "idealFor": "Ideal für:"
+      },
+      "process": {
+        "badge": "So läuft die Beratung",
+        "heading": "So arbeiten wir zusammen",
+        "subheading": "Idee angeben, Termin buchen – ich bereite mich vor. Dann 1h Gespräch und ein schriftlicher Plan inkl. Kostenschätzung.",
+        "steps": [
+          {
+            "title": "Idee angeben & Termin buchen",
+            "desc": "Sie beschreiben Ihre Idee im Formular – ich lese mich ein und bereite mich auf das Gespräch vor. So nutzen wir die Stunde optimal."
+          },
+          {
+            "title": "1h Gespräch",
+            "desc": "Wir sprechen eine Stunde über die technische Umsetzung Ihrer Idee: Was ist sinnvoll, was ist machbar, welche Schritte kommen zuerst."
+          },
+          {
+            "title": "Schriftlicher Plan",
+            "desc": "Nach dem Gespräch erhalten Sie einen Umsetzungsplan inkl. Kostenschätzung. Der nächste Schritt kann dann die MVP-Entwicklung sein."
+          }
+        ]
+      },
+      "why": {
+        "heading": "Warum Startup-Beratung bei mir?",
+        "subheading": "Ich bereite mich auf Ihre Idee vor und konzentriere die Stunde auf Technik und Umsetzung – kein generisches Gespräch.",
+        "items": [
+          {
+            "title": "Vorbereitung auf Ihre Idee",
+            "desc": "Sie geben die Idee vorab an – ich lese mich ein. In der Stunde geht es direkt in die Tiefe."
+          },
+          {
+            "title": "Fokus auf Technik & Umsetzung",
+            "desc": "Eine Stunde nur für Ihre Idee: Was ist technisch nötig, welche Reihenfolge, was kostet es."
+          },
+          {
+            "title": "Schriftlicher Plan",
+            "desc": "Nach dem Gespräch erhalten Sie einen Umsetzungsplan mit Kostenschätzung als Entscheidungsgrundlage."
+          },
+          {
+            "title": "Klare Kostenschätzung",
+            "desc": "Über {years} Jahre Erfahrung in der Umsetzung – realistische Schätzungen, keine leeren Versprechen."
+          }
+        ]
+      }
+    },
+    "form": {
+      "badge": "Termin buchen",
+      "heading": "Idee angeben & Termin vereinbaren",
+      "subheading": "Beschreiben Sie Ihre Idee – ich bereite mich vor. Beratungstermin 80€/h (1 Stunde). Danach erhalten Sie einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.",
+      "cardTitle": "Termin anfragen",
+      "cardNote": "Alle Felder mit * sind Pflicht. Ihre Idee wird vertraulich behandelt.",
+      "fields": {
+        "name": "Name *",
+        "email": "E-Mail *",
+        "phone": "Telefon *",
+        "product": "Wofür möchten Sie anfragen? *",
+        "productPlaceholder": "Bitte wählen..."
+      },
+      "options": {
+        "beratung": "Startup-Beratung (80€/h) – Termin buchen",
+        "mvp": "MVP-Entwicklung anfragen",
+        "feature": "Feature-Erweiterung anfragen"
+      },
+      "idea": {
+        "label": "Ihre Idee / Ihr Vorhaben",
+        "placeholder": "Beschreiben Sie kurz Ihre Idee, Ihr Produkt oder was Sie umsetzen möchten. So kann ich mich auf das Gespräch vorbereiten."
+      },
+      "privacy": {
+        "before": "Ich stimme der",
+        "link": "Datenschutzerklärung",
+        "after": "zu. *"
+      },
+      "submit": "Anfrage senden",
+      "submitting": "Wird gesendet...",
+      "errors": {
+        "name": "Bitte Name angeben",
+        "email": "Ungültige E-Mail-Adresse",
+        "phone": "Bitte Telefonnummer angeben",
+        "product": "Bitte wählen Sie eine Option",
+        "idea": "Bitte beschreiben Sie Ihre Idee (mind. 10 Zeichen)",
+        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
+      },
+      "dialog": {
+        "successTitle": "Anfrage gesendet",
+        "successMessage": "Vielen Dank! Ich habe Ihre Idee und Kontaktdaten erhalten und melde mich zeitnah bei Ihnen zur Terminabsprache.",
+        "errorTitle": "Fehler",
+        "errorMessage": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
+        "close": "Schließen"
+      }
+    },
+    "finalCta": {
+      "heading": "Bereit, Ihre Idee in einen Plan zu gießen?",
+      "subheading": "Termin buchen (80€/h), Idee angeben – nach dem Gespräch erhalten Sie einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.",
+      "button": "Termin buchen (80€/h)",
+      "trust": {
+        "experience": "{years} Jahre Erfahrung",
+        "plan": "Schriftlicher Umsetzungsplan",
+        "satisfaction": "{percent}% Zufriedenheit",
+        "fast": "Schnelle Terminvergabe"
+      }
+    },
+    "faq": {
+      "heading": "Häufig gestellte Fragen",
+      "subheading": "Antworten zu Ablauf, Kosten, Umsetzungsplan und nächsten Schritten."
+    }
+  },
+  "Unternehmenswebsite": {
+    "hero": {
+      "badge": {
+        "label": "Ihr lokaler Webdesigner aus Wetzlar",
+        "regions": "Gießen • Frankfurt • Mittelhessen"
+      },
+      "texts": [
+        {
+          "headline": "Webdesign aus Wetzlar für dein Unternehmen",
+          "subheadline": "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt."
+        },
+        {
+          "headline": "Keine Ahnung von Technik?",
+          "subheadline": "Kein Problem. Ich übernehme – du erzählst, was du brauchst, ich setze deine Website um."
+        },
+        {
+          "headline": "Kleines Unternehmen – trotzdem professionell online?",
+          "subheadline": "Ja. Ich passe die Website an dich an – kein Standard-Paket, sondern genau das, was du brauchst. Ich übernehme Technik und Umsetzung."
+        }
+      ],
+      "subtitle": "Als Webdesigner aus Wetzlar entwickle ich maßgeschneiderte Unternehmenswebsites, die nicht nur gut aussehen, sondern auch neue Kunden bringen.",
+      "cta": "Kostenlose Erstberatung vereinbaren",
+      "trustBadges": {
+        "consultation": "Kostenlose Erstberatung vor Ort",
+        "offer": "Unverbindliches Angebot",
+        "experience": "{years} Jahre Erfahrung in Wetzlar"
+      },
+      "cards": {
+        "projects": "Projekte",
+        "satisfaction": "Zufriedenheit",
+        "role": {
+          "value": "Webdesigner",
+          "label": "{years} Jahre"
+        }
+      },
+      "benefitsTitle": "Was Sie von mir bekommen:",
+      "benefits": [
+        {
+          "title": "Persönliche Beratung",
+          "desc": "Vor Ort in Wetzlar oder online"
+        },
+        {
+          "title": "Maßgeschneidert",
+          "desc": "Auf Ihr Unternehmen zugeschnitten"
+        },
+        {
+          "title": "Schnelle Umsetzung",
+          "desc": "Ihre Website in 2-4 Wochen live"
+        }
+      ],
+      "imageAlt": "Thomas Schwabauer - Webdesigner aus Wetzlar"
+    },
+    "quickNav": {
+      "badge": "Schnellnavigation",
+      "heading": "Was möchten Sie tun?",
+      "subheading": "Springen Sie direkt zu den Informationen, die Sie brauchen – ohne lange zu scrollen.",
+      "jumpTo": "Zu {label} springen",
+      "items": {
+        "prices": {
+          "label": "Preise & Pakete",
+          "description": "Überblick über Webdesign-Pakete und Investition"
+        },
+        "portfolio": {
+          "label": "Beispiel-Websites",
+          "description": "Referenzprojekte von Kunden ansehen"
+        },
+        "contact": {
+          "label": "Jetzt anfragen",
+          "description": "Kostenlose Erstberatung vereinbaren"
+        },
+        "faq": {
+          "label": "Häufige Fragen",
+          "description": "Antworten zu Dauer, Kosten und Ablauf"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "Für wen?",
+        "heading": "Ich unterstütze Unternehmen, die online sichtbar werden wollen",
+        "subheading": "Ob ohne Website, mit veralteter Präsenz oder als Neugründer – ich baue maßgeschneiderte Websites für kleine Unternehmen und Selbstständige."
+      },
+      "packages": {
+        "heading": "Webdesign-Pakete für Ihr Unternehmen",
+        "subheading": "Transparente Preise, klare Leistungen – wählen Sie das Paket, das zu Ihrer Situation passt.",
+        "badges": {
+          "popular": "Am beliebtesten",
+          "cheapest": "Günstigster Einstieg",
+          "new": "Neu"
+        },
+        "delivery": "Lieferzeit: {weeks}",
+        "idealFor": "Ideal für:"
+      },
+      "why": {
+        "heading": "Warum Webdesign aus Wetzlar?",
+        "subheading": "Nahbar, unkompliziert und mit Fokus auf Ihr Ergebnis – so arbeite ich mit Ihnen.",
+        "imageAlt": "Thomas Schwabauer – Webdesigner aus Wetzlar",
+        "items": [
+          {
+            "title": "Wenig Aufwand – maximales Ergebnis",
+            "desc": "Sie liefern Stichpunkte, Logo und Bilder – ich übernehme Konzept, Design und Umsetzung. Hochwertiger Output ohne Projektchaos."
+          },
+          {
+            "title": "Lokale Expertise",
+            "desc": "Aus Wetzlar, für Wetzlar – Sie haben einen Ansprechpartner, keinen anonymen Dienstleister. Über {years} Jahre Erfahrung in der Region."
+          },
+          {
+            "title": "Schnelle Umsetzung",
+            "desc": "In 2–4 Wochen live – ohne dass Sie sich wochenlang kümmern müssen. Sie geben Feedback, den Rest erledige ich."
+          },
+          {
+            "title": "Überarbeitung, bis es passt",
+            "desc": "Ich feile so lange am Ergebnis, bis es zu 100 % zu Ihnen passt. Kein Abnahme-Druck – Qualität, die überzeugt."
+          }
+        ]
+      },
+      "process": {
+        "badge": "Ihr Weg zur Website",
+        "heading": "So arbeiten wir zusammen",
+        "subheading": "Kein langes Briefing, keine endlosen Abstimmungen – ein klares Vorgehen mit direktem Draht zu Ihnen.",
+        "steps": [
+          {
+            "title": "Kurzes Gespräch",
+            "desc": "Sie sagen mir, was Sie brauchen – ich stelle die richtigen Fragen. Kein Formular-Marathon, ein lockeres Kennenlernen."
+          },
+          {
+            "title": "Ich konzipiere & gestalte",
+            "desc": "Sie liefern Logo, Texte oder Stichpunkte – ich übernehme Konzept, Design und Umsetzung. Sie müssen kaum eingreifen."
+          },
+          {
+            "title": "Feinschliff gemeinsam",
+            "desc": "Sie geben Feedback, ich überarbeite – so lange, bis alles zu 100 % passt. Dann geht Ihre Website live."
+          }
+        ]
+      }
+    },
+    "socialProof": {
+      "expertiseHeading": "Vertrauen Sie auf unsere Expertise",
+      "expertiseSubheading": "Wir haben bereits für namhafte Unternehmen erfolgreich Websites entwickelt",
+      "testimonialsHeading": "Was unsere Kunden sagen",
+      "testimonials": {
+        "amsel": {
+          "company": "E-Commerce Unternehmen",
+          "text": "Dank des Redesigns hat unsere Website jetzt ein komplett neues Aussehen und unsere Kunden interagieren viel häufiger mit unseren Angeboten. Die Zusammenarbeit war professionell und effizient."
+        },
+        "tricon": {
+          "company": "Technologieunternehmen",
+          "text": "Professionelle Umsetzung unserer Unternehmenswebsite. Schnelle Reaktionszeiten und sehr zufriedenstellendes Ergebnis. Die SEO-Optimierung zeigt bereits erste Erfolge."
+        }
+      }
+    },
+    "portfolio": {
+      "heading": "Unsere Webdesign-Projekte",
+      "subheading": "Sehen Sie sich einige unserer erfolgreich umgesetzten Webdesign-Projekte an - Live und aktuell",
+      "openWebsite": "Website öffnen"
+    },
+    "contactForm": {
+      "badge": "Kontakt",
+      "heading": "Kostenlose Beratung anfragen",
+      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz auf das nächste Level bringen. Unverbindlich und kostenlos.",
+      "note": "Unverbindlich. Antwort in der Regel innerhalb von 24 Stunden.",
+      "cardTitle": "Nachricht senden",
+      "fields": {
+        "package": "Wofür interessieren Sie sich? *",
+        "packagePlaceholder": "Bitte wählen...",
+        "email": "E-Mail *",
+        "phone": "Telefon *",
+        "topic": "Thema *",
+        "message": "Ihre Nachricht *"
+      },
+      "options": {
+        "other": "Noch unklar / Beratung gewünscht"
+      },
+      "errors": {
+        "email": "Ungültige E-Mail-Adresse",
+        "package": "Bitte wählen Sie eine Option",
+        "topic": "Bitte geben Sie ein Thema an",
+        "message": "Nachricht muss mindestens 10 Zeichen lang sein",
+        "phone": "Bitte geben Sie Ihre Telefonnummer an",
+        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
+      },
+      "privacy": {
+        "before": "Ich stimme der",
+        "link": "Datenschutzerklärung",
+        "after": "zu. *"
+      },
+      "submit": "Jetzt kostenlos anfragen",
+      "submitting": "Wird gesendet...",
+      "requiredNote": "* Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.",
+      "bubble": "Fragen? Einfach schreiben!",
+      "imageAlt": "Thomas Schwabauer – Kontakt",
+      "direct": {
+        "title": "Direkt kontaktieren",
+        "email": "E-Mail",
+        "phone": "Telefon",
+        "whatsapp": "WhatsApp",
+        "whatsappNote": "Schnell & unkompliziert",
+        "copyEmail": "E-Mail kopieren",
+        "copyPhone": "Telefonnummer kopieren",
+        "copied": "Kopiert!"
+      },
+      "dialog": {
+        "successTitle": "Anfrage erfolgreich gesendet!",
+        "successMessage": "Vielen Dank für Ihre Anfrage! Ich melde mich innerhalb von 24 Stunden bei Ihnen. Gerne können Sie mir auch per Telefon oder WhatsApp kontaktieren.",
+        "errorTitle": "Fehler",
+        "errorMessage": "Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.",
+        "close": "Schließen"
+      }
+    },
+    "finalCta": {
+      "urgency": "Begrenzte Kapazität - Jetzt Termin sichern",
+      "heading": "Bereit für Ihre neue Unternehmenswebsite?",
+      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz in Wetzlar auf das nächste Level bringen. Kostenlose Erstberatung inklusive.",
+      "button": "Jetzt beraten lassen",
+      "trust": {
+        "experience": "{years} Jahre Erfahrung",
+        "satisfaction": "{percent}% Zufriedenheitsgarantie",
+        "fast": "Schnelle Umsetzung"
+      }
+    },
+    "faq": {
+      "heading": "Häufige Fragen zur Unternehmenswebsite",
+      "subheading": "Antworten auf die wichtigsten Fragen rund um Unternehmenswebseiten für KMU & Selbstständige – strukturiert nach Themen"
     }
   }
 }

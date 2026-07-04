@@ -10,51 +10,53 @@ import {
 } from "react-icons/fa";
 
 export interface MenuItem {
-  title: string;
+  /** Key im Navbar-Namespace (messages/*.json) — via useTranslations("Navbar") aufgelöst. */
+  titleKey: string;
   href: string;
   icon: React.ReactNode;
   subItems: SubMenuItem[];
 }
 
 export interface SubMenuItem {
-  title: string;
+  /** Key im Navbar-Namespace. */
+  titleKey: string;
   href: string;
 }
 
 export const menuItems: MenuItem[] = [
   {
-    title: "Home",
+    titleKey: "home",
     href: "/",
     icon: <FaHome />,
     subItems: [],
   },
   {
-    title: "Über mich",
+    titleKey: "about",
     href: "/about",
     icon: <FaUser />,
     subItems: [],
   },
   {
-    title: "Services",
+    titleKey: "services",
     href: "/services",
     icon: <FaTools />,
     subItems: [
       {
-        title: "Startup-Beratung",
+        titleKey: "startupBeratung",
         href: "/services/startup-beratung",
       },
       {
-        title: "App-Entwicklung",
+        titleKey: "appEntwicklung",
         href: "/services/app-entwicklung",
       },
       {
-        title: "Unternehmenswebsite",
+        titleKey: "unternehmenswebsite",
         href: "/services/unternehmenswebsite",
       },
     ],
   },
   {
-    title: "Dokumente",
+    titleKey: "documents",
     href: "/documents",
     icon: <FaFileAlt />,
     subItems: [],

@@ -20,6 +20,7 @@ function WebsitePreview({
   fallbackImage,
   projectId,
 }: WebsitePreviewProps) {
+  const t = useTranslations("Unternehmenswebsite.portfolio");
   const [iframeError, setIframeError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [showFallback, setShowFallback] = useState(false);
@@ -197,7 +198,7 @@ function WebsitePreview({
               }}
             >
               <ExternalLink className="h-4 w-4 mr-2" />
-              Website öffnen
+              {t("openWebsite")}
             </Button>
           </div>
         </div>
@@ -279,7 +280,7 @@ function WebsitePreview({
               }}
             >
               <ExternalLink className="h-4 w-4 mr-2" />
-              Website öffnen
+              {t("openWebsite")}
             </Button>
           </div>
         </div>
@@ -290,6 +291,7 @@ function WebsitePreview({
 
 export default function UnternehmenswebsitePortfolio() {
   const t = useTranslations("Projects");
+  const tp = useTranslations("Unternehmenswebsite.portfolio");
 
   return (
     <>
@@ -323,11 +325,10 @@ export default function UnternehmenswebsitePortfolio() {
       <div className="w-full max-w-6xl space-y-8">
         <div className="text-center space-y-4">
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Unsere Webdesign-Projekte
+            {tp("heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Sehen Sie sich einige unserer erfolgreich umgesetzten
-            Webdesign-Projekte an - Live und aktuell
+            {tp("subheading")}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

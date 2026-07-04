@@ -15,13 +15,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  APP_PACKAGES,
-  APP_TARGET_AUDIENCES,
+  getAppPackages,
+  getAppTargetAudiences,
 } from "@/config/app-packages";
 import type { AppProductId } from "@/config/app-packages";
 import { getYearsOfExperience } from "@/config/stats";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import type { LucideIcon } from "lucide-react";
 import {
   CheckCircle,
@@ -61,6 +62,10 @@ const PACKAGE_ICONS: Record<string, LucideIcon> = {
 };
 
 export default function AppEntwicklungClient() {
+  const locale = useLocale();
+  const t = useTranslations("AppEntwicklung.page");
+  const APP_TARGET_AUDIENCES = getAppTargetAudiences(locale);
+  const APP_PACKAGES = getAppPackages(locale);
   const zielgruppeRef = useRef(null);
   const paketeRef = useRef(null);
   const warumRef = useRef(null);
@@ -116,14 +121,13 @@ export default function AppEntwicklungClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              Für wen?
+              {t("audience.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Für Gründer und Unternehmen mit App-Bedarf
+              {t("audience.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ob App-Idee, MVP mit Flutter oder Erweiterung einer bestehenden
-              App – ich entwickle für Android und iOS aus einer Codebasis.
+              {t("audience.subheading")}
             </p>
           </motion.div>
 
@@ -185,11 +189,10 @@ export default function AppEntwicklungClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Beratung, MVP und Feature/Bug-Entwicklung
+              {t("packages.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Einstieg: Beratungsgespräch (80€/h). Danach MVP mit Flutter für
-              Android & iOS oder gezielte Feature-/Bug-Entwicklung.
+              {t("packages.subheading")}
             </p>
           </motion.div>
 
@@ -270,10 +273,10 @@ export default function AppEntwicklungClient() {
                         }
                       >
                         {pkg.badge === "beliebt"
-                          ? "Am beliebtesten"
+                          ? t("packages.badges.popular")
                           : pkg.badge === "spare"
-                            ? "Günstigster Einstieg"
-                            : "Neu"}
+                            ? t("packages.badges.cheapest")
+                            : t("packages.badges.new")}
                       </Badge>
                     </div>
                   )}
@@ -322,21 +325,21 @@ export default function AppEntwicklungClient() {
                         </>
                       ) : (
                         <div className="text-2xl font-bold text-primary">
-                          Individuell
+                          {t("packages.individual")}
                         </div>
                       )}
                     </div>
                     {pkg.deliveryWeeks && (
                       <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-1">
                         <Clock className="h-3.5 w-3.5" />
-                        <span>Lieferzeit: {pkg.deliveryWeeks}</span>
+                        <span>{t("packages.delivery", { weeks: pkg.deliveryWeeks })}</span>
                       </div>
                     )}
                   </CardHeader>
                   <CardContent className="space-y-4 flex-1 flex flex-col pt-0">
                     <div className="rounded-lg bg-muted/50 p-3">
                       <p className="text-xs font-semibold text-foreground mb-2">
-                        Ideal für:
+                        {t("packages.idealFor")}
                       </p>
                       <ul className="space-y-1">
                         {pkg.idealFor.map((item, i) => (
@@ -402,42 +405,26 @@ export default function AppEntwicklungClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              So läuft’s
+              {t("process.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              So arbeiten wir zusammen
+              {t("process.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Idee/Anliegen angeben, Termin buchen – ich bereite mich vor. Dann
-              Beratungsgespräch; optional MVP oder Feature-/Bug-Entwicklung.
+              {t("process.subheading")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {[
-              {
-                icon: Lightbulb,
-                step: "1",
-                title: "Idee/Anliegen angeben & Termin buchen",
-                desc: "Sie beschreiben im Formular, was Sie brauchen – ich lese mich ein. So nutzen wir das Gespräch optimal.",
-              },
-              {
-                icon: MessageCircle,
-                step: "2",
-                title: "Beratungsgespräch",
-                desc: "Wir sprechen über die technische Umsetzung: Flutter, Android & iOS, Machbarkeit und nächste Schritte.",
-              },
-              {
-                icon: FileText,
-                step: "3",
-                title: "Optional: MVP oder Feature/Bug",
-                desc: "Nach dem Gespräch können wir direkt mit der MVP-Umsetzung starten oder gezielt Features und Bugs angehen.",
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[Lightbulb, MessageCircle, FileText].map((Icon, index) => {
+              const step = t.raw("process.steps") as {
+                title: string;
+                desc: string;
+              }[];
+              const item = step[index];
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={CARD_VIEWPORT}
@@ -451,7 +438,7 @@ export default function AppEntwicklungClient() {
                 >
                   <Card className="relative h-full w-full p-6 bg-card border-border text-center flex flex-col items-center">
                     <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0">
-                      {item.step}
+                      {index + 1}
                     </div>
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0 mt-2">
                       <Icon className="h-6 w-6 text-primary" />
@@ -482,41 +469,18 @@ export default function AppEntwicklungClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Warum App-Entwicklung mit Flutter?
+              {t("why.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Eine Codebasis für Android und iOS – schneller und kostengünstiger
-              als zwei getrennte Apps. Ich berate und setze um.
+              {t("why.subheading")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-            {[
-              {
-                icon: Smartphone,
-                title: "Eine Codebasis – zwei Plattformen",
-                desc: "Flutter: eine Codebasis für Android und iOS. Weniger Aufwand, einheitliches Verhalten und Design.",
-              },
-              {
-                icon: Target,
-                title: "Beratung mit Vorbereitung",
-                desc: "Sie geben Ihr Anliegen vorab an – ich bereite mich vor. Das Gespräch geht in die Tiefe.",
-              },
-              {
-                icon: Zap,
-                title: "MVP oder gezielte Erweiterung",
-                desc: "Entweder komplettes App-MVP oder gezielte Feature- und Bug-Entwicklung für bestehende Apps.",
-              },
-              {
-                icon: FileText,
-                title: "Erfahrung in Flutter",
-                desc: `${getYearsOfExperience()} Jahre Erfahrung in der Umsetzung – realistische Schätzungen und saubere Architektur.`,
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[Smartphone, Target, Zap, FileText].map((Icon, index) => {
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   className="flex h-full"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -537,10 +501,12 @@ export default function AppEntwicklungClient() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <CardTitle className="text-lg mb-2 text-foreground">
-                      {item.title}
+                      {t(`why.items.${index}.title`)}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground flex-1 min-h-0">
-                      {item.desc}
+                      {t(`why.items.${index}.desc`, {
+                        years: getYearsOfExperience(),
+                      })}
                     </CardDescription>
                   </Card>
                 </motion.div>

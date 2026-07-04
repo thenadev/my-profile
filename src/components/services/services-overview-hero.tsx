@@ -11,6 +11,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Layers, User } from "lucide-react";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 function useCountUp(
@@ -51,6 +52,7 @@ function useCountUp(
 }
 
 export default function ServicesOverviewHero() {
+  const t = useTranslations("ServicesOverview.hero");
   const heroRef = useRef<HTMLElement>(null);
   const badgeRef = useRef(null);
   const headlineRef = useRef(null);
@@ -121,7 +123,7 @@ export default function ServicesOverviewHero() {
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-semibold border border-border shadow-sm w-fit mx-auto lg:mx-0"
             >
-              <span>Services</span>
+              <span>{t("badge")}</span>
             </motion.div>
 
             <motion.h1
@@ -135,7 +137,7 @@ export default function ServicesOverviewHero() {
               }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              Webdesign, App-Entwicklung & Startup-Beratung
+              {t("headline")}
             </motion.h1>
 
             <motion.p
@@ -148,8 +150,7 @@ export default function ServicesOverviewHero() {
               }}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl"
             >
-              Von der Startup-Idee über Apps bis zur Unternehmenswebsite –
-              Beratung, MVP-Entwicklung und Erweiterung aus einer Hand.
+              {t("subheadline")}
             </motion.p>
 
             <motion.div
@@ -168,7 +169,7 @@ export default function ServicesOverviewHero() {
                 className="bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] to-[var(--hero-portrait-bg-mid)] hover:opacity-90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-xl"
                 onClick={handleAngeboteClick}
               >
-                Zu den Angeboten
+                {t("ctaPrimary")}
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
               </Button>
               <Button
@@ -178,7 +179,7 @@ export default function ServicesOverviewHero() {
                 onClick={handleKontaktClick}
                 asChild
               >
-                <Link href="/contact">Kontakt</Link>
+                <Link href="/contact">{t("ctaSecondary")}</Link>
               </Button>
             </motion.div>
 
@@ -188,11 +189,7 @@ export default function ServicesOverviewHero() {
               animate={ctaInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: 0.5 }}
             >
-              {[
-                "Startup-Beratung 80€/h",
-                "Flutter-Apps für Android & iOS",
-                "Webdesign Wetzlar",
-              ].map((badge) => (
+              {(t.raw("badges") as string[]).map((badge) => (
                 <div
                   key={badge}
                   className="flex items-center gap-2 bg-muted/80 backdrop-blur-sm px-4 py-2.5 rounded-full shadow-md border border-border"
@@ -371,10 +368,10 @@ export default function ServicesOverviewHero() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900 text-sm sm:text-base leading-tight">
-                        3 Services
+                        {t("cards.services.value")}
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Beratung · Apps · Web
+                        {t("cards.services.label")}
                       </p>
                     </div>
                   </div>
@@ -400,7 +397,7 @@ export default function ServicesOverviewHero() {
                         {projectsCount.count}+
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Projekte
+                        {t("cards.projects")}
                       </p>
                     </div>
                   </div>
@@ -423,10 +420,12 @@ export default function ServicesOverviewHero() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900 text-xs sm:text-sm leading-tight">
-                        {getYearsOfExperienceDisplay()} Jahre
+                        {t("cards.experience.value", {
+                          years: getYearsOfExperienceDisplay(),
+                        })}
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Erfahrung
+                        {t("cards.experience.label")}
                       </p>
                     </div>
                   </div>
@@ -448,28 +447,14 @@ export default function ServicesOverviewHero() {
               >
                 <div className="relative bg-card/95 backdrop-blur-md rounded-3xl p-5 md:p-6 lg:p-7 border border-border shadow-2xl cursor-default">
                   <p className="text-sm md:text-base font-bold text-foreground mb-4">
-                    Was Sie bei mir finden:
+                    {t("benefitsTitle")}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 text-left">
-                    {[
-                      {
-                        num: 1,
-                        title: "Startup-Beratung",
-                        desc: "Umsetzungsplan inkl. Kostenschätzung",
-                      },
-                      {
-                        num: 2,
-                        title: "App-Entwicklung",
-                        desc: "Flutter für Android & iOS",
-                      },
-                      {
-                        num: 3,
-                        title: "Unternehmenswebsite",
-                        desc: "Webdesign aus Wetzlar",
-                      },
-                    ].map((benefit, index) => (
+                    {(
+                      t.raw("benefits") as { title: string; desc: string }[]
+                    ).map((benefit, index) => (
                       <motion.div
-                        key={benefit.num}
+                        key={index}
                         initial={{ opacity: 0, x: -20, scale: 0.9 }}
                         animate={
                           benefitsInView ? { opacity: 1, x: 0, scale: 1 } : {}
@@ -488,7 +473,7 @@ export default function ServicesOverviewHero() {
                           className="w-7 h-7 rounded-full bg-primary/20 group-hover:bg-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors shadow-md"
                         >
                           <span className="text-primary font-bold text-sm">
-                            {benefit.num}
+                            {index + 1}
                           </span>
                         </motion.div>
                         <div className="flex-1">

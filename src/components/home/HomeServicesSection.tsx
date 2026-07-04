@@ -5,34 +5,30 @@ import { Link } from "@/i18n/navigation";
 import { useRef } from "react";
 import { FaMobileAlt, FaRocket, FaGlobe } from "react-icons/fa";
 import { ChevronRight } from "lucide-react";
+import { useTranslations } from "next-intl";
 
 const ANIMATION = { ease: [0.16, 1, 0.3, 1] as const, duration: 0.5 };
 
 const SERVICES = [
   {
     href: "/services/startup-beratung",
-    title: "Startup-Beratung",
-    description:
-      "Termin buchen (80€/h), Idee angeben – 1h Gespräch, danach schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP & Feature-Erweiterung.",
+    key: "startupBeratung",
     icon: FaRocket,
   },
   {
     href: "/services/app-entwicklung",
-    title: "App-Entwicklung",
-    description:
-      "Flutter-Apps für Android & iOS. Beratung, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps.",
+    key: "appEntwicklung",
     icon: FaMobileAlt,
   },
   {
     href: "/services/unternehmenswebsite",
-    title: "Unternehmenswebsite",
-    description:
-      "Professionelle Websites aus Wetzlar – modern, responsive und SEO-optimiert. Von Basic bis E-Commerce.",
+    key: "unternehmenswebsite",
     icon: FaGlobe,
   },
-];
+] as const;
 
 export default function HomeServicesSection() {
+  const t = useTranslations("Home.ServicesTeaser");
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.1 });
   const cardsRef = useRef<HTMLDivElement>(null);
@@ -51,13 +47,12 @@ export default function HomeServicesSection() {
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: ANIMATION.duration, ease: ANIMATION.ease }}
         >
-          <p className="text-sm font-medium text-primary">Services</p>
+          <p className="text-sm font-medium text-primary">{t("eyebrow")}</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-            Was ich für Sie tun kann
+            {t("heading")}
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
-            Beratung, MVP-Entwicklung und Umsetzung – von der Idee bis zur
-            fertigen App oder Website.
+            {t("subheading")}
           </p>
         </motion.div>
 
@@ -86,13 +81,13 @@ export default function HomeServicesSection() {
                     <Icon className="h-5 w-5" />
                   </div>
                   <h3 className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors">
-                    {service.title}
+                    {t(`items.${service.key}.title`)}
                   </h3>
                   <p className="mt-2 text-sm text-muted-foreground">
-                    {service.description}
+                    {t(`items.${service.key}.description`)}
                   </p>
                   <span className="mt-4 inline-flex items-center text-sm font-medium text-primary">
-                    Mehr erfahren
+                    {t("more")}
                     <ChevronRight className="ml-0.5 h-4 w-4" />
                   </span>
                 </Link>
@@ -111,7 +106,7 @@ export default function HomeServicesSection() {
             href="/services"
             className="inline-flex items-center text-sm font-medium text-primary hover:underline"
           >
-            Alle Services anzeigen
+            {t("viewAll")}
             <ChevronRight className="ml-0.5 h-4 w-4" />
           </Link>
         </motion.div>

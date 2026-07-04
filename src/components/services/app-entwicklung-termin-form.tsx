@@ -21,49 +21,65 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import type { AppProductId } from "@/config/app-packages";
-import { APP_PACKAGES } from "@/config/app-packages";
+import { getAppPackages } from "@/config/app-packages";
 import { cn } from "@/lib/utils";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
-const PRODUCT_OPTIONS: { value: AppProductId; label: string }[] = [
-  { value: "app_beratung", label: "Beratungsgespräch (80€/h) – Termin buchen" },
-  { value: "app_mvp", label: "MVP-Umsetzung anfragen" },
-  { value: "app_feature_bug", label: "Feature- & Bug-Entwicklung anfragen" },
-];
+const PRODUCT_IDS = ["app_beratung", "app_mvp", "app_feature_bug"] as const;
 
-const terminFormSchema = z.object({
-  name: z.string().min(2, "Bitte Name angeben"),
-  email: z.string().email("Ungültige E-Mail-Adresse"),
-  phone: z.string().min(1, "Bitte Telefonnummer angeben"),
-  productId: z.enum(["app_beratung", "app_mvp", "app_feature_bug"], {
-    required_error: "Bitte wählen Sie eine Option",
-  }),
-  idea: z.string().min(10, "Bitte beschreiben Sie Ihre Idee oder Ihr Anliegen (mind. 10 Zeichen)"),
-  privacyPolicy: z.boolean().refine((val) => val === true, {
-    message: "Sie müssen der Datenschutzerklärung zustimmen",
-  }),
-});
-
-type TerminFormValues = z.infer<typeof terminFormSchema>;
+type TerminFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  productId: AppProductId;
+  idea: string;
+  privacyPolicy: boolean;
+};
 
 interface AppEntwicklungTerminFormProps {
   selectedProductId?: AppProductId | null;
   onProductAcknowledged?: () => void;
 }
 
-function productLabel(id: AppProductId): string {
-  const p = APP_PACKAGES.find((x) => x.id === id);
-  return p ? p.title : id;
-}
-
 export default function AppEntwicklungTerminForm({
   selectedProductId = null,
   onProductAcknowledged,
 }: AppEntwicklungTerminFormProps) {
+  const locale = useLocale();
+  const t = useTranslations("AppEntwicklung.form");
+
+  const productLabel = (id: AppProductId): string => {
+    const p = getAppPackages(locale).find((x) => x.id === id);
+    return p ? p.title : id;
+  };
+
+  const PRODUCT_OPTIONS = PRODUCT_IDS.map((value) => ({
+    value,
+    label: t(`options.${value}`),
+  }));
+
+  const terminFormSchema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(2, t("errors.name")),
+        email: z.string().email(t("errors.email")),
+        phone: z.string().min(1, t("errors.phone")),
+        productId: z.enum(PRODUCT_IDS, {
+          required_error: t("errors.product"),
+        }),
+        idea: z.string().min(10, t("errors.idea")),
+        privacyPolicy: z.boolean().refine((val) => val === true, {
+          message: t("errors.privacy"),
+        }),
+      }),
+    [t],
+  );
+
   const [showDialog, setShowDialog] = useState(false);
   const [dialogContent, setDialogContent] = useState<{
     title: string;
@@ -108,7 +124,7 @@ export default function AppEntwicklungTerminForm({
       });
 
       const topic = `${data.name} – App-Entwicklung: ${productLabel(data.productId)}`;
-      const message = `Ihre Idee / Ihr Anliegen:\n\n${data.idea}`;
+      const message = `${t("idea.label")}:\n\n${data.idea}`;
 
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -129,9 +145,8 @@ export default function AppEntwicklungTerminForm({
           product: data.productId,
         });
         setDialogContent({
-          title: "Anfrage gesendet",
-          message:
-            "Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.",
+          title: t("dialog.successTitle"),
+          message: t("dialog.successMessage"),
         });
         setShowDialog(true);
         reset({
@@ -147,9 +162,8 @@ export default function AppEntwicklungTerminForm({
       }
     } catch {
       setDialogContent({
-        title: "Fehler",
-        message:
-          "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
+        title: t("dialog.errorTitle"),
+        message: t("dialog.errorMessage"),
       });
       setShowDialog(true);
     }
@@ -170,25 +184,23 @@ export default function AppEntwicklungTerminForm({
       >
         <div className="text-center space-y-4">
           <Badge variant="secondary" className="mb-2">
-            Termin buchen
+            {t("badge")}
           </Badge>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)] bg-clip-text text-transparent">
-            Anliegen angeben & Termin vereinbaren
+            {t("heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Beschreiben Sie Ihre App-Idee oder Ihr Anliegen – ich bereite mich
-            vor. Beratungstermin 80€/h. Danach optional MVP oder Feature-/Bug-Entwicklung.
+            {t("subheading")}
           </p>
         </div>
 
         <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-6 md:p-8">
           <CardHeader className="pb-4">
             <CardTitle className="text-xl md:text-2xl font-bold text-foreground">
-              Termin anfragen
+              {t("cardTitle")}
             </CardTitle>
             <p className="text-sm text-muted-foreground">
-              Alle Felder mit * sind Pflicht. Ihre Angaben werden vertraulich
-              behandelt.
+              {t("cardNote")}
             </p>
           </CardHeader>
           <CardContent className="p-0">
@@ -202,7 +214,7 @@ export default function AppEntwicklungTerminForm({
                     {...register("name")}
                   />
                   <label htmlFor="name" className={labelFloat}>
-                    Name *
+                    {t("fields.name")}
                   </label>
                   {errors.name && (
                     <p className="text-destructive text-sm mt-2">
@@ -219,7 +231,7 @@ export default function AppEntwicklungTerminForm({
                     {...register("email")}
                   />
                   <label htmlFor="email" className={labelFloat}>
-                    E-Mail *
+                    {t("fields.email")}
                   </label>
                   {errors.email && (
                     <p className="text-destructive text-sm mt-2">
@@ -237,7 +249,7 @@ export default function AppEntwicklungTerminForm({
                   {...register("phone")}
                 />
                 <label htmlFor="phone" className={labelFloat}>
-                  Telefon *
+                  {t("fields.phone")}
                 </label>
                 {errors.phone && (
                   <p className="text-destructive text-sm mt-2">
@@ -248,7 +260,7 @@ export default function AppEntwicklungTerminForm({
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Wofür möchten Sie anfragen? *
+                  {t("fields.product")}
                 </label>
                 <Controller
                   name="productId"
@@ -266,7 +278,7 @@ export default function AppEntwicklungTerminForm({
                           errors.productId && inputError,
                         )}
                       >
-                        <SelectValue placeholder="Bitte wählen..." />
+                        <SelectValue placeholder={t("fields.productPlaceholder")} />
                       </SelectTrigger>
                       <SelectContent>
                         {PRODUCT_OPTIONS.map((opt) => (
@@ -290,7 +302,7 @@ export default function AppEntwicklungTerminForm({
                   htmlFor="idea"
                   className="block text-sm font-medium text-foreground mb-2"
                 >
-                  Ihre Idee / Ihr Anliegen *
+                  {t("idea.label")} *
                 </label>
                 <Textarea
                   id="idea"
@@ -298,7 +310,7 @@ export default function AppEntwicklungTerminForm({
                     "min-h-[180px] px-4 py-4 text-base border-2 border-border rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all bg-muted/50 text-foreground placeholder:text-muted-foreground resize-y",
                     errors.idea && inputError,
                   )}
-                  placeholder="Beschreiben Sie kurz Ihre App-Idee, Ihr Projekt oder was Sie brauchen. So kann ich mich auf das Gespräch vorbereiten."
+                  placeholder={t("idea.placeholder")}
                   {...register("idea")}
                 />
                 {errors.idea && (
@@ -321,16 +333,16 @@ export default function AppEntwicklungTerminForm({
                   htmlFor="privacy-app"
                   className="text-sm text-muted-foreground cursor-pointer"
                 >
-                  Ich stimme der{" "}
+                  {t("privacy.before")}{" "}
                   <a
                     href="/privacy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    Datenschutzerklärung
+                    {t("privacy.link")}
                   </a>{" "}
-                  zu. *
+                  {t("privacy.after")}
                 </label>
               </div>
               {errors.privacyPolicy && (
@@ -347,10 +359,10 @@ export default function AppEntwicklungTerminForm({
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
                     <span className="h-5 w-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
-                    Wird gesendet...
+                    {t("submitting")}
                   </span>
                 ) : (
-                  "Anfrage senden"
+                  t("submit")
                 )}
               </Button>
             </form>
@@ -365,7 +377,7 @@ export default function AppEntwicklungTerminForm({
           </AlertDialogHeader>
           <p className="text-muted-foreground">{dialogContent.message}</p>
           <AlertDialogFooter>
-            <Button onClick={() => setShowDialog(false)}>Schließen</Button>
+            <Button onClick={() => setShowDialog(false)}>{t("dialog.close")}</Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

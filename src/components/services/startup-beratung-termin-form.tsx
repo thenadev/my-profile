@@ -21,49 +21,65 @@ import {
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import type { StartupProductId } from "@/config/startup-packages";
-import { STARTUP_PACKAGES } from "@/config/startup-packages";
+import { getStartupPackages } from "@/config/startup-packages";
 import { cn } from "@/lib/utils";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
+import { useEffect, useMemo, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { z } from "zod";
 
-const PRODUCT_OPTIONS: { value: StartupProductId; label: string }[] = [
-  { value: "beratung", label: "Startup-Beratung (80€/h) – Termin buchen" },
-  { value: "mvp", label: "MVP-Entwicklung anfragen" },
-  { value: "feature", label: "Feature-Erweiterung anfragen" },
-];
+const PRODUCT_IDS = ["beratung", "mvp", "feature"] as const;
 
-const terminFormSchema = z.object({
-  name: z.string().min(2, "Bitte Name angeben"),
-  email: z.string().email("Ungültige E-Mail-Adresse"),
-  phone: z.string().min(1, "Bitte Telefonnummer angeben"),
-  productId: z.enum(["beratung", "mvp", "feature"], {
-    required_error: "Bitte wählen Sie eine Option",
-  }),
-  idea: z.string().min(10, "Bitte beschreiben Sie Ihre Idee (mind. 10 Zeichen)"),
-  privacyPolicy: z.boolean().refine((val) => val === true, {
-    message: "Sie müssen der Datenschutzerklärung zustimmen",
-  }),
-});
-
-type TerminFormValues = z.infer<typeof terminFormSchema>;
+type TerminFormValues = {
+  name: string;
+  email: string;
+  phone: string;
+  productId: StartupProductId;
+  idea: string;
+  privacyPolicy: boolean;
+};
 
 interface StartupBeratungTerminFormProps {
   selectedProductId?: StartupProductId | null;
   onProductAcknowledged?: () => void;
 }
 
-function productLabel(id: StartupProductId): string {
-  const p = STARTUP_PACKAGES.find((x) => x.id === id);
-  return p ? p.title : id;
-}
-
 export default function StartupBeratungTerminForm({
   selectedProductId = null,
   onProductAcknowledged,
 }: StartupBeratungTerminFormProps) {
+  const locale = useLocale();
+  const t = useTranslations("StartupBeratung.form");
+
+  const productLabel = (id: StartupProductId): string => {
+    const p = getStartupPackages(locale).find((x) => x.id === id);
+    return p ? p.title : id;
+  };
+
+  const PRODUCT_OPTIONS = PRODUCT_IDS.map((value) => ({
+    value,
+    label: t(`options.${value}`),
+  }));
+
+  const terminFormSchema = useMemo(
+    () =>
+      z.object({
+        name: z.string().min(2, t("errors.name")),
+        email: z.string().email(t("errors.email")),
+        phone: z.string().min(1, t("errors.phone")),
+        productId: z.enum(PRODUCT_IDS, {
+          required_error: t("errors.product"),
+        }),
+        idea: z.string().min(10, t("errors.idea")),
+        privacyPolicy: z.boolean().refine((val) => val === true, {
+          message: t("errors.privacy"),
+        }),
+      }),
+    [t],
+  );
+
   const [showDialog, setShowDialog] = useState(false);
   const [dialogContent, setDialogContent] = useState<{
     title: string;
@@ -108,7 +124,7 @@ export default function StartupBeratungTerminForm({
       });
 
       const topic = `${data.name} – Startup-Beratung: ${productLabel(data.productId)}`;
-      const message = `Ihre Idee / Vorhaben:\n\n${data.idea}`;
+      const message = `${t("idea.label")}:\n\n${data.idea}`;
 
       const response = await fetch("/api/sendEmail", {
         method: "POST",
@@ -129,9 +145,8 @@ export default function StartupBeratungTerminForm({
           product: data.productId,
         });
         setDialogContent({
-          title: "Anfrage gesendet",
-          message:
-            "Vielen Dank! Ich habe Ihre Idee und Kontaktdaten erhalten und melde mich zeitnah bei Ihnen zur Terminabsprache.",
+          title: t("dialog.successTitle"),
+          message: t("dialog.successMessage"),
         });
         setShowDialog(true);
         reset({
@@ -147,9 +162,8 @@ export default function StartupBeratungTerminForm({
       }
     } catch {
       setDialogContent({
-        title: "Fehler",
-        message:
-          "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
+        title: t("dialog.errorTitle"),
+        message: t("dialog.errorMessage"),
       });
       setShowDialog(true);
     }
@@ -170,26 +184,23 @@ export default function StartupBeratungTerminForm({
       >
         <div className="text-center space-y-4">
           <Badge variant="secondary" className="mb-2">
-            Termin buchen
+            {t("badge")}
           </Badge>
           <h2 className="text-3xl md:text-5xl font-extrabold bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] via-[var(--hero-portrait-bg-mid)] to-[var(--hero-portrait-bg-bright)] bg-clip-text text-transparent">
-            Idee angeben & Termin vereinbaren
+            {t("heading")}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Beschreiben Sie Ihre Idee – ich bereite mich vor. Beratungstermin
-            80€/h (1 Stunde). Danach erhalten Sie einen schriftlichen
-            Umsetzungsplan inkl. Kostenschätzung.
+            {t("subheading")}
           </p>
         </div>
 
         <Card className="w-full shadow-xl bg-card backdrop-blur-sm rounded-3xl border border-border p-6 md:p-8">
           <CardHeader className="pb-4">
             <CardTitle className="text-xl md:text-2xl font-bold text-foreground">
-              Termin anfragen
+              {t("cardTitle")}
             </CardTitle>
             <p className="text-sm text-muted-foreground">
-              Alle Felder mit * sind Pflicht. Ihre Idee wird vertraulich
-              behandelt.
+              {t("cardNote")}
             </p>
           </CardHeader>
           <CardContent className="p-0">
@@ -203,7 +214,7 @@ export default function StartupBeratungTerminForm({
                     {...register("name")}
                   />
                   <label htmlFor="name" className={labelFloat}>
-                    Name *
+                    {t("fields.name")}
                   </label>
                   {errors.name && (
                     <p className="text-destructive text-sm mt-2">
@@ -220,7 +231,7 @@ export default function StartupBeratungTerminForm({
                     {...register("email")}
                   />
                   <label htmlFor="email" className={labelFloat}>
-                    E-Mail *
+                    {t("fields.email")}
                   </label>
                   {errors.email && (
                     <p className="text-destructive text-sm mt-2">
@@ -238,7 +249,7 @@ export default function StartupBeratungTerminForm({
                   {...register("phone")}
                 />
                 <label htmlFor="phone" className={labelFloat}>
-                  Telefon *
+                  {t("fields.phone")}
                 </label>
                 {errors.phone && (
                   <p className="text-destructive text-sm mt-2">
@@ -249,7 +260,7 @@ export default function StartupBeratungTerminForm({
 
               <div>
                 <label className="block text-sm font-medium text-foreground mb-2">
-                  Wofür möchten Sie anfragen? *
+                  {t("fields.product")}
                 </label>
                 <Controller
                   name="productId"
@@ -267,7 +278,7 @@ export default function StartupBeratungTerminForm({
                           errors.productId && inputError,
                         )}
                       >
-                        <SelectValue placeholder="Bitte wählen..." />
+                        <SelectValue placeholder={t("fields.productPlaceholder")} />
                       </SelectTrigger>
                       <SelectContent>
                         {PRODUCT_OPTIONS.map((opt) => (
@@ -291,7 +302,7 @@ export default function StartupBeratungTerminForm({
                   htmlFor="idea"
                   className="block text-sm font-medium text-foreground mb-2"
                 >
-                  Ihre Idee / Ihr Vorhaben *
+                  {t("idea.label")} *
                 </label>
                 <Textarea
                   id="idea"
@@ -299,7 +310,7 @@ export default function StartupBeratungTerminForm({
                     "min-h-[180px] px-4 py-4 text-base border-2 border-border rounded-xl focus:border-primary focus:ring-4 focus:ring-primary/20 transition-all bg-muted/50 text-foreground placeholder:text-muted-foreground resize-y",
                     errors.idea && inputError,
                   )}
-                  placeholder="Beschreiben Sie kurz Ihre Idee, Ihr Produkt oder was Sie umsetzen möchten. So kann ich mich auf das Gespräch vorbereiten."
+                  placeholder={t("idea.placeholder")}
                   {...register("idea")}
                 />
                 {errors.idea && (
@@ -322,16 +333,16 @@ export default function StartupBeratungTerminForm({
                   htmlFor="privacy-startup"
                   className="text-sm text-muted-foreground cursor-pointer"
                 >
-                  Ich stimme der{" "}
+                  {t("privacy.before")}{" "}
                   <a
                     href="/privacy"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-primary hover:underline font-medium"
                   >
-                    Datenschutzerklärung
+                    {t("privacy.link")}
                   </a>{" "}
-                  zu. *
+                  {t("privacy.after")}
                 </label>
               </div>
               {errors.privacyPolicy && (
@@ -348,10 +359,10 @@ export default function StartupBeratungTerminForm({
                 {isSubmitting ? (
                   <span className="flex items-center gap-2">
                     <span className="h-5 w-5 border-2 border-primary-foreground border-t-transparent rounded-full animate-spin" />
-                    Wird gesendet...
+                    {t("submitting")}
                   </span>
                 ) : (
-                  "Anfrage senden"
+                  t("submit")
                 )}
               </Button>
             </form>
@@ -366,7 +377,7 @@ export default function StartupBeratungTerminForm({
           </AlertDialogHeader>
           <p className="text-muted-foreground">{dialogContent.message}</p>
           <AlertDialogFooter>
-            <Button onClick={() => setShowDialog(false)}>Schließen</Button>
+            <Button onClick={() => setShowDialog(false)}>{t("dialog.close")}</Button>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

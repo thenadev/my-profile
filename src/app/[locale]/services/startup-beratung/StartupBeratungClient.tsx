@@ -15,13 +15,14 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import {
-  STARTUP_PACKAGES,
-  STARTUP_TARGET_AUDIENCES,
+  getStartupPackages,
+  getStartupTargetAudiences,
 } from "@/config/startup-packages";
 import type { StartupProductId } from "@/config/startup-packages";
 import { getYearsOfExperience } from "@/config/stats";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import type { LucideIcon } from "lucide-react";
 import {
   CheckCircle,
@@ -65,6 +66,10 @@ const PACKAGE_ICONS: Record<string, LucideIcon> = {
 };
 
 export default function StartupBeratungClient() {
+  const locale = useLocale();
+  const t = useTranslations("StartupBeratung.page");
+  const STARTUP_TARGET_AUDIENCES = getStartupTargetAudiences(locale);
+  const STARTUP_PACKAGES = getStartupPackages(locale);
   const zielgruppeRef = useRef(null);
   const paketeRef = useRef(null);
   const warumRef = useRef(null);
@@ -121,14 +126,13 @@ export default function StartupBeratungClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              Für wen?
+              {t("audience.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Für Gründer und Unternehmen mit Ideen
+              {t("audience.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ob erste Idee, MVP-Planung oder Erweiterung bestehender Software –
-              ich unterstütze Sie mit technischer Beratung und Umsetzung.
+              {t("audience.subheading")}
             </p>
           </motion.div>
 
@@ -190,11 +194,10 @@ export default function StartupBeratungClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Beratung, MVP und Feature-Erweiterung
+              {t("packages.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Klarer Einstieg: 1h Beratung (80€) inkl. schriftlichem
-              Umsetzungsplan. Danach MVP oder Features für bestehende Produkte.
+              {t("packages.subheading")}
             </p>
           </motion.div>
 
@@ -278,10 +281,10 @@ export default function StartupBeratungClient() {
                         }
                       >
                         {pkg.badge === "beliebt"
-                          ? "Am beliebtesten"
+                          ? t("packages.badges.popular")
                           : pkg.badge === "spare"
-                            ? "Günstigster Einstieg"
-                            : "Neu"}
+                            ? t("packages.badges.cheapest")
+                            : t("packages.badges.new")}
                       </Badge>
                     </div>
                   )}
@@ -330,21 +333,21 @@ export default function StartupBeratungClient() {
                         </>
                       ) : (
                         <div className="text-2xl font-bold text-primary">
-                          Individuell
+                          {t("packages.individual")}
                         </div>
                       )}
                     </div>
                     {pkg.deliveryWeeks && (
                       <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-1">
                         <Clock className="h-3.5 w-3.5" />
-                        <span>Lieferzeit: {pkg.deliveryWeeks}</span>
+                        <span>{t("packages.delivery", { weeks: pkg.deliveryWeeks })}</span>
                       </div>
                     )}
                   </CardHeader>
                   <CardContent className="space-y-4 flex-1 flex flex-col pt-0">
                     <div className="rounded-lg bg-muted/50 p-3">
                       <p className="text-xs font-semibold text-foreground mb-2">
-                        Ideal für:
+                        {t("packages.idealFor")}
                       </p>
                       <ul className="space-y-1">
                         {pkg.idealFor.map((item, i) => (
@@ -410,42 +413,26 @@ export default function StartupBeratungClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              So läuft die Beratung
+              {t("process.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              So arbeiten wir zusammen
+              {t("process.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Idee angeben, Termin buchen – ich bereite mich vor. Dann 1h
-              Gespräch und ein schriftlicher Plan inkl. Kostenschätzung.
+              {t("process.subheading")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {[
-              {
-                icon: Lightbulb,
-                step: "1",
-                title: "Idee angeben & Termin buchen",
-                desc: "Sie beschreiben Ihre Idee im Formular – ich lese mich ein und bereite mich auf das Gespräch vor. So nutzen wir die Stunde optimal.",
-              },
-              {
-                icon: MessageCircle,
-                step: "2",
-                title: "1h Gespräch",
-                desc: "Wir sprechen eine Stunde über die technische Umsetzung Ihrer Idee: Was ist sinnvoll, was ist machbar, welche Schritte kommen zuerst.",
-              },
-              {
-                icon: FileText,
-                step: "3",
-                title: "Schriftlicher Plan",
-                desc: "Nach dem Gespräch erhalten Sie einen Umsetzungsplan inkl. Kostenschätzung. Der nächste Schritt kann dann die MVP-Entwicklung sein.",
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[Lightbulb, MessageCircle, FileText].map((Icon, index) => {
+              const steps = t.raw("process.steps") as {
+                title: string;
+                desc: string;
+              }[];
+              const item = steps[index];
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={CARD_VIEWPORT}
@@ -462,7 +449,7 @@ export default function StartupBeratungClient() {
                 >
                   <Card className="relative h-full w-full p-6 bg-card border-border text-center flex flex-col items-center">
                     <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0">
-                      {item.step}
+                      {index + 1}
                     </div>
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0 mt-2">
                       <Icon className="h-6 w-6 text-primary" />
@@ -493,41 +480,18 @@ export default function StartupBeratungClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Warum Startup-Beratung bei mir?
+              {t("why.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ich bereite mich auf Ihre Idee vor und konzentriere die Stunde auf
-              Technik und Umsetzung – kein generisches Gespräch.
+              {t("why.subheading")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-            {[
-              {
-                icon: Lightbulb,
-                title: "Vorbereitung auf Ihre Idee",
-                desc: "Sie geben die Idee vorab an – ich lese mich ein. In der Stunde geht es direkt in die Tiefe.",
-              },
-              {
-                icon: Target,
-                title: "Fokus auf Technik & Umsetzung",
-                desc: "Eine Stunde nur für Ihre Idee: Was ist technisch nötig, welche Reihenfolge, was kostet es.",
-              },
-              {
-                icon: FileText,
-                title: "Schriftlicher Plan",
-                desc: "Nach dem Gespräch erhalten Sie einen Umsetzungsplan mit Kostenschätzung als Entscheidungsgrundlage.",
-              },
-              {
-                icon: Zap,
-                title: "Klare Kostenschätzung",
-                desc: `Über ${getYearsOfExperience()} Jahre Erfahrung in der Umsetzung – realistische Schätzungen, keine leeren Versprechen.`,
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[Lightbulb, Target, FileText, Zap].map((Icon, index) => {
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   className="flex h-full"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -548,10 +512,12 @@ export default function StartupBeratungClient() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <CardTitle className="text-lg mb-2 text-foreground">
-                      {item.title}
+                      {t(`why.items.${index}.title`)}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground flex-1 min-h-0">
-                      {item.desc}
+                      {t(`why.items.${index}.desc`, {
+                        years: getYearsOfExperience(),
+                      })}
                     </CardDescription>
                   </Card>
                 </motion.div>

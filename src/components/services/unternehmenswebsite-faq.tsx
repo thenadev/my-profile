@@ -1,12 +1,16 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { unternehmenswebsiteFaqCategories as faqCategories } from "@/data/service-faqs";
+import { getUnternehmenswebsiteFaqCategories } from "@/data/service-faqs";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function UnternehmenswebsiteFAQ() {
+  const locale = useLocale();
+  const t = useTranslations("Unternehmenswebsite.faq");
+  const faqCategories = getUnternehmenswebsiteFaqCategories(locale);
   const [openFaq, setOpenFaq] = useState<string | null>(null);
 
   const toggleFaq = (id: string) => {
@@ -17,11 +21,10 @@ export default function UnternehmenswebsiteFAQ() {
     <div className="w-full max-w-6xl space-y-8">
       <div className="text-center space-y-4">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Häufige Fragen zur Unternehmenswebsite
+          {t("heading")}
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Antworten auf die wichtigsten Fragen rund um Unternehmenswebseiten für
-          KMU & Selbstständige – strukturiert nach Themen
+          {t("subheading")}
         </p>
       </div>
 

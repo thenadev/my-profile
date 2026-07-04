@@ -11,6 +11,7 @@ import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Star, User } from "lucide-react";
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 function useCountUp(
@@ -57,6 +58,7 @@ interface AppEntwicklungHeroProps {
 export default function AppEntwicklungHero({
   onTerminClick,
 }: AppEntwicklungHeroProps) {
+  const t = useTranslations("AppEntwicklung.hero");
   const heroRef = useRef<HTMLElement>(null);
   const badgeRef = useRef(null);
   const headlineRef = useRef(null);
@@ -129,8 +131,8 @@ export default function AppEntwicklungHero({
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-muted text-foreground text-sm font-semibold border border-border shadow-sm w-fit mx-auto lg:mx-0"
             >
-              <span>App-Entwicklung</span>
-              <span className="text-primary">Flutter · Android & iOS</span>
+              <span>{t("badge.label")}</span>
+              <span className="text-primary">{t("badge.tag")}</span>
             </motion.div>
 
             <motion.h1
@@ -144,7 +146,7 @@ export default function AppEntwicklungHero({
               }}
               className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight tracking-tight"
             >
-              App-Entwicklung mit Flutter für Android & iOS
+              {t("headline")}
             </motion.h1>
 
             <motion.p
@@ -157,8 +159,7 @@ export default function AppEntwicklungHero({
               }}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl"
             >
-              Beratungsgespräch, MVP-Umsetzung oder Feature-/Bug-Entwicklung –
-              eine Codebasis für beide Plattformen.
+              {t("subheadline")}
             </motion.p>
 
             <motion.div
@@ -177,7 +178,7 @@ export default function AppEntwicklungHero({
                 className="bg-gradient-to-r from-[var(--hero-portrait-bg-bright)] to-[var(--hero-portrait-bg-mid)] hover:opacity-90 text-primary-foreground px-8 py-6 text-lg font-bold shadow-xl"
                 onClick={handleTerminClick}
               >
-                Beratungstermin buchen (80€/h)
+                {t("ctaPrimary")}
                 <ArrowRight className="ml-2 h-5 w-5 inline" />
               </Button>
               <Button
@@ -186,7 +187,7 @@ export default function AppEntwicklungHero({
                 className="border-border"
                 onClick={handleAblaufClick}
               >
-                So läuft’s
+                {t("ctaSecondary")}
               </Button>
             </motion.div>
 
@@ -197,9 +198,9 @@ export default function AppEntwicklungHero({
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               {[
-                "Flutter – eine Codebasis",
-                "Android & iOS",
-                `${getYearsOfExperienceDisplay()} Jahre Erfahrung`,
+                t("badges.codebase"),
+                t("badges.platforms"),
+                t("badges.experience", { years: getYearsOfExperienceDisplay() }),
               ].map((badge) => (
                 <div
                   key={badge}
@@ -378,7 +379,7 @@ export default function AppEntwicklungHero({
                         {projectsCount.count}+
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Projekte
+                        {t("cards.projects")}
                       </p>
                     </div>
                   </div>
@@ -404,7 +405,7 @@ export default function AppEntwicklungHero({
                         {satisfactionCount.count}%
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Zufriedenheit
+                        {t("cards.satisfaction")}
                       </p>
                     </div>
                   </div>
@@ -427,10 +428,10 @@ export default function AppEntwicklungHero({
                     </div>
                     <div>
                       <p className="font-bold text-gray-900 text-xs sm:text-sm leading-tight">
-                        App-Entwicklung
+                        {t("cards.role.value")}
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        {getYearsOfExperienceDisplay()} Jahre
+                        {t("cards.role.label", { years: getYearsOfExperienceDisplay() })}
                       </p>
                     </div>
                   </div>
@@ -451,16 +452,14 @@ export default function AppEntwicklungHero({
               >
                 <div className="relative bg-card/95 backdrop-blur-md rounded-3xl p-5 md:p-6 lg:p-7 border border-border shadow-2xl cursor-default">
                   <p className="text-sm md:text-base font-bold text-foreground mb-4">
-                    Was Sie von mir bekommen:
+                    {t("benefitsTitle")}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 text-left">
-                    {[
-                      { num: 1, title: "Beratungsgespräch", desc: "Idee klären, Technik (Flutter)" },
-                      { num: 2, title: "MVP-Umsetzung", desc: "Android & iOS aus einer Codebasis" },
-                      { num: 3, title: "Feature & Bug", desc: "Erweiterung und Wartung" },
-                    ].map((benefit, index) => (
+                    {(
+                      t.raw("benefits") as { title: string; desc: string }[]
+                    ).map((benefit, index) => (
                       <motion.div
-                        key={benefit.num}
+                        key={index}
                         initial={{ opacity: 0, x: -20, scale: 0.9 }}
                         animate={
                           benefitsInView ? { opacity: 1, x: 0, scale: 1 } : {}
@@ -479,7 +478,7 @@ export default function AppEntwicklungHero({
                           className="w-7 h-7 rounded-full bg-primary/20 group-hover:bg-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors shadow-md"
                         >
                           <span className="text-primary font-bold text-sm">
-                            {benefit.num}
+                            {index + 1}
                           </span>
                         </motion.div>
                         <div className="flex-1">

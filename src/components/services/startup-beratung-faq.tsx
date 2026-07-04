@@ -1,12 +1,16 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { startupBeratungFaqs as STARTUP_FAQS } from "@/data/service-faqs";
+import { getStartupBeratungFaqs } from "@/data/service-faqs";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function StartupBeratungFAQ() {
+  const locale = useLocale();
+  const t = useTranslations("StartupBeratung.faq");
+  const STARTUP_FAQS = getStartupBeratungFaqs(locale);
   const [openId, setOpenId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
@@ -17,10 +21,10 @@ export default function StartupBeratungFAQ() {
     <div className="w-full max-w-6xl space-y-8">
       <div className="text-center space-y-4">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Häufig gestellte Fragen
+          {t("heading")}
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Antworten zu Ablauf, Kosten, Umsetzungsplan und nächsten Schritten.
+          {t("subheading")}
         </p>
       </div>
 

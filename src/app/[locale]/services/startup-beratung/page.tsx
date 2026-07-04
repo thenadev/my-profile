@@ -8,7 +8,7 @@ import {
   buildServiceSchema,
   jsonLd,
 } from "@/lib/schema";
-import { startupBeratungFaqs } from "@/data/service-faqs";
+import { getStartupBeratungFaqs } from "@/data/service-faqs";
 import StartupBeratungClient from "./StartupBeratungClient";
 
 const PATH = "/services/startup-beratung";
@@ -34,6 +34,7 @@ export default async function StartupBeratungPage({
 }) {
   unstable_setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "Meta" });
+  const nav = await getTranslations({ locale, namespace: "Navbar" });
 
   const url = localizedUrl(locale, PATH);
   const serviceSchema = buildServiceSchema({
@@ -43,11 +44,11 @@ export default async function StartupBeratungPage({
     offers: { price: 80, priceCurrency: "EUR", unitText: "HOUR" },
   });
   const breadcrumbSchema = buildBreadcrumbSchema([
-    { name: "Startseite", url: localizedUrl(locale, "/") },
-    { name: "Leistungen", url: localizedUrl(locale, "/services") },
-    { name: "Startup-Beratung", url },
+    { name: nav("home"), url: localizedUrl(locale, "/") },
+    { name: nav("services"), url: localizedUrl(locale, "/services") },
+    { name: nav("startupBeratung"), url },
   ]);
-  const faqSchema = buildFaqSchema(startupBeratungFaqs);
+  const faqSchema = buildFaqSchema(getStartupBeratungFaqs(locale));
 
   return (
     <>

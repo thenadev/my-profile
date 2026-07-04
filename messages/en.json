@@ -7,7 +7,14 @@
     "work": "Work",
     "projects": "Projects",
     "documents": "Documents",
-    "contact": "Contact"
+    "contact": "Contact",
+    "contactCta": "Get in touch",
+    "close": "Close menu",
+    "startupBeratung": "Startup Consulting",
+    "appEntwicklung": "App Development",
+    "unternehmenswebsite": "Business Website",
+    "switchToGerman": "Switch to German",
+    "switchToEnglish": "Switch to English"
   },
   "Footer": {
     "privacy": "Privacy Policy",
@@ -253,7 +260,28 @@
     "orb_7": "Android is the world's leading mobile operating system, developed by Google.",
     "orb_8": "Flutter allows building natively compiled applications for mobile, web, and desktop.",
     "orb_9": "Java is a versatile, high-level programming language widely used for cross-platform development.",
-    "orb_10": "Spring Boot simplifies building production-ready Java applications with minimal configuration."
+    "orb_10": "Spring Boot simplifies building production-ready Java applications with minimal configuration.",
+    "ServicesTeaser": {
+      "eyebrow": "Services",
+      "heading": "How I can help you",
+      "subheading": "Consulting, MVP development and delivery – from the idea to the finished app or website.",
+      "more": "Learn more",
+      "viewAll": "View all services",
+      "items": {
+        "startupBeratung": {
+          "title": "Startup Consulting",
+          "description": "Book a session (€80/h), describe your idea – 1h call, then a written implementation plan including a cost estimate. MVP & feature development."
+        },
+        "appEntwicklung": {
+          "title": "App Development",
+          "description": "Flutter apps for Android & iOS. Consulting, MVP delivery or feature and bug development for existing apps."
+        },
+        "unternehmenswebsite": {
+          "title": "Business Website",
+          "description": "Professional websites from Wetzlar – modern, responsive and SEO-optimised. From basic to e-commerce."
+        }
+      }
+    }
   },
   "About": {
     "Hero": {
@@ -832,6 +860,726 @@
     "privacy": {
       "title": "Privacy Policy",
       "description": "Privacy policy of thomas-schwabauer.de: information on the processing of personal data, cookies, Google Analytics and your rights as a user of this website."
+    }
+  },
+  "ServicesOverview": {
+    "hero": {
+      "badge": "Services",
+      "headline": "Web Design, App Development & Startup Consulting",
+      "subheadline": "From the startup idea to apps and business websites – consulting, MVP development and expansion from a single source.",
+      "ctaPrimary": "View services",
+      "ctaSecondary": "Contact",
+      "badges": [
+        "Startup consulting €80/h",
+        "Flutter apps for Android & iOS",
+        "Web design Wetzlar"
+      ],
+      "cards": {
+        "services": {
+          "value": "3 services",
+          "label": "Consulting · Apps · Web"
+        },
+        "projects": "Projects",
+        "experience": {
+          "value": "{years} years",
+          "label": "Experience"
+        }
+      },
+      "benefitsTitle": "What you get with me:",
+      "benefits": [
+        {
+          "title": "Startup Consulting",
+          "desc": "Implementation plan incl. cost estimate"
+        },
+        {
+          "title": "App Development",
+          "desc": "Flutter for Android & iOS"
+        },
+        {
+          "title": "Business Website",
+          "desc": "Web design from Wetzlar"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Quick navigation",
+      "heading": "Where would you like to go?",
+      "subheading": "Jump to the services, or to About and Contact.",
+      "jumpTo": "Jump to {label}",
+      "goTo": "Go to {label}",
+      "items": {
+        "offers": {
+          "label": "Services",
+          "description": "All services at a glance"
+        },
+        "about": {
+          "label": "About",
+          "description": "More about me and my experience"
+        },
+        "contact": {
+          "label": "Contact",
+          "description": "Get in touch"
+        }
+      }
+    },
+    "grid": {
+      "badge": "Services",
+      "heading": "My Services",
+      "subheading": "From the startup idea to apps and business websites – consulting, MVP development and expansion from a single source."
+    },
+    "more": "Learn more",
+    "cards": {
+      "startupBeratung": {
+        "title": "Startup Consulting",
+        "badge": "Consulting & delivery",
+        "description": "Describe your idea, book a session (€80/h) – 1h call, then a written implementation plan including a cost estimate. MVP and feature development to follow.",
+        "features": [
+          "€80/h consulting",
+          "Implementation plan + cost estimate",
+          "MVP from €2,500"
+        ]
+      },
+      "appEntwicklung": {
+        "title": "App Development",
+        "badge": "Flutter · Android & iOS",
+        "description": "Flutter apps for Android & iOS from a single codebase. Consulting call, MVP delivery or feature and bug development for existing apps.",
+        "features": [
+          "Consulting €80/h",
+          "MVP with Flutter",
+          "Features & bugs"
+        ]
+      },
+      "unternehmenswebsite": {
+        "title": "Business Website",
+        "badge": "Web design Wetzlar",
+        "description": "Professional business websites from Wetzlar – modern, responsive and SEO-optimised web design for your company.",
+        "features": [
+          "Basic from €1,200",
+          "Professional from €3,500",
+          "E-commerce from €8,000"
+        ]
+      }
+    },
+    "why": {
+      "badge": "Why me?",
+      "heading": "One point of contact for consulting, apps and web",
+      "subheading": "Personal, local and focused on your goals.",
+      "items": {
+        "consulting": {
+          "title": "Consulting before delivery",
+          "desc": "Discuss your idea, get a plan – then you decide."
+        },
+        "oneStop": {
+          "title": "One point of contact",
+          "desc": "Idea, app and website – from a single source."
+        },
+        "local": {
+          "title": "Local contact",
+          "desc": "From Wetzlar, for Central Hesse and beyond."
+        },
+        "personal": {
+          "title": "Personal communication",
+          "desc": "A direct line, no agency filter."
+        }
+      }
+    },
+    "finalCta": {
+      "heading": "Any questions?",
+      "subheading": "Feel free to get in touch – I'll respond promptly.",
+      "button": "Get in touch"
+    }
+  },
+  "AppEntwicklung": {
+    "hero": {
+      "badge": {
+        "label": "App Development",
+        "tag": "Flutter · Android & iOS"
+      },
+      "headline": "App development with Flutter for Android & iOS",
+      "subheadline": "Consulting call, MVP delivery or feature/bug development – one codebase for both platforms.",
+      "ctaPrimary": "Book a consulting call (€80/h)",
+      "ctaSecondary": "How it works",
+      "badges": {
+        "codebase": "Flutter – one codebase",
+        "platforms": "Android & iOS",
+        "experience": "{years} years of experience"
+      },
+      "cards": {
+        "projects": "Projects",
+        "satisfaction": "Satisfaction",
+        "role": {
+          "value": "App development",
+          "label": "{years} years"
+        }
+      },
+      "benefitsTitle": "What you get from me:",
+      "benefits": [
+        {
+          "title": "Consulting call",
+          "desc": "Clarify the idea, tech (Flutter)"
+        },
+        {
+          "title": "MVP delivery",
+          "desc": "Android & iOS from one codebase"
+        },
+        {
+          "title": "Feature & bug",
+          "desc": "Extension and maintenance"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Quick navigation",
+      "heading": "What would you like to do?",
+      "subheading": "Jump to pricing, process, booking or FAQ.",
+      "jumpTo": "Jump to {label}",
+      "items": {
+        "prices": {
+          "label": "Prices & packages",
+          "description": "Consulting €80/h, MVP, feature/bug"
+        },
+        "process": {
+          "label": "Process",
+          "description": "How it works in 3 steps"
+        },
+        "booking": {
+          "label": "Book a call",
+          "description": "Describe your request and arrange a consulting call"
+        },
+        "faq": {
+          "label": "FAQ",
+          "description": "Flutter, process, costs, MVP"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "For whom?",
+        "heading": "For founders and companies that need an app",
+        "subheading": "Whether an app idea, an MVP with Flutter or extending an existing app – I develop for Android and iOS from one codebase."
+      },
+      "packages": {
+        "heading": "Consulting, MVP and feature/bug development",
+        "subheading": "Entry point: consulting call (€80/h). Then an MVP with Flutter for Android & iOS or targeted feature/bug development.",
+        "badges": {
+          "popular": "Most popular",
+          "cheapest": "Cheapest entry",
+          "new": "New"
+        },
+        "individual": "Individual",
+        "delivery": "Delivery: {weeks}",
+        "idealFor": "Ideal for:"
+      },
+      "process": {
+        "badge": "How it works",
+        "heading": "How we work together",
+        "subheading": "Describe your idea/request, book a call – I prepare. Then the consulting call; optionally an MVP or feature/bug development.",
+        "steps": [
+          {
+            "title": "Describe your idea & book a call",
+            "desc": "You describe in the form what you need – I read up. That way we make the most of the call."
+          },
+          {
+            "title": "Consulting call",
+            "desc": "We discuss the technical implementation: Flutter, Android & iOS, feasibility and next steps."
+          },
+          {
+            "title": "Optional: MVP or feature/bug",
+            "desc": "After the call we can start directly with MVP delivery or tackle specific features and bugs."
+          }
+        ]
+      },
+      "why": {
+        "heading": "Why app development with Flutter?",
+        "subheading": "One codebase for Android and iOS – faster and more cost-effective than two separate apps. I consult and implement.",
+        "items": [
+          {
+            "title": "One codebase – two platforms",
+            "desc": "Flutter: one codebase for Android and iOS. Less effort, consistent behaviour and design."
+          },
+          {
+            "title": "Consulting with preparation",
+            "desc": "You describe your request in advance – I prepare. The call goes into depth."
+          },
+          {
+            "title": "MVP or targeted extension",
+            "desc": "Either a complete app MVP or targeted feature and bug development for existing apps."
+          },
+          {
+            "title": "Experience in Flutter",
+            "desc": "{years} years of implementation experience – realistic estimates and clean architecture."
+          }
+        ]
+      }
+    },
+    "form": {
+      "badge": "Book a call",
+      "heading": "Describe your request & arrange a call",
+      "subheading": "Describe your app idea or request – I prepare. Consulting call €80/h. Then optionally an MVP or feature/bug development.",
+      "cardTitle": "Request an appointment",
+      "cardNote": "All fields marked * are required. Your details are treated confidentially.",
+      "fields": {
+        "name": "Name *",
+        "email": "Email *",
+        "phone": "Phone *",
+        "product": "What would you like to enquire about? *",
+        "productPlaceholder": "Please choose..."
+      },
+      "options": {
+        "app_beratung": "Consulting call (€80/h) – book a slot",
+        "app_mvp": "Request MVP delivery",
+        "app_feature_bug": "Request feature & bug development"
+      },
+      "idea": {
+        "label": "Your idea / your request",
+        "placeholder": "Briefly describe your app idea, your project or what you need. That helps me prepare for the call."
+      },
+      "privacy": {
+        "before": "I agree to the",
+        "link": "privacy policy",
+        "after": ". *"
+      },
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "errors": {
+        "name": "Please enter your name",
+        "email": "Invalid email address",
+        "phone": "Please enter your phone number",
+        "product": "Please choose an option",
+        "idea": "Please describe your idea or request (at least 10 characters)",
+        "privacy": "You must agree to the privacy policy"
+      },
+      "dialog": {
+        "successTitle": "Request sent",
+        "successMessage": "Thank you! I've received your message and will get back to you shortly.",
+        "errorTitle": "Error",
+        "errorMessage": "The request could not be sent. Please try again or contact me by email.",
+        "close": "Close"
+      }
+    },
+    "finalCta": {
+      "heading": "Ready for your app with Flutter?",
+      "subheading": "Book a consulting call (€80/h), describe your request – then optionally an MVP or feature/bug development for Android & iOS.",
+      "button": "Book a consulting call (€80/h)",
+      "trust": {
+        "platforms": "Flutter – Android & iOS",
+        "experience": "{years} years of experience",
+        "satisfaction": "{percent}% satisfaction",
+        "fast": "Fast scheduling"
+      }
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "Answers about Flutter, process, costs and MVP."
+    }
+  },
+  "StartupBeratung": {
+    "hero": {
+      "badge": {
+        "label": "Startup Consulting",
+        "tag": "€80/h"
+      },
+      "headline": "Startup consulting: an implementation plan in 1 hour",
+      "subheadline": "You describe your idea in advance – I prepare. A 1h call on the technical implementation, then a written implementation plan including a cost estimate.",
+      "ctaPrimary": "Book a slot (€80/h)",
+      "ctaSecondary": "How the consulting works",
+      "badges": {
+        "price": "€80/h – 1 hour",
+        "plan": "Written plan incl. cost estimate",
+        "experience": "{years} years of experience"
+      },
+      "cards": {
+        "projects": "Projects",
+        "satisfaction": "Satisfaction",
+        "role": {
+          "value": "Startup consulting",
+          "label": "{years} years"
+        }
+      },
+      "benefitsTitle": "What you get from me:",
+      "benefits": [
+        {
+          "title": "Describe your idea",
+          "desc": "In the form – I prepare accordingly"
+        },
+        {
+          "title": "1h call",
+          "desc": "Video call or phone"
+        },
+        {
+          "title": "Implementation plan",
+          "desc": "Written, incl. cost estimate"
+        }
+      ]
+    },
+    "quickNav": {
+      "badge": "Quick navigation",
+      "heading": "What would you like to do?",
+      "subheading": "Jump straight to pricing, process, booking or FAQ.",
+      "jumpTo": "Jump to {label}",
+      "items": {
+        "prices": {
+          "label": "Prices & packages",
+          "description": "Consulting €80/h, MVP, feature extension"
+        },
+        "process": {
+          "label": "Process",
+          "description": "How the consulting works in 3 steps"
+        },
+        "booking": {
+          "label": "Book a slot",
+          "description": "Describe your idea and arrange a slot (€80/h)"
+        },
+        "faq": {
+          "label": "FAQ",
+          "description": "Answers about process, costs and the implementation plan"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "For whom?",
+        "heading": "For founders and companies with ideas",
+        "subheading": "Whether a first idea, MVP planning or extending existing software – I support you with technical consulting and implementation."
+      },
+      "packages": {
+        "heading": "Consulting, MVP and feature extension",
+        "subheading": "A clear entry point: 1h consulting (€80) incl. a written implementation plan. Then an MVP or features for existing products.",
+        "badges": {
+          "popular": "Most popular",
+          "cheapest": "Cheapest entry",
+          "new": "New"
+        },
+        "individual": "Individual",
+        "delivery": "Delivery: {weeks}",
+        "idealFor": "Ideal for:"
+      },
+      "process": {
+        "badge": "How the consulting works",
+        "heading": "How we work together",
+        "subheading": "Describe your idea, book a slot – I prepare. Then a 1h call and a written plan incl. cost estimate.",
+        "steps": [
+          {
+            "title": "Describe your idea & book a slot",
+            "desc": "You describe your idea in the form – I read up and prepare for the call. That way we make the most of the hour."
+          },
+          {
+            "title": "1h call",
+            "desc": "We spend an hour on the technical implementation of your idea: what makes sense, what is feasible, which steps come first."
+          },
+          {
+            "title": "Written plan",
+            "desc": "After the call you receive an implementation plan incl. cost estimate. The next step can then be MVP development."
+          }
+        ]
+      },
+      "why": {
+        "heading": "Why startup consulting with me?",
+        "subheading": "I prepare for your idea and focus the hour on tech and implementation – not a generic chat.",
+        "items": [
+          {
+            "title": "Preparation for your idea",
+            "desc": "You describe the idea in advance – I read up. In the hour we go straight into depth."
+          },
+          {
+            "title": "Focus on tech & implementation",
+            "desc": "An hour just for your idea: what's technically needed, in which order, what it costs."
+          },
+          {
+            "title": "Written plan",
+            "desc": "After the call you receive an implementation plan with a cost estimate as a basis for your decision."
+          },
+          {
+            "title": "Clear cost estimate",
+            "desc": "Over {years} years of implementation experience – realistic estimates, no empty promises."
+          }
+        ]
+      }
+    },
+    "form": {
+      "badge": "Book a slot",
+      "heading": "Describe your idea & arrange a slot",
+      "subheading": "Describe your idea – I prepare. Consulting slot €80/h (1 hour). Afterwards you receive a written implementation plan incl. cost estimate.",
+      "cardTitle": "Request an appointment",
+      "cardNote": "All fields marked * are required. Your idea is treated confidentially.",
+      "fields": {
+        "name": "Name *",
+        "email": "Email *",
+        "phone": "Phone *",
+        "product": "What would you like to enquire about? *",
+        "productPlaceholder": "Please choose..."
+      },
+      "options": {
+        "beratung": "Startup consulting (€80/h) – book a slot",
+        "mvp": "Request MVP development",
+        "feature": "Request feature extension"
+      },
+      "idea": {
+        "label": "Your idea / your project",
+        "placeholder": "Briefly describe your idea, your product or what you want to build. That helps me prepare for the call."
+      },
+      "privacy": {
+        "before": "I agree to the",
+        "link": "privacy policy",
+        "after": ". *"
+      },
+      "submit": "Send request",
+      "submitting": "Sending...",
+      "errors": {
+        "name": "Please enter your name",
+        "email": "Invalid email address",
+        "phone": "Please enter your phone number",
+        "product": "Please choose an option",
+        "idea": "Please describe your idea (at least 10 characters)",
+        "privacy": "You must agree to the privacy policy"
+      },
+      "dialog": {
+        "successTitle": "Request sent",
+        "successMessage": "Thank you! I've received your idea and contact details and will get back to you shortly to arrange an appointment.",
+        "errorTitle": "Error",
+        "errorMessage": "The request could not be sent. Please try again or contact me by email.",
+        "close": "Close"
+      }
+    },
+    "finalCta": {
+      "heading": "Ready to turn your idea into a plan?",
+      "subheading": "Book a slot (€80/h), describe your idea – after the call you receive a written implementation plan incl. cost estimate.",
+      "button": "Book a slot (€80/h)",
+      "trust": {
+        "experience": "{years} years of experience",
+        "plan": "Written implementation plan",
+        "satisfaction": "{percent}% satisfaction",
+        "fast": "Fast scheduling"
+      }
+    },
+    "faq": {
+      "heading": "Frequently asked questions",
+      "subheading": "Answers about the process, costs, the implementation plan and next steps."
+    }
+  },
+  "Unternehmenswebsite": {
+    "hero": {
+      "badge": {
+        "label": "Your local web designer from Wetzlar",
+        "regions": "Gießen • Frankfurt • Central Hesse"
+      },
+      "texts": [
+        {
+          "headline": "Web design from Wetzlar for your business",
+          "subheadline": "Let's talk in person – I capture what you need and build a website that truly fits you."
+        },
+        {
+          "headline": "No idea about the tech?",
+          "subheadline": "No problem. I take care of it – you tell me what you need, I build your website."
+        },
+        {
+          "headline": "Small business – still professionally online?",
+          "subheadline": "Yes. I tailor the website to you – no standard package, exactly what you need. I handle the tech and the implementation."
+        }
+      ],
+      "subtitle": "As a web designer from Wetzlar I build tailor-made business websites that not only look good but also bring in new customers.",
+      "cta": "Book a free initial consultation",
+      "trustBadges": {
+        "consultation": "Free on-site initial consultation",
+        "offer": "No-obligation quote",
+        "experience": "{years} years of experience in Wetzlar"
+      },
+      "cards": {
+        "projects": "Projects",
+        "satisfaction": "Satisfaction",
+        "role": {
+          "value": "Web designer",
+          "label": "{years} years"
+        }
+      },
+      "benefitsTitle": "What you get from me:",
+      "benefits": [
+        {
+          "title": "Personal consulting",
+          "desc": "On-site in Wetzlar or online"
+        },
+        {
+          "title": "Tailor-made",
+          "desc": "Tailored to your business"
+        },
+        {
+          "title": "Fast delivery",
+          "desc": "Your website live in 2–4 weeks"
+        }
+      ],
+      "imageAlt": "Thomas Schwabauer - web designer from Wetzlar"
+    },
+    "quickNav": {
+      "badge": "Quick navigation",
+      "heading": "What would you like to do?",
+      "subheading": "Jump straight to the information you need – without endless scrolling.",
+      "jumpTo": "Jump to {label}",
+      "items": {
+        "prices": {
+          "label": "Prices & packages",
+          "description": "Overview of web design packages and investment"
+        },
+        "portfolio": {
+          "label": "Example websites",
+          "description": "View reference projects from clients"
+        },
+        "contact": {
+          "label": "Enquire now",
+          "description": "Book a free initial consultation"
+        },
+        "faq": {
+          "label": "FAQ",
+          "description": "Answers about duration, costs and process"
+        }
+      }
+    },
+    "page": {
+      "audience": {
+        "badge": "For whom?",
+        "heading": "I support companies that want to become visible online",
+        "subheading": "Whether without a website, with an outdated presence or as a new founder – I build tailor-made websites for small companies and the self-employed."
+      },
+      "packages": {
+        "heading": "Web design packages for your business",
+        "subheading": "Transparent prices, clear deliverables – choose the package that fits your situation.",
+        "badges": {
+          "popular": "Most popular",
+          "cheapest": "Cheapest entry",
+          "new": "New"
+        },
+        "delivery": "Delivery: {weeks}",
+        "idealFor": "Ideal for:"
+      },
+      "why": {
+        "heading": "Why web design from Wetzlar?",
+        "subheading": "Approachable, straightforward and focused on your result – that's how I work with you.",
+        "imageAlt": "Thomas Schwabauer – web designer from Wetzlar",
+        "items": [
+          {
+            "title": "Little effort – maximum result",
+            "desc": "You provide bullet points, logo and images – I take care of concept, design and implementation. High-quality output without project chaos."
+          },
+          {
+            "title": "Local expertise",
+            "desc": "From Wetzlar, for Wetzlar – you have one contact, not an anonymous provider. Over {years} years of experience in the region."
+          },
+          {
+            "title": "Fast delivery",
+            "desc": "Live in 2–4 weeks – without you having to spend weeks on it. You give feedback, I do the rest."
+          },
+          {
+            "title": "Revisions until it fits",
+            "desc": "I refine the result until it fits you 100%. No sign-off pressure – quality that convinces."
+          }
+        ]
+      },
+      "process": {
+        "badge": "Your path to a website",
+        "heading": "How we work together",
+        "subheading": "No lengthy briefing, no endless coordination – a clear process with a direct line to you.",
+        "steps": [
+          {
+            "title": "A short conversation",
+            "desc": "You tell me what you need – I ask the right questions. No form marathon, just a relaxed introduction."
+          },
+          {
+            "title": "I design & build",
+            "desc": "You provide logo, texts or bullet points – I handle concept, design and implementation. You barely have to intervene."
+          },
+          {
+            "title": "Fine-tuning together",
+            "desc": "You give feedback, I revise – until everything fits 100%. Then your website goes live."
+          }
+        ]
+      }
+    },
+    "socialProof": {
+      "expertiseHeading": "Rely on our expertise",
+      "expertiseSubheading": "We have already successfully built websites for well-known companies",
+      "testimonialsHeading": "What our clients say",
+      "testimonials": {
+        "amsel": {
+          "company": "E-commerce company",
+          "text": "Thanks to the redesign our website now has a completely new look and our customers interact with our offers far more often. The collaboration was professional and efficient."
+        },
+        "tricon": {
+          "company": "Technology company",
+          "text": "Professional implementation of our company website. Fast response times and a very satisfying result. The SEO optimisation is already showing first results."
+        }
+      }
+    },
+    "portfolio": {
+      "heading": "Our web design projects",
+      "subheading": "Take a look at some of our successfully delivered web design projects – live and current",
+      "openWebsite": "Open website"
+    },
+    "contactForm": {
+      "badge": "Contact",
+      "heading": "Request a free consultation",
+      "subheading": "Let's take your online presence to the next level together. No obligation and free of charge.",
+      "note": "No obligation. Reply usually within 24 hours.",
+      "cardTitle": "Send a message",
+      "fields": {
+        "package": "What are you interested in? *",
+        "packagePlaceholder": "Please choose...",
+        "email": "Email *",
+        "phone": "Phone *",
+        "topic": "Subject *",
+        "message": "Your message *"
+      },
+      "options": {
+        "other": "Still unclear / consultation wanted"
+      },
+      "errors": {
+        "email": "Invalid email address",
+        "package": "Please choose an option",
+        "topic": "Please enter a subject",
+        "message": "Message must be at least 10 characters long",
+        "phone": "Please enter your phone number",
+        "privacy": "You must agree to the privacy policy"
+      },
+      "privacy": {
+        "before": "I agree to the",
+        "link": "privacy policy",
+        "after": ". *"
+      },
+      "submit": "Enquire now for free",
+      "submitting": "Sending...",
+      "requiredNote": "* Required fields. Your data is treated confidentially and not shared with third parties.",
+      "bubble": "Questions? Just write!",
+      "imageAlt": "Thomas Schwabauer – contact",
+      "direct": {
+        "title": "Contact directly",
+        "email": "Email",
+        "phone": "Phone",
+        "whatsapp": "WhatsApp",
+        "whatsappNote": "Quick & easy",
+        "copyEmail": "Copy email",
+        "copyPhone": "Copy phone number",
+        "copied": "Copied!"
+      },
+      "dialog": {
+        "successTitle": "Request sent successfully!",
+        "successMessage": "Thank you for your enquiry! I'll get back to you within 24 hours. Feel free to also contact me by phone or WhatsApp.",
+        "errorTitle": "Error",
+        "errorMessage": "There was a problem sending your enquiry. Please try again or contact me directly by email.",
+        "close": "Close"
+      }
+    },
+    "finalCta": {
+      "urgency": "Limited capacity - secure your slot now",
+      "heading": "Ready for your new business website?",
+      "subheading": "Let's take your online presence in Wetzlar to the next level together. Free initial consultation included.",
+      "button": "Get advice now",
+      "trust": {
+        "experience": "{years} years of experience",
+        "satisfaction": "{percent}% satisfaction guarantee",
+        "fast": "Fast delivery"
+      }
+    },
+    "faq": {
+      "heading": "Frequently asked questions about business websites",
+      "subheading": "Answers to the most important questions about business websites for SMEs & the self-employed – structured by topic"
     }
   }
 }

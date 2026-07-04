@@ -12,6 +12,7 @@ import { motion, useInView, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, CheckCircle, FileCode2, Star, User } from "lucide-react";
 import Image from "next/image";
 import { useRouter } from "@/i18n/navigation";
+import { useTranslations } from "next-intl";
 import { useEffect, useRef, useState } from "react";
 
 // Number Counter Hook (startOnMount: true = Animation startet beim Laden, ohne Scroll – z. B. für Hero oben)
@@ -56,27 +57,16 @@ function useCountUp(
   return { count, ref };
 }
 
-// Hero-Headlines rotierend (Option 1, B, I)
-const HERO_TEXTS = [
-  {
-    headline: "Webdesign aus Wetzlar für dein Unternehmen",
-    subheadline:
-      "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt.",
-  },
-  {
-    headline: "Keine Ahnung von Technik?",
-    subheadline:
-      "Kein Problem. Ich übernehme – du erzählst, was du brauchst, ich setze deine Website um.",
-  },
-  {
-    headline: "Kleines Unternehmen – trotzdem professionell online?",
-    subheadline:
-      "Ja. Ich passe die Website an dich an – kein Standard-Paket, sondern genau das, was du brauchst. Ich übernehme Technik und Umsetzung.",
-  },
-] as const;
+interface HeroText {
+  headline: string;
+  subheadline: string;
+}
 
 export default function UnternehmenswebsiteHero() {
   const router = useRouter();
+  const t = useTranslations("Unternehmenswebsite.hero");
+  // Hero-Headlines rotierend – aus den Übersetzungen (locale-abhängig).
+  const HERO_TEXTS = t.raw("texts") as HeroText[];
   const heroRef = useRef<HTMLElement>(null);
 
   // Typing-Animation: rotiert durch HERO_TEXTS.
@@ -218,10 +208,10 @@ export default function UnternehmenswebsiteHero() {
               className="order-3 md:order-1 inline-flex items-center gap-1.5 md:gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full bg-muted text-foreground text-xs md:text-sm font-semibold border border-border shadow-sm cursor-default backdrop-blur-sm"
             >
               <span>📍</span>
-              <span>Ihr lokaler Webdesigner aus Wetzlar</span>
+              <span>{t("badge.label")}</span>
               <span className="text-primary hidden sm:inline">•</span>
               <span className="text-[10px] md:text-xs">
-                Gießen • Frankfurt • Mittelhessen
+                {t("badge.regions")}
               </span>
             </motion.div>
 
@@ -296,9 +286,7 @@ export default function UnternehmenswebsiteHero() {
               }}
             >
               <p className="text-base md:text-lg lg:text-xl text-muted-foreground font-medium leading-relaxed">
-                Als Webdesigner aus Wetzlar entwickle ich maßgeschneiderte
-                Unternehmenswebsites, die nicht nur gut aussehen, sondern auch
-                neue Kunden bringen.
+                {t("subtitle")}
               </p>
             </motion.div>
 
@@ -341,7 +329,7 @@ export default function UnternehmenswebsiteHero() {
                     }}
                   />
                   <span className="relative z-10">
-                    Kostenlose Erstberatung vereinbaren
+                    {t("cta")}
                   </span>
                   <motion.span
                     className="relative z-10"
@@ -367,9 +355,9 @@ export default function UnternehmenswebsiteHero() {
               transition={{ duration: 0.6, delay: 0.5 }}
             >
               {[
-                "Kostenlose Erstberatung vor Ort",
-                "Unverbindliches Angebot",
-                `${getYearsOfExperienceDisplay()} Jahre Erfahrung in Wetzlar`,
+                t("trustBadges.consultation"),
+                t("trustBadges.offer"),
+                t("trustBadges.experience", { years: getYearsOfExperienceDisplay() }),
               ].map((badge, index) => (
                 <motion.div
                   key={badge}
@@ -518,7 +506,7 @@ export default function UnternehmenswebsiteHero() {
                     <div className="relative z-10">
                       <Image
                         src="/me_no_background.webp"
-                        alt="Thomas Schwabauer - Webdesigner aus Wetzlar"
+                        alt={t("imageAlt")}
                         width={500}
                         height={700}
                         className="w-full h-auto object-contain"
@@ -585,7 +573,7 @@ export default function UnternehmenswebsiteHero() {
                         {projectsCount.count}+
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Projekte
+                        {t("cards.projects")}
                       </p>
                     </div>
                   </div>
@@ -611,7 +599,7 @@ export default function UnternehmenswebsiteHero() {
                         {satisfactionCount.count}%
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        Zufriedenheit
+                        {t("cards.satisfaction")}
                       </p>
                     </div>
                   </div>
@@ -634,10 +622,10 @@ export default function UnternehmenswebsiteHero() {
                     </div>
                     <div>
                       <p className="font-bold text-gray-900 text-xs sm:text-sm leading-tight">
-                        Webdesigner
+                        {t("cards.role.value")}
                       </p>
                       <p className="text-[10px] sm:text-xs text-gray-600 leading-tight">
-                        {getYearsOfExperienceDisplay()} Jahre
+                        {t("cards.role.label", { years: getYearsOfExperienceDisplay() })}
                       </p>
                     </div>
                   </div>
@@ -660,37 +648,14 @@ export default function UnternehmenswebsiteHero() {
                 {/* Benefits Content - Glassmorphism */}
                 <div className="relative bg-card/95 backdrop-blur-md rounded-3xl p-5 md:p-6 lg:p-7 border border-border shadow-2xl cursor-default">
                   <p className="text-sm md:text-base font-bold text-foreground mb-4">
-                    Was Sie von mir bekommen:
+                    {t("benefitsTitle")}
                   </p>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 text-left">
-                    {[
-                      {
-                        num: 1,
-                        bgColor: "bg-primary/20",
-                        hoverBg: "group-hover:bg-primary/30",
-                        textColor: "text-primary",
-                        title: "Persönliche Beratung",
-                        desc: "Vor Ort in Wetzlar oder online",
-                      },
-                      {
-                        num: 2,
-                        bgColor: "bg-primary/20",
-                        hoverBg: "group-hover:bg-primary/30",
-                        textColor: "text-primary",
-                        title: "Maßgeschneidert",
-                        desc: "Auf Ihr Unternehmen zugeschnitten",
-                      },
-                      {
-                        num: 3,
-                        bgColor: "bg-primary/20",
-                        hoverBg: "group-hover:bg-primary/30",
-                        textColor: "text-primary",
-                        title: "Schnelle Umsetzung",
-                        desc: "Ihre Website in 2-4 Wochen live",
-                      },
-                    ].map((benefit, index) => (
+                    {(
+                      t.raw("benefits") as { title: string; desc: string }[]
+                    ).map((benefit, index) => (
                       <motion.div
-                        key={benefit.num}
+                        key={index}
                         initial={{ opacity: 0, x: -20, scale: 0.9 }}
                         animate={
                           benefitsInView ? { opacity: 1, x: 0, scale: 1 } : {}
@@ -706,10 +671,10 @@ export default function UnternehmenswebsiteHero() {
                         <motion.div
                           whileHover={{ scale: 1.25, rotate: 12 }}
                           whileTap={{ scale: 0.95 }}
-                          className={`w-7 h-7 rounded-full ${benefit.bgColor} ${benefit.hoverBg} flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors shadow-md`}
+                          className="w-7 h-7 rounded-full bg-primary/20 group-hover:bg-primary/30 flex items-center justify-center flex-shrink-0 mt-0.5 transition-colors shadow-md"
                         >
                           <motion.span
-                            className={`${benefit.textColor} font-bold text-sm`}
+                            className="text-primary font-bold text-sm"
                             animate={
                               benefitsInView ? { scale: [1, 1.3, 1] } : {}
                             }
@@ -718,16 +683,13 @@ export default function UnternehmenswebsiteHero() {
                               delay: 0.9 + index * 0.15,
                             }}
                           >
-                            {benefit.num}
+                            {index + 1}
                           </motion.span>
                         </motion.div>
                         <div className="flex-1">
-                          <motion.div
-                            className="font-semibold text-foreground text-xs md:text-sm mb-0.5"
-                            whileHover={{ color: benefit.textColor }}
-                          >
+                          <div className="font-semibold text-foreground text-xs md:text-sm mb-0.5">
                             {benefit.title}
-                          </motion.div>
+                          </div>
                           <div className="text-[10px] md:text-xs text-muted-foreground leading-tight">
                             {benefit.desc}
                           </div>

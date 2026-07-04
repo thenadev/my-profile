@@ -5,7 +5,7 @@ import { menuItems } from "@/config/menuItems";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
@@ -18,6 +18,7 @@ export default function NavigationMobile() {
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
+  const t = useTranslations("Navbar");
 
   const toggleItem = (title: string) => {
     setExpandedItems((prev) => ({
@@ -82,7 +83,7 @@ export default function NavigationMobile() {
               <Link
                 href="/"
                 className="flex items-center group transition-all duration-200 hover:scale-105"
-                aria-label="Zur Startseite"
+                aria-label={t("home")}
               >
                 <span
                   className={`text-base sm:text-lg md:text-xl font-bold tracking-wide transition-colors duration-300 truncate ${
@@ -115,7 +116,7 @@ export default function NavigationMobile() {
                         ? "text-white bg-turquoise-500/30 shadow-sm"
                         : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
-                  aria-label="Sprache auf Deutsch wechseln"
+                  aria-label={t("switchToGerman")}
                   aria-pressed={locale === "de"}
                 >
                   DE
@@ -139,7 +140,7 @@ export default function NavigationMobile() {
                         ? "text-white bg-turquoise-500/30 shadow-sm"
                         : "text-gray-200 hover:text-gray-100 hover:bg-gray-500/30"
                   }`}
-                  aria-label="Switch to English"
+                  aria-label={t("switchToEnglish")}
                   aria-pressed={locale === "en"}
                 >
                   EN
@@ -244,7 +245,7 @@ export default function NavigationMobile() {
                       <button
                         onClick={() => setIsOpen(false)}
                         className="text-white/80 hover:text-white transition-all duration-200 hover:scale-110 p-3 rounded-full hover:bg-white/15 active:scale-95 min-w-[44px] min-h-[44px] flex items-center justify-center"
-                        aria-label="Menü schließen"
+                        aria-label={t("close")}
                       >
                         <svg
                           className="h-6 w-6"
@@ -267,11 +268,11 @@ export default function NavigationMobile() {
                       {menuItems.map((item) => {
                         const isActive = isActiveLink(item.href);
                         return (
-                          <div key={item.title} className="space-y-2">
+                          <div key={item.titleKey} className="space-y-2">
                             {item.subItems.length > 0 ? (
                               <>
                                 <button
-                                  onClick={() => toggleItem(item.title)}
+                                  onClick={() => toggleItem(item.titleKey)}
                                   className={`flex items-center gap-4 text-lg font-medium w-full text-left h-14 px-4 rounded-xl transition-all duration-200 hover:scale-[1.02] hover:shadow-lg active:scale-[0.98] ${
                                     isActive
                                       ? "text-turquoise-300 bg-white/20 border-l-4 border-turquoise-300 shadow-lg font-semibold"
@@ -290,7 +291,7 @@ export default function NavigationMobile() {
                                   <span
                                     className={`${isActive ? "font-semibold" : "font-medium"}`}
                                   >
-                                    {item.title}
+                                    {t(item.titleKey)}
                                   </span>
                                   <motion.svg
                                     className="h-5 w-5 ml-auto"
@@ -298,7 +299,7 @@ export default function NavigationMobile() {
                                     stroke="currentColor"
                                     viewBox="0 0 24 24"
                                     animate={{
-                                      rotate: expandedItems[item.title]
+                                      rotate: expandedItems[item.titleKey]
                                         ? 180
                                         : 0,
                                     }}
@@ -315,10 +316,10 @@ export default function NavigationMobile() {
                                 <motion.div
                                   initial={{ height: 0, opacity: 0 }}
                                   animate={{
-                                    height: expandedItems[item.title]
+                                    height: expandedItems[item.titleKey]
                                       ? "auto"
                                       : 0,
-                                    opacity: expandedItems[item.title] ? 1 : 0,
+                                    opacity: expandedItems[item.titleKey] ? 1 : 0,
                                   }}
                                   transition={{ duration: 0.3 }}
                                   className="overflow-hidden"
@@ -326,19 +327,19 @@ export default function NavigationMobile() {
                                   <div className="mt-2 ml-6 space-y-1">
                                     {item.subItems.map((subItem, index) => (
                                       <motion.div
-                                        key={subItem.title}
+                                        key={subItem.titleKey}
                                         initial={{ opacity: 0, x: -10 }}
                                         animate={{
-                                          opacity: expandedItems[item.title]
+                                          opacity: expandedItems[item.titleKey]
                                             ? 1
                                             : 0,
-                                          x: expandedItems[item.title]
+                                          x: expandedItems[item.titleKey]
                                             ? 0
                                             : -10,
                                         }}
                                         transition={{
                                           duration: 0.2,
-                                          delay: expandedItems[item.title]
+                                          delay: expandedItems[item.titleKey]
                                             ? index * 0.05
                                             : 0,
                                         }}
@@ -351,7 +352,7 @@ export default function NavigationMobile() {
                                           <span className="text-turquoise-300 text-xs">
                                             •
                                           </span>
-                                          {subItem.title}
+                                          {t(subItem.titleKey)}
                                         </Link>
                                       </motion.div>
                                     ))}
@@ -380,7 +381,7 @@ export default function NavigationMobile() {
                                 <span
                                   className={`${isActive ? "font-semibold" : "font-medium"}`}
                                 >
-                                  {item.title}
+                                  {t(item.titleKey)}
                                 </span>
                               </Link>
                             )}
@@ -398,7 +399,7 @@ export default function NavigationMobile() {
                       onClick={() => setIsOpen(false)}
                     >
                       <FaEnvelope className="text-xl" />
-                      Kontakt aufnehmen
+                      {t("contactCta")}
                     </Link>
                   </div>
                 </div>

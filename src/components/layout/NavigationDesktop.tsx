@@ -3,7 +3,7 @@
 import { menuItems } from "@/config/menuItems";
 import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
-import { useLocale } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { FaEnvelope } from "react-icons/fa";
 
@@ -16,6 +16,7 @@ export default function NavigationDesktop() {
   const router = useRouter();
   const pathname = usePathname();
   const locale = useLocale();
+  const t = useTranslations("Navbar");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -74,7 +75,7 @@ export default function NavigationDesktop() {
               <Link
                 href="/"
                 className="flex items-center group transition-all duration-200"
-                aria-label="Zur Startseite"
+                aria-label={t("home")}
               >
                 <span className="text-lg md:text-xl font-bold tracking-tight text-white group-hover:text-turquoise-300 transition-colors duration-300">
                   Thomas Schwabauer
@@ -90,9 +91,9 @@ export default function NavigationDesktop() {
 
                 return (
                   <div
-                    key={item.title}
+                    key={item.titleKey}
                     className="relative"
-                    onMouseEnter={() => handleMouseEnter(item.title)}
+                    onMouseEnter={() => handleMouseEnter(item.titleKey)}
                     onMouseLeave={handleMouseLeave}
                   >
                     <Link
@@ -103,20 +104,20 @@ export default function NavigationDesktop() {
                           : "text-gray-200 hover:text-turquoise-300 hover:bg-turquoise-700/30"
                       }`}
                     >
-                      {item.title}
+                      {t(item.titleKey)}
                     </Link>
 
                     {/* Dropdown Menu */}
-                    {hasSubItems && hoveredItem === item.title && (
+                    {hasSubItems && hoveredItem === item.titleKey && (
                       <div className="absolute top-full left-0 mt-2 w-48 rounded-lg shadow-lg border border-turquoise-600/30 bg-turquoise-800/95 backdrop-blur-md transition-all duration-200 ease-in-out">
                         <div className="py-2">
                           {item.subItems.map((subItem) => (
                             <Link
-                              key={subItem.title}
+                              key={subItem.titleKey}
                               href={subItem.href}
                               className="block px-4 py-2.5 text-sm text-white hover:text-turquoise-300 hover:bg-turquoise-700/30 transition-all duration-200"
                             >
-                              {subItem.title}
+                              {t(subItem.titleKey)}
                             </Link>
                           ))}
                         </div>
@@ -133,10 +134,10 @@ export default function NavigationDesktop() {
               <Link
                 href="/contact"
                 className="px-4 md:px-6 py-2 rounded-full bg-turquoise-500 text-white hover:bg-turquoise-600 transition-all duration-200 flex items-center gap-2 font-medium text-sm shadow-sm hover:shadow-md focus:outline-none focus:ring-2 focus:ring-turquoise-300"
-                aria-label="Kontakt aufnehmen"
+                aria-label={t("contactCta")}
               >
                 <FaEnvelope className="text-base" />
-                <span className="hidden sm:inline">Kontakt</span>
+                <span className="hidden sm:inline">{t("contact")}</span>
               </Link>
 
               {/* Language Switcher */}
@@ -148,7 +149,7 @@ export default function NavigationDesktop() {
                       ? "text-white bg-turquoise-500 shadow-sm"
                       : "text-gray-200 hover:text-white"
                   }`}
-                  aria-label="Sprache auf Deutsch wechseln"
+                  aria-label={t("switchToGerman")}
                   aria-pressed={locale === "de"}
                 >
                   DE
@@ -163,7 +164,7 @@ export default function NavigationDesktop() {
                       ? "text-white bg-turquoise-500 shadow-sm"
                       : "text-gray-200 hover:text-white"
                   }`}
-                  aria-label="Switch to English"
+                  aria-label={t("switchToEnglish")}
                   aria-pressed={locale === "en"}
                 >
                   EN

@@ -1,12 +1,16 @@
 "use client";
 
 import { Card } from "@/components/ui/card";
-import { appEntwicklungFaqs as APP_FAQS } from "@/data/service-faqs";
+import { getAppEntwicklungFaqs } from "@/data/service-faqs";
 import { cn } from "@/lib/utils";
 import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import { useLocale, useTranslations } from "next-intl";
 import { useState } from "react";
 
 export default function AppEntwicklungFAQ() {
+  const locale = useLocale();
+  const t = useTranslations("AppEntwicklung.faq");
+  const APP_FAQS = getAppEntwicklungFaqs(locale);
   const [openId, setOpenId] = useState<string | null>(null);
 
   const toggle = (id: string) => {
@@ -17,10 +21,10 @@ export default function AppEntwicklungFAQ() {
     <div className="w-full max-w-6xl space-y-8">
       <div className="text-center space-y-4">
         <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-          Häufig gestellte Fragen
+          {t("heading")}
         </h2>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Antworten zu Flutter, Ablauf, Kosten und MVP.
+          {t("subheading")}
         </p>
       </div>
 

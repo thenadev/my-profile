@@ -17,9 +17,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { getYearsOfExperience } from "@/config/stats";
-import { TARGET_AUDIENCES, WEBSITE_PACKAGES } from "@/config/website-packages";
+import {
+  getWebsiteTargetAudiences,
+  getWebsitePackages,
+} from "@/config/website-packages";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
+import { useLocale, useTranslations } from "next-intl";
 import {
   CheckCircle,
   CircleCheck,
@@ -63,6 +67,10 @@ const STANDARD_CARDS_SCALE = 0.94;
 
 export default function UnternehmenswebsiteClient() {
   const router = useRouter();
+  const locale = useLocale();
+  const t = useTranslations("Unternehmenswebsite.page");
+  const TARGET_AUDIENCES = getWebsiteTargetAudiences(locale);
+  const WEBSITE_PACKAGES = getWebsitePackages(locale);
   const zielgruppeRef = useRef(null);
   const paketeRef = useRef(null);
   const warumRef = useRef(null);
@@ -125,15 +133,13 @@ export default function UnternehmenswebsiteClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              Für wen?
+              {t("audience.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Ich unterstütze Unternehmen, die online sichtbar werden wollen
+              {t("audience.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Ob ohne Website, mit veralteter Präsenz oder als Neugründer – ich
-              baue maßgeschneiderte Websites für kleine Unternehmen und
-              Selbstständige.
+              {t("audience.subheading")}
             </p>
           </motion.div>
 
@@ -197,11 +203,10 @@ export default function UnternehmenswebsiteClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Webdesign-Pakete für Ihr Unternehmen
+              {t("packages.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Transparente Preise, klare Leistungen – wählen Sie das Paket, das
-              zu Ihrer Situation passt.
+              {t("packages.subheading")}
             </p>
           </motion.div>
 
@@ -287,10 +292,10 @@ export default function UnternehmenswebsiteClient() {
                         }
                       >
                         {pkg.badge === "beliebt"
-                          ? "Am beliebtesten"
+                          ? t("packages.badges.popular")
                           : pkg.badge === "spare"
-                            ? "Günstigster Einstieg"
-                            : "Neu"}
+                            ? t("packages.badges.cheapest")
+                            : t("packages.badges.new")}
                       </Badge>
                     </div>
                   )}
@@ -330,14 +335,14 @@ export default function UnternehmenswebsiteClient() {
                     </div>
                     <div className="flex items-center justify-center gap-1.5 text-xs text-muted-foreground pt-1">
                       <Clock className="h-3.5 w-3.5" />
-                      <span>Lieferzeit: {pkg.deliveryWeeks}</span>
+                      <span>{t("packages.delivery", { weeks: pkg.deliveryWeeks })}</span>
                     </div>
                   </CardHeader>
                   <CardContent className="space-y-4 flex-1 flex flex-col pt-0">
                     {/* Ideal für */}
                     <div className="rounded-lg bg-muted/50 p-3">
                       <p className="text-xs font-semibold text-foreground mb-2">
-                        Ideal für:
+                        {t("packages.idealFor")}
                       </p>
                       <ul className="space-y-1">
                         {pkg.idealFor.map((item, i) => (
@@ -400,11 +405,10 @@ export default function UnternehmenswebsiteClient() {
             }}
           >
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              Warum Webdesign aus Wetzlar?
+              {t("why.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Nahbar, unkompliziert und mit Fokus auf Ihr Ergebnis – so arbeite
-              ich mit Ihnen.
+              {t("why.subheading")}
             </p>
           </motion.div>
 
@@ -421,7 +425,7 @@ export default function UnternehmenswebsiteClient() {
           >
             <Image
               src="/me_local.jpeg"
-              alt="Thomas Schwabauer – Webdesigner aus Wetzlar"
+              alt={t("why.imageAlt")}
               width={672}
               height={420}
               className="object-cover w-full h-full"
@@ -430,32 +434,10 @@ export default function UnternehmenswebsiteClient() {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
-            {[
-              {
-                icon: Sparkles,
-                title: "Wenig Aufwand – maximales Ergebnis",
-                desc: "Sie liefern Stichpunkte, Logo und Bilder – ich übernehme Konzept, Design und Umsetzung. Hochwertiger Output ohne Projektchaos.",
-              },
-              {
-                icon: Target,
-                title: "Lokale Expertise",
-                desc: `Aus Wetzlar, für Wetzlar – Sie haben einen Ansprechpartner, keinen anonymen Dienstleister. Über ${getYearsOfExperience()} Jahre Erfahrung in der Region.`,
-              },
-              {
-                icon: Zap,
-                title: "Schnelle Umsetzung",
-                desc: "In 2–4 Wochen live – ohne dass Sie sich wochenlang kümmern müssen. Sie geben Feedback, den Rest erledige ich.",
-              },
-              {
-                icon: RefreshCw,
-                title: "Überarbeitung, bis es passt",
-                desc: "Ich feile so lange am Ergebnis, bis es zu 100 % zu Ihnen passt. Kein Abnahme-Druck – Qualität, die überzeugt.",
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[Sparkles, Target, Zap, RefreshCw].map((Icon, index) => {
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   className="flex h-full"
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -476,10 +458,12 @@ export default function UnternehmenswebsiteClient() {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <CardTitle className="text-lg mb-2 text-foreground">
-                      {item.title}
+                      {t(`why.items.${index}.title`)}
                     </CardTitle>
                     <CardDescription className="text-muted-foreground flex-1 min-h-0">
-                      {item.desc}
+                      {t(`why.items.${index}.desc`, {
+                        years: getYearsOfExperience(),
+                      })}
                     </CardDescription>
                   </Card>
                 </motion.div>
@@ -505,42 +489,26 @@ export default function UnternehmenswebsiteClient() {
             }}
           >
             <Badge variant="secondary" className="text-sm">
-              Ihr Weg zur Website
+              {t("process.badge")}
             </Badge>
             <h2 className="text-3xl md:text-4xl font-bold text-foreground">
-              So arbeiten wir zusammen
+              {t("process.heading")}
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Kein langes Briefing, keine endlosen Abstimmungen – ein klares
-              Vorgehen mit direktem Draht zu Ihnen.
+              {t("process.subheading")}
             </p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
-            {[
-              {
-                icon: MessageCircle,
-                step: "1",
-                title: "Kurzes Gespräch",
-                desc: "Sie sagen mir, was Sie brauchen – ich stelle die richtigen Fragen. Kein Formular-Marathon, ein lockeres Kennenlernen.",
-              },
-              {
-                icon: Layout,
-                step: "2",
-                title: "Ich konzipiere & gestalte",
-                desc: "Sie liefern Logo, Texte oder Stichpunkte – ich übernehme Konzept, Design und Umsetzung. Sie müssen kaum eingreifen.",
-              },
-              {
-                icon: CircleCheck,
-                step: "3",
-                title: "Feinschliff gemeinsam",
-                desc: "Sie geben Feedback, ich überarbeite – so lange, bis alles zu 100 % passt. Dann geht Ihre Website live.",
-              },
-            ].map((item, index) => {
-              const Icon = item.icon;
+            {[MessageCircle, Layout, CircleCheck].map((Icon, index) => {
+              const steps = t.raw("process.steps") as {
+                title: string;
+                desc: string;
+              }[];
+              const item = steps[index];
               return (
                 <motion.div
-                  key={item.title}
+                  key={index}
                   initial={{ opacity: 0, y: 24 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={CARD_VIEWPORT}
@@ -557,7 +525,7 @@ export default function UnternehmenswebsiteClient() {
                 >
                   <Card className="relative h-full w-full p-6 bg-card border-border text-center flex flex-col items-center">
                     <div className="absolute top-4 left-4 w-10 h-10 rounded-full bg-primary/20 text-primary font-bold text-sm flex items-center justify-center flex-shrink-0">
-                      {item.step}
+                      {index + 1}
                     </div>
                     <div className="w-12 h-12 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-4 flex-shrink-0 mt-2">
                       <Icon className="h-6 w-6 text-primary" />
