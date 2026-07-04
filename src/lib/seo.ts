@@ -19,6 +19,13 @@ export function localizedUrl(locale: Locale, path: string): string {
   return `${SITE_URL}${prefix}${normalized}` || SITE_URL;
 }
 
+/**
+ * Standard-Social-Preview (1200×630), gerendert aus scripts/og-image.html
+ * (headless Chrome). Maße werden nur für dieses Bild behauptet — überschreibt
+ * eine Seite ogImage, bleiben width/height weg.
+ */
+const DEFAULT_OG_IMAGE = "/og-image.png";
+
 interface BuildMetadataOptions {
   locale: Locale;
   /** Pfad ohne Locale-Präfix, z.B. "/" oder "/services/app-entwicklung" */
@@ -46,11 +53,18 @@ export function buildMetadata({
   path,
   title,
   description,
-  ogImage = "/me-laptop.png",
+  ogImage = DEFAULT_OG_IMAGE,
   ogType = "website",
   canonicalLocale,
 }: BuildMetadataOptions): Metadata {
   const canonical = localizedUrl(canonicalLocale ?? locale, path);
+
+  // width/height nur für das Default-Bild behaupten — bei einem von der
+  // Seite überschriebenen ogImage sind die Maße unbekannt.
+  const ogImageEntry =
+    ogImage === DEFAULT_OG_IMAGE
+      ? { url: ogImage, width: 1200, height: 630 }
+      : { url: ogImage };
 
   // hreflang-Alternates nur, wenn der Inhalt tatsächlich in mehreren
   // Sprachen existiert. Bei canonicalLocale entfällt hreflang komplett.
@@ -79,11 +93,11 @@ export function buildMetadata({
       siteName: "Thomas Schwabauer - Fullstack Development Wetzlar",
       title,
       description,
-      images: [{ url: ogImage, width: 500, height: 500 }],
+      images: [ogImageEntry],
     },
     twitter: {
-      // Quadratisches Bild (500×500) → summary statt summary_large_image.
-      card: "summary",
+      // 1200×630-Bild → großes Preview.
+      card: "summary_large_image",
       site: "@ThenaDev",
       creator: "@ThenaDev",
       title,

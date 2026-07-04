@@ -218,8 +218,8 @@ export default function StartupBeratungHero({
           {/* Right Column – Bild und Benefits (wie Unternehmenswebsite) */}
           <motion.div
             className="flex flex-col justify-center items-center lg:items-end relative order-first lg:order-last lg:pl-8 w-full"
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
+            initial={{ x: 50 }}
+            animate={{ x: 0 }}
             transition={{ duration: 0.8, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
           >
             {/* Blob-Hintergründe */}
@@ -280,8 +280,8 @@ export default function StartupBeratungHero({
                     opacity: imageOpacity,
                     scale: imageScale,
                   }}
-                  initial={{ scale: 0.85, opacity: 0, y: 40 }}
-                  animate={{ scale: 1, opacity: 1, y: 0 }}
+                  initial={{ scale: 0.85, y: 40 }}
+                  animate={{ scale: 1, y: 0 }}
                   transition={{
                     duration: 0.9,
                     delay: 0.4,
@@ -324,7 +324,9 @@ export default function StartupBeratungHero({
                         width={500}
                         height={700}
                         className="w-full h-auto object-contain"
+                        sizes="(max-width: 768px) 280px, (max-width: 1024px) 360px, 440px"
                         priority
+                        fetchPriority="high"
                         style={{
                           filter:
                             "drop-shadow(0 30px 60px -15px rgba(0, 0, 0, 0.5)) drop-shadow(0 10px 20px -5px rgba(0, 0, 0, 0.15))",

@@ -176,7 +176,9 @@ const HomeHero: React.FC = () => {
               width={600}
               height={600}
               title={t("avatarTitle")}
+              sizes="(max-width: 768px) 224px, (max-width: 1280px) 320px, 448px"
               priority
+              fetchPriority="high"
             />
           </div>
         </div>
