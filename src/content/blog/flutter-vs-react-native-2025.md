@@ -8,8 +8,8 @@ tldr:
   - "Flutter punktet bei durchgängig konsistenter UI, flüssigen Animationen und Performance nahe an nativem Code."
   - "React Native überzeugt mit JavaScript/TypeScript, riesigem npm-Ökosystem und einfachem Einstieg für Web-Teams."
   - "Für ein MVP mit Web-Hintergrund: React Native. Für UI-lastige, markengeprägte Apps: Flutter."
-cover: "/blog/flutter-vs-react-native-2025/cover.png"
-coverAlt: "Flutter und React Native im Vergleich – Titelbild"
+cover: "/blog/flutter-vs-react-native-2025/cover.jpg"
+coverAlt: "Entwickler-Arbeitsplatz mit Code auf dem Monitor sowie App-Designs auf Tablet und Smartphone"
 tags: ["Flutter", "React Native", "App-Entwicklung", "MVP"]
 draft: false
 ---
