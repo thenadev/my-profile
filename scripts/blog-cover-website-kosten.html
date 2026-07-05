@@ -1,0 +1,48 @@
+<!--
+  Blog-Titelbild „Was kostet eine Website 2026?" – 1200×675.
+  Render: "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless=new --screenshot=public/blog/was-kostet-eine-website-2026/cover.png \
+    --window-size=1200,675 --hide-scrollbars file://ABSOLUT/scripts/blog-cover-website-kosten.html
+-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 675px; }
+      body {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: radial-gradient(120% 140% at 15% 10%, #0b878e 0%, #0f2528 58%, #06181a 100%);
+        color: #eafaff; position: relative; overflow: hidden;
+        padding: 70px 80px; display: flex; flex-direction: column; justify-content: space-between;
+      }
+      .blob { position: absolute; border-radius: 50%; filter: blur(70px); }
+      .b1 { width: 520px; height: 520px; background: #1ab5bd; top: -160px; right: -120px; opacity: .5; }
+      .b2 { width: 420px; height: 420px; background: #2fd6de; bottom: -180px; left: -120px; opacity: .35; }
+      .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.10) 2px, transparent 2px); background-size: 34px 34px; opacity: .45; }
+      .eyebrow { position: relative; font-size: 21px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7fe3e8; }
+      h1 { position: relative; font-size: 78px; font-weight: 800; line-height: 1.03; letter-spacing: -1.5px; max-width: 900px; }
+      h1 .yr { color: #2fd6de; }
+      .pills { position: relative; display: flex; gap: 16px; }
+      .pill { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); padding: 14px 24px; border-radius: 16px; }
+      .pill .k { display: block; font-size: 15px; color: #9fc9cc; font-weight: 600; }
+      .pill .v { display: block; font-size: 30px; font-weight: 800; margin-top: 2px; }
+      .brand { position: relative; font-size: 24px; font-weight: 700; }
+      .brand span { color: #7fe3e8; }
+    </style>
+  </head>
+  <body>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="dots"></div>
+    <div class="eyebrow">Webdesign · Preise</div>
+    <h1>Was kostet eine<br />Website? <span class="yr">2026</span></h1>
+    <div class="pills">
+      <div class="pill"><span class="k">Erste Website</span><span class="v">ab 1.200 €</span></div>
+      <div class="pill"><span class="k">Relaunch</span><span class="v">ab 1.500 €</span></div>
+      <div class="pill"><span class="k">Online-Shop</span><span class="v">ab 8.000 €</span></div>
+    </div>
+    <div class="brand">thomas-schwabauer<span>.de</span></div>
+  </body>
+</html>
