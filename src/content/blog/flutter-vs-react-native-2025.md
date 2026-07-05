@@ -106,4 +106,5 @@ Qualität der offiziellen Pakete und der Tooling-Erfahrung sehr hoch.
 Beide Wege führen zu einer wartbaren App aus einer Codebasis. Wenn Sie unsicher
 sind, welcher für Ihr Vorhaben der richtige ist, [sprechen wir kurz
 darüber](/contact) – im Zweifel spart die richtige Wahl zu Beginn die meiste
-Zeit.
+Zeit. Wenn Sie eine [Flutter-App entwickeln lassen](/blog/flutter-app-entwickeln-lassen)
+möchten, erfahren Sie dort Ablauf, Kosten und Zeitrahmen.

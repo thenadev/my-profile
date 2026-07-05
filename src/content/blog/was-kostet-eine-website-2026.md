@@ -49,6 +49,11 @@ enthalten ist (Seiten, SEO-Grundoptimierung, Kontaktformular, Hosting-Einrichtun
 u. v. m.), sehen Sie auf der [Leistungsseite zur
 Unternehmenswebsite](/services/unternehmenswebsite).
 
+Noch unsicher, ob Baukasten oder Profi? Das klärt der Beitrag
+[Baukasten vs. Profi](/blog/website-baukasten-vs-profi). Und worauf Sie
+rechtlich achten müssen, zeigen die
+[7 DSGVO-Punkte](/blog/dsgvo-konforme-website).
+
 ## Warum Premium-Qualität zum fairen Preis?
 
 Der klassische Weg über eine Agentur ist teuer – nicht, weil die Arbeit so viel
