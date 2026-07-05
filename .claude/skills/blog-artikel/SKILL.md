@@ -51,33 +51,42 @@ GitHub Actions → Docker → Server) live gestellt. Vollständige Feld-Referenz
 Markdown; Bilder per `![alt](/blog/<slug>/bild.png)`.
 
 ### 3. Bilder
-Bilder liegen unter `public/blog/<slug>/`. Zwei bewährte Wege:
+Bilder liegen unter `public/blog/<slug>/`.
 
-**A) On-brand generieren (Cover + erklärende Grafiken).** HTML-Vorlage nach
-Muster `scripts/blog-cover-*.html` bzw. `scripts/blog-diagram-*.html`
-schreiben (Marken-Gradient `#0b878e → #0f2528`, Akzent `#2fd6de/#1ab5bd`,
-Text `#eafaff`, Systemfonts, keine externen Ressourcen). Rendern:
-```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-  --headless=new --screenshot="$(pwd)/public/blog/<slug>/cover.png" \
-  --window-size=1200,675 --hide-scrollbars \
-  "file://$(pwd)/scripts/blog-cover-<name>.html"
-```
-Danach mit dem Read-Tool ansehen und Maße mit `sips` prüfen. Cover 16:9
-(1200×675), Inline-Grafiken z. B. 1200×520.
+**Titelbild (Cover) – Standard für ALLE Beiträge: echtes Foto + Marken-Overlay.**
+Nie ein reines Foto und nie ein reines Grafik-Overlay – immer die Kombination
+aus einem passenden Foto als Hintergrund und dem abdunkelnden Marken-Overlay
+mit Text darüber. Ablauf:
 
-**B) Frei lizenziertes Foto (Unsplash/Pexels).** Erlaubte Hosts stehen in
-`next.config.mjs` unter `images.remotePatterns`. Vorgehen: passende Fotos
-per WebSearch/WebFetch finden, mehrere Kandidaten in den Scratchpad laden
-(`https://images.unsplash.com/photo-<id>?w=1200&h=675&fit=crop&q=80`), dem
-User per Read-Tool zeigen und **vorschlagen**. Nach seiner Wahl das Bild
-**lokal** speichern (nicht hotlinken) und auf sinnvolle Größe bringen:
-```bash
-curl -sL -o public/blog/<slug>/cover.jpg \
-  "https://images.unsplash.com/photo-<id>?w=1280&h=720&fit=crop&fm=jpg&q=60"
-sips -Z 1280 --setProperty formatOptions 60 public/blog/<slug>/cover.jpg
-```
-Ziel < ~300 KB. Unsplash-Lizenz: frei, kommerziell, ohne Attributionspflicht.
+1. **Passendes, frei lizenziertes Foto** finden (Unsplash/Pexels; erlaubte
+   Hosts stehen in `next.config.mjs`). Mehrere Kandidaten in den Scratchpad
+   laden (`https://images.unsplash.com/photo-<id>?w=1600&h=900&fit=crop&q=80`),
+   dem User per Read-Tool zeigen und **vorschlagen**, ihn wählen lassen.
+2. Gewähltes Foto lokal als **`public/blog/<slug>/photo.jpg`** speichern
+   (nicht hotlinken) und verkleinern: `sips -Z 1600 --setProperty formatOptions 70 …`.
+3. Cover mit der **generischen Vorlage `scripts/blog-cover.html`** rendern
+   (Parameter siehe Datei-Kopf: `photo, eyebrow, title (| Umbruch, *x* Akzent),
+   pills (a::b oder Label, pipe-getrennt), hl`). Foto liegt lokal → Flag
+   `--allow-file-access-from-files`:
+   ```bash
+   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+     --headless=new --allow-file-access-from-files \
+     --screenshot="$(pwd)/public/blog/<slug>/cover.png" \
+     --window-size=1200,675 --hide-scrollbars \
+     "file://$(pwd)/scripts/blog-cover.html?photo=file://$(pwd)/public/blog/<slug>/photo.jpg&eyebrow=…&title=…&pills=…&hl=1"
+   ```
+   Query-String URL-encodieren (am einfachsten per Python `urllib.parse`).
+4. Nach **JPG** konvertieren (kleiner) und PNG entfernen:
+   `sips -s format jpeg -s formatOptions 78 cover.png --out cover.jpg && rm cover.png`.
+   Frontmatter `cover: "/blog/<slug>/cover.jpg"`, Ziel < ~200 KB.
+
+Mit dem Read-Tool prüfen: Foto sichtbar, Text lesbar (Overlay dunkelt links ab).
+
+**Inline-Grafiken (Diagramme).** Eigene HTML-Vorlage nach Muster
+`scripts/blog-diagram-*.html` (Marken-Gradient `#0b878e → #0f2528`, Akzent
+`#2fd6de/#1ab5bd`, Text `#eafaff`, Systemfonts, keine externen Ressourcen),
+per Headless-Chrome → PNG rendern (z. B. 1200×520), als `![alt](/blog/<slug>/…)`
+einbinden.
 
 Rendering, Kontrast (dunkles Theme), TL;DR-Box, Tabellen und Tags werden
 zentral in `blog/[slug]/page.tsx` erledigt — pro Beitrag NICHTS an Styling

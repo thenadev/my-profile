@@ -1,0 +1,79 @@
+<!--
+  Generische Blog-Cover-Vorlage: echtes Foto als Hintergrund + abdunkelndes
+  Marken-Overlay + Text. Für ALLE Blogbeiträge (einheitlicher Look).
+
+  Parameter (Query-String, alle URL-encodiert):
+    photo   file://-Pfad zum Hintergrundfoto (public/blog/<slug>/photo.jpg)
+    eyebrow Kleiner Label-Text oben (z. B. "Webdesign · Preise")
+    title   Titel; "|" = Zeilenumbruch, "*wort*" = Akzentfarbe
+    pills   Pipe-getrennte Chips; je Chip "Label" oder "Label::Unterzeile"
+    hl      (optional) 0-basierter Index des hervorgehobenen Chips
+
+  Render (Foto liegt lokal → --allow-file-access-from-files):
+    "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+      --headless=new --allow-file-access-from-files \
+      --screenshot=OUT.png --window-size=1200,675 --hide-scrollbars \
+      "file://ABS/scripts/blog-cover.html?photo=file://ABS/public/blog/<slug>/photo.jpg&eyebrow=…&title=…&pills=…&hl=1"
+  Danach nach JPG konvertieren (kleiner):  sips -s format jpeg -s formatOptions 78 OUT.png --out cover.jpg
+-->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 675px; }
+      body {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        color: #eafaff; position: relative; overflow: hidden;
+        padding: 66px 80px; display: flex; flex-direction: column; justify-content: space-between;
+      }
+      #bg { position: absolute; inset: 0; background-size: cover; background-position: center; z-index: -3; }
+      #tint { position: absolute; inset: 0; z-index: -2;
+        background: linear-gradient(105deg, rgba(6,24,26,.94) 0%, rgba(15,37,40,.86) 42%, rgba(11,135,142,.55) 100%); }
+      .dots { position: absolute; inset: 0; z-index: -1; background-image: radial-gradient(rgba(255,255,255,.08) 2px, transparent 2px); background-size: 34px 34px; opacity: .4; }
+      #eyebrow { position: relative; font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7fe3e8; text-shadow: 0 1px 8px rgba(0,0,0,.4); }
+      #title { position: relative; font-size: 64px; font-weight: 800; line-height: 1.05; letter-spacing: -1px; max-width: 1000px; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+      #title .accent { color: #2fd6de; }
+      #pills { position: relative; display: flex; gap: 16px; flex-wrap: wrap; }
+      .pill { background: rgba(6,24,26,.55); border: 1px solid rgba(255,255,255,.18); border-radius: 16px; padding: 13px 22px; }
+      .pill.hl { background: linear-gradient(160deg, rgba(26,181,189,.42), rgba(11,135,142,.30)); border-color: rgba(47,214,222,.6); }
+      .pill .k { display: block; font-size: 15px; color: #cdeef0; font-weight: 600; }
+      .pill .v { display: block; font-size: 26px; font-weight: 800; margin-top: 2px; }
+      .pill .single { font-size: 22px; font-weight: 700; }
+      .brand { position: relative; font-size: 23px; font-weight: 700; text-shadow: 0 1px 8px rgba(0,0,0,.5); }
+      .brand span { color: #7fe3e8; }
+    </style>
+  </head>
+  <body>
+    <div id="bg"></div>
+    <div id="tint"></div>
+    <div class="dots"></div>
+    <div id="eyebrow"></div>
+    <h1 id="title"></h1>
+    <div id="pills"></div>
+    <div class="brand">thomas-schwabauer<span>.de</span></div>
+    <script>
+      const q = new URLSearchParams(location.search);
+      const esc = (s) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      const p = q.get("photo");
+      if (p) document.getElementById("bg").style.backgroundImage = `url("${p}")`;
+      document.getElementById("eyebrow").textContent = q.get("eyebrow") || "";
+      // Titel: | => <br>, *x* => Akzent
+      const title = esc(q.get("title") || "")
+        .replace(/\|/g, "<br>")
+        .replace(/\*(.+?)\*/g, '<span class="accent">$1</span>');
+      document.getElementById("title").innerHTML = title;
+      const hl = q.get("hl");
+      const pills = (q.get("pills") || "").split("|").filter(Boolean);
+      document.getElementById("pills").innerHTML = pills.map((raw, i) => {
+        const cls = "pill" + (String(i) === hl ? " hl" : "");
+        if (raw.includes("::")) {
+          const [k, v] = raw.split("::");
+          return `<div class="${cls}"><span class="k">${esc(k)}</span><span class="v">${esc(v)}</span></div>`;
+        }
+        return `<div class="${cls}"><span class="single">${esc(raw)}</span></div>`;
+      }).join("");
+    </script>
+  </body>
+</html>
