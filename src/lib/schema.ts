@@ -134,6 +134,10 @@ interface ArticleSchemaOptions {
   dateModified?: string;
   author?: string;
   image?: string;
+  /** Themen-Keywords (z.B. aus den Tags). */
+  keywords?: string[];
+  /** Rubrik/Thema des Beitrags. */
+  articleSection?: string;
 }
 
 export function buildArticleSchema({
@@ -144,6 +148,8 @@ export function buildArticleSchema({
   dateModified,
   author = siteConfig.authorName,
   image = `${SITE_URL}/me-laptop.png`,
+  keywords,
+  articleSection,
 }: ArticleSchemaOptions) {
   return {
     "@context": "https://schema.org",
@@ -153,6 +159,8 @@ export function buildArticleSchema({
     datePublished,
     dateModified: dateModified ?? datePublished,
     image,
+    ...(keywords && keywords.length > 0 && { keywords: keywords.join(", ") }),
+    ...(articleSection && { articleSection }),
     author: {
       "@type": "Person",
       name: author,

@@ -1,6 +1,6 @@
 ---
 title: "Flutter vs. React Native 2025: Der ehrliche Vergleich"
-date: "2025-05-27"
+date: "2026-05-27"
 author: "Thomas Schwabauer"
 description: "Flutter oder React Native 2025? Ein praxisnaher Vergleich zu Performance, UI-Entwicklung, Ökosystem und Team – mit klarer Empfehlung je Projekt."
 tldr:

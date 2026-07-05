@@ -7,6 +7,8 @@ export interface BlogPost {
   /** Slug = Dateiname ohne .md */
   slug: string;
   title: string;
+  /** Optionaler SERP-Titel (≤ ~60 Z.); Fallback = title. H1 bleibt title. */
+  metaTitle?: string;
   date: string;
   author: string;
   /** Meta-Description (120–160 Zeichen). */
@@ -38,6 +40,7 @@ function parseFile(fileName: string): BlogPost {
   return {
     slug: (data.slug as string) || slug,
     title: (data.title as string) ?? slug,
+    metaTitle: (data.metaTitle as string) || undefined,
     date: data.date ? new Date(data.date as string).toISOString() : "",
     author: (data.author as string) ?? "Thomas Schwabauer",
     description: (data.description as string) ?? "",

@@ -41,16 +41,19 @@ export function generateMetadata({
 }): Metadata {
   const post = getPostBySlug(slug);
   if (!post) return {};
-  return buildMetadata({
+  const meta = buildMetadata({
     locale,
     path: `/blog/${encodeURIComponent(slug)}`,
-    title: post.title,
+    title: post.metaTitle ?? post.title,
     description: excerpt(post),
     ogType: "article",
     ...(post.cover ? { ogImage: post.cover } : {}),
     // Blog nur auf Deutsch: Canonical immer auf DE, kein de/en-hreflang.
     canonicalLocale: "de",
   });
+  // SERP-Titel ohne globales „| Thomas Schwabauer"-Suffix (spart ~20 Zeichen).
+  meta.title = { absolute: post.metaTitle ?? post.title };
+  return meta;
 }
 
 export default function BlogPostPage({
@@ -71,6 +74,8 @@ export default function BlogPostPage({
     datePublished: post.date,
     author: post.author,
     image: post.cover ? `${SITE_URL}${post.cover}` : undefined,
+    keywords: post.tags,
+    articleSection: post.tags[0],
   });
 
   return (

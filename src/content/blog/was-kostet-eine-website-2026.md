@@ -1,8 +1,8 @@
 ---
 title: "Was kostet eine Website 2026? Preise, Pakete & Beispiele"
-date: "2026-06-17"
+date: "2026-06-03"
 author: "Thomas Schwabauer"
-description: "Was kostet eine professionelle Website 2026? Transparente Preise, Pakete und laufende Kosten – plus warum KI-gestützte Entwicklung Premium-Qualität zum fairen Preis möglich macht."
+description: "Was kostet eine professionelle Website 2026? Transparente Preise, Pakete und laufende Kosten – plus wie KI-gestützte Entwicklung faire Preise möglich macht."
 tldr:
   - "Eine professionelle Unternehmenswebsite startet bei ca. 1.200 € – ein Relaunch bei ca. 1.500 €, ein Online-Shop ab ca. 8.000 €."
   - "Der Preis hängt vor allem von Umfang, Design, CMS und Funktionen ab – nicht von einem festen Stundensatz allein."
