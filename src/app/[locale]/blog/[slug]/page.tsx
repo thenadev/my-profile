@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
-import ReactMarkdown from "react-markdown";
+import ReactMarkdown, { defaultUrlTransform } from "react-markdown";
+import BlogInquiryDialog from "@/components/blog/BlogInquiryDialog";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeHighlight from "rehype-highlight";
@@ -175,12 +176,35 @@ export default function BlogPostPage({
             <ReactMarkdown
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSlug, rehypeHighlight]}
+              // tel:- und anfrage:-Marker durchlassen; sonst Standardverhalten.
+              urlTransform={(url) =>
+                url.startsWith("tel:") || url.startsWith("anfrage:")
+                  ? url
+                  : defaultUrlTransform(url)
+              }
+              components={{
+                // [Text](anfrage:<Thema>) rendert einen CTA-Button mit Anfrage-Dialog.
+                a({ href, children }) {
+                  if (href?.startsWith("anfrage:")) {
+                    const topic = decodeURIComponent(
+                      href.slice("anfrage:".length),
+                    );
+                    return (
+                      <BlogInquiryDialog label={children} topic={topic} />
+                    );
+                  }
+                  return <a href={href}>{children}</a>;
+                },
+              }}
             >
               {post.content}
             </ReactMarkdown>
           </div>
         </article>
       </div>
+
+      {/* Dauerhaft präsenter Anfrage-Button auf jedem Blogartikel */}
+      <BlogInquiryDialog variant="floating" topic={post.title} />
     </div>
   );
 }
