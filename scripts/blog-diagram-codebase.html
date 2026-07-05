@@ -1,0 +1,48 @@
+<!-- Inline-Grafik: „Eine Codebasis, zwei Plattformen" – 1200×520. -->
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { width: 1200px; height: 520px; }
+      body {
+        font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background: radial-gradient(120% 140% at 50% 0%, #0f3a3e 0%, #0f2528 60%, #06181a 100%);
+        color: #eafaff; position: relative; overflow: hidden;
+        display: flex; align-items: center; justify-content: center;
+      }
+      .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.08) 2px, transparent 2px); background-size: 34px 34px; opacity: .5; }
+      .row { position: relative; display: flex; align-items: center; gap: 60px; }
+      .node { display: flex; flex-direction: column; align-items: center; gap: 14px; }
+      .codebox { width: 230px; height: 200px; border-radius: 22px; background: linear-gradient(160deg, #1ab5bd, #0b878e); box-shadow: 0 24px 50px -18px rgba(0,0,0,.6); display: flex; align-items: center; justify-content: center; font-family: "SF Mono", Menlo, Consolas, monospace; }
+      .codebox .glyph { font-size: 82px; font-weight: 800; color: #06181a; }
+      .label { font-size: 24px; font-weight: 700; }
+      .sub { font-size: 17px; color: #9fc9cc; }
+      .arrows { display: flex; flex-direction: column; gap: 60px; }
+      .arrow { font-size: 54px; color: #2fd6de; }
+      .targets { display: flex; flex-direction: column; gap: 34px; }
+      .device { display: flex; align-items: center; gap: 18px; background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.16); border-radius: 18px; padding: 18px 26px; width: 320px; }
+      .device .ico { width: 54px; height: 54px; border-radius: 14px; background: rgba(47,214,222,.18); display: flex; align-items: center; justify-content: center; font-size: 30px; }
+      .device .t { font-size: 24px; font-weight: 700; }
+      .device .s { font-size: 15px; color: #9fc9cc; }
+      .title { position: absolute; top: 34px; left: 0; right: 0; text-align: center; font-size: 22px; font-weight: 700; letter-spacing: .5px; color: #7fe3e8; }
+    </style>
+  </head>
+  <body>
+    <div class="dots"></div>
+    <div class="title">EINE CODEBASIS · ZWEI PLATTFORMEN</div>
+    <div class="row">
+      <div class="node">
+        <div class="codebox"><span class="glyph">{ }</span></div>
+        <div class="label">Eine Codebasis</div>
+        <div class="sub">Dart bzw. TypeScript</div>
+      </div>
+      <div class="arrows"><div class="arrow">→</div><div class="arrow">→</div></div>
+      <div class="targets">
+        <div class="device"><div class="ico">🍎</div><div><div class="t">iOS</div><div class="s">iPhone &amp; iPad</div></div></div>
+        <div class="device"><div class="ico">🤖</div><div><div class="t">Android</div><div class="s">Smartphones &amp; Tablets</div></div></div>
+      </div>
+    </div>
+  </body>
+</html>

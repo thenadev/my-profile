@@ -22,6 +22,8 @@ Dieser Artikel vergleicht sie entlang der vier Kriterien, die in echten
 Projekten den Ausschlag geben – Performance, UI-Entwicklung, Ökosystem und
 Team – und gibt am Ende eine konkrete Empfehlung.
 
+![Schema: eine Codebasis wird zu Apps für iOS und Android](/blog/flutter-vs-react-native-2025/codebase.png)
+
 ## Der schnelle Überblick
 
 | Kriterium              | Flutter                                  | React Native                              |
@@ -45,6 +47,8 @@ React Native rendert **echte native Komponenten**. Mit der neuen Architektur
 bei der Kommunikation zwischen JavaScript und nativer Seite weitgehend
 beseitigt. Für die meisten Business-Apps – Listen, Formulare, Navigation – ist
 die Performance in der Praxis kein limitierender Faktor mehr.
+
+![Vergleich: wie Flutter und React Native die Oberfläche rendern](/blog/flutter-vs-react-native-2025/rendering.png)
 
 **Kurz:** Für animations- und grafiklastige Apps hat Flutter die Nase vorn. Für
 typische datengetriebene Apps nehmen sich beide kaum noch etwas.

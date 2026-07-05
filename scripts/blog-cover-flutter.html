@@ -1,11 +1,10 @@
 <!--
-  Blog-Cover „Flutter vs. React Native 2025" – 1200×675 (16:9).
-  Rendern mit headless Chrome:
+  Blog-Titelbild „Flutter vs. React Native 2025" – 1200×675 (16:9).
+  Rendern:
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
     --headless=new --screenshot=public/blog/flutter-vs-react-native-2025/cover.png \
-    --window-size=1200,675 --hide-scrollbars \
-    file://ABSOLUTER_PFAD/scripts/blog-cover-flutter.html
-  Keine externen Ressourcen (Systemfonts), damit der Screenshot deterministisch ist.
+    --window-size=1200,675 --hide-scrollbars file://ABSOLUT/scripts/blog-cover-flutter.html
+  Keine externen Ressourcen (Systemfonts), deterministischer Screenshot.
 -->
 <!doctype html>
 <html>
@@ -16,48 +15,69 @@
       html, body { width: 1200px; height: 675px; }
       body {
         font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        background: radial-gradient(120% 140% at 15% 10%, #0b878e 0%, #0f2528 60%, #06181a 100%);
-        color: #eafaff;
-        position: relative;
-        overflow: hidden;
+        background: radial-gradient(120% 140% at 15% 10%, #0b878e 0%, #0f2528 58%, #06181a 100%);
+        color: #eafaff; position: relative; overflow: hidden;
       }
-      .blob { position: absolute; border-radius: 50%; filter: blur(60px); opacity: 0.55; }
-      .b1 { width: 520px; height: 520px; background: #1ab5bd; top: -140px; right: -120px; }
-      .b2 { width: 420px; height: 420px; background: #2fd6de; bottom: -160px; left: -100px; opacity: 0.4; }
-      .dots {
-        position: absolute; inset: 0;
-        background-image: radial-gradient(rgba(255,255,255,0.10) 2px, transparent 2px);
-        background-size: 34px 34px; opacity: 0.5;
-      }
-      .content { position: relative; padding: 70px 80px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
-      .eyebrow { font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7fe3e8; }
-      h1 { font-size: 76px; font-weight: 800; line-height: 1.05; letter-spacing: -1.5px; max-width: 900px; }
+      .blob { position: absolute; border-radius: 50%; filter: blur(70px); }
+      .b1 { width: 520px; height: 520px; background: #1ab5bd; top: -160px; right: -120px; opacity: .5; }
+      .b2 { width: 420px; height: 420px; background: #2fd6de; bottom: -180px; left: -120px; opacity: .35; }
+      .dots { position: absolute; inset: 0; background-image: radial-gradient(rgba(255,255,255,.10) 2px, transparent 2px); background-size: 34px 34px; opacity: .45; }
+      .wrap { position: relative; height: 100%; display: grid; grid-template-columns: 1.15fr 0.85fr; align-items: center; padding: 0 70px; gap: 20px; }
+      .eyebrow { font-size: 20px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #7fe3e8; margin-bottom: 18px; }
+      h1 { font-size: 68px; font-weight: 800; line-height: 1.04; letter-spacing: -1.5px; }
       h1 .vs { color: #2fd6de; }
-      .row { display: flex; align-items: center; gap: 20px; }
-      .pill { display: inline-flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.10); border: 1px solid rgba(255,255,255,0.22); padding: 12px 22px; border-radius: 999px; font-size: 26px; font-weight: 700; }
-      .footer { display: flex; align-items: center; justify-content: space-between; }
-      .brand { font-size: 26px; font-weight: 700; }
+      .pills { display: flex; gap: 14px; margin-top: 30px; }
+      .pill { background: rgba(255,255,255,.10); border: 1px solid rgba(255,255,255,.22); padding: 11px 20px; border-radius: 999px; font-size: 22px; font-weight: 700; }
+      .brand { position: absolute; left: 70px; bottom: 46px; font-size: 24px; font-weight: 700; }
       .brand span { color: #7fe3e8; }
-      .year { font-size: 26px; font-weight: 700; color: #9fc9cc; }
+      /* Geräte-Mockups */
+      .devices { position: relative; height: 100%; display: flex; align-items: center; justify-content: center; }
+      .phone { width: 190px; height: 380px; border-radius: 34px; background: #0c2b2e; border: 3px solid rgba(255,255,255,.22); box-shadow: 0 30px 60px -18px rgba(0,0,0,.6); position: absolute; overflow: hidden; }
+      .phone.left { transform: rotate(-8deg) translateX(-46px); z-index: 1; }
+      .phone.right { transform: rotate(8deg) translateX(46px); z-index: 2; }
+      .notch { position: absolute; top: 12px; left: 50%; transform: translateX(-50%); width: 60px; height: 8px; border-radius: 6px; background: rgba(255,255,255,.25); }
+      .screen { position: absolute; inset: 22px 14px 14px; border-radius: 20px; padding: 16px; }
+      .screen.f { background: linear-gradient(160deg, #1ab5bd, #0b878e); }
+      .screen.r { background: linear-gradient(160deg, #2b3a55, #1c2740); }
+      .bar { height: 14px; border-radius: 5px; background: rgba(255,255,255,.85); width: 70%; margin-bottom: 12px; }
+      .card { height: 44px; border-radius: 10px; background: rgba(255,255,255,.20); margin-bottom: 12px; }
+      .tag { position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%); font-size: 15px; font-weight: 800; letter-spacing: .5px; color: #fff; }
     </style>
   </head>
   <body>
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="dots"></div>
-    <div class="content">
-      <div class="eyebrow">App-Entwicklung · Vergleich</div>
+    <div class="wrap">
       <div>
-        <h1>Flutter <span class="vs">vs.</span> React Native</h1>
-        <div class="row" style="margin-top: 34px">
+        <div class="eyebrow">App-Entwicklung · Vergleich</div>
+        <h1>Flutter <span class="vs">vs.</span><br />React Native</h1>
+        <div class="pills">
           <div class="pill">📱 Eine Codebasis</div>
           <div class="pill">iOS &amp; Android</div>
         </div>
       </div>
-      <div class="footer">
-        <div class="brand">thomas-schwabauer<span>.de</span></div>
-        <div class="year">2025</div>
+      <div class="devices">
+        <div class="phone left">
+          <div class="notch"></div>
+          <div class="screen f">
+            <div class="bar"></div>
+            <div class="card"></div>
+            <div class="card" style="width:80%"></div>
+          </div>
+          <div class="tag">Flutter</div>
+        </div>
+        <div class="phone right">
+          <div class="notch"></div>
+          <div class="screen r">
+            <div class="bar"></div>
+            <div class="card"></div>
+            <div class="card" style="width:80%"></div>
+          </div>
+          <div class="tag">React Native</div>
+        </div>
       </div>
     </div>
+    <div class="brand">thomas-schwabauer<span>.de</span></div>
   </body>
 </html>
