@@ -3,6 +3,11 @@ name: Deploy
 on:
   push:
     branches: [main]
+  schedule:
+    # Wöchentliche Auto-Veröffentlichung geplanter Blogbeiträge (7-Tage-Tonus):
+    # Montags 04:00 UTC neu bauen, damit zukünftig datierte Beiträge, deren
+    # Stichtag erreicht ist, live gehen (siehe Datums-Gating in src/lib/blog.ts).
+    - cron: "0 4 * * 1"
   workflow_dispatch:
 
 concurrency:
@@ -39,6 +44,7 @@ jobs:
             ${{ env.IMAGE }}:${{ github.sha }}
           build-args: |
             NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=${{ vars.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }}
+            BUILD_DATE=${{ github.run_id }}-${{ github.run_attempt }}
           cache-from: type=gha
           cache-to: type=gha,mode=max
 

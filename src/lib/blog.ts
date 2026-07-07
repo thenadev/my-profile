@@ -55,12 +55,24 @@ function parseFile(fileName: string): BlogPost {
 
 export function getAllPosts(): BlogPost[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
+  const isProd = process.env.NODE_ENV === "production";
+  // Datum zur BUILD-Zeit ausgewertet: geplante Beiträge erscheinen erst beim
+  // nächsten Build/Deploy (wöchentlicher Cron in .github/workflows/deploy.yml).
+  const now = Date.now();
   const posts = fs
     .readdirSync(BLOG_DIR)
     .filter((f) => f.endsWith(".md") && !f.startsWith("_"))
     .map(parseFile)
-    // Entwürfe nur in der Entwicklung anzeigen.
-    .filter((post) => !post.draft || process.env.NODE_ENV !== "production");
+    .filter((post) => {
+      // In der Entwicklung ist alles sichtbar (Vorschau von Entwürfen & Planungen).
+      if (!isProd) return true;
+      // Entwürfe werden in Produktion nie ausgeliefert.
+      if (post.draft) return false;
+      // Zukünftig datierte Beiträge sind geplant → in Produktion ausblenden,
+      // bis ihr Datum erreicht ist (Auto-Veröffentlichung per wöchentlichem Rebuild).
+      if (post.date && new Date(post.date).getTime() > now) return false;
+      return true;
+    });
 
   return posts.sort(
     (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()

@@ -22,6 +22,13 @@ GitHub Actions → Docker → Server) live gestellt. Vollständige Feld-Referenz
    anlegen und NICHT deployen. Erst wenn der User ausdrücklich sein „Go" gibt:
    `draft: false` setzen, committen, pushen. (Entwürfe sind nur in `npm run dev`
    sichtbar, nicht im Produktions-Build.)
+   - **Zwei Wege nach dem „Go":** *sofort* (Datum ≤ heute + `draft:false` → beim
+     nächsten Deploy live) oder *geplant* (Datum in der Zukunft + `draft:false`).
+     Zukünftig datierte Beiträge blendet `getAllPosts()` in Produktion aus und
+     ein **wöchentlicher Cron** (Mo 04:00 UTC, `.github/workflows/deploy.yml`)
+     baut neu, sodass sie am Stichtag automatisch erscheinen (Details unten in
+     „Geplante Veröffentlichung"). Für gestaffelte Serien: 7-Tage-Abstand, je
+     Beitrag ein Montags-Datum.
 2. **Deutsch.** Der Blog ist SEO-seitig DE-only (`canonicalLocale: "de"`, kein
    hreflang); `/en/blog/...` zeigt per Canonical auf die DE-URL. Alle Inhalte
    auf Deutsch, Ton wie der Rest der Seite (Sie/Du je nach Kontext konsistent).
@@ -29,10 +36,24 @@ GitHub Actions → Docker → Server) live gestellt. Vollständige Feld-Referenz
    Stundensatz) müssen zu den Leistungsseiten passen. Quellen im Repo:
    `src/config/website-packages.ts`, `app-packages.ts`, `startup-packages.ts`,
    `src/data/service-faqs.ts`. Keine widersprüchlichen Zahlen erfinden.
-4. **Keine urheberrechtlich geschützten Bilder.** Nur selbst generierte oder
+4. **Nicht raten – externe Fakten verifizieren.** Aussagen über die Welt
+   (Förderprogramme, Gesetze/Fristen, Statistiken, „ab August 2026 gilt …",
+   „Zuschuss bis 10.000 €") NICHT aus dem Bauch schreiben. Entweder per
+   WebSearch/WebFetch an einer maßgeblichen Quelle belegen – oder weglassen.
+   Wo eine Zahl/Frist sich ändern kann, klar als „Stand <Datum>" kennzeichnen
+   und zur Prüfung bei der Originalquelle raten; niemals ein konkretes Datum,
+   eine Fördersumme oder ein „Antragsfenster" erfinden. Beispiel-Lehre aus der
+   Praxis: Der hessische **DIGI-Zuschuss** wurde zunächst mit erfundenem
+   „Antragsfenster ab Mai 2026" beschrieben – tatsächlich lief die 2026-Phase
+   als Express-Förderung (Zufallsauswahl ab 11.05.2026) und **endete im Juni
+   2026**. Solche Angaben immer aktuell prüfen (WIBank / Technologieland Hessen
+   / Hessen Digitales). Preise, die noch nicht in den Config-Dateien stehen
+   (z. B. ein neuer Chatbot-Integrationspreis), sind Sache des Users – vor dem
+   Live-Gang bestätigen lassen, nicht selbst festlegen.
+5. **Keine urheberrechtlich geschützten Bilder.** Nur selbst generierte oder
    frei lizenzierte (Unsplash/Pexels). Bild-Vorschläge dem User zeigen, bevor
    eines eingebaut wird.
-5. **Slug = Dateiname:** klein, Bindestriche, ohne Umlaute/Klammern.
+6. **Slug = Dateiname:** klein, Bindestriche, ohne Umlaute/Klammern.
 
 ## Ablauf
 
@@ -40,9 +61,23 @@ GitHub Actions → Docker → Server) live gestellt. Vollständige Feld-Referenz
 - Falls kein Thema vorgegeben: an Leistungen + Regionalfokus (Wetzlar/Gießen/
   Mittelhessen) und der SEO-Ausrichtung orientieren; die FAQ-Kategorien in
   `service-faqs.ts` sind reichhaltiges Rohmaterial.
+- **Keyword-Recherche zuerst** (bei mehreren Beiträgen lohnt je ein Subagent):
+  Primär-Keyword + Long-Tails, „People also ask"-Fragen (→ FAQ-Block), SERP-Titel
+  (≤ 60 Z.) und Meta. Bei einem Themen-**Cluster** die Keywords gegeneinander
+  abgrenzen (Kannibalisierung vermeiden): ein Hub-Artikel für den breiten Begriff,
+  Spokes für die spitzen Long-Tails, untereinander verlinkt (Hub ↔ Spokes) und in
+  bestehende Cluster (z. B. `webdesign-wetzlar`, `dsgvo-konforme-website`,
+  `flutter-vs-react-native-2025`).
 - Struktur: aussagekräftige H1/Title, TL;DR (3–4 Punkte), H2/H3-Abschnitte,
   wo sinnvoll eine GFM-Tabelle und Codeblöcke, Fazit mit CTA (`/contact` oder
   passende Leistungsseite). Intern verlinken.
+- **Ton humanisieren (eigener Durchgang).** Nach dem Schreiben den Text bewusst
+  „ent-KI-en": formelhafte Einleitungen, „nicht X, sondern Y"-Ketten,
+  Gedankenstrich-Inflation und Floskeln („Die gute Nachricht:", „Genau das",
+  „Seien wir ehrlich") entfernen, Satzlängen variieren, echte Praktiker-Einschübe.
+  Frontmatter, Zahlen, Keywords, Links und Codeblöcke dabei zeichengenau lassen.
+  Ton wie im restlichen Blog: Sie-Form zum Leser, „ich" für Thomas, ehrlich
+  (auch mal „wann es sich NICHT lohnt").
 
 ### 2. Markdown-Datei anlegen
 `src/content/blog/<slug>.md` mit Frontmatter (Schema siehe
@@ -110,6 +145,21 @@ git push origin main   # löst Auto-Deploy aus
 ```
 Nach dem Deploy live prüfen: `https://www.thomas-schwabauer.de/blog/<slug>`
 (200, Cover erreichbar, im `/blog`-Listing und in `/sitemap.xml`).
+
+### 5b. Geplante Veröffentlichung (Datums-Gating + wöchentlicher Cron)
+Für gestaffelte Serien muss NICHT jeder Beitrag manuell scharfgeschaltet werden:
+- **Mechanik:** `getAllPosts()` in `src/lib/blog.ts` blendet in Produktion
+  Beiträge mit `draft:true` **und** solche mit `date` in der Zukunft aus. Ein
+  Beitrag mit `draft:false` + Zukunftsdatum ist also committet, aber unsichtbar,
+  bis sein Stichtag erreicht ist (gilt auch für Sitemap & Detailseite).
+- **Auto-Live:** Die Blog-Detailseiten sind statisch (`generateStaticParams`,
+  `dynamicParams=false`) → ein fälliger Beitrag erscheint erst bei einem
+  **Rebuild**. Dafür sorgt der `schedule`-Cron in `.github/workflows/deploy.yml`
+  (Mo 04:00 UTC). Das `BUILD_DATE`-Build-Arg (Dockerfile) bricht den Docker-Cache,
+  sonst würde der Rebuild den fälligen Beitrag verschlucken.
+- **Ablauf:** Beiträge mit `draft:false` + Montags-Datum (7-Tage-Raster)
+  committen/pushen. Der jeweils fällige geht am Montag von allein live — kein
+  weiteres Zutun nötig. Cover/Fotos müssen VOR dem Commit existieren.
 
 ## Hinweise
 - Push auf `main` benötigt das HTTPS-Remote + gh-Token mit `workflow`-Scope

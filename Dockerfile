@@ -14,6 +14,11 @@ COPY . .
 ARG NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 ENV NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION=$NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
 ENV NEXT_TELEMETRY_DISABLED=1
+# Cache-Buster: jeder Lauf setzt einen frischen Wert (github.run_id bzw. Datum),
+# damit der wöchentliche Rebuild `npm run build` wirklich neu ausführt und
+# geplante (zukünftig datierte) Blogbeiträge zum Stichtag aufnimmt.
+ARG BUILD_DATE=dev
+ENV BUILD_DATE=$BUILD_DATE
 RUN npm run build
 
 FROM node:20-alpine AS runner
