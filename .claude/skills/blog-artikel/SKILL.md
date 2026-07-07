@@ -25,7 +25,7 @@ GitHub Actions → Docker → Server) live gestellt. Vollständige Feld-Referenz
    - **Zwei Wege nach dem „Go":** *sofort* (Datum ≤ heute + `draft:false` → beim
      nächsten Deploy live) oder *geplant* (Datum in der Zukunft + `draft:false`).
      Zukünftig datierte Beiträge blendet `getAllPosts()` in Produktion aus und
-     ein **wöchentlicher Cron** (Mo 04:00 UTC, `.github/workflows/deploy.yml`)
+     ein **täglicher Cron** (04:00 UTC, `.github/workflows/deploy.yml`)
      baut neu, sodass sie am Stichtag automatisch erscheinen (Details unten in
      „Geplante Veröffentlichung"). Für gestaffelte Serien: 7-Tage-Abstand, je
      Beitrag ein Montags-Datum.
@@ -146,7 +146,7 @@ git push origin main   # löst Auto-Deploy aus
 Nach dem Deploy live prüfen: `https://www.thomas-schwabauer.de/blog/<slug>`
 (200, Cover erreichbar, im `/blog`-Listing und in `/sitemap.xml`).
 
-### 5b. Geplante Veröffentlichung (Datums-Gating + wöchentlicher Cron)
+### 5b. Geplante Veröffentlichung (Datums-Gating + täglicher Cron)
 Für gestaffelte Serien muss NICHT jeder Beitrag manuell scharfgeschaltet werden:
 - **Mechanik:** `getAllPosts()` in `src/lib/blog.ts` blendet in Produktion
   Beiträge mit `draft:true` **und** solche mit `date` in der Zukunft aus. Ein
@@ -155,7 +155,7 @@ Für gestaffelte Serien muss NICHT jeder Beitrag manuell scharfgeschaltet werden
 - **Auto-Live:** Die Blog-Detailseiten sind statisch (`generateStaticParams`,
   `dynamicParams=false`) → ein fälliger Beitrag erscheint erst bei einem
   **Rebuild**. Dafür sorgt der `schedule`-Cron in `.github/workflows/deploy.yml`
-  (Mo 04:00 UTC). Das `BUILD_DATE`-Build-Arg (Dockerfile) bricht den Docker-Cache,
+  (täglich 04:00 UTC). Das `BUILD_DATE`-Build-Arg (Dockerfile) bricht den Docker-Cache,
   sonst würde der Rebuild den fälligen Beitrag verschlucken.
 - **Ablauf:** Beiträge mit `draft:false` + Montags-Datum (7-Tage-Raster)
   committen/pushen. Der jeweils fällige geht am Montag von allein live — kein

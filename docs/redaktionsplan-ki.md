@@ -6,8 +6,8 @@ Verlinkung: Hub → alle Spokes, Spokes → Hub + bestehende Cluster
 (Handwerker, DSGVO, Flutter, Kosten).
 
 Veröffentlichung: **Weg B** (Auto-Datums-Gating). Beiträge mit `draft:false` +
-Zukunftsdatum werden in Produktion ausgeblendet und per wöchentlichem Cron
-(Mo 04:00 UTC, `.github/workflows/deploy.yml`) am Stichtag automatisch live
+Zukunftsdatum werden in Produktion ausgeblendet und per täglichem Cron
+(04:00 UTC, `.github/workflows/deploy.yml`) am Stichtag automatisch live
 gestellt. Mechanik: Datums-Filter in `src/lib/blog.ts` + `BUILD_DATE`-Cache-Buster.
 
 | # | Slug | Termin | Rolle |

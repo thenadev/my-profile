@@ -4,10 +4,12 @@ on:
   push:
     branches: [main]
   schedule:
-    # Wöchentliche Auto-Veröffentlichung geplanter Blogbeiträge (7-Tage-Tonus):
-    # Montags 04:00 UTC neu bauen, damit zukünftig datierte Beiträge, deren
-    # Stichtag erreicht ist, live gehen (siehe Datums-Gating in src/lib/blog.ts).
-    - cron: "0 4 * * 1"
+    # Tägliche Auto-Veröffentlichung geplanter Blogbeiträge: 04:00 UTC neu bauen,
+    # damit ein zukünftig datierter Beitrag an SEINEM Stichtag live geht – egal an
+    # welchem Wochentag (siehe Datums-Gating in src/lib/blog.ts). Der BUILD_DATE-
+    # Cache-Buster erzwingt den echten Rebuild. Redaktioneller Rhythmus (z. B.
+    # Mo + Do) steckt allein in den `date`-Feldern der Beiträge, nicht im Cron.
+    - cron: "0 4 * * *"
   workflow_dispatch:
 
 concurrency:
