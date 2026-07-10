@@ -89,6 +89,12 @@ interface ServiceSchemaOptions {
   name: string;
   description: string;
   url: string;
+  /**
+   * Bediente Region(en). Default "DE" (bundesweit). Für lokale
+   * Landingpages gezielt z.B. ["Wetzlar", "Gießen", "Mittelhessen"]
+   * setzen — stärkeres lokales Signal als bundesweites "DE".
+   */
+  areaServed?: string | string[];
   offers?: { price: number; priceCurrency: string; unitText?: string };
 }
 
@@ -96,6 +102,7 @@ export function buildServiceSchema({
   name,
   description,
   url,
+  areaServed = "DE",
   offers,
 }: ServiceSchemaOptions) {
   return {
@@ -106,7 +113,7 @@ export function buildServiceSchema({
     url,
     serviceType: name,
     provider: { "@id": `${SITE_URL}/#business` },
-    areaServed: "DE",
+    areaServed,
     ...(offers && {
       offers: {
         "@type": "Offer",

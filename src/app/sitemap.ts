@@ -22,6 +22,7 @@ interface StaticRouteConfig {
 
 const STATIC_ROUTES: StaticRouteConfig[] = [
   { path: "/", lastModified: "2026-07-04", changeFrequency: "weekly", priority: 1.0 },
+  { path: "/webdesign-wetzlar", lastModified: "2026-07-08", changeFrequency: "weekly", priority: 0.95, deOnly: true },
   { path: "/about", lastModified: "2026-07-04", changeFrequency: "monthly", priority: 0.5 },
   { path: "/services", lastModified: "2026-07-04", changeFrequency: "weekly", priority: 0.9 },
   { path: "/services/app-entwicklung", lastModified: "2026-07-04", changeFrequency: "weekly", priority: 0.9 },
