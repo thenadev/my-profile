@@ -23,6 +23,7 @@ import {
 } from "@/config/website-packages";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
+import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import {
   CheckCircle,
@@ -623,6 +624,20 @@ export default function UnternehmenswebsiteClient() {
             onContactClick={() => handleCTAClick("contact_form")}
           />
         </motion.div>
+
+        {/* Regionaler Hinweis – interne Verlinkung auf die lokale Landingpage */}
+        <div className="w-full pb-16 md:pb-24 text-center">
+          <p className="text-muted-foreground">
+            Aus der Region?{" "}
+            <Link
+              href="/webdesign-wetzlar"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Webdesign in Wetzlar &amp; Mittelhessen
+            </Link>{" "}
+            – Ihr Ansprechpartner vor Ort.
+          </p>
+        </div>
       </div>
     </div>
   );

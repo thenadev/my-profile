@@ -65,6 +65,14 @@ const SiteFooter = () => {
                 </li>
                 <li>
                   <Link
+                    href="/webdesign-wetzlar"
+                    className="text-gray-300 hover:text-white hover:underline transition-colors"
+                  >
+                    {t("webdesignWetzlar")}
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     href="/contact"
                     className="text-gray-300 hover:text-white hover:underline transition-colors"
                   >

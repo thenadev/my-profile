@@ -17,6 +17,18 @@ const nextConfig = {
       { protocol: "https", hostname: "images.pexels.com" },
     ],
   },
+  async redirects() {
+    return [
+      {
+        // Alter Blog-Slug (noch bei Google indexiert, sammelt Impressionen)
+        // → neuer Slug. Klammern sind in path-to-regexp Sonderzeichen.
+        source:
+          "/blog/flutter-vs-react-native-for-hybrid-app-development-\\(2025-comparison\\)",
+        destination: "/blog/flutter-vs-react-native-2025",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
