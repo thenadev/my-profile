@@ -1,5 +1,4 @@
-import { getAllClientConfigs } from "@/config/onboarding";
-import { ermaganConfig } from "@/config/onboarding/clients/ermagan";
+import ermaganConfig from "@/config/onboarding/clients/ermagan";
 import { flattenFields } from "@/config/onboarding/fields";
 import type {
   Field,
@@ -34,23 +33,24 @@ function isConfig(value: unknown): value is OnboardingConfig {
   );
 }
 
-async function loadConfigsFromDisk(): Promise<OnboardingConfig[]> {
-  const moduleNames = readdirSync(CLIENTS_DIR)
+function clientSlugs(): string[] {
+  return readdirSync(CLIENTS_DIR)
     .filter((file) => file.endsWith(".ts") && !file.endsWith(".test.ts"))
     .map((file) => file.replace(/\.ts$/, ""));
+}
 
+async function loadConfigsFromDisk(): Promise<OnboardingConfig[]> {
   const configs: OnboardingConfig[] = [];
-  for (const name of moduleNames) {
-    const module = (await import(`./clients/${name}.ts`)) as Record<
-      string,
-      unknown
-    >;
-    const exported = Object.values(module).filter(isConfig);
+
+  for (const slug of clientSlugs()) {
+    const module = (await import(`./clients/${slug}.ts`)) as {
+      default?: unknown;
+    };
     expect(
-      exported.length,
-      `${name}.ts exportiert keine OnboardingConfig`,
-    ).toBeGreaterThan(0);
-    configs.push(...exported);
+      isConfig(module.default),
+      `${slug}.ts hat keinen Default-Export vom Typ OnboardingConfig`,
+    ).toBe(true);
+    configs.push(module.default as OnboardingConfig);
   }
 
   expect(configs.length).toBeGreaterThan(0);
@@ -67,12 +67,11 @@ function repeaterOf(
 }
 
 describe("Kundenkonfigurationen", () => {
-  it("registriert jede Datei unter clients/ in der Token-Auflösung", async () => {
-    const registered = getAllClientConfigs().map((config) => config.slug);
+  it("benennt jede Datei unter clients/ nach ihrem Slug", async () => {
+    const slugs = clientSlugs();
+    const configs = await loadConfigsFromDisk();
 
-    for (const config of await loadConfigsFromDisk()) {
-      expect(registered).toContain(config.slug);
-    }
+    expect(configs.map((config) => config.slug)).toEqual(slugs);
   });
 
   it("hat konfigurationsweit eindeutige Feld-IDs", async () => {

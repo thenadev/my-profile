@@ -3,7 +3,9 @@ import type { OnboardingConfig } from "../types";
 
 const BILLING_ADDRESS = "Falkensteiner Weg 10, 63110 Rodgau";
 
-export const ermaganConfig: OnboardingConfig = {
+// Default-Export und Dateiname sind der Vertrag: Die Token-Auflösung lädt die
+// Datei allein anhand des Slugs, ohne dass sie irgendwo eingetragen werden muss.
+const ermaganConfig: OnboardingConfig = {
   slug: "ermagan",
   clientName: "Spedition Ermagan GmbH / EB Bau GmbH",
   projectTitle: "Umstellung Ihrer E-Mail-Systeme auf Microsoft 365",
@@ -488,3 +490,5 @@ export const ermaganConfig: OnboardingConfig = {
     ],
   },
 };
+
+export default ermaganConfig;

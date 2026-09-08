@@ -1,10 +1,10 @@
-import { ermaganConfig } from "@/config/onboarding/clients/ermagan";
 import {
   getConfigByToken,
   isExpired,
   isValidTokenFormat,
   resolveToken,
 } from "@/config/onboarding";
+import ermaganConfig from "@/config/onboarding/clients/ermagan";
 import type { OnboardingConfig } from "@/config/onboarding/types";
 import { afterEach, describe, expect, it } from "vitest";
 
@@ -36,53 +36,59 @@ describe("isValidTokenFormat", () => {
 });
 
 describe("resolveToken", () => {
-  it("liefert die Konfiguration zu einem bekannten Token", () => {
+  it("lädt die Konfiguration allein anhand des Slugs aus der ENV", async () => {
     withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "ermagan" }));
 
-    const resolution = resolveToken(KNOWN_TOKEN);
+    const resolution = await resolveToken(KNOWN_TOKEN);
 
     expect(resolution.status).toBe("ok");
-    expect(resolution.status === "ok" && resolution.config.slug).toBe(
-      "ermagan",
-    );
+    expect(resolution.status === "ok" && resolution.config.slug).toBe("ermagan");
   });
 
-  it("liefert unknown für ein Token, das nicht in der ENV steht", () => {
+  it("liefert unknown für ein Token, das nicht in der ENV steht", async () => {
     withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "ermagan" }));
 
-    expect(resolveToken(UNKNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(UNKNOWN_TOKEN)).status).toBe("unknown");
   });
 
-  it("liefert unknown, wenn der Slug keiner Konfiguration entspricht", () => {
+  it("liefert unknown, wenn zum Slug keine Datei unter clients/ liegt", async () => {
     withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "gibtsnicht" }));
 
-    expect(resolveToken(KNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
   });
 
-  it("liefert unknown ohne gesetzte ENV", () => {
+  it("lehnt Slugs ab, die sich nicht auf einen Dateinamen abbilden lassen", async () => {
+    withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "../types" }));
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
+
+    withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "Ermagan" }));
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
+  });
+
+  it("liefert unknown ohne gesetzte ENV", async () => {
     withTokenEnv(undefined);
 
-    expect(resolveToken(KNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
   });
 
-  it("liefert unknown bei ungültigem JSON oder falschem Typ in der ENV", () => {
+  it("liefert unknown bei ungültigem JSON oder falschem Typ in der ENV", async () => {
     withTokenEnv("kein json");
-    expect(resolveToken(KNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
 
     withTokenEnv('["ermagan"]');
-    expect(resolveToken(KNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
 
     withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: 42 }));
-    expect(resolveToken(KNOWN_TOKEN).status).toBe("unknown");
+    expect((await resolveToken(KNOWN_TOKEN)).status).toBe("unknown");
   });
 });
 
 describe("getConfigByToken", () => {
-  it("gibt null für ein unbekanntes Token zurück", () => {
+  it("gibt null für ein unbekanntes Token zurück", async () => {
     withTokenEnv(JSON.stringify({ [KNOWN_TOKEN]: "ermagan" }));
 
-    expect(getConfigByToken(UNKNOWN_TOKEN)).toBeNull();
-    expect(getConfigByToken(KNOWN_TOKEN)?.slug).toBe("ermagan");
+    expect(await getConfigByToken(UNKNOWN_TOKEN)).toBeNull();
+    expect((await getConfigByToken(KNOWN_TOKEN))?.slug).toBe("ermagan");
   });
 });
 
@@ -93,9 +99,7 @@ describe("isExpired", () => {
   });
 
   it("ist ohne expiresAt nie abgelaufen", () => {
-    expect(isExpired(withExpiry(undefined), new Date("2099-01-01"))).toBe(
-      false,
-    );
+    expect(isExpired(withExpiry(undefined), new Date("2099-01-01"))).toBe(false);
   });
 
   it("erkennt ein überschrittenes Datum", () => {

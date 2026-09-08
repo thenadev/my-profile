@@ -1,4 +1,3 @@
-import { ermaganConfig } from "./clients/ermagan";
 import type { OnboardingConfig } from "./types";
 
 // Kein `import "server-only"`: Dieses Modul wird auch von der Pages-Router-Route
@@ -6,10 +5,7 @@ import type { OnboardingConfig } from "./types";
 // Es darf ausschließlich serverseitig importiert werden.
 
 export const TOKEN_PATTERN = /^[a-f0-9]{32}$/;
-
-const CLIENT_CONFIGS: Record<string, OnboardingConfig> = {
-  [ermaganConfig.slug]: ermaganConfig,
-};
+const SLUG_PATTERN = /^[a-z0-9-]+$/;
 
 export type TokenResolution =
   | { status: "unknown" }
@@ -39,6 +35,27 @@ function readTokenMap(): Record<string, string> {
   }
 }
 
+/**
+ * Lädt die Kundenkonfiguration allein anhand des Slugs — ein neuer Kunde braucht
+ * damit nur eine Datei unter clients/ und einen Token-Eintrag in der ENV.
+ * Das Muster (dynamischer Import mit Template-Literal) nutzt das Projekt bereits
+ * in src/i18n/request.ts; der Bundler nimmt dadurch alle Dateien des Ordners auf.
+ */
+async function loadClientConfig(slug: string): Promise<OnboardingConfig | null> {
+  if (!SLUG_PATTERN.test(slug)) return null;
+
+  try {
+    const module = (await import(`./clients/${slug}`)) as {
+      default?: OnboardingConfig;
+    };
+    const config = module.default;
+
+    return config && config.slug === slug ? config : null;
+  } catch {
+    return null;
+  }
+}
+
 export function isExpired(
   config: OnboardingConfig,
   now: Date = new Date(),
@@ -51,16 +68,16 @@ export function isExpired(
   return now.getTime() > expiry;
 }
 
-export function resolveToken(
+export async function resolveToken(
   token: string,
   now: Date = new Date(),
-): TokenResolution {
+): Promise<TokenResolution> {
   if (!isValidTokenFormat(token)) return { status: "unknown" };
 
   const slug = readTokenMap()[token];
   if (!slug) return { status: "unknown" };
 
-  const config = CLIENT_CONFIGS[slug];
+  const config = await loadClientConfig(slug);
   if (!config) return { status: "unknown" };
 
   return isExpired(config, now)
@@ -68,11 +85,9 @@ export function resolveToken(
     : { status: "ok", config };
 }
 
-export function getConfigByToken(token: string): OnboardingConfig | null {
-  const resolution = resolveToken(token);
+export async function getConfigByToken(
+  token: string,
+): Promise<OnboardingConfig | null> {
+  const resolution = await resolveToken(token);
   return resolution.status === "ok" ? resolution.config : null;
-}
-
-export function getAllClientConfigs(): OnboardingConfig[] {
-  return Object.values(CLIENT_CONFIGS);
 }

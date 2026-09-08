@@ -20,7 +20,7 @@ export default async function OnboardingThanksPage({
 }: ThanksPageProps) {
   unstable_setRequestLocale(params.locale);
 
-  const resolution = resolveToken(params.token);
+  const resolution = await resolveToken(params.token);
   if (resolution.status === "unknown") notFound();
 
   const t = await getTranslations({

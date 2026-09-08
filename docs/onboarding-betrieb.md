@@ -28,12 +28,13 @@ node -e "console.log(require('crypto').randomBytes(16).toString('hex'))"
 
 ## 3. Kunden anlegen
 
-Zwei Schritte, kein Code an Komponenten oder API:
+Zwei Schritte, kein Code an Komponenten, Token-Auflösung oder API:
 
 1. Datei `src/config/onboarding/clients/<slug>.ts` anlegen, die eine
-   `OnboardingConfig` exportiert (Vorlage: `ermagan.ts`).
-2. Den Slug in `src/config/onboarding/index.ts` in `CLIENT_CONFIGS` eintragen.
-3. Token → Slug in der Server-ENV ergänzen (siehe unten).
+   `OnboardingConfig` als **Default-Export** liefert (Vorlage: `ermagan.ts`).
+   Dateiname und `slug` in der Konfiguration müssen übereinstimmen; erlaubt sind
+   Kleinbuchstaben, Ziffern und Bindestriche.
+2. Token → Slug in der Server-ENV ergänzen (siehe unten).
 
 `npm test` prüft danach automatisch, dass Feld-IDs eindeutig sind und alle
 `visibleIf`-, `optionsFrom`-, `itemsFrom`- und `confirmationTo`-Verweise

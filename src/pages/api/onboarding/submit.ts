@@ -129,7 +129,7 @@ export default async function handler(
     return res.status(400).json({ ok: false, error: ERROR_TEXTS.invalid });
   }
 
-  const resolution = resolveToken(token);
+  const resolution = await resolveToken(token);
   if (resolution.status === "unknown") {
     return res.status(404).json({ ok: false, error: ERROR_TEXTS.unknownToken });
   }
