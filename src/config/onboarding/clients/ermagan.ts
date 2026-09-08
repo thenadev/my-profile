@@ -42,7 +42,7 @@ const ermaganConfig: OnboardingConfig = {
           type: "tel",
           label: "Telefonnummer für Rückfragen",
           required: true,
-          placeholder: "z. B. 06106 1234567",
+          defaultValue: "0176 8100897",
         },
         {
           id: "contactEmail",
