@@ -152,7 +152,7 @@ describe("buildConfirmationHtml", () => {
 describe("secretsAttachmentName", () => {
   it("benennt den Anhang nach Slug und Datum", () => {
     expect(
-      secretsAttachmentName("ermagan", new Date("2026-09-08T10:00:00.000Z")),
-    ).toBe("secrets-ermagan-2026-09-08.json");
+      secretsAttachmentName("muster", new Date("2026-09-08T10:00:00.000Z")),
+    ).toBe("secrets-muster-2026-09-08.json");
   });
 });

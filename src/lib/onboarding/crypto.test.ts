@@ -30,7 +30,7 @@ const secrets: Secrets = {
   "mailboxPasswords.0.mailboxPassword": {
     label: "Passwort",
     value: "abc123",
-    item: "finanzen@ermagan-spedition.de",
+    item: "finanzen@muster-gmbh.de",
   },
 };
 
