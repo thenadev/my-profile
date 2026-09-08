@@ -371,17 +371,6 @@ const ermaganConfig: OnboardingConfig = {
           required: true,
           help: "Diese Person ist in der Umstellungswoche tagsüber erreichbar und kann kurzfristig entscheiden.",
         },
-        {
-          id: "callbackRule",
-          type: "radio",
-          label: "Rückrufregel bei Bankverbindungen verbindlich anordnen?",
-          required: true,
-          help: "Eine geänderte Bankverbindung wird nie per E-Mail akzeptiert, sondern erst nach Rückruf unter der Nummer aus Ihren Stammdaten. Diese Regel muss von Ihnen angeordnet werden — sie ist der einzige Schutz, der auch dann greift, wenn nicht Sie, sondern Ihr Geschäftspartner betroffen ist.",
-          options: [
-            { value: "yes", label: "Ja, verbindlich anordnen" },
-            { value: "discuss", label: "Möchte ich vorher besprechen" },
-          ],
-        },
       ],
     },
     {
