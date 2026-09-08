@@ -5,6 +5,7 @@ import GoogleTagManager from "@/components/GoogleTagManager";
 import PageViewTracker from "@/components/PageViewTracker";
 import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
+import TrackingGate from "@/components/TrackingGate";
 import { routing, type Locale } from "@/i18n/routing";
 import {
   jsonLd,
@@ -81,23 +82,29 @@ export default async function LocaleLayout({
             ProfessionalServiceSchema
           )}
         />
-        <GoogleConsentScript />
-        <GoogleTagManager />
+        <TrackingGate>
+          <GoogleConsentScript />
+          <GoogleTagManager />
+        </TrackingGate>
       </head>
       <body className="overflow-x-hidden">
         {/* Google Tag Manager (noscript) */}
-        <noscript>
-          <iframe
-            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
-            height="0"
-            width="0"
-            style={{ display: "none", visibility: "hidden" }}
-          />
-        </noscript>
+        <TrackingGate>
+          <noscript>
+            <iframe
+              src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+              height="0"
+              width="0"
+              style={{ display: "none", visibility: "hidden" }}
+            />
+          </noscript>
+        </TrackingGate>
         <NextIntlClientProvider messages={messages}>
           <NavigationWrapper />
-          <CookieConsent />
-          <PageViewTracker />
+          <TrackingGate>
+            <CookieConsent />
+            <PageViewTracker />
+          </TrackingGate>
           {children}
           <div className="moving-gradient-overlay" />
           <SiteFooter />
