@@ -395,20 +395,6 @@ const ermaganConfig: OnboardingConfig = {
           defaultValue: BILLING_ADDRESS,
         },
         {
-          id: "microsoftContactEmail",
-          type: "email",
-          label: "Kontakt-E-Mail für Microsoft",
-          required: true,
-          help: "An diese Adresse schickt Microsoft Bestätigungen und Rechnungen. Bitte keine der Adressen, die umgestellt werden — sonst sind Sie ausgerechnet während der Umstellung nicht erreichbar.",
-        },
-        {
-          id: "verificationMobile",
-          type: "tel",
-          label: "Mobilnummer für die Verifizierung",
-          required: true,
-          help: "Microsoft schickt beim Anlegen einen Bestätigungscode per SMS. Ich melde mich kurz, wenn es so weit ist.",
-        },
-        {
           id: "paymentInfo",
           type: "info",
           label:
