@@ -335,7 +335,7 @@ const ermaganConfig: OnboardingConfig = {
           id: "executiveAddress",
           type: "radio",
           label: "Neue Geschäftsadresse der Geschäftsführung",
-          help: "Sie ersetzt die bisherige GMX-Adresse und steht künftig auf Ihren Rechnungen.",
+          help: "Diese Adresse löst die bisher genutzte GMX-Adresse Hane.Ermagan@gmx.de ab und steht künftig auf Ihren Rechnungen. Die bisherigen Mails und Kontakte aus dem GMX-Postfach übernehme ich in das neue Postfach. Der Schutz, den ich für Ihre Firmenpostfächer einrichte, greift bei einer GMX-Adresse nicht — deshalb die Ablösung.",
           options: [
             {
               value: "hane.ermagan",
