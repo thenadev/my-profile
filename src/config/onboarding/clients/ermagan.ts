@@ -532,12 +532,6 @@ const ermaganConfig: OnboardingConfig = {
           ],
         },
         {
-          id: "imapHint",
-          type: "info",
-          label:
-            "Bitte aktivieren Sie in den GMX-Einstellungen unter „POP3/IMAP-Abruf“ den IMAP-Zugriff. Ohne diese Einstellung kann ich Ihre bisherigen Mails und Kontakte nicht übernehmen.",
-        },
-        {
           id: "passwordChangeHint",
           type: "info",
           label:
