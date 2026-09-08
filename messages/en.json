@@ -949,11 +949,7 @@
         "title": "App Development",
         "badge": "Flutter · Android & iOS",
         "description": "Flutter apps for Android & iOS from a single codebase. Consulting call, MVP delivery or feature and bug development for existing apps.",
-        "features": [
-          "Consulting €80/h",
-          "MVP with Flutter",
-          "Features & bugs"
-        ]
+        "features": ["Consulting €80/h", "MVP with Flutter", "Features & bugs"]
       },
       "unternehmenswebsite": {
         "title": "Business Website",
@@ -1586,6 +1582,78 @@
     "faq": {
       "heading": "Frequently asked questions about business websites",
       "subheading": "Answers to the most important questions about business websites for SMEs & the self-employed – structured by topic"
+    }
+  },
+  "Onboarding": {
+    "intro": {
+      "start": "Start the form",
+      "duration": "You can pause at any time and continue later on the same device."
+    },
+    "privacy": {
+      "heading": "Data protection",
+      "text": "We process your details for this project only. They are not stored on the server but sent straight to us by email and deleted once the project is finished. Your browser encrypts credentials before they leave it.",
+      "consent": "I have read the <link>privacy policy</link> and agree to my details being processed.",
+      "consentRequired": "Please confirm the privacy policy before you continue."
+    },
+    "progress": {
+      "label": "Step {current} of {total}",
+      "current": "Current step"
+    },
+    "nav": {
+      "next": "Continue",
+      "back": "Back",
+      "submit": "Send details",
+      "submitting": "Sending …"
+    },
+    "fields": {
+      "other": "Other",
+      "otherPlaceholder": "Please specify",
+      "showSecret": "Show entry",
+      "hideSecret": "Hide entry",
+      "removeItem": "Remove this entry",
+      "addItem": "Add entry",
+      "entry": "Entry {number}",
+      "requiredMark": "Required field",
+      "selectPlaceholder": "Please choose"
+    },
+    "validation": {
+      "required": "Please fill in this field.",
+      "email": "Please enter a valid email address, e.g. name@company.com.",
+      "tel": "Please enter a phone number including the area code.",
+      "minLength": "Please enter at least {min} characters.",
+      "maxLength": "Please shorten your entry to {max} characters at most.",
+      "pattern": "Please check the format of your entry.",
+      "minItems": "Please add at least {count} entry."
+    },
+    "resume": {
+      "heading": "Continue where you left off?",
+      "text": "There is a saved state on this device. You were last on step {number}: {title}.",
+      "note": "Credentials are never saved — you will enter those again.",
+      "continue": "Continue",
+      "discard": "Start over"
+    },
+    "summary": {
+      "heading": "Please check your details",
+      "text": "You can reopen and correct every step. For security reasons we do not show credentials in plain text here.",
+      "edit": "Edit",
+      "empty": "No entry",
+      "secretFilled": "filled in",
+      "secretEmpty": "not filled in"
+    },
+    "error": {
+      "heading": "That did not work",
+      "generic": "Your details could not be sent. Please try again in a few minutes or write to us directly at {email}.",
+      "unavailable": "The form is currently unavailable. Please get in touch with us and we will sort it out right away.",
+      "stepInvalid": "Please check the highlighted fields before you continue."
+    },
+    "expired": {
+      "heading": "This link has expired",
+      "text": "Please get in touch with us and we will send you a new link."
+    },
+    "thanks": {
+      "heading": "Thank you — we have received your details",
+      "notesHeading": "Please keep in mind until the migration",
+      "contact": "Questions? Write to us at {email}."
     }
   }
 }

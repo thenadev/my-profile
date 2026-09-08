@@ -959,11 +959,7 @@
         "title": "App-Entwicklung",
         "badge": "Flutter · Android & iOS",
         "description": "Flutter-Apps für Android & iOS aus einer Codebasis. Beratungsgespräch, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps.",
-        "features": [
-          "Beratung 80€/h",
-          "MVP mit Flutter",
-          "Features & Bugs"
-        ]
+        "features": ["Beratung 80€/h", "MVP mit Flutter", "Features & Bugs"]
       },
       "unternehmenswebsite": {
         "title": "Unternehmenswebsite",
@@ -1596,6 +1592,78 @@
     "faq": {
       "heading": "Häufige Fragen zur Unternehmenswebsite",
       "subheading": "Antworten auf die wichtigsten Fragen rund um Unternehmenswebseiten für KMU & Selbstständige – strukturiert nach Themen"
+    }
+  },
+  "Onboarding": {
+    "intro": {
+      "start": "Formular starten",
+      "duration": "Sie können jederzeit unterbrechen und später auf demselben Gerät weitermachen."
+    },
+    "privacy": {
+      "heading": "Datenschutz",
+      "text": "Ihre Angaben verarbeiten wir ausschließlich für dieses Projekt. Sie werden nicht auf dem Server gespeichert, sondern direkt per E-Mail an uns übermittelt und nach Projektabschluss gelöscht. Zugangsdaten verschlüsselt Ihr Browser, bevor sie ihn verlassen.",
+      "consent": "Ich habe die <link>Datenschutzerklärung</link> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.",
+      "consentRequired": "Bitte bestätigen Sie die Datenschutzerklärung, bevor Sie fortfahren."
+    },
+    "progress": {
+      "label": "Schritt {current} von {total}",
+      "current": "Aktueller Schritt"
+    },
+    "nav": {
+      "next": "Weiter",
+      "back": "Zurück",
+      "submit": "Angaben absenden",
+      "submitting": "Wird gesendet …"
+    },
+    "fields": {
+      "other": "Sonstiges",
+      "otherPlaceholder": "Bitte ergänzen",
+      "showSecret": "Eingabe anzeigen",
+      "hideSecret": "Eingabe verbergen",
+      "removeItem": "Diesen Eintrag entfernen",
+      "addItem": "Eintrag hinzufügen",
+      "entry": "Eintrag {number}",
+      "requiredMark": "Pflichtfeld",
+      "selectPlaceholder": "Bitte auswählen"
+    },
+    "validation": {
+      "required": "Bitte füllen Sie dieses Feld aus.",
+      "email": "Bitte geben Sie eine gültige E-Mail-Adresse ein, z. B. name@firma.de.",
+      "tel": "Bitte geben Sie eine Telefonnummer mit Vorwahl ein.",
+      "minLength": "Bitte geben Sie mindestens {min} Zeichen ein.",
+      "maxLength": "Bitte kürzen Sie die Eingabe auf höchstens {max} Zeichen.",
+      "pattern": "Bitte prüfen Sie das Format Ihrer Eingabe.",
+      "minItems": "Bitte geben Sie mindestens {count} Eintrag an."
+    },
+    "resume": {
+      "heading": "Dort weitermachen, wo Sie aufgehört haben?",
+      "text": "Auf diesem Gerät liegt ein gespeicherter Stand. Sie waren zuletzt bei Schritt {number}: {title}.",
+      "note": "Zugangsdaten werden nie gespeichert — die tragen Sie erneut ein.",
+      "continue": "Weitermachen",
+      "discard": "Neu beginnen"
+    },
+    "summary": {
+      "heading": "Bitte prüfen Sie Ihre Angaben",
+      "text": "Sie können jeden Schritt noch einmal öffnen und korrigieren. Zugangsdaten zeigen wir hier aus Sicherheitsgründen nicht im Klartext.",
+      "edit": "Bearbeiten",
+      "empty": "Keine Angabe",
+      "secretFilled": "ausgefüllt",
+      "secretEmpty": "nicht ausgefüllt"
+    },
+    "error": {
+      "heading": "Das hat nicht geklappt",
+      "generic": "Ihre Angaben konnten nicht übermittelt werden. Bitte versuchen Sie es in einigen Minuten erneut oder schreiben Sie uns direkt an {email}.",
+      "unavailable": "Das Formular ist derzeit nicht verfügbar. Bitte melden Sie sich kurz bei uns, dann klären wir das sofort.",
+      "stepInvalid": "Bitte prüfen Sie die markierten Felder, bevor Sie weitergehen."
+    },
+    "expired": {
+      "heading": "Dieser Link ist abgelaufen",
+      "text": "Bitte melden Sie sich kurz bei uns, dann schicken wir Ihnen einen neuen Link."
+    },
+    "thanks": {
+      "heading": "Vielen Dank — Ihre Angaben sind angekommen",
+      "notesHeading": "Bitte beachten Sie bis zur Umstellung",
+      "contact": "Fragen? Schreiben Sie uns an {email}."
     }
   }
 }
