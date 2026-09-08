@@ -177,6 +177,12 @@ export default function OnboardingWizard({
     });
   }, [token, config.steps.length]);
 
+  // Erst nach dem Rendern des neuen Schritts scrollen: Ein Scroll vor dem
+  // Schrittwechsel wird vom Layoutwechsel abgebrochen, der Kunde bleibt unten.
+  useEffect(() => {
+    if (started) window.scrollTo({ top: 0 });
+  }, [stepIndex, started]);
+
   const isSummary = stepIndex >= config.steps.length;
   const currentStep = config.steps[stepIndex];
 
@@ -220,7 +226,6 @@ export default function OnboardingWizard({
     saveProgress(token, nextIndex, merged);
     setStepIndex(nextIndex);
     setSubmitError(null);
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleSubmit = async () => {
@@ -392,10 +397,7 @@ export default function OnboardingWizard({
             config={config}
             answers={answers}
             secrets={secrets}
-            onEdit={(index) => {
-              setStepIndex(index);
-              window.scrollTo({ top: 0, behavior: "smooth" });
-            }}
+            onEdit={(index) => setStepIndex(index)}
           />
 
           {submitError ? (
