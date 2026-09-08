@@ -949,7 +949,11 @@
         "title": "App Development",
         "badge": "Flutter · Android & iOS",
         "description": "Flutter apps for Android & iOS from a single codebase. Consulting call, MVP delivery or feature and bug development for existing apps.",
-        "features": ["Consulting €80/h", "MVP with Flutter", "Features & bugs"]
+        "features": [
+          "Consulting €80/h",
+          "MVP with Flutter",
+          "Features & bugs"
+        ]
       },
       "unternehmenswebsite": {
         "title": "Business Website",
@@ -1643,8 +1647,7 @@
     "error": {
       "heading": "That did not work",
       "generic": "Your details could not be sent. Please try again in a few minutes or write to us directly at {email}.",
-      "unavailable": "The form is currently unavailable. Please get in touch with us and we will sort it out right away.",
-      "stepInvalid": "Please check the highlighted fields before you continue."
+      "unavailable": "The form is currently unavailable. Please get in touch with us and we will sort it out right away."
     },
     "expired": {
       "heading": "This link has expired",

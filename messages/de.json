@@ -959,7 +959,11 @@
         "title": "App-Entwicklung",
         "badge": "Flutter · Android & iOS",
         "description": "Flutter-Apps für Android & iOS aus einer Codebasis. Beratungsgespräch, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps.",
-        "features": ["Beratung 80€/h", "MVP mit Flutter", "Features & Bugs"]
+        "features": [
+          "Beratung 80€/h",
+          "MVP mit Flutter",
+          "Features & Bugs"
+        ]
       },
       "unternehmenswebsite": {
         "title": "Unternehmenswebsite",
@@ -1653,8 +1657,7 @@
     "error": {
       "heading": "Das hat nicht geklappt",
       "generic": "Ihre Angaben konnten nicht übermittelt werden. Bitte versuchen Sie es in einigen Minuten erneut oder schreiben Sie uns direkt an {email}.",
-      "unavailable": "Das Formular ist derzeit nicht verfügbar. Bitte melden Sie sich kurz bei uns, dann klären wir das sofort.",
-      "stepInvalid": "Bitte prüfen Sie die markierten Felder, bevor Sie weitergehen."
+      "unavailable": "Das Formular ist derzeit nicht verfügbar. Bitte melden Sie sich kurz bei uns, dann klären wir das sofort."
     },
     "expired": {
       "heading": "Dieser Link ist abgelaufen",

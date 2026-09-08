@@ -80,6 +80,13 @@ also nicht in eine Datei umleiten, die liegen bleibt.
   öffnen und absenden. Es ist ein Zugangsschlüssel auf Zeit, kein Login: Link
   nicht öffentlich teilen, nach Projektabschluss aus `ONBOARDING_TOKENS`
   entfernen und bei Bedarf `expiresAt` in der Konfiguration setzen.
+- **Die Tracking-Ausnahme greift sicher nur beim direkten Aufruf.** Wer den Link
+  öffnet, lädt die Seite vollständig — Analytics und Tag Manager werden dabei gar
+  nicht erst eingebunden. Navigiert dagegen jemand innerhalb der Website per Link
+  ins Formular, bleibt ein bereits geladener Tag Manager im Speicher und dessen
+  eigene Trigger könnten die Formular-URL sehen. Kunden bekommen den Link direkt,
+  deshalb ist das hinnehmbar — die Route aber nicht aus der Navigation heraus
+  verlinken.
 - **Kein Löschkonzept auf dem Server**, weil dort nichts gespeichert wird. Der
   Zwischenstand liegt ausschließlich im localStorage des Kunden (ohne
   Zugangsdaten) und wird nach dem Absenden gelöscht.
