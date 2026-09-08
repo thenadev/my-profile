@@ -21,7 +21,6 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "@types/jest": "^27.5.2",
-    "@types/node": "^16.18.53",
     "@types/react": "^18.2.22",
     "@types/react-dom": "^18.2.7",
     "@vercel/speed-insights": "^1.0.12",
@@ -64,6 +63,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
+    "test": "vitest run",
     "tailwind": "npx tailwindcss -i ./src/index.css -o ./dist/output.css --watch"
   },
   "eslintConfig": {
@@ -87,12 +87,14 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.20",
     "@types/js-cookie": "^3.0.6",
+    "@types/node": "^20.19.43",
     "@types/nodemailer": "^6.4.16",
     "@types/react-scroll": "^1.8.7",
     "daisyui": "^3.7.7",
     "encoding": "^0.1.13",
     "eslint": "^9.12.0",
     "prettier": "^3.0.3",
-    "tailwindcss": "^3.4.13"
+    "tailwindcss": "^3.4.13",
+    "vitest": "^2.1.9"
   }
 }
