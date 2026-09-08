@@ -118,6 +118,12 @@ const ermaganConfig: OnboardingConfig = {
             },
           ],
         },
+        {
+          id: "ionosCheckHint",
+          type: "info",
+          label:
+            "Zur Sicherheit gleiche ich diese Liste mit den bei IONOS angelegten Postfächern und Weiterleitungen ab. Fehlt dort etwas oder taucht bei IONOS eine Adresse auf, die hier nicht steht, frage ich vor der Umstellung bei Ihnen nach.",
+        },
       ],
     },
     {
