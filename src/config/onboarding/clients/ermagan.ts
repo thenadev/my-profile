@@ -139,6 +139,7 @@ export const ermaganConfig: OnboardingConfig = {
           id: "privateAddresses",
           type: "repeater",
           label: "Welche und von wem?",
+          minItems: 1,
           addLabel: "Weitere private Adresse hinzufügen",
           visibleIf: { fieldId: "privateAddressesUsed", equals: "yes" },
           fields: [

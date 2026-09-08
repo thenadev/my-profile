@@ -98,14 +98,11 @@ function StepForm({
   return (
     <FormProvider {...form}>
       <form onSubmit={form.handleSubmit(onNext)} noValidate>
-        <div className="mb-8">
-          <h2 className="text-2xl font-bold text-foreground">{step.title}</h2>
-          {step.intro ? (
-            <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-              {step.intro}
-            </p>
-          ) : null}
-        </div>
+        {step.intro ? (
+          <p className="mb-8 text-base leading-relaxed text-muted-foreground">
+            {step.intro}
+          </p>
+        ) : null}
 
         <StepRenderer step={step} answers={answers} />
 
@@ -157,14 +154,17 @@ export default function OnboardingWizard({
   const answersRef = useRef<Answers>({});
   answersRef.current = answers;
 
+  // t.raw statt t: Die Platzhalter {min}/{max}/{count} füllt der Schema-Generator
+  // mit den Werten aus der Konfiguration, nicht die ICU-Formatierung.
+  const rawMessage = (key: string) => String(t.raw(key));
   const validationMessages: ValidationMessages = {
-    required: t("validation.required"),
-    email: t("validation.email"),
-    tel: t("validation.tel"),
-    minLength: t("validation.minLength"),
-    maxLength: t("validation.maxLength"),
-    pattern: t("validation.pattern"),
-    minItems: t("validation.minItems"),
+    required: rawMessage("validation.required"),
+    email: rawMessage("validation.email"),
+    tel: rawMessage("validation.tel"),
+    minLength: rawMessage("validation.minLength"),
+    maxLength: rawMessage("validation.maxLength"),
+    pattern: rawMessage("validation.pattern"),
+    minItems: rawMessage("validation.minItems"),
   };
 
   useEffect(() => {

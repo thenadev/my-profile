@@ -34,7 +34,7 @@ export default function ProgressBar({
           style={{ width: `${percent}%` }}
         />
       </div>
-      <p className="text-base font-semibold text-foreground">{title}</p>
+      <h2 className="pt-2 text-2xl font-bold text-foreground">{title}</h2>
     </div>
   );
 }

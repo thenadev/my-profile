@@ -303,6 +303,12 @@ function scalarSchema(
 ): z.ZodTypeAny {
   let schema = z.string();
 
+  // Vor allen Formatprüfungen, damit ein leeres Pflichtfeld den Hinweis zum
+  // Ausfüllen bekommt und nicht den zum Format.
+  if (field.required) {
+    schema = schema.min(1, messages.required);
+  }
+
   if (field.validation?.minLength) {
     schema = schema.min(
       field.validation.minLength,
@@ -329,9 +335,7 @@ function scalarSchema(
     schema = schema.regex(TEL_PATTERN, messages.tel);
   }
 
-  if (field.required) {
-    return schema.min(1, messages.required);
-  }
+  if (field.required) return schema;
 
   // Leere Eingabe eines optionalen Feldes darf nicht an Format-Prüfungen scheitern.
   return z.union([z.literal(""), schema]);

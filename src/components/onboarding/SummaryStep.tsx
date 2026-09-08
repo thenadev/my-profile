@@ -185,14 +185,9 @@ export default function SummaryStep({
 
   return (
     <div className="space-y-6">
-      <div>
-        <h2 className="text-2xl font-bold text-foreground">
-          {t("summary.heading")}
-        </h2>
-        <p className="mt-2 text-base leading-relaxed text-muted-foreground">
-          {t("summary.text")}
-        </p>
-      </div>
+      <p className="text-base leading-relaxed text-muted-foreground">
+        {t("summary.text")}
+      </p>
 
       <div className="space-y-4">{config.steps.map(renderStep)}</div>
     </div>
