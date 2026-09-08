@@ -234,7 +234,7 @@ export function buildConfirmationHtml(
   <div style="background-color:${palette.sectionBg}; padding:20px; border-radius:8px; margin:20px 0; border-left:4px solid ${palette.sectionBorder};">
     <p style="margin:0 0 15px; font-size:16px; line-height:1.6;">Guten Tag,</p>
     <p style="margin:0 0 15px; font-size:16px; line-height:1.6;">
-      vielen Dank — Ihre Angaben zum Projekt „${escapeHtml(config.projectTitle)}“ sind bei uns eingegangen.
+      vielen Dank — Ihre Angaben zum Projekt „${escapeHtml(config.projectTitle)}“ sind bei mir eingegangen.
     </p>
     <p style="margin:0; font-size:16px; line-height:1.6;">${escapeHtml(nextStepText)}</p>
   </div>

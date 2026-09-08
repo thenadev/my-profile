@@ -1595,7 +1595,7 @@
     },
     "privacy": {
       "heading": "Data protection",
-      "text": "We process your details for this project only. They are not stored on the server but sent straight to us by email and deleted once the project is finished. Your browser encrypts credentials before they leave it.",
+      "text": "I process your details for this project only. They are not stored on the server but sent straight to me by email and deleted once the project is finished. Your browser encrypts credentials before they leave it.",
       "consent": "I have read the <link>privacy policy</link> and agree to my details being processed.",
       "consentRequired": "Please confirm the privacy policy before you continue."
     },
@@ -1638,7 +1638,7 @@
     },
     "summary": {
       "heading": "Please check your details",
-      "text": "You can reopen and correct every step. For security reasons we do not show credentials in plain text here.",
+      "text": "You can reopen and correct every step. For security reasons I do not show credentials in plain text here.",
       "edit": "Edit",
       "empty": "No entry",
       "secretFilled": "filled in",
@@ -1646,17 +1646,17 @@
     },
     "error": {
       "heading": "That did not work",
-      "generic": "Your details could not be sent. Please try again in a few minutes or write to us directly at {email}.",
-      "unavailable": "The form is currently unavailable. Please get in touch with us and we will sort it out right away."
+      "generic": "Your details could not be sent. Please try again in a few minutes or write to me directly at {email}.",
+      "unavailable": "The form is currently unavailable. Please get in touch with me and I will sort it out right away."
     },
     "expired": {
       "heading": "This link has expired",
-      "text": "Please get in touch with us and we will send you a new link."
+      "text": "Please get in touch with me and I will send you a new link."
     },
     "thanks": {
-      "heading": "Thank you — we have received your details",
+      "heading": "Thank you — I have received your details",
       "notesHeading": "Please keep in mind until the migration",
-      "contact": "Questions? Write to us at {email}."
+      "contact": "Questions? Write to me at {email}."
     }
   }
 }

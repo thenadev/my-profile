@@ -1605,7 +1605,7 @@
     },
     "privacy": {
       "heading": "Datenschutz",
-      "text": "Ihre Angaben verarbeiten wir ausschließlich für dieses Projekt. Sie werden nicht auf dem Server gespeichert, sondern direkt per E-Mail an uns übermittelt und nach Projektabschluss gelöscht. Zugangsdaten verschlüsselt Ihr Browser, bevor sie ihn verlassen.",
+      "text": "Ihre Angaben verarbeite ich ausschließlich für dieses Projekt. Sie werden nicht auf dem Server gespeichert, sondern direkt per E-Mail an mich übermittelt und nach Projektabschluss gelöscht. Zugangsdaten verschlüsselt Ihr Browser, bevor sie ihn verlassen.",
       "consent": "Ich habe die <link>Datenschutzerklärung</link> gelesen und bin mit der Verarbeitung meiner Angaben einverstanden.",
       "consentRequired": "Bitte bestätigen Sie die Datenschutzerklärung, bevor Sie fortfahren."
     },
@@ -1648,7 +1648,7 @@
     },
     "summary": {
       "heading": "Bitte prüfen Sie Ihre Angaben",
-      "text": "Sie können jeden Schritt noch einmal öffnen und korrigieren. Zugangsdaten zeigen wir hier aus Sicherheitsgründen nicht im Klartext.",
+      "text": "Sie können jeden Schritt noch einmal öffnen und korrigieren. Zugangsdaten zeige ich hier aus Sicherheitsgründen nicht im Klartext.",
       "edit": "Bearbeiten",
       "empty": "Keine Angabe",
       "secretFilled": "ausgefüllt",
@@ -1656,17 +1656,17 @@
     },
     "error": {
       "heading": "Das hat nicht geklappt",
-      "generic": "Ihre Angaben konnten nicht übermittelt werden. Bitte versuchen Sie es in einigen Minuten erneut oder schreiben Sie uns direkt an {email}.",
-      "unavailable": "Das Formular ist derzeit nicht verfügbar. Bitte melden Sie sich kurz bei uns, dann klären wir das sofort."
+      "generic": "Ihre Angaben konnten nicht übermittelt werden. Bitte versuchen Sie es in einigen Minuten erneut oder schreiben Sie mir direkt an {email}.",
+      "unavailable": "Das Formular ist derzeit nicht verfügbar. Bitte melden Sie sich kurz bei mir, dann kläre ich das sofort."
     },
     "expired": {
       "heading": "Dieser Link ist abgelaufen",
-      "text": "Bitte melden Sie sich kurz bei uns, dann schicken wir Ihnen einen neuen Link."
+      "text": "Bitte melden Sie sich kurz bei mir, dann schicke ich Ihnen einen neuen Link."
     },
     "thanks": {
       "heading": "Vielen Dank — Ihre Angaben sind angekommen",
       "notesHeading": "Bitte beachten Sie bis zur Umstellung",
-      "contact": "Fragen? Schreiben Sie uns an {email}."
+      "contact": "Fragen? Schreiben Sie mir an {email}."
     }
   }
 }

@@ -35,16 +35,16 @@ const CIPHERTEXT_MIN_LENGTH = 24;
 const CIPHERTEXT_MAX_LENGTH = 200_000;
 
 const DEFAULT_CONFIRMATION_TEXT =
-  "Wir prüfen Ihre Angaben und melden uns in Kürze bei Ihnen.";
+  "Ich prüfe Ihre Angaben und melde mich in Kürze bei Ihnen.";
 
 const ERROR_TEXTS = {
   method: "Diese Adresse nimmt nur Formular-Absendungen entgegen.",
   invalid:
     "Ihre Angaben konnten nicht gelesen werden. Bitte laden Sie das Formular neu und versuchen Sie es erneut.",
   unknownToken:
-    "Dieser Link ist uns nicht bekannt. Bitte melden Sie sich kurz bei uns.",
+    "Dieser Link ist mir nicht bekannt. Bitte melden Sie sich kurz bei mir.",
   expired:
-    "Dieser Link ist abgelaufen. Bitte melden Sie sich kurz bei uns, dann schicken wir Ihnen einen neuen.",
+    "Dieser Link ist abgelaufen. Bitte melden Sie sich kurz bei mir, dann schicke ich Ihnen einen neuen.",
   rateLimit:
     "Ihre Angaben wurden bereits mehrfach gesendet. Bitte warten Sie einige Minuten.",
   mail: "Ihre Angaben konnten nicht zugestellt werden. Bitte versuchen Sie es in einigen Minuten erneut.",
@@ -206,7 +206,7 @@ export default async function handler(
         text: [
           "Guten Tag,",
           "",
-          `vielen Dank — Ihre Angaben zum Projekt „${onboardingConfig.projectTitle}“ sind bei uns eingegangen.`,
+          `vielen Dank — Ihre Angaben zum Projekt „${onboardingConfig.projectTitle}“ sind bei mir eingegangen.`,
           "",
           onboardingConfig.confirmationText ?? DEFAULT_CONFIRMATION_TEXT,
           "",

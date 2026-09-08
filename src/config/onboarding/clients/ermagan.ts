@@ -13,15 +13,15 @@ const ermaganConfig: OnboardingConfig = {
   notifyEmail: siteConfig.contactEmail,
   confirmationTo: "contactEmail",
   confirmationText:
-    "Wir prüfen Ihre Angaben und melden uns innerhalb von zwei Werktagen mit einem Terminvorschlag für die Umstellungswoche.",
+    "Ich prüfe Ihre Angaben und melde mich innerhalb von zwei Werktagen mit einem Terminvorschlag für die Umstellungswoche.",
   intro:
-    "Damit die Umstellung ohne Ausfall läuft, brauchen wir vorab ein vollständiges Bild Ihrer heutigen E-Mail-Landschaft. Viele Angaben haben wir schon vorbereitet — bitte prüfen und ergänzen Sie sie. Sie können jederzeit unterbrechen und später am selben Gerät weitermachen.",
+    "Damit die Umstellung ohne Ausfall läuft, brauche ich vorab ein vollständiges Bild Ihrer heutigen E-Mail-Landschaft. Viele Angaben habe ich schon vorbereitet — bitte prüfen und ergänzen Sie sie. Sie können jederzeit unterbrechen und später am selben Gerät weitermachen.",
   steps: [
     {
       id: "firma",
       title: "Firma und Ansprechpartner",
       intro:
-        "Wer ist während des Projekts unser fester Ansprechpartner? Über diese Angaben klären wir alle Rückfragen.",
+        "Wer ist während des Projekts mein fester Ansprechpartner? Über diese Angaben kläre ich alle Rückfragen.",
       fields: [
         {
           id: "companyName",
@@ -35,7 +35,7 @@ const ermaganConfig: OnboardingConfig = {
           label: "Ansprechpartner für das Projekt",
           required: true,
           defaultValue: "Hane Ermagan",
-          help: "Diese Person entscheidet im Projekt und wird von uns bei Rückfragen zuerst angerufen.",
+          help: "Diese Person entscheidet im Projekt und wird von mir bei Rückfragen zuerst angerufen.",
         },
         {
           id: "contactPhone",
@@ -49,7 +49,7 @@ const ermaganConfig: OnboardingConfig = {
           type: "email",
           label: "E-Mail für Rückfragen",
           required: true,
-          help: "An diese Adresse schicken wir die Bestätigung, dass Ihre Angaben angekommen sind.",
+          help: "An diese Adresse schicke ich die Bestätigung, dass Ihre Angaben angekommen sind.",
         },
       ],
     },
@@ -124,7 +124,7 @@ const ermaganConfig: OnboardingConfig = {
       id: "private-adressen",
       title: "Private Adressen im Geschäftsbetrieb",
       intro:
-        "Zum Beispiel Disponenten oder Fahrer, die von privaten Adressen aus schreiben. Der Schutz auf den Firmenpostfächern deckt solche Adressen nicht ab — wir klären gemeinsam, welche davon abgelöst werden sollten.",
+        "Zum Beispiel Disponenten oder Fahrer, die von privaten Adressen aus schreiben. Der Schutz auf den Firmenpostfächern deckt solche Adressen nicht ab — ich kläre mit Ihnen, welche davon abgelöst werden sollten.",
       fields: [
         {
           id: "privateAddressesUsed",
@@ -269,7 +269,7 @@ const ermaganConfig: OnboardingConfig = {
           id: "systemContacts",
           type: "textarea",
           label: "Ansprechpartner beim jeweiligen Anbieter",
-          help: "Falls bekannt. Wir brauchen ihn nur, wenn die Umstellung eines Systems nicht ohne den Anbieter geht.",
+          help: "Falls bekannt. Ich brauche ihn nur, wenn die Umstellung eines Systems nicht ohne den Anbieter geht.",
         },
       ],
     },
@@ -277,7 +277,7 @@ const ermaganConfig: OnboardingConfig = {
       id: "einstellungen",
       title: "Bestehende Einstellungen, die erhalten bleiben sollen",
       intro:
-        "Damit wir das im neuen System nachbauen können und Sie nichts von Hand wiederherstellen müssen.",
+        "Damit ich das im neuen System nachbauen kann und Sie nichts von Hand wiederherstellen müssen.",
       fields: [
         {
           id: "keepSignatures",
@@ -351,7 +351,7 @@ const ermaganConfig: OnboardingConfig = {
           type: "radio",
           label: "Auf welche Firma läuft der Microsoft-Vertrag?",
           required: true,
-          help: "Wir richten ein gemeinsames Konto für beide Firmen ein. Die Rechnung von Microsoft läuft auf eine der beiden GmbHs — die Aufteilung besprechen Sie am besten kurz mit Ihrer Steuerberatung.",
+          help: "Ich richte ein gemeinsames Konto für beide Firmen ein. Die Rechnung von Microsoft läuft auf eine der beiden GmbHs — die Aufteilung besprechen Sie am besten kurz mit Ihrer Steuerberatung.",
           options: [
             { value: "ermagan", label: "Spedition Ermagan GmbH" },
             { value: "eb-bau", label: "EB Bau GmbH" },
@@ -382,7 +382,7 @@ const ermaganConfig: OnboardingConfig = {
       id: "microsoft-konto",
       title: "Angaben für das Microsoft-Konto",
       intro:
-        "Das Konto legen wir für Sie an. Wir brauchen dafür nur die folgenden Angaben.",
+        "Das Konto lege ich für Sie an. Ich brauche dafür nur die folgenden Angaben.",
       fields: [
         {
           id: "vatId",
@@ -404,20 +404,20 @@ const ermaganConfig: OnboardingConfig = {
           type: "email",
           label: "Kontakt-E-Mail für Microsoft",
           required: true,
-          help: "An diese Adresse schickt Microsoft Bestätigungen und Rechnungen. Bitte keine der Adressen, die wir umstellen — sonst sind Sie ausgerechnet während der Umstellung nicht erreichbar.",
+          help: "An diese Adresse schickt Microsoft Bestätigungen und Rechnungen. Bitte keine der Adressen, die umgestellt werden — sonst sind Sie ausgerechnet während der Umstellung nicht erreichbar.",
         },
         {
           id: "verificationMobile",
           type: "tel",
           label: "Mobilnummer für die Verifizierung",
           required: true,
-          help: "Microsoft schickt beim Anlegen einen Bestätigungscode per SMS. Wir melden uns kurz, wenn es so weit ist.",
+          help: "Microsoft schickt beim Anlegen einen Bestätigungscode per SMS. Ich melde mich kurz, wenn es so weit ist.",
         },
         {
           id: "paymentInfo",
           type: "info",
           label:
-            "Die Zahlungsmethode hinterlegen Sie nach dem Anlegen selbst — wir schicken Ihnen dafür den direkten Link. Wir sehen Ihre Zahlungsdaten zu keinem Zeitpunkt.",
+            "Die Zahlungsmethode hinterlegen Sie selbst: Microsoft verlangt beim Anlegen des Kontos eine Kreditkarte. Diesen Schritt gehe ich gemeinsam mit Ihnen am Telefon durch — Ihre Zahlungsdaten sehe ich zu keinem Zeitpunkt.",
         },
       ],
     },
@@ -425,13 +425,13 @@ const ermaganConfig: OnboardingConfig = {
       id: "zugangsdaten",
       title: "Zugangsdaten",
       intro:
-        "Wir brauchen die Passwörter, um Ihre bestehenden Mails vollständig zu übernehmen und nach der Umstellung gegenzuprüfen, dass nichts fehlt. Ohne sie ließe sich der Bestand nur mit einer Betriebsunterbrechung übertragen.",
+        "Ich brauche die Passwörter, um Ihre bestehenden Mails vollständig zu übernehmen und nach der Umstellung gegenzuprüfen, dass nichts fehlt. Ohne sie ließe sich der Bestand nur mit einer Betriebsunterbrechung übertragen.",
       fields: [
         {
           id: "secretsIntro",
           type: "info",
           label:
-            "Die folgenden Eingaben werden in Ihrem Browser verschlüsselt, bevor sie diesen Rechner verlassen. Auch wir können sie erst mit unserem privaten Schlüssel auf unserem eigenen Gerät lesen — auf dem Server und im Postfach liegen sie ausschließlich verschlüsselt.",
+            "Die folgenden Eingaben werden in Ihrem Browser verschlüsselt, bevor sie diesen Rechner verlassen. Auch ich kann sie erst mit meinem privaten Schlüssel auf meinem eigenen Gerät lesen — auf dem Server und im Postfach liegen sie ausschließlich verschlüsselt.",
         },
         {
           id: "ionosUser",
@@ -468,13 +468,13 @@ const ermaganConfig: OnboardingConfig = {
           id: "imapHint",
           type: "info",
           label:
-            "Bitte aktivieren Sie in den GMX-Einstellungen unter „POP3/IMAP-Abruf“ den IMAP-Zugriff. Ohne diese Einstellung können wir Ihre bisherigen Mails und Kontakte nicht übernehmen.",
+            "Bitte aktivieren Sie in den GMX-Einstellungen unter „POP3/IMAP-Abruf“ den IMAP-Zugriff. Ohne diese Einstellung kann ich Ihre bisherigen Mails und Kontakte nicht übernehmen.",
         },
         {
           id: "passwordChangeHint",
           type: "info",
           label:
-            "Nach Abschluss des Projekts ändern Sie alle hier genannten Passwörter. Wir löschen unsere Kopie, sobald die Umstellung abgenommen ist.",
+            "Nach Abschluss des Projekts ändern Sie alle hier genannten Passwörter. Ich lösche meine Kopie, sobald die Umstellung abgenommen ist.",
         },
       ],
     },
@@ -484,8 +484,8 @@ const ermaganConfig: OnboardingConfig = {
     notes: [
       "Kündigen Sie nichts bei IONOS. Ihre Domains bleiben dort, nur der E-Mail-Betrieb zieht um. Eine Kündigung würde Ihre Adressen und Ihre Website abschalten.",
       "Ändern Sie bis zur Umstellung keine Passwörter der genannten Postfächer — sonst bricht die Übernahme Ihrer bestehenden Mails ab.",
-      "Löschen Sie keine alten E-Mails, um „aufzuräumen“. Wir übernehmen den Bestand vollständig und Sie sortieren danach in Ruhe.",
-      "Richten Sie keine Weiterleitungen und keine neuen Postfächer selbst ein. Melden Sie uns den Bedarf, wir bauen das im neuen System.",
+      "Löschen Sie keine alten E-Mails, um „aufzuräumen“. Ich übernehme den Bestand vollständig und Sie sortieren danach in Ruhe.",
+      "Richten Sie keine Weiterleitungen und keine neuen Postfächer selbst ein. Melden Sie mir den Bedarf, ich baue das im neuen System.",
       "Akzeptieren Sie keine geänderte Bankverbindung per E-Mail — auch nicht von einem bekannten Absender. Erst Rückruf unter der Nummer aus Ihren Stammdaten.",
     ],
   },
