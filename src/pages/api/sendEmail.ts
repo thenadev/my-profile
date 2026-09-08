@@ -4,7 +4,7 @@ import { siteConfig } from "@/config/site";
 import { NextApiRequest, NextApiResponse } from "next";
 import nodemailer from "nodemailer";
 
-const EMAIL_COLORS = {
+export const EMAIL_COLORS = {
   primary: "#0B878E",
   primaryLight: "#00B0B0",
   sectionBg: "#f8f9fa",
