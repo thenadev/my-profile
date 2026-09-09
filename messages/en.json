@@ -589,7 +589,7 @@
     "wordPressDescription": "From installation to optimization: Everything from a single source for your WordPress site.",
     "unternehmenswebsite": {
       "title": "Corporate Website",
-      "description": "Professional corporate websites from Wetzlar - Modern, responsive and SEO-optimized web designs for your company",
+      "description": "Professional corporate websites - modern, responsive and SEO-optimized, built individually for your company",
       "benefitsTitle": "Your Benefits",
       "benefits": {
         "modernDesign": "Modern Web Designs",
@@ -836,8 +836,8 @@
       "description": "Web design, app development and technical startup consulting from Wetzlar, Germany - personal, transparent and fixed-price. Find the right service package."
     },
     "servicesUnternehmenswebsite": {
-      "title": "Web Design Wetzlar - Business Websites",
-      "description": "Have a website built in Wetzlar: modern, SEO-optimised business website at a fixed price - design, development & hosting. Book your free consultation now!"
+      "title": "Business Website Development – Fixed Price",
+      "description": "Have your business website built directly by the developer: individually coded, fast and SEO-optimised. Transparent fixed price incl. design, development & hosting."
     },
     "servicesAppEntwicklung": {
       "title": "Flutter App Development - iOS & Android",
@@ -1366,12 +1366,12 @@
   "Unternehmenswebsite": {
     "hero": {
       "badge": {
-        "label": "Your local web designer from Wetzlar",
-        "regions": "Gießen • Frankfurt • Central Hesse"
+        "label": "Straight from the developer – no agency",
+        "regions": "Fixed price • Custom-built • GDPR-compliant"
       },
       "texts": [
         {
-          "headline": "Web design from Wetzlar for your business",
+          "headline": "Your business website – straight from the developer",
           "subheadline": "Let's talk in person – I capture what you need and build a website that truly fits you."
         },
         {
@@ -1383,12 +1383,12 @@
           "subheadline": "Yes. I tailor the website to you – no standard package, exactly what you need. I handle the tech and the implementation."
         }
       ],
-      "subtitle": "As a web designer from Wetzlar I build tailor-made business websites that not only look good but also bring in new customers.",
+      "subtitle": "As a fullstack developer I build tailor-made business websites that not only look good but also bring in new customers.",
       "cta": "Book a free initial consultation",
       "trustBadges": {
         "consultation": "Free on-site initial consultation",
         "offer": "No-obligation quote",
-        "experience": "{years} years of experience in Wetzlar"
+        "experience": "{years} years of experience"
       },
       "cards": {
         "projects": "Projects",
@@ -1402,7 +1402,7 @@
       "benefits": [
         {
           "title": "Personal consulting",
-          "desc": "On-site in Wetzlar or online"
+          "desc": "By video call or in person"
         },
         {
           "title": "Tailor-made",
@@ -1413,7 +1413,7 @@
           "desc": "Your website live in 2–4 weeks"
         }
       ],
-      "imageAlt": "Thomas Schwabauer - web designer from Wetzlar"
+      "imageAlt": "Thomas Schwabauer – fullstack developer for business websites"
     },
     "quickNav": {
       "badge": "Quick navigation",
@@ -1457,17 +1457,17 @@
         "idealFor": "Ideal for:"
       },
       "why": {
-        "heading": "Why web design from Wetzlar?",
+        "heading": "Why straight from the developer?",
         "subheading": "Approachable, straightforward and focused on your result – that's how I work with you.",
-        "imageAlt": "Thomas Schwabauer – web designer from Wetzlar",
+        "imageAlt": "Thomas Schwabauer – fullstack developer for business websites",
         "items": [
           {
             "title": "Little effort – maximum result",
             "desc": "You provide bullet points, logo and images – I take care of concept, design and implementation. High-quality output without project chaos."
           },
           {
-            "title": "Local expertise",
-            "desc": "From Wetzlar, for Wetzlar – you have one contact, not an anonymous provider. Over {years} years of experience in the region."
+            "title": "One dedicated contact",
+            "desc": "You talk directly to the person who builds your website – no anonymous provider and no rotating project managers. Over {years} years of experience."
           },
           {
             "title": "Fast delivery",
@@ -1575,7 +1575,7 @@
     "finalCta": {
       "urgency": "Limited capacity - secure your slot now",
       "heading": "Ready for your new business website?",
-      "subheading": "Let's take your online presence in Wetzlar to the next level together. Free initial consultation included.",
+      "subheading": "Let's take your online presence to the next level together. Free initial consultation included.",
       "button": "Get advice now",
       "trust": {
         "experience": "{years} years of experience",

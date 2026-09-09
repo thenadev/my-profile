@@ -414,13 +414,13 @@
     "wordPressDescription": "Von der Installation bis zur Optimierung: Alles aus einer Hand für Ihre WordPress-Seite.",
     "unternehmenswebsite": {
       "title": "Unternehmenswebsite",
-      "description": "Professionelle Unternehmenswebsites aus Wetzlar - Moderne, responsive und SEO-optimierte Webdesigns für Ihr Unternehmen",
+      "description": "Professionelle Unternehmenswebsites – modern, responsive und SEO-optimiert, individuell für Ihr Unternehmen programmiert",
       "benefitsTitle": "Ihre Vorteile",
       "benefits": {
         "modernDesign": "Moderne Webdesigns",
         "responsiveDesign": "Responsive Design",
         "seoOptimized": "SEO-Optimiert",
-        "localExpertise": "Lokale Expertise"
+        "localExpertise": "Ein fester Ansprechpartner"
       },
       "packagesTitle": "Unsere Pakete",
       "packages": {
@@ -847,7 +847,7 @@
     },
     "servicesUnternehmenswebsite": {
       "title": "Unternehmenswebsite erstellen lassen – Festpreis",
-      "description": "Website erstellen lassen in Wetzlar: moderne, SEO-optimierte Unternehmenswebsite zum Festpreis - Design, Entwicklung & Hosting. Jetzt kostenlos beraten lassen!"
+      "description": "Unternehmenswebsite erstellen lassen – direkt vom Entwickler: individuell programmiert, schnell und SEO-optimiert. Transparenter Festpreis inkl. Design, Entwicklung & Hosting."
     },
     "servicesAppEntwicklung": {
       "title": "App-Entwicklung Wetzlar - Flutter Apps",
@@ -1376,12 +1376,12 @@
   "Unternehmenswebsite": {
     "hero": {
       "badge": {
-        "label": "Ihr lokaler Webdesigner aus Wetzlar",
-        "regions": "Gießen • Frankfurt • Mittelhessen"
+        "label": "Direkt vom Entwickler – ohne Agentur",
+        "regions": "Festpreis • Individuell • DSGVO-konform"
       },
       "texts": [
         {
-          "headline": "Webdesign aus Wetzlar für dein Unternehmen",
+          "headline": "Deine Unternehmenswebsite – direkt vom Entwickler",
           "subheadline": "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt."
         },
         {
@@ -1393,12 +1393,12 @@
           "subheadline": "Ja. Ich passe die Website an dich an – kein Standard-Paket, sondern genau das, was du brauchst. Ich übernehme Technik und Umsetzung."
         }
       ],
-      "subtitle": "Als Webdesigner aus Wetzlar entwickle ich maßgeschneiderte Unternehmenswebsites, die nicht nur gut aussehen, sondern auch neue Kunden bringen.",
+      "subtitle": "Als Fullstack-Entwickler baue ich maßgeschneiderte Unternehmenswebsites, die nicht nur gut aussehen, sondern auch neue Kunden bringen.",
       "cta": "Kostenlose Erstberatung vereinbaren",
       "trustBadges": {
         "consultation": "Kostenlose Erstberatung vor Ort",
         "offer": "Unverbindliches Angebot",
-        "experience": "{years} Jahre Erfahrung in Wetzlar"
+        "experience": "{years} Jahre Erfahrung"
       },
       "cards": {
         "projects": "Projekte",
@@ -1412,7 +1412,7 @@
       "benefits": [
         {
           "title": "Persönliche Beratung",
-          "desc": "Vor Ort in Wetzlar oder online"
+          "desc": "Per Video-Call oder persönlich"
         },
         {
           "title": "Maßgeschneidert",
@@ -1423,7 +1423,7 @@
           "desc": "Ihre Website in 2-4 Wochen live"
         }
       ],
-      "imageAlt": "Thomas Schwabauer - Webdesigner aus Wetzlar"
+      "imageAlt": "Thomas Schwabauer – Fullstack-Entwickler für Unternehmenswebsites"
     },
     "quickNav": {
       "badge": "Schnellnavigation",
@@ -1467,17 +1467,17 @@
         "idealFor": "Ideal für:"
       },
       "why": {
-        "heading": "Warum Webdesign aus Wetzlar?",
+        "heading": "Warum direkt vom Entwickler?",
         "subheading": "Nahbar, unkompliziert und mit Fokus auf Ihr Ergebnis – so arbeite ich mit Ihnen.",
-        "imageAlt": "Thomas Schwabauer – Webdesigner aus Wetzlar",
+        "imageAlt": "Thomas Schwabauer – Fullstack-Entwickler für Unternehmenswebsites",
         "items": [
           {
             "title": "Wenig Aufwand – maximales Ergebnis",
             "desc": "Sie liefern Stichpunkte, Logo und Bilder – ich übernehme Konzept, Design und Umsetzung. Hochwertiger Output ohne Projektchaos."
           },
           {
-            "title": "Lokale Expertise",
-            "desc": "Aus Wetzlar, für Wetzlar – Sie haben einen Ansprechpartner, keinen anonymen Dienstleister. Über {years} Jahre Erfahrung in der Region."
+            "title": "Ein fester Ansprechpartner",
+            "desc": "Sie sprechen direkt mit der Person, die Ihre Website baut – keinen anonymen Dienstleister und keine wechselnden Projektmanager. Über {years} Jahre Erfahrung."
           },
           {
             "title": "Schnelle Umsetzung",
@@ -1585,7 +1585,7 @@
     "finalCta": {
       "urgency": "Begrenzte Kapazität - Jetzt Termin sichern",
       "heading": "Bereit für Ihre neue Unternehmenswebsite?",
-      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz in Wetzlar auf das nächste Level bringen. Kostenlose Erstberatung inklusive.",
+      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz auf das nächste Level bringen. Kostenlose Erstberatung inklusive.",
       "button": "Jetzt beraten lassen",
       "trust": {
         "experience": "{years} Jahre Erfahrung",
