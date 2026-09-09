@@ -109,6 +109,22 @@ export default function HomeServicesSection() {
             {t("viewAll")}
             <ChevronRight className="ml-0.5 h-4 w-4" />
           </Link>
+          <p className="mt-4 text-sm text-muted-foreground">
+            {t("blogTeaser.label")}{" "}
+            <Link
+              href="/blog/ki-fuer-kleine-unternehmen-mittelhessen"
+              className="text-primary hover:underline"
+            >
+              {t("blogTeaser.kiHub")}
+            </Link>
+            {" · "}
+            <Link
+              href="/blog/website-erstellen-lassen-giessen"
+              className="text-primary hover:underline"
+            >
+              {t("blogTeaser.giessen")}
+            </Link>
+          </p>
         </motion.div>
       </div>
     </section>

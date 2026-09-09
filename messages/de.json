@@ -275,6 +275,11 @@
       "subheading": "Beratung, MVP-Entwicklung und Umsetzung – von der Idee bis zur fertigen App oder Website.",
       "more": "Mehr erfahren",
       "viewAll": "Alle Services anzeigen",
+      "blogTeaser": {
+        "label": "Aus dem Blog:",
+        "kiHub": "KI für kleine Unternehmen – 7 Anwendungen",
+        "giessen": "Website erstellen lassen in Gießen"
+      },
       "items": {
         "startupBeratung": {
           "title": "Startup-Beratung",

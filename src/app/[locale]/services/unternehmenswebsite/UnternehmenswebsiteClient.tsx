@@ -626,7 +626,7 @@ export default function UnternehmenswebsiteClient() {
         </motion.div>
 
         {/* Regionaler Hinweis – interne Verlinkung auf die lokale Landingpage */}
-        <div className="w-full pb-16 md:pb-24 text-center">
+        <div className="w-full pb-16 md:pb-24 text-center space-y-3">
           <p className="text-muted-foreground">
             Aus der Region?{" "}
             <Link
@@ -636,6 +636,37 @@ export default function UnternehmenswebsiteClient() {
               Webdesign in Wetzlar &amp; Mittelhessen
             </Link>{" "}
             – Ihr Ansprechpartner vor Ort.
+          </p>
+          <p className="text-muted-foreground">
+            Weiterlesen:{" "}
+            <Link
+              href="/blog/website-erstellen-lassen-giessen"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Website erstellen lassen in Gießen
+            </Link>
+            ,{" "}
+            <Link
+              href="/blog/google-unternehmensprofil-optimieren-mittelhessen"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Google-Unternehmensprofil optimieren
+            </Link>
+            ,{" "}
+            <Link
+              href="/blog/website-mit-ki-erstellen-lassen"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Website mit KI erstellen lassen
+            </Link>{" "}
+            und{" "}
+            <Link
+              href="/blog/ki-chatbot-website-kleine-unternehmen"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              KI-Chatbot für die Website
+            </Link>
+            .
           </p>
         </div>
       </div>

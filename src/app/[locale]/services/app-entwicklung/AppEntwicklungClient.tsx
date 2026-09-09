@@ -22,6 +22,7 @@ import type { AppProductId } from "@/config/app-packages";
 import { getYearsOfExperience } from "@/config/stats";
 import { sendGoogleEvent } from "@/utils/sendGoogleEvent";
 import { motion, useInView } from "framer-motion";
+import { Link } from "@/i18n/navigation";
 import { useLocale, useTranslations } from "next-intl";
 import type { LucideIcon } from "lucide-react";
 import {
@@ -549,6 +550,27 @@ export default function AppEntwicklungClient() {
             onTerminClick={() => handleCTAClick("contact_form")}
           />
         </motion.div>
+
+        {/* Weiterführende Beiträge – interne Verlinkung auf den Blog */}
+        <div className="w-full pb-16 md:pb-24 text-center">
+          <p className="text-muted-foreground">
+            Weiterlesen:{" "}
+            <Link
+              href="/blog/app-mit-ki-entwickeln-2026"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Apps mit KI entwickeln 2026
+            </Link>{" "}
+            und{" "}
+            <Link
+              href="/blog/flutter-app-entwickeln-lassen"
+              className="underline underline-offset-4 hover:text-foreground transition-colors"
+            >
+              Flutter-App entwickeln lassen: Ablauf, Kosten &amp; Zeit
+            </Link>
+            .
+          </p>
+        </div>
       </div>
     </div>
   );

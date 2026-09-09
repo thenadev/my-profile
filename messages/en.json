@@ -269,6 +269,11 @@
       "subheading": "Consulting, MVP development and delivery – from the idea to the finished app or website.",
       "more": "Learn more",
       "viewAll": "View all services",
+      "blogTeaser": {
+        "label": "From the blog:",
+        "kiHub": "AI for small businesses – 7 use cases",
+        "giessen": "Getting a website built in Gießen"
+      },
       "items": {
         "startupBeratung": {
           "title": "Startup Consulting",

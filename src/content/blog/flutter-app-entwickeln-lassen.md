@@ -2,7 +2,8 @@
 title: "Flutter-App entwickeln lassen: Ablauf, Kosten & Zeit"
 date: "2026-07-01"
 author: "Thomas Schwabauer"
-description: "Flutter-App entwickeln lassen: Ablauf, Kosten (MVP ca. 3.500–8.000 €) und Zeitrahmen (6–12 Wochen) – für iOS und Android aus einer Codebasis."
+metaTitle: "Flutter-App Kosten 2026: Preise, Ablauf & Dauer"
+description: "Was kostet eine Flutter-App? Beratung 80 €/h, App-MVP ca. 3.500–8.000 €, Dauer 6–12 Wochen – Ablauf und Preise, wenn Sie eine App entwickeln lassen."
 tldr:
   - "Flutter liefert iOS und Android aus einer Codebasis – das spart gegenüber zwei getrennten Apps Zeit und Geld."
   - "Einstieg ist ein Beratungsgespräch (80 €/h); ein App-MVP liegt typischerweise bei 3.500–8.000 €."
