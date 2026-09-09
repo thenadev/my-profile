@@ -27,6 +27,19 @@ const nextConfig = {
         destination: "/blog/flutter-vs-react-native-2025",
         permanent: true,
       },
+      {
+        // Keyword-Kannibalisierung: Der Blogbeitrag konkurrierte mit der
+        // lokalen Landingpage um dieselben Wetzlar-Queries (beide Pos. 30+).
+        // Signale werden auf /webdesign-wetzlar gebündelt.
+        source: "/blog/webdesign-wetzlar",
+        destination: "/webdesign-wetzlar",
+        permanent: true,
+      },
+      {
+        source: "/en/blog/webdesign-wetzlar",
+        destination: "/webdesign-wetzlar",
+        permanent: true,
+      },
     ];
   },
   async headers() {

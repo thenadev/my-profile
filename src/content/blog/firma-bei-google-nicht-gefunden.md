@@ -142,7 +142,7 @@ sie, oder ist sie veraltet und langsam, verschenken Sie Sichtbarkeit.
 
 **Lösung:** Sorgen Sie für eine schnelle, mobil optimierte Website mit Ort und
 Leistung in Titeln und Texten. Wie das für die Region konkret aussieht, lesen
-Sie unter [Webdesign Wetzlar](/blog/webdesign-wetzlar); ein praktisches Beispiel
+Sie unter [Webdesign Wetzlar](/webdesign-wetzlar); ein praktisches Beispiel
 aus dem Handwerk finden Sie unter
 [Website für Handwerker in Mittelhessen](/blog/website-handwerker-mittelhessen).
 

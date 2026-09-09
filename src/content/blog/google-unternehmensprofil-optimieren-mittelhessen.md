@@ -145,7 +145,7 @@ Website (Link im Profil). Halten Sie die **Daten gleich** (siehe NAP oben). Und
 bauen Sie auf der Website eine **lokale Landingpage** mit Ort und Leistung im
 Titel, etwa „Elektriker in Wetzlar". Wie regionale Websites aufgebaut sein sollten,
 zeige ich in
-[Webdesign Wetzlar](/blog/webdesign-wetzlar) und speziell für Betriebe im
+[Webdesign Wetzlar](/webdesign-wetzlar) und speziell für Betriebe im
 Handwerk in
 [Website für Handwerker in Mittelhessen](/blog/website-handwerker-mittelhessen).
 
