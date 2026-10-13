@@ -793,6 +793,7 @@
     "contactEmail": "Email",
     "vatIdTitle": "VAT ID",
     "country": "Germany",
+    "owner": "Owner:",
     "vatIdText": "VAT identification number according to § 27 a of the German VAT Act",
     "disclaimerTitle": "Disclaimer",
     "accountabilityForContentTitle": "Accountability for content",

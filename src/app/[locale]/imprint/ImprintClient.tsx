@@ -24,8 +24,8 @@ const ImprintPage: React.FC = () => {
                 {t("informationSectionTitle")}
               </h2>
               <p className="mb-4 text-gray-200">
-                {siteConfig.authorName} <br />
-                {/* {siteConfig.companyName} <br /> */}
+                {siteConfig.companyName} <br />
+                {t("owner")} {siteConfig.authorName} <br />
                 {siteConfig.streetAddress} <br />
                 {siteConfig.city}, {siteConfig.zipCode} <br />
                 {t("country")}
