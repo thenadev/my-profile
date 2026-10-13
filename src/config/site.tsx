@@ -7,7 +7,7 @@ export const siteConfig = {
   contactPhone: "+4917656120050",
   contactPhoneDisplay: "+49 176 56120050",
   contactEmail: "email@thomas-schwabauer.de",
-  vatId: "TODO",
+  vatId: "DE370573963",
   links: {
     homepage: "https://thomas-schwabauer.de",
     github: "https://github.com/thenadev",
