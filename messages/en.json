@@ -1,8 +1,6 @@
 {
   "Navbar": {
     "home": "Home",
-    "preisrechner": "Price Calculator",
-    "services": "Services",
     "about": "About",
     "work": "Work",
     "projects": "Projects",
@@ -10,36 +8,29 @@
     "contact": "Contact",
     "contactCta": "Get in touch",
     "close": "Close menu",
-    "startupBeratung": "Startup Consulting",
-    "appEntwicklung": "App Development",
-    "unternehmenswebsite": "Business Website",
     "switchToGerman": "Switch to German",
-    "switchToEnglish": "Switch to English",
-    "blog": "Blog"
+    "switchToEnglish": "Switch to English"
   },
   "Footer": {
     "privacy": "Privacy Policy",
     "imprint": "Imprint",
     "contact": "Contact",
-    "blog": "Blog",
     "language": "Language",
     "language_en": "English",
     "language_de": "German",
     "about": "About",
-    "services": "Services",
     "documents": "Documents",
     "email": "Email",
     "allRightsReserved": "All rights reserved",
-    "fullstackDeveloper": "Fullstack Developer & Freelancer",
-    "location": "from Wetzlar, Germany",
-    "specialization": "Specialized in modern web technologies and innovative solutions",
-    "webdesignWetzlar": "Webdesign Wetzlar"
+    "fullstackDeveloper": "Freelance Senior Fullstack Developer",
+    "specialization": "Web, mobile and backend for projects remote or on site",
+    "thenadevHint": "Websites, software and AI for businesses:"
   },
   "Home": {
     "Hero": {
       "introText": "Hi, I'm",
       "title": "Thomas Schwabauer",
-      "subtitle": "Freelance Fullstack Developer & Web Design from Wetzlar",
+      "subtitle": "Freelance Senior Fullstack & Flutter Developer for your project – remote or on site",
       "description": "I build performant web and mobile applications with modern technologies.",
       "technologiesTitle": "Technologies",
       "projectStartButton": "Start Project",
@@ -54,12 +45,12 @@
     },
     "About": {
       "badge": "About me",
-      "title": "Your Partner for Digital Solutions",
-      "description": "Passionate freelancer with focus on modern web technologies and user-centered design.",
+      "title": "A Freelancer for Your Development Project",
+      "description": "I join teams as a freelance senior developer – from frontend and backend to mobile apps.",
       "name": "Thomas Schwabauer",
-      "role": "Fullstack Developer & UI/UX Designer",
+      "role": "Freelance Senior Fullstack Developer",
       "location": "📍 Germany, Wetzlar • 🌐 Remote available",
-      "bio": "With over {years} years of experience in web development, I help companies strengthen their digital presence. My passion lies in developing performant, user-friendly applications that create real value.",
+      "bio": "With over {years} years of experience in software development, I support companies and teams as a freelancer on their projects. I get up to speed quickly in existing codebases and deliver performant, maintainable web and mobile applications.",
       "skillsTitle": "Core Competencies",
       "skills": {
         "reactNextjs": "React & Next.js",
@@ -72,19 +63,19 @@
       "services": {
         "webDevelopment": {
           "title": "Web Development",
-          "description": "Modern, responsive web applications with React and Next.js"
+          "description": "Web applications with React, Next.js and Angular"
         },
-        "uiuxDesign": {
-          "title": "UI/UX Design",
-          "description": "User-friendly interfaces that inspire"
+        "appDevelopment": {
+          "title": "App Development",
+          "description": "Mobile apps for iOS and Android with Flutter"
         },
-        "performanceOptimization": {
-          "title": "Performance Optimization",
-          "description": "Fast, search engine optimized websites"
+        "backend": {
+          "title": "Backend & APIs",
+          "description": "Java/Spring Boot, Kotlin and Node.js"
         },
         "consulting": {
-          "title": "Consulting",
-          "description": "Strategic digital consulting for your company"
+          "title": "Architecture & Consulting",
+          "description": "Technical design and code reviews within your team"
         }
       },
       "stats": {
@@ -251,7 +242,6 @@
     "title": "Freelance Fullstack Developer",
     "location": "Wetzlar, Germany",
     "contact": "Contact",
-    "priceCalculator": "Price Calculator",
     "learnMore": "Learn More",
     "orb_1": "Kotlin is a concise, modern programming language for Android and Java development.",
     "orb_2": "Docker simplifies creating, deploying, and running applications using containers.",
@@ -263,31 +253,10 @@
     "orb_8": "Flutter allows building natively compiled applications for mobile, web, and desktop.",
     "orb_9": "Java is a versatile, high-level programming language widely used for cross-platform development.",
     "orb_10": "Spring Boot simplifies building production-ready Java applications with minimal configuration.",
-    "ServicesTeaser": {
-      "eyebrow": "Services",
-      "heading": "How I can help you",
-      "subheading": "Consulting, MVP development and delivery – from the idea to the finished app or website.",
-      "more": "Learn more",
-      "viewAll": "View all services",
-      "blogTeaser": {
-        "label": "From the blog:",
-        "kiHub": "AI for small businesses – 7 use cases",
-        "giessen": "Getting a website built in Gießen"
-      },
-      "items": {
-        "startupBeratung": {
-          "title": "Startup Consulting",
-          "description": "Book a session (€80/h), describe your idea – 1h call, then a written implementation plan including a cost estimate. MVP & feature development."
-        },
-        "appEntwicklung": {
-          "title": "App Development",
-          "description": "Flutter apps for Android & iOS. Consulting, MVP delivery or feature and bug development for existing apps."
-        },
-        "unternehmenswebsite": {
-          "title": "Business Website",
-          "description": "Professional websites from Wetzlar – modern, responsive and SEO-optimised. From basic to e-commerce."
-        }
-      }
+    "ThenaDevHint": {
+      "label": "Note on ThenaDev",
+      "text": "Looking for a website, software or AI solution for your business? I offer that through my agency:",
+      "linkText": "ThenaDev"
     }
   },
   "About": {
@@ -587,167 +556,6 @@
   "Work": {
     "title": "My professional journey"
   },
-  "Services": {
-    "title": "Service Packages",
-    "websiteDescription": "Your new website: fast, beautiful, and perfectly tailored to your target audience.",
-    "appDescription": "Discover how we transform your vision into impressive apps.",
-    "wordPressDescription": "From installation to optimization: Everything from a single source for your WordPress site.",
-    "unternehmenswebsite": {
-      "title": "Corporate Website",
-      "description": "Professional corporate websites - modern, responsive and SEO-optimized, built individually for your company",
-      "benefitsTitle": "Your Benefits",
-      "benefits": {
-        "modernDesign": "Modern Web Designs",
-        "responsiveDesign": "Responsive Design",
-        "seoOptimized": "SEO-Optimized",
-        "localExpertise": "Local Expertise"
-      },
-      "packagesTitle": "Our Packages",
-      "packages": {
-        "basic": "Basic Website from €1,200",
-        "professional": "Professional Website from €3,500",
-        "ecommerce": "E-Commerce Website from €8,000"
-      }
-    },
-    "freelance": {
-      "title": "Professional Support on a Project Basis",
-      "description": "As a versatile freelancer, I bring not only technical expertise but also strong communication and adaptability skills. Whether it's developing modern websites, optimizing existing systems, or implementing creative solutions – I deliver results-oriented and efficient work.",
-      "skillsTitle": "My Key Strengths at a Glance",
-      "skills": {
-        "communication": "Excellent communication skills: Clear, precise, and client-oriented",
-        "adaptability": "High adaptability: Flexible solutions for individual requirements",
-        "skillset": "Broad skillset: From frontend development to performance optimization"
-      },
-      "benefitsTitle": "Benefits for Your Business",
-      "benefits": {
-        "fastDelivery": "Quick implementation and on-time delivery",
-        "creativeSolutions": "Tailored and creative solutions for your projects",
-        "costEfficiency": "Cost-efficient results without compromising quality"
-      }
-    },
-    "websiteRedesign": {
-      "title": "Web Redesign, UX & SEO Optimization",
-      "technologiesTitle": "Technologies:",
-      "technologies": {
-        "angular": "Angular – Modern framework for dynamic web applications",
-        "react": "React.js – Component-based UI development",
-        "next": "Next.js – Server-side rendering and SEO optimization",
-        "nest": "Nest.js – High-performance backend for modern applications",
-        "typescript": "TypeScript – Type-safe JavaScript for reliable code",
-        "google": "Google Analytics – Analysis of user behavior and performance",
-        "hotjar": "Hotjar – Heatmaps and user recordings for better UX",
-        "semrush": "SEMrush – All-in-one SEO and content marketing tool",
-        "mailchimp": "Mailchimp – Email marketing and automation"
-      },
-      "conclusion": "Here are some before-and-after images; hover over the images to see the old design.",
-      "description": "With my Web Redesign, UX & SEO Optimization package, I breathe new life into your website. I modernize your existing site, make it more visually appealing, and improve user experience (UX). My goal is to design user navigation so that your visitors can intuitively and quickly find the content they need. Through clear structures, appealing design, and well-thought-out navigation, I ensure that users feel comfortable on your site and achieve their goals efficiently.",
-      "description2": "Additionally, I optimize search engine friendliness (SEO) to make your site more visible in search results. This increases your reach and helps you target your audience effectively. I also use heatmaps to continuously analyze user behavior. These allow me to see which areas of your site are heavily used and where users might encounter difficulties. Based on these insights, I continuously adapt the site to provide an optimal user experience.",
-      "description3": "Through targeted measures, I not only enhance the attractiveness of your site but also its discoverability and customer satisfaction – for long-term online success.",
-      "keyBenefits": "Key Benefits for Your Business",
-      "benefits": {
-        "design": "Modern, contemporary, and professional design that perfectly represents your brand.",
-        "collaboration": "Long-term collaboration for continuous updates and adjustments.",
-        "cms": "Integration of a",
-        "cmsTooltipLabel": "CMS",
-        "cmsTooltipLabel2": "system, enabling you to independently customize your website content without programming knowledge.",
-        "cmsTooltip1": "A CMS like ",
-        "cmsTooltip2": "FireCMS",
-        "cmsTooltip3": "or",
-        "cmsTooltip4": "Storyblok",
-        "cmsTooltip5": "allows you to easily add, edit, update, and publish content – all without programming knowledge."
-      },
-      "beforeImageAlt": "Previous Design",
-      "afterImageAlt": "Updated Design",
-      "arrowTooltip": "Transformation to a modern design",
-      "testimonial": {
-        "text": "Thanks to the redesign, our website now has a completely new look, and our customers interact much more frequently with our offerings. The collaboration was professional and efficient.",
-        "author": "– Amsel UG"
-      }
-    },
-    "appDevelopment": {
-      "title": "Mobile App Development",
-      "whyChooseMe": "I offer both hybrid app development with Flutter and native Android development. Using modern technologies and tailored solutions, I enable you to reach your audience across multiple platforms – efficiently and effectively.",
-      "benefitsTitle": "Your Key Advantages at a Glance",
-      "exampleDesigns": "Example Designs",
-      "intro": {
-        "androidTitle": "Android Automotive",
-        "androidDescription1": "With years of experience in mobile app development, I help businesses create modern and high-performance applications. My work includes native ",
-        "androidDescription2": "Android Automotive apps",
-        "androidDescription3": " for renowned brands like ",
-        "androidDescription4": "Porsche",
-        "androidDescription5": " and ",
-        "androidDescription6": "Audi",
-        "androidDescription7": " that meet the highest standards for performance and user experience.",
-        "androidDescription8": "",
-        "androidTechnologiesTitle": "Technologies:",
-        "androidTechnologies": {
-          "gradle": "Gradle – Build management tool",
-          "daggerHilt": "Dependency Injection – Dagger & Hilt",
-          "koin": "Dependency Injection – Koin",
-          "animations": "Custom Animations – User-defined animations",
-          "ui": "UI Development – Jetpack Compose"
-        },
-        "flutterTitle": "Flutter Development",
-        "flutterDescription1": "In addition, I have developed ",
-        "flutterDescription2": "Flutter",
-        "flutterDescription3": " hybrid apps that run across Android and iOS. A highlight is the app for the consensus procedure of an HPV study, as well as projects like the ",
-        "flutterDescription4": "Amsel App",
-        "flutterDescription5": " and BodyForge, which I fully implemented. These applications combine intuitive user interfaces, modern design, and technically advanced features.",
-        "flutterTechnologiesTitle": "Technologies:",
-        "flutterTechnologies": {
-          "routing": "Routing – GoRouter & auto_route",
-          "state": "State Management – BLoC Pattern",
-          "animations": "Custom Animations – User-defined animations",
-          "dj": "Dependency Injection – get_it & Provider"
-        },
-        "conclusion": "Let’s work together to transform your vision into an app that excites your audience and drives your business forward."
-      },
-      "examples": "Examples of My Work",
-      "screenshot": {
-        "amselAppLogin": "Amsel App – Login Screen",
-        "amselAppCheckout": "Amsel App – Payment Screen",
-        "amselAppSettings": "Amsel App – Settings Screen",
-        "bodyForgeDashboard": "BodyForge – Dashboard",
-        "bodyForgeWorkout": "BodyForge – Workout Tracking",
-        "bodyForgeNutrition": "BodyForge – Nutrition Tracking"
-      },
-      "benefit": {
-        "hybridDevelopment": "Hybrid development with Flutter – one app, multiple platforms.",
-        "nativeDevelopment": "Native Android development for optimal performance and hardware access.",
-        "fastPerformance": "Fast loading times and powerful features for exceptional user experiences.",
-        "scalableArchitecture": "Scalable and maintainable architecture – ready for the future.",
-        "modernIntegration": "Integration of modern features such as push notifications and APIs.",
-        "userFocus": "Focus on intuitive designs for maximum user satisfaction."
-      }
-    },
-    "wordpressDevelopment": {
-      "title": "WordPress Development",
-      "description3": "Let’s elevate your WordPress website to the next level – for better performance, more visitors, and satisfied customers. Contact me now!",
-      "description": "I help you turn your WordPress website into an impressive and powerful tool for your business. From customized designs to the integration of popular plugins – my expertise ensures results that will amaze you.",
-      "popularPluginsTitle": "Popular Plugins I Integrate for You",
-      "keyBenefitsTitle": "Benefits for Your Business",
-      "popularPlugins": {
-        "yoast": "Yoast SEO – Optimization for better rankings",
-        "woocommerce": "WooCommerce – Comprehensive e-commerce solutions",
-        "sliderRevolution": "Slider Revolution – Visually appealing sliders",
-        "contactForm": "Contact Form 7 – Simple and effective contact forms"
-      },
-      "keyBenefits": {
-        "optimizedTemplates": "+50% faster loading times through optimized templates",
-        "betterSEO": "+70% better SEO rankings through intelligent plugin integration",
-        "responsiveDesigns": "+30% conversion rate increase with responsive and modern designs"
-      }
-    },
-    "close": "Close",
-    "learnMore": "Learn More",
-    "before": "Before",
-    "after": "After",
-    "keyBenefits": "Your Benefits",
-    "benefitsNumbers": "Benefits in Numbers",
-    "exampleDesigns": "Example Designs",
-    "beforeImageAlt": "Before image of the website",
-    "afterImageAlt": "After image of the website"
-  },
   "Privacy": {
     "title": "Privacy Policy",
     "introductionTitle": "Introduction",
@@ -824,774 +632,34 @@
     "goHome": "Go to homepage",
     "contact": "Get in touch",
     "popularPages": "Popular pages",
-    "webdesign": "Web design",
     "aboutMe": "About me",
-    "imageAlt": "Portrait of Thomas Schwabauer for 404 page"
+    "imageAlt": "Portrait of Thomas Schwabauer for 404 page",
+    "documents": "Resume & documents"
   },
   "Meta": {
     "home": {
-      "title": "Thomas Schwabauer - Fullstack Developer from Wetzlar",
-      "description": "Senior fullstack developer & freelancer from Wetzlar, Germany. React.js | Flutter | Angular | Java | Specialized in web & mobile development."
+      "title": "Thomas Schwabauer – Freelance Senior Fullstack & Flutter Developer",
+      "description": "Freelance senior fullstack developer for projects remote or on site: React, Next.js, Angular, Flutter, Java/Spring Boot and Kotlin. Career, projects and contact."
     },
     "about": {
       "title": "About Me - Background & Expertise",
       "description": "Senior fullstack developer experienced in React, Flutter and Angular. My background, projects and way of working."
     },
-    "services": {
-      "title": "Web Design, Apps & Startup Consulting",
-      "description": "Web design, app development and technical startup consulting from Wetzlar, Germany - personal, transparent and fixed-price. Find the right service package."
-    },
-    "servicesUnternehmenswebsite": {
-      "title": "Business Website Development – Fixed Price",
-      "description": "Have your business website built directly by the developer: individually coded, fast and SEO-optimised. Transparent fixed price incl. design, development & hosting."
-    },
-    "servicesAppEntwicklung": {
-      "title": "Flutter App Development - iOS & Android",
-      "description": "App development with Flutter, from Wetzlar, Germany: native iOS and Android apps from one codebase - from MVP to launch. Get in touch for a free quote!"
-    },
-    "servicesStartupBeratung": {
-      "title": "Startup Consulting - MVP Development",
-      "description": "Technical startup consulting for founders: MVP development, tech stack decisions and a clear roadmap - hands-on and transparent. Book your session today!"
-    },
     "contact": {
       "title": "Contact - Start Your Project",
-      "description": "Have a project in mind? Contact me for web development, app development or startup consulting - reply within 24 hours."
-    },
-    "blog": {
-      "title": "Blog - Web Development, Apps & Tech",
-      "description": "Articles on web development, mobile apps, Flutter, React and software architecture - from the practice of a fullstack developer."
+      "description": "Have a project in mind? Get in touch about a freelance engagement in web, app or backend development – reply within 24 hours."
     },
     "documents": {
       "title": "Documents & Downloads",
-      "description": "CV, references and certificates of Thomas Schwabauer, fullstack developer from Wetzlar, Germany - available for download as PDF, compact and clearly arranged."
+      "description": "CV, references and certificates of Thomas Schwabauer, freelance senior fullstack developer – available for download as PDF, compact and clearly arranged."
     },
     "imprint": {
       "title": "Imprint",
-      "description": "Imprint and provider identification of Thomas Schwabauer, fullstack developer from Wetzlar, Germany - including contact details, VAT ID and legal notices."
+      "description": "Imprint and provider identification of thomas-schwabauer.de – including contact details, VAT ID and legal notices."
     },
     "privacy": {
       "title": "Privacy Policy",
       "description": "Privacy policy of thomas-schwabauer.de: information on the processing of personal data, cookies, Google Analytics and your rights as a user of this website."
-    }
-  },
-  "ServicesOverview": {
-    "hero": {
-      "badge": "Services",
-      "headline": "Web Design, App Development & Startup Consulting",
-      "subheadline": "From the startup idea to apps and business websites – consulting, MVP development and expansion from a single source.",
-      "ctaPrimary": "View services",
-      "ctaSecondary": "Contact",
-      "badges": [
-        "Startup consulting €80/h",
-        "Flutter apps for Android & iOS",
-        "Web design Wetzlar"
-      ],
-      "cards": {
-        "services": {
-          "value": "3 services",
-          "label": "Consulting · Apps · Web"
-        },
-        "projects": "Projects",
-        "experience": {
-          "value": "{years} years",
-          "label": "Experience"
-        }
-      },
-      "benefitsTitle": "What you get with me:",
-      "benefits": [
-        {
-          "title": "Startup Consulting",
-          "desc": "Implementation plan incl. cost estimate"
-        },
-        {
-          "title": "App Development",
-          "desc": "Flutter for Android & iOS"
-        },
-        {
-          "title": "Business Website",
-          "desc": "Web design from Wetzlar"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Quick navigation",
-      "heading": "Where would you like to go?",
-      "subheading": "Jump to the services, or to About and Contact.",
-      "jumpTo": "Jump to {label}",
-      "goTo": "Go to {label}",
-      "items": {
-        "offers": {
-          "label": "Services",
-          "description": "All services at a glance"
-        },
-        "about": {
-          "label": "About",
-          "description": "More about me and my experience"
-        },
-        "contact": {
-          "label": "Contact",
-          "description": "Get in touch"
-        }
-      }
-    },
-    "grid": {
-      "badge": "Services",
-      "heading": "My Services",
-      "subheading": "From the startup idea to apps and business websites – consulting, MVP development and expansion from a single source."
-    },
-    "more": "Learn more",
-    "cards": {
-      "startupBeratung": {
-        "title": "Startup Consulting",
-        "badge": "Consulting & delivery",
-        "description": "Describe your idea, book a session (€80/h) – 1h call, then a written implementation plan including a cost estimate. MVP and feature development to follow.",
-        "features": [
-          "€80/h consulting",
-          "Implementation plan + cost estimate",
-          "MVP from €2,500"
-        ]
-      },
-      "appEntwicklung": {
-        "title": "App Development",
-        "badge": "Flutter · Android & iOS",
-        "description": "Flutter apps for Android & iOS from a single codebase. Consulting call, MVP delivery or feature and bug development for existing apps.",
-        "features": [
-          "Consulting €80/h",
-          "MVP with Flutter",
-          "Features & bugs"
-        ]
-      },
-      "unternehmenswebsite": {
-        "title": "Business Website",
-        "badge": "Web design Wetzlar",
-        "description": "Professional business websites from Wetzlar – modern, responsive and SEO-optimised web design for your company.",
-        "features": [
-          "Basic from €1,200",
-          "Professional from €3,500",
-          "E-commerce from €8,000"
-        ]
-      }
-    },
-    "why": {
-      "badge": "Why me?",
-      "heading": "One point of contact for consulting, apps and web",
-      "subheading": "Personal, local and focused on your goals.",
-      "items": {
-        "consulting": {
-          "title": "Consulting before delivery",
-          "desc": "Discuss your idea, get a plan – then you decide."
-        },
-        "oneStop": {
-          "title": "One point of contact",
-          "desc": "Idea, app and website – from a single source."
-        },
-        "local": {
-          "title": "Local contact",
-          "desc": "From Wetzlar, for Central Hesse and beyond."
-        },
-        "personal": {
-          "title": "Personal communication",
-          "desc": "A direct line, no agency filter."
-        }
-      }
-    },
-    "finalCta": {
-      "heading": "Any questions?",
-      "subheading": "Feel free to get in touch – I'll respond promptly.",
-      "button": "Get in touch"
-    }
-  },
-  "AppEntwicklung": {
-    "hero": {
-      "badge": {
-        "label": "App Development",
-        "tag": "Flutter · Android & iOS"
-      },
-      "headline": "App development with Flutter for Android & iOS",
-      "subheadline": "Consulting call, MVP delivery or feature/bug development – one codebase for both platforms.",
-      "ctaPrimary": "Book a consulting call (€80/h)",
-      "ctaSecondary": "How it works",
-      "badges": {
-        "codebase": "Flutter – one codebase",
-        "platforms": "Android & iOS",
-        "experience": "{years} years of experience"
-      },
-      "cards": {
-        "projects": "Projects",
-        "satisfaction": "Satisfaction",
-        "role": {
-          "value": "App development",
-          "label": "{years} years"
-        }
-      },
-      "benefitsTitle": "What you get from me:",
-      "benefits": [
-        {
-          "title": "Consulting call",
-          "desc": "Clarify the idea, tech (Flutter)"
-        },
-        {
-          "title": "MVP delivery",
-          "desc": "Android & iOS from one codebase"
-        },
-        {
-          "title": "Feature & bug",
-          "desc": "Extension and maintenance"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Quick navigation",
-      "heading": "What would you like to do?",
-      "subheading": "Jump to pricing, process, booking or FAQ.",
-      "jumpTo": "Jump to {label}",
-      "items": {
-        "prices": {
-          "label": "Prices & packages",
-          "description": "Consulting €80/h, MVP, feature/bug"
-        },
-        "process": {
-          "label": "Process",
-          "description": "How it works in 3 steps"
-        },
-        "booking": {
-          "label": "Book a call",
-          "description": "Describe your request and arrange a consulting call"
-        },
-        "faq": {
-          "label": "FAQ",
-          "description": "Flutter, process, costs, MVP"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "For whom?",
-        "heading": "For founders and companies that need an app",
-        "subheading": "Whether an app idea, an MVP with Flutter or extending an existing app – I develop for Android and iOS from one codebase."
-      },
-      "packages": {
-        "heading": "Consulting, MVP and feature/bug development",
-        "subheading": "Entry point: consulting call (€80/h). Then an MVP with Flutter for Android & iOS or targeted feature/bug development.",
-        "badges": {
-          "popular": "Most popular",
-          "cheapest": "Cheapest entry",
-          "new": "New"
-        },
-        "individual": "Individual",
-        "delivery": "Delivery: {weeks}",
-        "idealFor": "Ideal for:"
-      },
-      "process": {
-        "badge": "How it works",
-        "heading": "How we work together",
-        "subheading": "Describe your idea/request, book a call – I prepare. Then the consulting call; optionally an MVP or feature/bug development.",
-        "steps": [
-          {
-            "title": "Describe your idea & book a call",
-            "desc": "You describe in the form what you need – I read up. That way we make the most of the call."
-          },
-          {
-            "title": "Consulting call",
-            "desc": "We discuss the technical implementation: Flutter, Android & iOS, feasibility and next steps."
-          },
-          {
-            "title": "Optional: MVP or feature/bug",
-            "desc": "After the call we can start directly with MVP delivery or tackle specific features and bugs."
-          }
-        ]
-      },
-      "why": {
-        "heading": "Why app development with Flutter?",
-        "subheading": "One codebase for Android and iOS – faster and more cost-effective than two separate apps. I consult and implement.",
-        "items": [
-          {
-            "title": "One codebase – two platforms",
-            "desc": "Flutter: one codebase for Android and iOS. Less effort, consistent behaviour and design."
-          },
-          {
-            "title": "Consulting with preparation",
-            "desc": "You describe your request in advance – I prepare. The call goes into depth."
-          },
-          {
-            "title": "MVP or targeted extension",
-            "desc": "Either a complete app MVP or targeted feature and bug development for existing apps."
-          },
-          {
-            "title": "Experience in Flutter",
-            "desc": "{years} years of implementation experience – realistic estimates and clean architecture."
-          }
-        ]
-      }
-    },
-    "form": {
-      "badge": "Book a call",
-      "heading": "Describe your request & arrange a call",
-      "subheading": "Describe your app idea or request – I prepare. Consulting call €80/h. Then optionally an MVP or feature/bug development.",
-      "cardTitle": "Request an appointment",
-      "cardNote": "All fields marked * are required. Your details are treated confidentially.",
-      "fields": {
-        "name": "Name *",
-        "email": "Email *",
-        "phone": "Phone *",
-        "product": "What would you like to enquire about? *",
-        "productPlaceholder": "Please choose..."
-      },
-      "options": {
-        "app_beratung": "Consulting call (€80/h) – book a slot",
-        "app_mvp": "Request MVP delivery",
-        "app_feature_bug": "Request feature & bug development"
-      },
-      "idea": {
-        "label": "Your idea / your request",
-        "placeholder": "Briefly describe your app idea, your project or what you need. That helps me prepare for the call."
-      },
-      "privacy": {
-        "before": "I agree to the",
-        "link": "privacy policy",
-        "after": ". *"
-      },
-      "submit": "Send request",
-      "submitting": "Sending...",
-      "errors": {
-        "name": "Please enter your name",
-        "email": "Invalid email address",
-        "phone": "Please enter your phone number",
-        "product": "Please choose an option",
-        "idea": "Please describe your idea or request (at least 10 characters)",
-        "privacy": "You must agree to the privacy policy"
-      },
-      "dialog": {
-        "successTitle": "Request sent",
-        "successMessage": "Thank you! I've received your message and will get back to you shortly.",
-        "errorTitle": "Error",
-        "errorMessage": "The request could not be sent. Please try again or contact me by email.",
-        "close": "Close"
-      }
-    },
-    "finalCta": {
-      "heading": "Ready for your app with Flutter?",
-      "subheading": "Book a consulting call (€80/h), describe your request – then optionally an MVP or feature/bug development for Android & iOS.",
-      "button": "Book a consulting call (€80/h)",
-      "trust": {
-        "platforms": "Flutter – Android & iOS",
-        "experience": "{years} years of experience",
-        "satisfaction": "{percent}% satisfaction",
-        "fast": "Fast scheduling"
-      }
-    },
-    "faq": {
-      "heading": "Frequently asked questions",
-      "subheading": "Answers about Flutter, process, costs and MVP."
-    }
-  },
-  "StartupBeratung": {
-    "hero": {
-      "badge": {
-        "label": "Startup Consulting",
-        "tag": "€80/h"
-      },
-      "headline": "Startup consulting: an implementation plan in 1 hour",
-      "subheadline": "You describe your idea in advance – I prepare. A 1h call on the technical implementation, then a written implementation plan including a cost estimate.",
-      "ctaPrimary": "Book a slot (€80/h)",
-      "ctaSecondary": "How the consulting works",
-      "badges": {
-        "price": "€80/h – 1 hour",
-        "plan": "Written plan incl. cost estimate",
-        "experience": "{years} years of experience"
-      },
-      "cards": {
-        "projects": "Projects",
-        "satisfaction": "Satisfaction",
-        "role": {
-          "value": "Startup consulting",
-          "label": "{years} years"
-        }
-      },
-      "benefitsTitle": "What you get from me:",
-      "benefits": [
-        {
-          "title": "Describe your idea",
-          "desc": "In the form – I prepare accordingly"
-        },
-        {
-          "title": "1h call",
-          "desc": "Video call or phone"
-        },
-        {
-          "title": "Implementation plan",
-          "desc": "Written, incl. cost estimate"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Quick navigation",
-      "heading": "What would you like to do?",
-      "subheading": "Jump straight to pricing, process, booking or FAQ.",
-      "jumpTo": "Jump to {label}",
-      "items": {
-        "prices": {
-          "label": "Prices & packages",
-          "description": "Consulting €80/h, MVP, feature extension"
-        },
-        "process": {
-          "label": "Process",
-          "description": "How the consulting works in 3 steps"
-        },
-        "booking": {
-          "label": "Book a slot",
-          "description": "Describe your idea and arrange a slot (€80/h)"
-        },
-        "faq": {
-          "label": "FAQ",
-          "description": "Answers about process, costs and the implementation plan"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "For whom?",
-        "heading": "For founders and companies with ideas",
-        "subheading": "Whether a first idea, MVP planning or extending existing software – I support you with technical consulting and implementation."
-      },
-      "packages": {
-        "heading": "Consulting, MVP and feature extension",
-        "subheading": "A clear entry point: 1h consulting (€80) incl. a written implementation plan. Then an MVP or features for existing products.",
-        "badges": {
-          "popular": "Most popular",
-          "cheapest": "Cheapest entry",
-          "new": "New"
-        },
-        "individual": "Individual",
-        "delivery": "Delivery: {weeks}",
-        "idealFor": "Ideal for:"
-      },
-      "process": {
-        "badge": "How the consulting works",
-        "heading": "How we work together",
-        "subheading": "Describe your idea, book a slot – I prepare. Then a 1h call and a written plan incl. cost estimate.",
-        "steps": [
-          {
-            "title": "Describe your idea & book a slot",
-            "desc": "You describe your idea in the form – I read up and prepare for the call. That way we make the most of the hour."
-          },
-          {
-            "title": "1h call",
-            "desc": "We spend an hour on the technical implementation of your idea: what makes sense, what is feasible, which steps come first."
-          },
-          {
-            "title": "Written plan",
-            "desc": "After the call you receive an implementation plan incl. cost estimate. The next step can then be MVP development."
-          }
-        ]
-      },
-      "why": {
-        "heading": "Why startup consulting with me?",
-        "subheading": "I prepare for your idea and focus the hour on tech and implementation – not a generic chat.",
-        "items": [
-          {
-            "title": "Preparation for your idea",
-            "desc": "You describe the idea in advance – I read up. In the hour we go straight into depth."
-          },
-          {
-            "title": "Focus on tech & implementation",
-            "desc": "An hour just for your idea: what's technically needed, in which order, what it costs."
-          },
-          {
-            "title": "Written plan",
-            "desc": "After the call you receive an implementation plan with a cost estimate as a basis for your decision."
-          },
-          {
-            "title": "Clear cost estimate",
-            "desc": "Over {years} years of implementation experience – realistic estimates, no empty promises."
-          }
-        ]
-      }
-    },
-    "form": {
-      "badge": "Book a slot",
-      "heading": "Describe your idea & arrange a slot",
-      "subheading": "Describe your idea – I prepare. Consulting slot €80/h (1 hour). Afterwards you receive a written implementation plan incl. cost estimate.",
-      "cardTitle": "Request an appointment",
-      "cardNote": "All fields marked * are required. Your idea is treated confidentially.",
-      "fields": {
-        "name": "Name *",
-        "email": "Email *",
-        "phone": "Phone *",
-        "product": "What would you like to enquire about? *",
-        "productPlaceholder": "Please choose..."
-      },
-      "options": {
-        "beratung": "Startup consulting (€80/h) – book a slot",
-        "mvp": "Request MVP development",
-        "feature": "Request feature extension"
-      },
-      "idea": {
-        "label": "Your idea / your project",
-        "placeholder": "Briefly describe your idea, your product or what you want to build. That helps me prepare for the call."
-      },
-      "privacy": {
-        "before": "I agree to the",
-        "link": "privacy policy",
-        "after": ". *"
-      },
-      "submit": "Send request",
-      "submitting": "Sending...",
-      "errors": {
-        "name": "Please enter your name",
-        "email": "Invalid email address",
-        "phone": "Please enter your phone number",
-        "product": "Please choose an option",
-        "idea": "Please describe your idea (at least 10 characters)",
-        "privacy": "You must agree to the privacy policy"
-      },
-      "dialog": {
-        "successTitle": "Request sent",
-        "successMessage": "Thank you! I've received your idea and contact details and will get back to you shortly to arrange an appointment.",
-        "errorTitle": "Error",
-        "errorMessage": "The request could not be sent. Please try again or contact me by email.",
-        "close": "Close"
-      }
-    },
-    "finalCta": {
-      "heading": "Ready to turn your idea into a plan?",
-      "subheading": "Book a slot (€80/h), describe your idea – after the call you receive a written implementation plan incl. cost estimate.",
-      "button": "Book a slot (€80/h)",
-      "trust": {
-        "experience": "{years} years of experience",
-        "plan": "Written implementation plan",
-        "satisfaction": "{percent}% satisfaction",
-        "fast": "Fast scheduling"
-      }
-    },
-    "faq": {
-      "heading": "Frequently asked questions",
-      "subheading": "Answers about the process, costs, the implementation plan and next steps."
-    }
-  },
-  "Unternehmenswebsite": {
-    "hero": {
-      "badge": {
-        "label": "Straight from the developer – no agency",
-        "regions": "Fixed price • Custom-built • GDPR-compliant"
-      },
-      "texts": [
-        {
-          "headline": "Your business website – straight from the developer",
-          "subheadline": "Let's talk in person – I capture what you need and build a website that truly fits you."
-        },
-        {
-          "headline": "No idea about the tech?",
-          "subheadline": "No problem. I take care of it – you tell me what you need, I build your website."
-        },
-        {
-          "headline": "Small business – still professionally online?",
-          "subheadline": "Yes. I tailor the website to you – no standard package, exactly what you need. I handle the tech and the implementation."
-        }
-      ],
-      "subtitle": "As a fullstack developer I build tailor-made business websites that not only look good but also bring in new customers.",
-      "cta": "Book a free initial consultation",
-      "trustBadges": {
-        "consultation": "Free on-site initial consultation",
-        "offer": "No-obligation quote",
-        "experience": "{years} years of experience"
-      },
-      "cards": {
-        "projects": "Projects",
-        "satisfaction": "Satisfaction",
-        "role": {
-          "value": "Web designer",
-          "label": "{years} years"
-        }
-      },
-      "benefitsTitle": "What you get from me:",
-      "benefits": [
-        {
-          "title": "Personal consulting",
-          "desc": "By video call or in person"
-        },
-        {
-          "title": "Tailor-made",
-          "desc": "Tailored to your business"
-        },
-        {
-          "title": "Fast delivery",
-          "desc": "Your website live in 2–4 weeks"
-        }
-      ],
-      "imageAlt": "Thomas Schwabauer – fullstack developer for business websites"
-    },
-    "quickNav": {
-      "badge": "Quick navigation",
-      "heading": "What would you like to do?",
-      "subheading": "Jump straight to the information you need – without endless scrolling.",
-      "jumpTo": "Jump to {label}",
-      "items": {
-        "prices": {
-          "label": "Prices & packages",
-          "description": "Overview of web design packages and investment"
-        },
-        "portfolio": {
-          "label": "Example websites",
-          "description": "View reference projects from clients"
-        },
-        "contact": {
-          "label": "Enquire now",
-          "description": "Book a free initial consultation"
-        },
-        "faq": {
-          "label": "FAQ",
-          "description": "Answers about duration, costs and process"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "For whom?",
-        "heading": "I support companies that want to become visible online",
-        "subheading": "Whether without a website, with an outdated presence or as a new founder – I build tailor-made websites for small companies and the self-employed."
-      },
-      "packages": {
-        "heading": "Web design packages for your business",
-        "subheading": "Transparent prices, clear deliverables – choose the package that fits your situation.",
-        "badges": {
-          "popular": "Most popular",
-          "cheapest": "Cheapest entry",
-          "new": "New"
-        },
-        "delivery": "Delivery: {weeks}",
-        "idealFor": "Ideal for:"
-      },
-      "why": {
-        "heading": "Why straight from the developer?",
-        "subheading": "Approachable, straightforward and focused on your result – that's how I work with you.",
-        "imageAlt": "Thomas Schwabauer – fullstack developer for business websites",
-        "items": [
-          {
-            "title": "Little effort – maximum result",
-            "desc": "You provide bullet points, logo and images – I take care of concept, design and implementation. High-quality output without project chaos."
-          },
-          {
-            "title": "One dedicated contact",
-            "desc": "You talk directly to the person who builds your website – no anonymous provider and no rotating project managers. Over {years} years of experience."
-          },
-          {
-            "title": "Fast delivery",
-            "desc": "Live in 2–4 weeks – without you having to spend weeks on it. You give feedback, I do the rest."
-          },
-          {
-            "title": "Revisions until it fits",
-            "desc": "I refine the result until it fits you 100%. No sign-off pressure – quality that convinces."
-          }
-        ]
-      },
-      "process": {
-        "badge": "Your path to a website",
-        "heading": "How we work together",
-        "subheading": "No lengthy briefing, no endless coordination – a clear process with a direct line to you.",
-        "steps": [
-          {
-            "title": "A short conversation",
-            "desc": "You tell me what you need – I ask the right questions. No form marathon, just a relaxed introduction."
-          },
-          {
-            "title": "I design & build",
-            "desc": "You provide logo, texts or bullet points – I handle concept, design and implementation. You barely have to intervene."
-          },
-          {
-            "title": "Fine-tuning together",
-            "desc": "You give feedback, I revise – until everything fits 100%. Then your website goes live."
-          }
-        ]
-      }
-    },
-    "socialProof": {
-      "expertiseHeading": "Rely on our expertise",
-      "expertiseSubheading": "We have already successfully built websites for well-known companies",
-      "testimonialsHeading": "What our clients say",
-      "testimonials": {
-        "amsel": {
-          "company": "E-commerce company",
-          "text": "Thanks to the redesign our website now has a completely new look and our customers interact with our offers far more often. The collaboration was professional and efficient."
-        },
-        "tricon": {
-          "company": "Technology company",
-          "text": "Professional implementation of our company website. Fast response times and a very satisfying result. The SEO optimisation is already showing first results."
-        }
-      }
-    },
-    "portfolio": {
-      "heading": "Our web design projects",
-      "subheading": "Take a look at some of our successfully delivered web design projects – live and current",
-      "openWebsite": "Open website"
-    },
-    "contactForm": {
-      "badge": "Contact",
-      "heading": "Request a free consultation",
-      "subheading": "Let's take your online presence to the next level together. No obligation and free of charge.",
-      "note": "No obligation. Reply usually within 24 hours.",
-      "cardTitle": "Send a message",
-      "fields": {
-        "package": "What are you interested in? *",
-        "packagePlaceholder": "Please choose...",
-        "email": "Email *",
-        "phone": "Phone *",
-        "topic": "Subject *",
-        "message": "Your message *"
-      },
-      "options": {
-        "other": "Still unclear / consultation wanted"
-      },
-      "errors": {
-        "email": "Invalid email address",
-        "package": "Please choose an option",
-        "topic": "Please enter a subject",
-        "message": "Message must be at least 10 characters long",
-        "phone": "Please enter your phone number",
-        "privacy": "You must agree to the privacy policy"
-      },
-      "privacy": {
-        "before": "I agree to the",
-        "link": "privacy policy",
-        "after": ". *"
-      },
-      "submit": "Enquire now for free",
-      "submitting": "Sending...",
-      "requiredNote": "* Required fields. Your data is treated confidentially and not shared with third parties.",
-      "bubble": "Questions? Just write!",
-      "imageAlt": "Thomas Schwabauer – contact",
-      "direct": {
-        "title": "Contact directly",
-        "email": "Email",
-        "phone": "Phone",
-        "whatsapp": "WhatsApp",
-        "whatsappNote": "Quick & easy",
-        "copyEmail": "Copy email",
-        "copyPhone": "Copy phone number",
-        "copied": "Copied!"
-      },
-      "dialog": {
-        "successTitle": "Request sent successfully!",
-        "successMessage": "Thank you for your enquiry! I'll get back to you within 24 hours. Feel free to also contact me by phone or WhatsApp.",
-        "errorTitle": "Error",
-        "errorMessage": "There was a problem sending your enquiry. Please try again or contact me directly by email.",
-        "close": "Close"
-      }
-    },
-    "finalCta": {
-      "urgency": "Limited capacity - secure your slot now",
-      "heading": "Ready for your new business website?",
-      "subheading": "Let's take your online presence to the next level together. Free initial consultation included.",
-      "button": "Get advice now",
-      "trust": {
-        "experience": "{years} years of experience",
-        "satisfaction": "{percent}% satisfaction guarantee",
-        "fast": "Fast delivery"
-      }
-    },
-    "faq": {
-      "heading": "Frequently asked questions about business websites",
-      "subheading": "Answers to the most important questions about business websites for SMEs & the self-employed – structured by topic"
     }
   },
   "Onboarding": {

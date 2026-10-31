@@ -24,7 +24,7 @@ const contactPageSchema = {
   "@type": "ContactPage",
   name: "Kontakt - Thomas Schwabauer",
   description:
-    "Kontaktieren Sie Thomas Schwabauer für Webentwicklung und Mobile Apps. Wetzlar, Gießen, Mittelhessen.",
+    "Kontakt zu Thomas Schwabauer, freiberuflicher Fullstack- und Flutter-Entwickler für Projekte remote und vor Ort.",
   mainEntity: {
     "@type": "Person",
     name: siteConfig.authorName,

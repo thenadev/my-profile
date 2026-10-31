@@ -7,12 +7,7 @@ import SiteFooter from "@/components/layout/Footer";
 import NavigationWrapper from "@/components/navigation-wrapper";
 import TrackingGate from "@/components/TrackingGate";
 import { routing, type Locale } from "@/i18n/routing";
-import {
-  jsonLd,
-  PersonSchema,
-  ProfessionalServiceSchema,
-  WebsiteSchema,
-} from "@/lib/schema";
+import { jsonLd, PersonSchema, WebsiteSchema } from "@/lib/schema";
 import { buildMetadata, SITE_URL } from "@/lib/seo";
 import type { Metadata } from "next";
 import { NextIntlClientProvider } from "next-intl";
@@ -76,11 +71,7 @@ export default async function LocaleLayout({
       <head>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={jsonLd(
-            PersonSchema,
-            WebsiteSchema,
-            ProfessionalServiceSchema
-          )}
+          dangerouslySetInnerHTML={jsonLd(PersonSchema, WebsiteSchema)}
         />
         <TrackingGate>
           <GoogleConsentScript />

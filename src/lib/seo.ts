@@ -28,7 +28,7 @@ const DEFAULT_OG_IMAGE = "/og-image.png";
 
 interface BuildMetadataOptions {
   locale: Locale;
-  /** Pfad ohne Locale-Präfix, z.B. "/" oder "/services/app-entwicklung" */
+  /** Pfad ohne Locale-Präfix, z.B. "/" oder "/about" */
   path: string;
   title: string;
   description: string;
@@ -90,7 +90,7 @@ export function buildMetadata({
         .filter((l) => l !== locale)
         .map((l) => OG_LOCALES[l]),
       url: canonical,
-      siteName: "Thomas Schwabauer - Fullstack Development Wetzlar",
+      siteName: "Thomas Schwabauer – Freelance Fullstack Developer",
       title,
       description,
       images: [ogImageEntry],

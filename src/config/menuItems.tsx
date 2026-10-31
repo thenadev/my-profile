@@ -1,14 +1,5 @@
 import React from "react";
-import {
-  FaBriefcase,
-  FaEnvelope,
-  FaFileAlt,
-  FaHome,
-  FaNewspaper,
-  FaRocket,
-  FaTools,
-  FaUser,
-} from "react-icons/fa";
+import { FaFileAlt, FaHome, FaUser } from "react-icons/fa";
 
 export interface MenuItem {
   /** Key im Navbar-Namespace (messages/*.json) — via useTranslations("Navbar") aufgelöst. */
@@ -35,31 +26,6 @@ export const menuItems: MenuItem[] = [
     titleKey: "about",
     href: "/about",
     icon: <FaUser />,
-    subItems: [],
-  },
-  {
-    titleKey: "services",
-    href: "/services",
-    icon: <FaTools />,
-    subItems: [
-      {
-        titleKey: "startupBeratung",
-        href: "/services/startup-beratung",
-      },
-      {
-        titleKey: "appEntwicklung",
-        href: "/services/app-entwicklung",
-      },
-      {
-        titleKey: "unternehmenswebsite",
-        href: "/services/unternehmenswebsite",
-      },
-    ],
-  },
-  {
-    titleKey: "blog",
-    href: "/blog",
-    icon: <FaNewspaper />,
     subItems: [],
   },
   {
