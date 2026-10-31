@@ -1,8 +1,6 @@
 {
   "Navbar": {
     "home": "Startseite",
-    "preisrechner": "Preisrechner",
-    "services": "Leistungspakete",
     "about": "Über mich",
     "work": "Berufserfahrung",
     "projects": "Projekte",
@@ -10,36 +8,29 @@
     "contact": "Kontakt",
     "contactCta": "Kontakt aufnehmen",
     "close": "Menü schließen",
-    "startupBeratung": "Startup-Beratung",
-    "appEntwicklung": "App-Entwicklung",
-    "unternehmenswebsite": "Unternehmenswebsite",
     "switchToGerman": "Sprache auf Deutsch wechseln",
-    "switchToEnglish": "Auf Englisch wechseln",
-    "blog": "Blog"
+    "switchToEnglish": "Auf Englisch wechseln"
   },
   "Footer": {
     "privacy": "Datenschutzerklärung",
     "imprint": "Impressum",
     "contact": "Kontakt",
-    "blog": "Blog",
     "language": "Sprache",
     "language_en": "Englisch",
     "language_de": "Deutsch",
     "about": "Über mich",
-    "services": "Services",
     "documents": "Dokumente",
     "email": "E-Mail",
     "allRightsReserved": "Alle Rechte vorbehalten",
-    "fullstackDeveloper": "Fullstack Developer & Freelancer",
-    "location": "aus Wetzlar, Deutschland",
-    "specialization": "Spezialisiert auf moderne Web-Technologien und innovative Lösungen",
-    "webdesignWetzlar": "Webdesign Wetzlar"
+    "fullstackDeveloper": "Freelance Senior Fullstack Developer",
+    "specialization": "Web, Mobile und Backend für Projekte remote oder vor Ort",
+    "thenadevHint": "Websites, Software und KI für Unternehmen:"
   },
   "Home": {
     "Hero": {
       "introText": "Hi, ich bin",
       "title": "Thomas Schwabauer",
-      "subtitle": "Freelance Fullstack-Entwickler & Webdesign aus Wetzlar",
+      "subtitle": "Freelance Senior Fullstack- & Flutter-Entwickler für Ihr Projekt – remote oder vor Ort",
       "description": "Ich baue performante Web- und Mobile-Anwendungen mit modernen Technologien.",
       "technologiesTitle": "Technologien",
       "projectStartButton": "Projekt starten",
@@ -54,12 +45,12 @@
     },
     "About": {
       "badge": "Über mich",
-      "title": "Ihr Partner für digitale Lösungen",
-      "description": "Leidenschaftlicher Freelancer mit Fokus auf moderne Webtechnologien und nutzerzentriertes Design.",
+      "title": "Freelancer für Ihr Entwicklungsprojekt",
+      "description": "Ich verstärke Teams als freiberuflicher Senior-Entwickler – vom Frontend über das Backend bis zur App.",
       "name": "Thomas Schwabauer",
-      "role": "Fullstack Developer & UI/UX Designer",
+      "role": "Freelance Senior Fullstack Developer",
       "location": "📍 Deutschland, Wetzlar • 🌐 Remote verfügbar",
-      "bio": "Mit über {years} Jahren Erfahrung in der Webentwicklung helfe ich Unternehmen dabei, ihre digitale Präsenz zu stärken. Meine Leidenschaft liegt in der Entwicklung performanter, benutzerfreundlicher Anwendungen, die echten Mehrwert schaffen.",
+      "bio": "Mit über {years} Jahren Erfahrung in der Softwareentwicklung unterstütze ich Unternehmen und Teams als Freelancer in Projekten. Ich arbeite mich schnell in bestehende Codebasen ein und liefere performante, wartbare Web- und Mobile-Anwendungen.",
       "skillsTitle": "Kernkompetenzen",
       "skills": {
         "reactNextjs": "React & Next.js",
@@ -72,19 +63,19 @@
       "services": {
         "webDevelopment": {
           "title": "Webentwicklung",
-          "description": "Moderne, responsive Webanwendungen mit React und Next.js"
+          "description": "Webanwendungen mit React, Next.js und Angular"
         },
-        "uiuxDesign": {
-          "title": "UI/UX Design",
-          "description": "Benutzerfreundliche Interfaces die begeistern"
+        "appDevelopment": {
+          "title": "App-Entwicklung",
+          "description": "Mobile Apps für iOS und Android mit Flutter"
         },
-        "performanceOptimization": {
-          "title": "Performance Optimierung",
-          "description": "Schnelle, suchmaschinenoptimierte Websites"
+        "backend": {
+          "title": "Backend & APIs",
+          "description": "Java/Spring Boot, Kotlin und Node.js"
         },
         "consulting": {
-          "title": "Beratung",
-          "description": "Strategische Digitalberatung für Ihr Unternehmen"
+          "title": "Architektur & Beratung",
+          "description": "Technische Konzeption und Code-Reviews im Team"
         }
       },
       "stats": {
@@ -257,7 +248,6 @@
     "title": "Freelance Fullstack Entwickler",
     "location": "Wetzlar, Deutschland",
     "contact": "Kontakt",
-    "priceCalculator": "Preisrechner",
     "learnMore": "Mehr erfahren",
     "orb_1": "Kotlin ist eine prägnante, moderne Programmiersprache für Android- und Java-Entwicklung.",
     "orb_2": "Docker vereinfacht das Erstellen, Bereitstellen und Ausführen von Anwendungen mit Containern.",
@@ -269,31 +259,10 @@
     "orb_8": "Flutter ermöglicht die Erstellung nativ kompilierter Anwendungen für Mobilgeräte, Web und Desktop.",
     "orb_9": "Java ist eine vielseitige, hochrangige Programmiersprache, die häufig für plattformübergreifende Entwicklung verwendet wird.",
     "orb_10": "Spring Boot vereinfacht die Erstellung produktionsreifer Java-Anwendungen mit minimaler Konfiguration.",
-    "ServicesTeaser": {
-      "eyebrow": "Services",
-      "heading": "Was ich für Sie tun kann",
-      "subheading": "Beratung, MVP-Entwicklung und Umsetzung – von der Idee bis zur fertigen App oder Website.",
-      "more": "Mehr erfahren",
-      "viewAll": "Alle Services anzeigen",
-      "blogTeaser": {
-        "label": "Aus dem Blog:",
-        "kiHub": "KI für kleine Unternehmen – 7 Anwendungen",
-        "giessen": "Website erstellen lassen in Gießen"
-      },
-      "items": {
-        "startupBeratung": {
-          "title": "Startup-Beratung",
-          "description": "Termin buchen (80€/h), Idee angeben – 1h Gespräch, danach schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP & Feature-Erweiterung."
-        },
-        "appEntwicklung": {
-          "title": "App-Entwicklung",
-          "description": "Flutter-Apps für Android & iOS. Beratung, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps."
-        },
-        "unternehmenswebsite": {
-          "title": "Unternehmenswebsite",
-          "description": "Professionelle Websites aus Wetzlar – modern, responsive und SEO-optimiert. Von Basic bis E-Commerce."
-        }
-      }
+    "ThenaDevHint": {
+      "label": "Hinweis auf ThenaDev",
+      "text": "Sie suchen eine Website, Software oder KI-Lösung für Ihr Unternehmen? Das biete ich mit meiner Agentur an:",
+      "linkText": "ThenaDev"
     }
   },
   "Contact": {
@@ -411,167 +380,6 @@
   },
   "Work": {
     "title": "Meine berufliche Laufbahn"
-  },
-  "Services": {
-    "title": "Leistungspakete",
-    "websiteDescription": "Ihre neue Website: schnell, schön und perfekt auf Ihre Zielgruppe abgestimmt.",
-    "appDescription": "Entdecken Sie, wie wir Ihre Vision in beeindruckende Apps verwandeln.",
-    "wordPressDescription": "Von der Installation bis zur Optimierung: Alles aus einer Hand für Ihre WordPress-Seite.",
-    "unternehmenswebsite": {
-      "title": "Unternehmenswebsite",
-      "description": "Professionelle Unternehmenswebsites – modern, responsive und SEO-optimiert, individuell für Ihr Unternehmen programmiert",
-      "benefitsTitle": "Ihre Vorteile",
-      "benefits": {
-        "modernDesign": "Moderne Webdesigns",
-        "responsiveDesign": "Responsive Design",
-        "seoOptimized": "SEO-Optimiert",
-        "localExpertise": "Ein fester Ansprechpartner"
-      },
-      "packagesTitle": "Unsere Pakete",
-      "packages": {
-        "basic": "Basic Website ab €1.200",
-        "professional": "Professional Website ab €3.500",
-        "ecommerce": "E-Commerce Website ab €8.000"
-      }
-    },
-    "freelance": {
-      "title": "Professionelle Unterstützung auf Projektbasis",
-      "description": "Als vielseitiger Freelancer bringe ich nicht nur technisches Know-how, sondern auch starke Kommunikations- und Anpassungsfähigkeiten mit. Ob es um die Entwicklung moderner Websites, die Optimierung bestehender Systeme oder die Umsetzung kreativer Lösungen geht – ich liefere ergebnisorientiert und effizient.",
-      "skillsTitle": "Meine Stärken auf einen Blick",
-      "skills": {
-        "communication": "Exzellente Kommunikationsfähigkeit: Klar, präzise und kundenorientiert",
-        "adaptability": "Hohe Anpassungsfähigkeit: Flexible Lösungen für individuelle Anforderungen",
-        "skillset": "Breites Skillset: Von Frontend-Entwicklung bis hin zu Performance-Optimierung"
-      },
-      "benefitsTitle": "Vorteile für Ihr Unternehmen",
-      "benefits": {
-        "fastDelivery": "Schnelle Umsetzung und pünktliche Lieferung",
-        "creativeSolutions": "Individuelle und kreative Lösungen für Ihre Projekte",
-        "costEfficiency": "Kosteneffiziente Ergebnisse ohne Kompromisse bei der Qualität"
-      }
-    },
-    "websiteRedesign": {
-      "title": "WebRedesign, UX- & SEO-Optimierung",
-      "technologiesTitle": "Technologien:",
-      "technologies": {
-        "angular": "Angular – Modernes Framework für dynamische Webanwendungen",
-        "react": "React.js – Component-Based UI Development",
-        "next": "Next.js – Server-Side Rendering und SEO-Optimierung",
-        "nest": "Nest.js – Performantes Backend für moderne Anwendungen",
-        "typescript": "TypeScript – Typensicheres JavaScript für zuverlässigen Code",
-        "google": "Google Analytics – Analyse von Benutzerverhalten und Performance",
-        "hotjar": "Hotjar – Heatmaps und Benutzeraufzeichnung für bessere UX",
-        "semrush": "SEMrush – All-in-One SEO- und Content-Marketing-Tool",
-        "mailchimp": "Mailchimp – E-Mail-Marketing und Automatisierung"
-      },
-      "conclusion": "Hier sind einige Vorher-Nachher-Bilder, bewegen Sie die Maus über die Bilder, um das alte Design zu sehen.",
-      "description": "Mit meinem WebRedesign, UX- & SEO-Optimierung Paket verleihe ich Ihrer Website neuen Schwung. Ich modernisiere Ihre bestehende Website, mache sie visuell ansprechender und optimiere die Benutzerfreundlichkeit (UX). Ziel ist es, die Nutzerführung so zu gestalten, dass Ihre Besucher intuitiv und zügig die für sie wichtigen Inhalte finden. Durch klare Strukturen, ansprechendes Design und eine durchdachte Navigation sorge ich dafür, dass die Nutzer sich auf Ihrer Website wohlfühlen und ihre Ziele effizient erreichen.",
-      "description2": "Darüber hinaus optimiere ich die Suchmaschinenfreundlichkeit (SEO), damit Ihre Website in den Suchergebnissen besser sichtbar wird. Dies steigert die Reichweite und hilft Ihnen, Ihre Zielgruppe gezielt anzusprechen. Ergänzend setze ich Heatmaps ein, um das Nutzerverhalten kontinuierlich zu analysieren. Diese ermöglichen es mir, genau zu sehen, welche Bereiche Ihrer Website besonders stark genutzt werden und wo die Nutzer möglicherweise Schwierigkeiten haben. Anhand dieser Erkenntnisse passe ich die Website laufend an, um eine optimale Benutzererfahrung zu gewährleisten.",
-      "description3": "Durch gezielte Maßnahmen steigere ich nicht nur die Attraktivität Ihrer Website, sondern auch deren Auffindbarkeit und die Zufriedenheit Ihrer Kunden – für einen langfristigen Erfolg im Netz.",
-      "keyBenefits": "Wichtige Vorteile für Ihr Unternehmen",
-      "benefits": {
-        "design": "Modernes, zeitgemäßes und professionelles Design, das Ihre Marke perfekt repräsentiert.",
-        "collaboration": "Langfristige Zusammenarbeit für kontinuierliche Updates und Anpassungswünsche.",
-        "cms": "Integration von einem",
-        "cmsTooltipLabel": "CMS",
-        "cmsTooltipLabel2": "System, damit Sie den Inhalt Ihrer Website eigenständig ohne Programmierkenntnisse anpassen können.",
-        "cmsTooltip1": "Ein CMS wie ",
-        "cmsTooltip2": "FireCMS",
-        "cmsTooltip3": "oder",
-        "cmsTooltip4": "Storyblok",
-        "cmsTooltip5": "ermöglicht es Ihnen, Inhalte einfach hinzuzufügen, zu bearbeiten, zu aktualisieren und zu veröffentlichen – alles ohne Programmierkenntnisse."
-      },
-      "beforeImageAlt": "Vorheriges Design",
-      "afterImageAlt": "Nachheriges Design",
-      "arrowTooltip": "Transformation zum modernen Design",
-      "testimonial": {
-        "text": "Dank des Redesigns hat unsere Website einen komplett neuen Look erhalten, und unsere Kunden interagieren jetzt viel häufiger mit unseren Angeboten. Die Zusammenarbeit war professionell und effizient.",
-        "author": "– Amsel UG"
-      }
-    },
-    "appDevelopment": {
-      "title": "Mobile App Entwicklung",
-      "whyChooseMe": "Ich biete sowohl hybride App-Entwicklung mit Flutter als auch native Android-Entwicklung an. Durch moderne Technologien und maßgeschneiderte Lösungen ermögliche ich Ihnen, Ihre Zielgruppe auf mehreren Plattformen zu erreichen – effizient und leistungsstark.",
-      "benefitsTitle": "Ihre Vorteile auf einen Blick",
-      "exampleDesigns": "Beispielhafte Designs",
-      "intro": {
-        "androidTitle": "Android Automotive",
-        "androidDescription1": "Mit jahrelanger Erfahrung in der Entwicklung mobiler Apps unterstütze ich Unternehmen dabei, moderne und leistungsstarke Anwendungen zu realisieren. Meine Arbeit umfasst native ",
-        "androidDescription2": "Android Automotive Apps",
-        "androidDescription3": " für renommierte Marken wie ",
-        "androidDescription4": "Porsche ",
-        "androidDescription5": "und ",
-        "androidDescription6": "Audi",
-        "androidDescription7": "die den höchsten Ansprüchen an Performance und Benutzererlebnis gerecht",
-        "androidDescription8": "werden.",
-        "androidTechnologiesTitle": "Technologien:",
-        "androidTechnologies": {
-          "gradle": "Gradle – Build-Management-Tool",
-          "daggerHilt": "Dependency Injection – Dagger & Hilt",
-          "koin": "Dependency Injection - Koin",
-          "animations": "Custom Animations – Benutzerdefinierte Animationen",
-          "ui": "UI-Entwicklung - Jetpack Compose"
-        },
-        "flutterTitle": "Flutter Entwicklung",
-        "flutterDescription1": "Darüber hinaus habe ich mit ",
-        "flutterDescription2": "Flutter",
-        "flutterDescription3": " hybride Apps entwickelt, die plattformübergreifend auf Android und iOS eingesetzt werden können. Ein Highlight ist die App für das Einstimmungsverfahren einer HPV Studie, sowie Projekte wie die ",
-        "flutterDescription4": "Amsel App",
-        "flutterDescription5": " und BodyForge, die ich vollständig umgesetzt habe. Diese Anwendungen vereinen intuitive Benutzeroberflächen, modernes Design und technisch fortschrittliche\n Funktionen.",
-        "flutterTechnologiesTitle": "Technologien:",
-        "flutterTechnologies": {
-          "routing": "Routing - GoRouter & auto_route",
-          "state": "State Management - BLoC Pattern",
-          "animations": "Custom Animations – Benutzerdefinierte Animationen",
-          "dj": "Dependency Injection – get_it & Provider"
-        },
-        "conclusion": "Lassen Sie uns gemeinsam Ihre Vision in eine App umsetzen, die Ihre Zielgruppe begeistert und Ihr Unternehmen voranbringt."
-      },
-      "examples": "Beispiele meiner Arbeit",
-      "screenshot": {
-        "amselAppLogin": "Amsel App – Login Screen",
-        "amselAppCheckout": "Amsel App – Payment Screen",
-        "amselAppSettings": "Amsel App – Settings Screen",
-        "bodyForgeDashboard": "BodyForge – Dashboard",
-        "bodyForgeWorkout": "BodyForge – Workout Tracking",
-        "bodyForgeNutrition": "BodyForge – Nutrition Tracking"
-      },
-      "benefit": {
-        "hybridDevelopment": "Hybride Entwicklung mit Flutter – eine App, mehrere Plattformen.",
-        "nativeDevelopment": "Native Android-Entwicklung für optimale Performance und Hardwarezugriff.",
-        "fastPerformance": "Schnelle Ladezeiten und leistungsstarke Features für herausragende Nutzererlebnisse.",
-        "scalableArchitecture": "Skalierbare und wartungsfreundliche Architektur – bereit für die Zukunft.",
-        "modernIntegration": "Integration moderner Features wie Push-Benachrichtigungen und APIs.",
-        "userFocus": "Fokus auf intuitive Designs für maximale Nutzerzufriedenheit."
-      }
-    },
-    "wordpressDevelopment": {
-      "title": "Wordpress Entwicklung",
-      "description3": "Lassen Sie uns Ihre WordPress-Website auf das nächste Level bringen – für bessere Performance, mehr Besucher und zufriedene Kunden. Nehmen Sie jetzt Kontakt auf!",
-      "description": "Ich helfe Ihnen, Ihre WordPress-Website zu einem beeindruckenden und leistungsstarken Tool für Ihr Unternehmen zu machen. Von maßgeschneiderten Designs bis hin zur Integration beliebter Plugins – meine Expertise garantiert Ihnen Ergebnisse, die begeistern.",
-      "popularPluginsTitle": "Beliebte Plugins, die ich für Sie integriere",
-      "keyBenefitsTitle": "Vorteile für Ihr Unternehmen",
-      "popularPlugins": {
-        "yoast": "Yoast SEO – Optimierung für bessere Rankings",
-        "woocommerce": "WooCommerce – Umfassende E-Commerce-Lösungen",
-        "sliderRevolution": "Slider Revolution – Visuell ansprechende Slider",
-        "contactForm": "Contact Form 7 – Einfache und effektive Kontaktformulare"
-      },
-      "keyBenefits": {
-        "optimizedTemplates": "+50% schnellere Ladezeiten durch optimierte Templates",
-        "betterSEO": "+70% bessere SEO-Rankings durch intelligente Plugin-Integration",
-        "responsiveDesigns": "+30% Conversion-Rate durch responsive und moderne Designs"
-      }
-    },
-    "close": "Schließen",
-    "learnMore": "Mehr Erfahren",
-    "before": "Vorher",
-    "after": "Nachher",
-    "keyBenefits": "Ihre Vorteile",
-    "benefitsNumbers": "Nutzen in Zahlen",
-    "exampleDesigns": "Beispielhafte Designs",
-    "beforeImageAlt": "Vorher Bild der Webseite",
-    "afterImageAlt": "Nachher Bild der Webseite"
   },
   "About": {
     "Hero": {
@@ -830,778 +638,34 @@
     "goHome": "Zur Startseite",
     "contact": "Kontakt aufnehmen",
     "popularPages": "Beliebte Seiten",
-    "webdesign": "Webdesign",
     "aboutMe": "Über mich",
-    "imageAlt": "Portrait von Thomas Schwabauer für 404-Seite"
+    "imageAlt": "Portrait von Thomas Schwabauer für 404-Seite",
+    "documents": "Lebenslauf & Dokumente"
   },
   "Meta": {
     "home": {
-      "title": "Thomas Schwabauer - Fullstack Developer aus Wetzlar",
-      "description": "Senior Fullstack Developer & Freelancer aus Wetzlar (Hessen). React.js | Flutter | Angular | Java | Spezialisiert auf Web- & Mobile-Entwicklung."
+      "title": "Thomas Schwabauer – Freelance Senior Fullstack- & Flutter-Entwickler",
+      "description": "Freelance Senior Fullstack Developer für Projekte remote oder vor Ort: React, Next.js, Angular, Flutter, Java/Spring Boot und Kotlin. Werdegang, Projekte und Kontakt."
     },
     "about": {
       "title": "Über mich - Werdegang & Expertise",
       "description": "Senior Fullstack Developer mit Erfahrung in React, Flutter und Angular. Mein Werdegang, meine Projekte und meine Arbeitsweise."
     },
-    "services": {
-      "title": "Webdesign, Apps & Startup-Beratung",
-      "description": "Webdesign, App-Entwicklung und technische Startup-Beratung aus Wetzlar - persönlich, transparent und zum Festpreis. Finden Sie das passende Leistungspaket."
-    },
-    "webdesignWetzlar": {
-      "title": "Webdesign Wetzlar – Website erstellen lassen",
-      "description": "Webdesign aus Wetzlar, direkt vom Entwickler: individuelle, schnelle und SEO-optimierte Websites für Unternehmen in Wetzlar & Mittelhessen. Kostenlos beraten lassen!"
-    },
-    "servicesUnternehmenswebsite": {
-      "title": "Unternehmenswebsite erstellen lassen – Festpreis",
-      "description": "Unternehmenswebsite erstellen lassen – direkt vom Entwickler: individuell programmiert, schnell und SEO-optimiert. Transparenter Festpreis inkl. Design, Entwicklung & Hosting."
-    },
-    "servicesAppEntwicklung": {
-      "title": "App-Entwicklung Wetzlar - Flutter Apps",
-      "description": "App-Entwicklung mit Flutter aus Wetzlar: native Apps für iOS und Android aus einer Codebasis - vom MVP bis zur fertigen App. Jetzt unverbindlich anfragen!"
-    },
-    "servicesStartupBeratung": {
-      "title": "MVP entwickeln lassen - Startup-Beratung",
-      "description": "MVP entwickeln lassen & technische Startup-Beratung für Gründer: Tech-Stack, Machbarkeit und Umsetzungsplan - transparent für 80 €/Stunde. Termin sichern!"
-    },
     "contact": {
       "title": "Kontakt - Projektanfrage stellen",
-      "description": "Projekt im Kopf? Kontaktieren Sie mich für Webentwicklung, App-Entwicklung oder Startup-Beratung - Antwort innerhalb von 24 Stunden."
-    },
-    "blog": {
-      "title": "Blog - Webentwicklung, Apps & Tech",
-      "description": "Artikel über Webentwicklung, Mobile Apps, Flutter, React und Software-Architektur - aus der Praxis eines Fullstack-Entwicklers."
+      "description": "Projekt im Kopf? Anfrage für einen Freelance-Einsatz in Web-, App- oder Backend-Entwicklung – Antwort innerhalb von 24 Stunden."
     },
     "documents": {
       "title": "Dokumente & Downloads",
-      "description": "Lebenslauf, Zeugnisse und Zertifikate von Thomas Schwabauer, Fullstack Developer aus Wetzlar, zum Download - kompakt, übersichtlich und als PDF verfügbar."
+      "description": "Lebenslauf, Zeugnisse und Zertifikate von Thomas Schwabauer, Freelance Senior Fullstack Developer, zum Download – kompakt, übersichtlich und als PDF verfügbar."
     },
     "imprint": {
       "title": "Impressum",
-      "description": "Impressum und Anbieterkennzeichnung von Thomas Schwabauer, Fullstack Developer aus Wetzlar - mit Kontaktdaten, Umsatzsteuer-ID und rechtlichen Hinweisen."
+      "description": "Impressum und Anbieterkennzeichnung von thomas-schwabauer.de – mit Kontaktdaten, Umsatzsteuer-ID und rechtlichen Hinweisen."
     },
     "privacy": {
       "title": "Datenschutzerklärung",
       "description": "Datenschutzerklärung von thomas-schwabauer.de: Informationen zur Verarbeitung personenbezogener Daten, zu Cookies, Google Analytics und Ihren Nutzerrechten."
-    }
-  },
-  "ServicesOverview": {
-    "hero": {
-      "badge": "Services",
-      "headline": "Webdesign, App-Entwicklung & Startup-Beratung",
-      "subheadline": "Von der Startup-Idee über Apps bis zur Unternehmenswebsite – Beratung, MVP-Entwicklung und Erweiterung aus einer Hand.",
-      "ctaPrimary": "Zu den Angeboten",
-      "ctaSecondary": "Kontakt",
-      "badges": [
-        "Startup-Beratung 80€/h",
-        "Flutter-Apps für Android & iOS",
-        "Webdesign Wetzlar"
-      ],
-      "cards": {
-        "services": {
-          "value": "3 Services",
-          "label": "Beratung · Apps · Web"
-        },
-        "projects": "Projekte",
-        "experience": {
-          "value": "{years} Jahre",
-          "label": "Erfahrung"
-        }
-      },
-      "benefitsTitle": "Was Sie bei mir finden:",
-      "benefits": [
-        {
-          "title": "Startup-Beratung",
-          "desc": "Umsetzungsplan inkl. Kostenschätzung"
-        },
-        {
-          "title": "App-Entwicklung",
-          "desc": "Flutter für Android & iOS"
-        },
-        {
-          "title": "Unternehmenswebsite",
-          "desc": "Webdesign aus Wetzlar"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Schnellnavigation",
-      "heading": "Wohin möchten Sie?",
-      "subheading": "Springen Sie zu den Angeboten oder zu Über mich und Kontakt.",
-      "jumpTo": "Zu {label} springen",
-      "goTo": "Zu {label}",
-      "items": {
-        "offers": {
-          "label": "Angebote",
-          "description": "Alle Services im Überblick"
-        },
-        "about": {
-          "label": "Über mich",
-          "description": "Mehr zu meiner Person und Erfahrung"
-        },
-        "contact": {
-          "label": "Kontakt",
-          "description": "Kontakt aufnehmen"
-        }
-      }
-    },
-    "grid": {
-      "badge": "Angebote",
-      "heading": "Meine Services",
-      "subheading": "Von der Startup-Idee über Apps bis zur Unternehmenswebsite – Beratung, MVP-Entwicklung und Erweiterung aus einer Hand."
-    },
-    "more": "Mehr erfahren",
-    "cards": {
-      "startupBeratung": {
-        "title": "Startup-Beratung",
-        "badge": "Beratung & Umsetzung",
-        "description": "Idee angeben, Termin buchen (80€/h) – 1h Gespräch, danach schriftlicher Umsetzungsplan inkl. Kostenschätzung. MVP und Feature-Erweiterung im Anschluss.",
-        "features": [
-          "80€/h Beratung",
-          "Umsetzungsplan + Kostenschätzung",
-          "MVP ab 2.500€"
-        ]
-      },
-      "appEntwicklung": {
-        "title": "App-Entwicklung",
-        "badge": "Flutter · Android & iOS",
-        "description": "Flutter-Apps für Android & iOS aus einer Codebasis. Beratungsgespräch, MVP-Umsetzung oder Feature- und Bug-Entwicklung für bestehende Apps.",
-        "features": [
-          "Beratung 80€/h",
-          "MVP mit Flutter",
-          "Features & Bugs"
-        ]
-      },
-      "unternehmenswebsite": {
-        "title": "Unternehmenswebsite",
-        "badge": "Webdesign Wetzlar",
-        "description": "Professionelle Unternehmenswebsites aus Wetzlar – moderne, responsive und SEO-optimierte Webdesigns für Ihr Unternehmen.",
-        "features": [
-          "Basic ab 1.200€",
-          "Professional ab 3.500€",
-          "E-Commerce ab 8.000€"
-        ]
-      }
-    },
-    "why": {
-      "badge": "Warum ich?",
-      "heading": "Eine Anlaufstelle für Beratung, Apps und Web",
-      "subheading": "Persönlich, vor Ort und mit Fokus auf Ihre Ziele.",
-      "items": {
-        "consulting": {
-          "title": "Beratung vor Umsetzung",
-          "desc": "Idee besprechen, Plan erhalten – dann entscheiden Sie."
-        },
-        "oneStop": {
-          "title": "Eine Anlaufstelle",
-          "desc": "Idee, App und Website – aus einer Hand."
-        },
-        "local": {
-          "title": "Lokaler Ansprechpartner",
-          "desc": "Aus Wetzlar, für Mittelhessen und darüber hinaus."
-        },
-        "personal": {
-          "title": "Persönliche Kommunikation",
-          "desc": "Direkter Draht ohne Agentur-Filter."
-        }
-      }
-    },
-    "finalCta": {
-      "heading": "Noch Fragen?",
-      "subheading": "Gerne per Kontakt melden – ich antworte zeitnah.",
-      "button": "Kontakt aufnehmen"
-    }
-  },
-  "AppEntwicklung": {
-    "hero": {
-      "badge": {
-        "label": "App-Entwicklung",
-        "tag": "Flutter · Android & iOS"
-      },
-      "headline": "App-Entwicklung mit Flutter für Android & iOS",
-      "subheadline": "Beratungsgespräch, MVP-Umsetzung oder Feature-/Bug-Entwicklung – eine Codebasis für beide Plattformen.",
-      "ctaPrimary": "Beratungstermin buchen (80€/h)",
-      "ctaSecondary": "So läuft’s",
-      "badges": {
-        "codebase": "Flutter – eine Codebasis",
-        "platforms": "Android & iOS",
-        "experience": "{years} Jahre Erfahrung"
-      },
-      "cards": {
-        "projects": "Projekte",
-        "satisfaction": "Zufriedenheit",
-        "role": {
-          "value": "App-Entwicklung",
-          "label": "{years} Jahre"
-        }
-      },
-      "benefitsTitle": "Was Sie von mir bekommen:",
-      "benefits": [
-        {
-          "title": "Beratungsgespräch",
-          "desc": "Idee klären, Technik (Flutter)"
-        },
-        {
-          "title": "MVP-Umsetzung",
-          "desc": "Android & iOS aus einer Codebasis"
-        },
-        {
-          "title": "Feature & Bug",
-          "desc": "Erweiterung und Wartung"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Schnellnavigation",
-      "heading": "Was möchten Sie tun?",
-      "subheading": "Springen Sie zu Preisen, Ablauf, Terminbuchung oder FAQ.",
-      "jumpTo": "Zu {label} springen",
-      "items": {
-        "prices": {
-          "label": "Preise & Pakete",
-          "description": "Beratung 80€/h, MVP, Feature/Bug"
-        },
-        "process": {
-          "label": "Ablauf",
-          "description": "So läuft’s in 3 Schritten"
-        },
-        "booking": {
-          "label": "Termin buchen",
-          "description": "Anliegen angeben und Beratungstermin vereinbaren"
-        },
-        "faq": {
-          "label": "Häufige Fragen",
-          "description": "Flutter, Ablauf, Kosten, MVP"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "Für wen?",
-        "heading": "Für Gründer und Unternehmen mit App-Bedarf",
-        "subheading": "Ob App-Idee, MVP mit Flutter oder Erweiterung einer bestehenden App – ich entwickle für Android und iOS aus einer Codebasis."
-      },
-      "packages": {
-        "heading": "Beratung, MVP und Feature/Bug-Entwicklung",
-        "subheading": "Einstieg: Beratungsgespräch (80€/h). Danach MVP mit Flutter für Android & iOS oder gezielte Feature-/Bug-Entwicklung.",
-        "badges": {
-          "popular": "Am beliebtesten",
-          "cheapest": "Günstigster Einstieg",
-          "new": "Neu"
-        },
-        "individual": "Individuell",
-        "delivery": "Lieferzeit: {weeks}",
-        "idealFor": "Ideal für:"
-      },
-      "process": {
-        "badge": "So läuft’s",
-        "heading": "So arbeiten wir zusammen",
-        "subheading": "Idee/Anliegen angeben, Termin buchen – ich bereite mich vor. Dann Beratungsgespräch; optional MVP oder Feature-/Bug-Entwicklung.",
-        "steps": [
-          {
-            "title": "Idee/Anliegen angeben & Termin buchen",
-            "desc": "Sie beschreiben im Formular, was Sie brauchen – ich lese mich ein. So nutzen wir das Gespräch optimal."
-          },
-          {
-            "title": "Beratungsgespräch",
-            "desc": "Wir sprechen über die technische Umsetzung: Flutter, Android & iOS, Machbarkeit und nächste Schritte."
-          },
-          {
-            "title": "Optional: MVP oder Feature/Bug",
-            "desc": "Nach dem Gespräch können wir direkt mit der MVP-Umsetzung starten oder gezielt Features und Bugs angehen."
-          }
-        ]
-      },
-      "why": {
-        "heading": "Warum App-Entwicklung mit Flutter?",
-        "subheading": "Eine Codebasis für Android und iOS – schneller und kostengünstiger als zwei getrennte Apps. Ich berate und setze um.",
-        "items": [
-          {
-            "title": "Eine Codebasis – zwei Plattformen",
-            "desc": "Flutter: eine Codebasis für Android und iOS. Weniger Aufwand, einheitliches Verhalten und Design."
-          },
-          {
-            "title": "Beratung mit Vorbereitung",
-            "desc": "Sie geben Ihr Anliegen vorab an – ich bereite mich vor. Das Gespräch geht in die Tiefe."
-          },
-          {
-            "title": "MVP oder gezielte Erweiterung",
-            "desc": "Entweder komplettes App-MVP oder gezielte Feature- und Bug-Entwicklung für bestehende Apps."
-          },
-          {
-            "title": "Erfahrung in Flutter",
-            "desc": "{years} Jahre Erfahrung in der Umsetzung – realistische Schätzungen und saubere Architektur."
-          }
-        ]
-      }
-    },
-    "form": {
-      "badge": "Termin buchen",
-      "heading": "Anliegen angeben & Termin vereinbaren",
-      "subheading": "Beschreiben Sie Ihre App-Idee oder Ihr Anliegen – ich bereite mich vor. Beratungstermin 80€/h. Danach optional MVP oder Feature-/Bug-Entwicklung.",
-      "cardTitle": "Termin anfragen",
-      "cardNote": "Alle Felder mit * sind Pflicht. Ihre Angaben werden vertraulich behandelt.",
-      "fields": {
-        "name": "Name *",
-        "email": "E-Mail *",
-        "phone": "Telefon *",
-        "product": "Wofür möchten Sie anfragen? *",
-        "productPlaceholder": "Bitte wählen..."
-      },
-      "options": {
-        "app_beratung": "Beratungsgespräch (80€/h) – Termin buchen",
-        "app_mvp": "MVP-Umsetzung anfragen",
-        "app_feature_bug": "Feature- & Bug-Entwicklung anfragen"
-      },
-      "idea": {
-        "label": "Ihre Idee / Ihr Anliegen",
-        "placeholder": "Beschreiben Sie kurz Ihre App-Idee, Ihr Projekt oder was Sie brauchen. So kann ich mich auf das Gespräch vorbereiten."
-      },
-      "privacy": {
-        "before": "Ich stimme der",
-        "link": "Datenschutzerklärung",
-        "after": "zu. *"
-      },
-      "submit": "Anfrage senden",
-      "submitting": "Wird gesendet...",
-      "errors": {
-        "name": "Bitte Name angeben",
-        "email": "Ungültige E-Mail-Adresse",
-        "phone": "Bitte Telefonnummer angeben",
-        "product": "Bitte wählen Sie eine Option",
-        "idea": "Bitte beschreiben Sie Ihre Idee oder Ihr Anliegen (mind. 10 Zeichen)",
-        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
-      },
-      "dialog": {
-        "successTitle": "Anfrage gesendet",
-        "successMessage": "Vielen Dank! Ich habe Ihre Nachricht erhalten und melde mich zeitnah bei Ihnen.",
-        "errorTitle": "Fehler",
-        "errorMessage": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
-        "close": "Schließen"
-      }
-    },
-    "finalCta": {
-      "heading": "Bereit für Ihre App mit Flutter?",
-      "subheading": "Beratungstermin buchen (80€/h), Anliegen angeben – danach optional MVP oder Feature-/Bug-Entwicklung für Android & iOS.",
-      "button": "Beratungstermin buchen (80€/h)",
-      "trust": {
-        "platforms": "Flutter – Android & iOS",
-        "experience": "{years} Jahre Erfahrung",
-        "satisfaction": "{percent}% Zufriedenheit",
-        "fast": "Schnelle Terminvergabe"
-      }
-    },
-    "faq": {
-      "heading": "Häufig gestellte Fragen",
-      "subheading": "Antworten zu Flutter, Ablauf, Kosten und MVP."
-    }
-  },
-  "StartupBeratung": {
-    "hero": {
-      "badge": {
-        "label": "Startup-Beratung",
-        "tag": "80€/h"
-      },
-      "headline": "Startup-Beratung: in 1 Stunde zum Umsetzungsplan",
-      "subheadline": "Sie geben Ihre Idee vorab an – ich bereite mich vor. 1h Gespräch zur technischen Umsetzung, danach ein schriftlicher Umsetzungsplan inkl. Kostenschätzung.",
-      "ctaPrimary": "Termin buchen (80€/h)",
-      "ctaSecondary": "So läuft die Beratung",
-      "badges": {
-        "price": "80€/h – 1 Stunde",
-        "plan": "Schriftlicher Plan inkl. Kostenschätzung",
-        "experience": "{years} Jahre Erfahrung"
-      },
-      "cards": {
-        "projects": "Projekte",
-        "satisfaction": "Zufriedenheit",
-        "role": {
-          "value": "Startup-Beratung",
-          "label": "{years} Jahre"
-        }
-      },
-      "benefitsTitle": "Was Sie von mir bekommen:",
-      "benefits": [
-        {
-          "title": "Idee angeben",
-          "desc": "Im Formular – ich bereite mich vor"
-        },
-        {
-          "title": "1h Gespräch",
-          "desc": "Videocall oder Telefon"
-        },
-        {
-          "title": "Umsetzungsplan",
-          "desc": "Schriftlich inkl. Kostenschätzung"
-        }
-      ]
-    },
-    "quickNav": {
-      "badge": "Schnellnavigation",
-      "heading": "Was möchten Sie tun?",
-      "subheading": "Springen Sie direkt zu Preisen, Ablauf, Terminbuchung oder FAQ.",
-      "jumpTo": "Zu {label} springen",
-      "items": {
-        "prices": {
-          "label": "Preise & Pakete",
-          "description": "Beratung 80€/h, MVP, Feature-Erweiterung"
-        },
-        "process": {
-          "label": "Ablauf",
-          "description": "So läuft die Beratung in 3 Schritten"
-        },
-        "booking": {
-          "label": "Termin buchen",
-          "description": "Idee angeben und Termin (80€/h) vereinbaren"
-        },
-        "faq": {
-          "label": "Häufige Fragen",
-          "description": "Antworten zu Ablauf, Kosten und Umsetzungsplan"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "Für wen?",
-        "heading": "Für Gründer und Unternehmen mit Ideen",
-        "subheading": "Ob erste Idee, MVP-Planung oder Erweiterung bestehender Software – ich unterstütze Sie mit technischer Beratung und Umsetzung."
-      },
-      "packages": {
-        "heading": "Beratung, MVP und Feature-Erweiterung",
-        "subheading": "Klarer Einstieg: 1h Beratung (80€) inkl. schriftlichem Umsetzungsplan. Danach MVP oder Features für bestehende Produkte.",
-        "badges": {
-          "popular": "Am beliebtesten",
-          "cheapest": "Günstigster Einstieg",
-          "new": "Neu"
-        },
-        "individual": "Individuell",
-        "delivery": "Lieferzeit: {weeks}",
-        "idealFor": "Ideal für:"
-      },
-      "process": {
-        "badge": "So läuft die Beratung",
-        "heading": "So arbeiten wir zusammen",
-        "subheading": "Idee angeben, Termin buchen – ich bereite mich vor. Dann 1h Gespräch und ein schriftlicher Plan inkl. Kostenschätzung.",
-        "steps": [
-          {
-            "title": "Idee angeben & Termin buchen",
-            "desc": "Sie beschreiben Ihre Idee im Formular – ich lese mich ein und bereite mich auf das Gespräch vor. So nutzen wir die Stunde optimal."
-          },
-          {
-            "title": "1h Gespräch",
-            "desc": "Wir sprechen eine Stunde über die technische Umsetzung Ihrer Idee: Was ist sinnvoll, was ist machbar, welche Schritte kommen zuerst."
-          },
-          {
-            "title": "Schriftlicher Plan",
-            "desc": "Nach dem Gespräch erhalten Sie einen Umsetzungsplan inkl. Kostenschätzung. Der nächste Schritt kann dann die MVP-Entwicklung sein."
-          }
-        ]
-      },
-      "why": {
-        "heading": "Warum Startup-Beratung bei mir?",
-        "subheading": "Ich bereite mich auf Ihre Idee vor und konzentriere die Stunde auf Technik und Umsetzung – kein generisches Gespräch.",
-        "items": [
-          {
-            "title": "Vorbereitung auf Ihre Idee",
-            "desc": "Sie geben die Idee vorab an – ich lese mich ein. In der Stunde geht es direkt in die Tiefe."
-          },
-          {
-            "title": "Fokus auf Technik & Umsetzung",
-            "desc": "Eine Stunde nur für Ihre Idee: Was ist technisch nötig, welche Reihenfolge, was kostet es."
-          },
-          {
-            "title": "Schriftlicher Plan",
-            "desc": "Nach dem Gespräch erhalten Sie einen Umsetzungsplan mit Kostenschätzung als Entscheidungsgrundlage."
-          },
-          {
-            "title": "Klare Kostenschätzung",
-            "desc": "Über {years} Jahre Erfahrung in der Umsetzung – realistische Schätzungen, keine leeren Versprechen."
-          }
-        ]
-      }
-    },
-    "form": {
-      "badge": "Termin buchen",
-      "heading": "Idee angeben & Termin vereinbaren",
-      "subheading": "Beschreiben Sie Ihre Idee – ich bereite mich vor. Beratungstermin 80€/h (1 Stunde). Danach erhalten Sie einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.",
-      "cardTitle": "Termin anfragen",
-      "cardNote": "Alle Felder mit * sind Pflicht. Ihre Idee wird vertraulich behandelt.",
-      "fields": {
-        "name": "Name *",
-        "email": "E-Mail *",
-        "phone": "Telefon *",
-        "product": "Wofür möchten Sie anfragen? *",
-        "productPlaceholder": "Bitte wählen..."
-      },
-      "options": {
-        "beratung": "Startup-Beratung (80€/h) – Termin buchen",
-        "mvp": "MVP-Entwicklung anfragen",
-        "feature": "Feature-Erweiterung anfragen"
-      },
-      "idea": {
-        "label": "Ihre Idee / Ihr Vorhaben",
-        "placeholder": "Beschreiben Sie kurz Ihre Idee, Ihr Produkt oder was Sie umsetzen möchten. So kann ich mich auf das Gespräch vorbereiten."
-      },
-      "privacy": {
-        "before": "Ich stimme der",
-        "link": "Datenschutzerklärung",
-        "after": "zu. *"
-      },
-      "submit": "Anfrage senden",
-      "submitting": "Wird gesendet...",
-      "errors": {
-        "name": "Bitte Name angeben",
-        "email": "Ungültige E-Mail-Adresse",
-        "phone": "Bitte Telefonnummer angeben",
-        "product": "Bitte wählen Sie eine Option",
-        "idea": "Bitte beschreiben Sie Ihre Idee (mind. 10 Zeichen)",
-        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
-      },
-      "dialog": {
-        "successTitle": "Anfrage gesendet",
-        "successMessage": "Vielen Dank! Ich habe Ihre Idee und Kontaktdaten erhalten und melde mich zeitnah bei Ihnen zur Terminabsprache.",
-        "errorTitle": "Fehler",
-        "errorMessage": "Die Anfrage konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder kontaktieren Sie mich per E-Mail.",
-        "close": "Schließen"
-      }
-    },
-    "finalCta": {
-      "heading": "Bereit, Ihre Idee in einen Plan zu gießen?",
-      "subheading": "Termin buchen (80€/h), Idee angeben – nach dem Gespräch erhalten Sie einen schriftlichen Umsetzungsplan inkl. Kostenschätzung.",
-      "button": "Termin buchen (80€/h)",
-      "trust": {
-        "experience": "{years} Jahre Erfahrung",
-        "plan": "Schriftlicher Umsetzungsplan",
-        "satisfaction": "{percent}% Zufriedenheit",
-        "fast": "Schnelle Terminvergabe"
-      }
-    },
-    "faq": {
-      "heading": "Häufig gestellte Fragen",
-      "subheading": "Antworten zu Ablauf, Kosten, Umsetzungsplan und nächsten Schritten."
-    }
-  },
-  "Unternehmenswebsite": {
-    "hero": {
-      "badge": {
-        "label": "Direkt vom Entwickler – ohne Agentur",
-        "regions": "Festpreis • Individuell • DSGVO-konform"
-      },
-      "texts": [
-        {
-          "headline": "Deine Unternehmenswebsite – direkt vom Entwickler",
-          "subheadline": "Lass uns persönlich sprechen – ich erfasse, was du brauchst, und baue eine Website, die wirklich zu dir passt."
-        },
-        {
-          "headline": "Keine Ahnung von Technik?",
-          "subheadline": "Kein Problem. Ich übernehme – du erzählst, was du brauchst, ich setze deine Website um."
-        },
-        {
-          "headline": "Kleines Unternehmen – trotzdem professionell online?",
-          "subheadline": "Ja. Ich passe die Website an dich an – kein Standard-Paket, sondern genau das, was du brauchst. Ich übernehme Technik und Umsetzung."
-        }
-      ],
-      "subtitle": "Als Fullstack-Entwickler baue ich maßgeschneiderte Unternehmenswebsites, die nicht nur gut aussehen, sondern auch neue Kunden bringen.",
-      "cta": "Kostenlose Erstberatung vereinbaren",
-      "trustBadges": {
-        "consultation": "Kostenlose Erstberatung vor Ort",
-        "offer": "Unverbindliches Angebot",
-        "experience": "{years} Jahre Erfahrung"
-      },
-      "cards": {
-        "projects": "Projekte",
-        "satisfaction": "Zufriedenheit",
-        "role": {
-          "value": "Webdesigner",
-          "label": "{years} Jahre"
-        }
-      },
-      "benefitsTitle": "Was Sie von mir bekommen:",
-      "benefits": [
-        {
-          "title": "Persönliche Beratung",
-          "desc": "Per Video-Call oder persönlich"
-        },
-        {
-          "title": "Maßgeschneidert",
-          "desc": "Auf Ihr Unternehmen zugeschnitten"
-        },
-        {
-          "title": "Schnelle Umsetzung",
-          "desc": "Ihre Website in 2-4 Wochen live"
-        }
-      ],
-      "imageAlt": "Thomas Schwabauer – Fullstack-Entwickler für Unternehmenswebsites"
-    },
-    "quickNav": {
-      "badge": "Schnellnavigation",
-      "heading": "Was möchten Sie tun?",
-      "subheading": "Springen Sie direkt zu den Informationen, die Sie brauchen – ohne lange zu scrollen.",
-      "jumpTo": "Zu {label} springen",
-      "items": {
-        "prices": {
-          "label": "Preise & Pakete",
-          "description": "Überblick über Webdesign-Pakete und Investition"
-        },
-        "portfolio": {
-          "label": "Beispiel-Websites",
-          "description": "Referenzprojekte von Kunden ansehen"
-        },
-        "contact": {
-          "label": "Jetzt anfragen",
-          "description": "Kostenlose Erstberatung vereinbaren"
-        },
-        "faq": {
-          "label": "Häufige Fragen",
-          "description": "Antworten zu Dauer, Kosten und Ablauf"
-        }
-      }
-    },
-    "page": {
-      "audience": {
-        "badge": "Für wen?",
-        "heading": "Ich unterstütze Unternehmen, die online sichtbar werden wollen",
-        "subheading": "Ob ohne Website, mit veralteter Präsenz oder als Neugründer – ich baue maßgeschneiderte Websites für kleine Unternehmen und Selbstständige."
-      },
-      "packages": {
-        "heading": "Webdesign-Pakete für Ihr Unternehmen",
-        "subheading": "Transparente Preise, klare Leistungen – wählen Sie das Paket, das zu Ihrer Situation passt.",
-        "badges": {
-          "popular": "Am beliebtesten",
-          "cheapest": "Günstigster Einstieg",
-          "new": "Neu"
-        },
-        "delivery": "Lieferzeit: {weeks}",
-        "idealFor": "Ideal für:"
-      },
-      "why": {
-        "heading": "Warum direkt vom Entwickler?",
-        "subheading": "Nahbar, unkompliziert und mit Fokus auf Ihr Ergebnis – so arbeite ich mit Ihnen.",
-        "imageAlt": "Thomas Schwabauer – Fullstack-Entwickler für Unternehmenswebsites",
-        "items": [
-          {
-            "title": "Wenig Aufwand – maximales Ergebnis",
-            "desc": "Sie liefern Stichpunkte, Logo und Bilder – ich übernehme Konzept, Design und Umsetzung. Hochwertiger Output ohne Projektchaos."
-          },
-          {
-            "title": "Ein fester Ansprechpartner",
-            "desc": "Sie sprechen direkt mit der Person, die Ihre Website baut – keinen anonymen Dienstleister und keine wechselnden Projektmanager. Über {years} Jahre Erfahrung."
-          },
-          {
-            "title": "Schnelle Umsetzung",
-            "desc": "In 2–4 Wochen live – ohne dass Sie sich wochenlang kümmern müssen. Sie geben Feedback, den Rest erledige ich."
-          },
-          {
-            "title": "Überarbeitung, bis es passt",
-            "desc": "Ich feile so lange am Ergebnis, bis es zu 100 % zu Ihnen passt. Kein Abnahme-Druck – Qualität, die überzeugt."
-          }
-        ]
-      },
-      "process": {
-        "badge": "Ihr Weg zur Website",
-        "heading": "So arbeiten wir zusammen",
-        "subheading": "Kein langes Briefing, keine endlosen Abstimmungen – ein klares Vorgehen mit direktem Draht zu Ihnen.",
-        "steps": [
-          {
-            "title": "Kurzes Gespräch",
-            "desc": "Sie sagen mir, was Sie brauchen – ich stelle die richtigen Fragen. Kein Formular-Marathon, ein lockeres Kennenlernen."
-          },
-          {
-            "title": "Ich konzipiere & gestalte",
-            "desc": "Sie liefern Logo, Texte oder Stichpunkte – ich übernehme Konzept, Design und Umsetzung. Sie müssen kaum eingreifen."
-          },
-          {
-            "title": "Feinschliff gemeinsam",
-            "desc": "Sie geben Feedback, ich überarbeite – so lange, bis alles zu 100 % passt. Dann geht Ihre Website live."
-          }
-        ]
-      }
-    },
-    "socialProof": {
-      "expertiseHeading": "Vertrauen Sie auf unsere Expertise",
-      "expertiseSubheading": "Wir haben bereits für namhafte Unternehmen erfolgreich Websites entwickelt",
-      "testimonialsHeading": "Was unsere Kunden sagen",
-      "testimonials": {
-        "amsel": {
-          "company": "E-Commerce Unternehmen",
-          "text": "Dank des Redesigns hat unsere Website jetzt ein komplett neues Aussehen und unsere Kunden interagieren viel häufiger mit unseren Angeboten. Die Zusammenarbeit war professionell und effizient."
-        },
-        "tricon": {
-          "company": "Technologieunternehmen",
-          "text": "Professionelle Umsetzung unserer Unternehmenswebsite. Schnelle Reaktionszeiten und sehr zufriedenstellendes Ergebnis. Die SEO-Optimierung zeigt bereits erste Erfolge."
-        }
-      }
-    },
-    "portfolio": {
-      "heading": "Unsere Webdesign-Projekte",
-      "subheading": "Sehen Sie sich einige unserer erfolgreich umgesetzten Webdesign-Projekte an - Live und aktuell",
-      "openWebsite": "Website öffnen"
-    },
-    "contactForm": {
-      "badge": "Kontakt",
-      "heading": "Kostenlose Beratung anfragen",
-      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz auf das nächste Level bringen. Unverbindlich und kostenlos.",
-      "note": "Unverbindlich. Antwort in der Regel innerhalb von 24 Stunden.",
-      "cardTitle": "Nachricht senden",
-      "fields": {
-        "package": "Wofür interessieren Sie sich? *",
-        "packagePlaceholder": "Bitte wählen...",
-        "email": "E-Mail *",
-        "phone": "Telefon *",
-        "topic": "Thema *",
-        "message": "Ihre Nachricht *"
-      },
-      "options": {
-        "other": "Noch unklar / Beratung gewünscht"
-      },
-      "errors": {
-        "email": "Ungültige E-Mail-Adresse",
-        "package": "Bitte wählen Sie eine Option",
-        "topic": "Bitte geben Sie ein Thema an",
-        "message": "Nachricht muss mindestens 10 Zeichen lang sein",
-        "phone": "Bitte geben Sie Ihre Telefonnummer an",
-        "privacy": "Sie müssen der Datenschutzerklärung zustimmen"
-      },
-      "privacy": {
-        "before": "Ich stimme der",
-        "link": "Datenschutzerklärung",
-        "after": "zu. *"
-      },
-      "submit": "Jetzt kostenlos anfragen",
-      "submitting": "Wird gesendet...",
-      "requiredNote": "* Pflichtfelder. Ihre Daten werden vertraulich behandelt und nicht an Dritte weitergegeben.",
-      "bubble": "Fragen? Einfach schreiben!",
-      "imageAlt": "Thomas Schwabauer – Kontakt",
-      "direct": {
-        "title": "Direkt kontaktieren",
-        "email": "E-Mail",
-        "phone": "Telefon",
-        "whatsapp": "WhatsApp",
-        "whatsappNote": "Schnell & unkompliziert",
-        "copyEmail": "E-Mail kopieren",
-        "copyPhone": "Telefonnummer kopieren",
-        "copied": "Kopiert!"
-      },
-      "dialog": {
-        "successTitle": "Anfrage erfolgreich gesendet!",
-        "successMessage": "Vielen Dank für Ihre Anfrage! Ich melde mich innerhalb von 24 Stunden bei Ihnen. Gerne können Sie mir auch per Telefon oder WhatsApp kontaktieren.",
-        "errorTitle": "Fehler",
-        "errorMessage": "Es gab ein Problem beim Senden Ihrer Anfrage. Bitte versuchen Sie es erneut oder kontaktieren Sie mich direkt per E-Mail.",
-        "close": "Schließen"
-      }
-    },
-    "finalCta": {
-      "urgency": "Begrenzte Kapazität - Jetzt Termin sichern",
-      "heading": "Bereit für Ihre neue Unternehmenswebsite?",
-      "subheading": "Lassen Sie uns gemeinsam Ihre Online-Präsenz auf das nächste Level bringen. Kostenlose Erstberatung inklusive.",
-      "button": "Jetzt beraten lassen",
-      "trust": {
-        "experience": "{years} Jahre Erfahrung",
-        "satisfaction": "{percent}% Zufriedenheitsgarantie",
-        "fast": "Schnelle Umsetzung"
-      }
-    },
-    "faq": {
-      "heading": "Häufige Fragen zur Unternehmenswebsite",
-      "subheading": "Antworten auf die wichtigsten Fragen rund um Unternehmenswebseiten für KMU & Selbstständige – strukturiert nach Themen"
     }
   },
   "Onboarding": {

@@ -15,5 +15,7 @@ export const siteConfig = {
       "https://www.linkedin.com/in/thomas-schwabauer-wetzlar-fullstack-entwickler/",
     twitter: "https://x.com/ThenaDev",
     freelancermap: "https://www.freelancermap.de/profil/thomas-schwabauer",
+    /** Agentur für Websites, Software und KI – Leistungen und Ratgeber liegen dort. */
+    thenadev: "https://thenadev.de",
   },
 };

@@ -29,7 +29,16 @@ const SiteFooter = () => {
               <h3 className="text-xl font-bold">Thomas Schwabauer</h3>
             </div>
             <p className="text-gray-300 mb-4">
-              {t("fullstackDeveloper")} {t("location")}. {t("specialization")}.
+              {t("fullstackDeveloper")}. {t("specialization")}.
+            </p>
+            <p className="text-gray-400 text-sm">
+              {t("thenadevHint")}{" "}
+              <a
+                href={siteConfig.links.thenadev}
+                className="text-gray-300 hover:text-white underline transition-colors"
+              >
+                ThenaDev
+              </a>
             </p>
           </div>
 
@@ -45,30 +54,6 @@ const SiteFooter = () => {
                     className="text-gray-300 hover:text-white hover:underline transition-colors"
                   >
                     {t("about")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="text-gray-300 hover:text-white hover:underline transition-colors"
-                  >
-                    {t("services")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/blog"
-                    className="text-gray-300 hover:text-white hover:underline transition-colors"
-                  >
-                    {t("blog")}
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/webdesign-wetzlar"
-                    className="text-gray-300 hover:text-white hover:underline transition-colors"
-                  >
-                    {t("webdesignWetzlar")}
                   </Link>
                 </li>
                 <li>

@@ -2,7 +2,7 @@ import HomeContact from "@/components/home/Contact";
 import About from "@/components/home/HomeAbout";
 import HomeHero from "@/components/home/HomeHero";
 import HomeProjects from "@/components/home/HomeProjects";
-import HomeServicesSection from "@/components/home/HomeServicesSection";
+import HomeThenaDevHint from "@/components/home/HomeThenaDevHint";
 import HomeWorkExperience from "@/components/home/HomeWorkExperience";
 import { unstable_setRequestLocale } from "next-intl/server";
 
@@ -27,8 +27,8 @@ export default function HomePage({
             <About />
             <HomeWorkExperience />
             <HomeProjects />
-            <HomeServicesSection />
             <HomeContact />
+            <HomeThenaDevHint />
           </div>
         </main>
         {/* Türkise Seitenleiste rechts – durchgehend */}

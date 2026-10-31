@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowLeft, HelpCircle, Home, Mail, Search } from "lucide-react";
+import { ArrowLeft, FileText, HelpCircle, Home, Mail } from "lucide-react";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
@@ -63,11 +63,11 @@ export default function NotFoundPage(): React.ReactElement {
                     </p>
                     <div className="grid grid-cols-2 gap-3">
                       <Link
-                        href="/services/unternehmenswebsite"
+                        href="/documents"
                         className="flex items-center gap-2 px-4 py-3 text-sm font-medium text-foreground hover:text-primary hover:bg-accent/10 rounded-lg transition-all border border-border hover:border-accent"
                       >
-                        <Search className="h-4 w-4" />
-                        <span>{t("webdesign")}</span>
+                        <FileText className="h-4 w-4" />
+                        <span>{t("documents")}</span>
                       </Link>
                       <Link
                         href="/about"

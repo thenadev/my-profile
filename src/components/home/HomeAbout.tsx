@@ -14,7 +14,13 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Link } from "@/i18n/navigation";
 import React, { useRef } from "react";
-import { FaBolt, FaCode, FaPalette, FaRocket, FaUsers } from "react-icons/fa";
+import {
+  FaCode,
+  FaMobileAlt,
+  FaRocket,
+  FaServer,
+  FaUsers,
+} from "react-icons/fa";
 import { FaMessage } from "react-icons/fa6";
 
 // ClientsSection – nutzt einheitliche ClientLogoScroll-Komponente
@@ -76,14 +82,14 @@ const HomeAbout: React.FC = () => {
       description: t("services.webDevelopment.description"),
     },
     {
-      icon: FaPalette,
-      title: t("services.uiuxDesign.title"),
-      description: t("services.uiuxDesign.description"),
+      icon: FaMobileAlt,
+      title: t("services.appDevelopment.title"),
+      description: t("services.appDevelopment.description"),
     },
     {
-      icon: FaBolt,
-      title: t("services.performanceOptimization.title"),
-      description: t("services.performanceOptimization.description"),
+      icon: FaServer,
+      title: t("services.backend.title"),
+      description: t("services.backend.description"),
     },
     {
       icon: FaUsers,
